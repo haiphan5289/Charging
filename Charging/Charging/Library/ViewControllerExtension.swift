@@ -46,6 +46,12 @@ extension UIViewController {
         let vc = Self.init(nibName: "\(self)", bundle: nil)
         return vc
     }
+    
+    static func createVCfromStoryBoard() -> Self {
+        let vc = UIStoryboard(name: "\(self)", bundle: nil).instantiateViewController(withIdentifier: "\(self)") as! Self
+        return vc
+    }
+    
 }
 extension UIViewController {
 //    func convertDataSnapshotToCodable<T: Codable> (data: DataSnapshot, type: T.Type) -> T? {

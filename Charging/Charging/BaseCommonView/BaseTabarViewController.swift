@@ -12,6 +12,7 @@ import RxSwift
 
 enum TypeTabbar: Int, CaseIterable {
     case animation
+    case setting
 //    case library
 //    case imported
     
@@ -19,8 +20,8 @@ enum TypeTabbar: Int, CaseIterable {
         switch self {
         case .animation:
             return UIImage(named: "HomeInActive")
-//        case .library:
-//            return UIImage(named: "libraryInActive")
+        case .setting:
+            return UIImage(named: "libraryInActive")
 //        case .imported:
 //            return UIImage(named: "ImportedInActive")
         }
@@ -30,10 +31,19 @@ enum TypeTabbar: Int, CaseIterable {
         switch self {
         case .animation:
             return UIImage(named: "HomeActive")
-//        case .library:
-//            return UIImage(named: "libraryActive")
+        case .setting:
+            return UIImage(named: "libraryActive")
 //        case .imported:
 //            return UIImage(named: "importedActive")
+        }
+    }
+    
+    var text: String {
+        switch self {
+        case .animation:
+            return "Animation"
+        case .setting:
+            return "Setting"
         }
     }
     
@@ -102,21 +112,23 @@ class BaseTabbarViewController: UITabBarController {
     
     func setupTabbar() {
         let animation = Animation(nibName: "Animation", bundle: nil)
+        let setting = Setting.createVCfromStoryBoard()
 //        let nvLibraryVC = BaseNavigationController(rootViewController: libraryVC)
 //        let importedVC = ImportedVC.createVC()
         
 //        let check = Check.createVC()
 //        let check = UIStoryboard(name: "CheckStoryBoard", bundle: nil).instantiateViewController(withIdentifier: "CheckStory") as! CheckStory
-        self.viewControllers = [animation]
+        self.viewControllers = [animation, setting]
         
         TypeTabbar.allCases.forEach { (type) in
             if let vc = self.viewControllers?[type.rawValue] {
-                switch type {
-                case .animation:
-                    vc.tabBarItem.image = type.imageActive
-                default:
-                    vc.tabBarItem.image = type.image
-                }
+                vc.tabBarItem.title = type.text
+//                switch type {
+//                case .animation:
+//                    vc.tabBarItem.image = type.imageActive
+//                default:
+//                    vc.tabBarItem.image = type.image
+//                }
                 
 //                if type == .home {
 ////                    vc.tabBarItem.title = "⎯"
