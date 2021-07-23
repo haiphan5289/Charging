@@ -21,7 +21,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func setupFlowApp() {
         window = UIWindow.init(frame: UIScreen.main.bounds)
 //        let vc = BaseTabbarViewController()
-        let vc = Animation(nibName: "Animation", bundle: nil)
+        let vc = BaseTabbarViewController()
         
         let navi: UINavigationController = UINavigationController(rootViewController: vc)
         window?.rootViewController = navi

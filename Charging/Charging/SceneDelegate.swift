@@ -20,7 +20,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let winScene = (scene as? UIWindowScene) else { return }
         self.window = UIWindow(windowScene: winScene)
 //        let vc = BaseTabbarViewController()
-        let vc = Animation(nibName: "Animation", bundle: nil)
+        let vc = BaseTabbarViewController()
         
         let navi: UINavigationController = UINavigationController(rootViewController: vc)
         window?.rootViewController = navi

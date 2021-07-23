@@ -11,29 +11,29 @@ import RxCocoa
 import RxSwift
 
 enum TypeTabbar: Int, CaseIterable {
-    case home
-    case library
-    case imported
+    case animation
+//    case library
+//    case imported
     
     var image: UIImage? {
         switch self {
-        case .home:
+        case .animation:
             return UIImage(named: "HomeInActive")
-        case .library:
-            return UIImage(named: "libraryInActive")
-        case .imported:
-            return UIImage(named: "ImportedInActive")
+//        case .library:
+//            return UIImage(named: "libraryInActive")
+//        case .imported:
+//            return UIImage(named: "ImportedInActive")
         }
     }
     
     var imageActive: UIImage? {
         switch self {
-        case .home:
+        case .animation:
             return UIImage(named: "HomeActive")
-        case .library:
-            return UIImage(named: "libraryActive")
-        case .imported:
-            return UIImage(named: "importedActive")
+//        case .library:
+//            return UIImage(named: "libraryActive")
+//        case .imported:
+//            return UIImage(named: "importedActive")
         }
     }
     
@@ -101,19 +101,18 @@ class BaseTabbarViewController: UITabBarController {
     }
     
     func setupTabbar() {
-        let homeVC = HomeVC(nibName: "HomeVC", bundle: nil)
-        let libraryVC = LibraryVC.createVC()
+        let animation = Animation(nibName: "Animation", bundle: nil)
 //        let nvLibraryVC = BaseNavigationController(rootViewController: libraryVC)
-        let importedVC = ImportedVC.createVC()
+//        let importedVC = ImportedVC.createVC()
         
 //        let check = Check.createVC()
 //        let check = UIStoryboard(name: "CheckStoryBoard", bundle: nil).instantiateViewController(withIdentifier: "CheckStory") as! CheckStory
-        self.viewControllers = [homeVC, libraryVC, importedVC]
+        self.viewControllers = [animation]
         
         TypeTabbar.allCases.forEach { (type) in
             if let vc = self.viewControllers?[type.rawValue] {
                 switch type {
-                case .home:
+                case .animation:
                     vc.tabBarItem.image = type.imageActive
                 default:
                     vc.tabBarItem.image = type.image

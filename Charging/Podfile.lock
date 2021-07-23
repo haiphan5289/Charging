@@ -66,6 +66,7 @@ PODS:
   - EasyTipView (2.1.0)
   - Eureka (5.3.3)
   - FDWaveformView (5.0.1)
+  - Firebase (2.5.1)
   - FirebaseAnalyticsInterop (1.5.0)
   - FirebaseAuth (6.4.2):
     - FirebaseAuthInterop (~> 1.0)
@@ -193,6 +194,7 @@ DEPENDENCIES:
   - EasyTipView
   - Eureka
   - FDWaveformView
+  - Firebase
   - FirebaseAuth (~> 6.4.1)
   - FirebaseCore (~> 6.5.0)
   - FirebaseMessaging (~> 4.1.10)
@@ -243,6 +245,7 @@ SPEC REPOS:
     - EasyTipView
     - Eureka
     - FDWaveformView
+    - Firebase
     - FirebaseAnalyticsInterop
     - FirebaseAuth
     - FirebaseAuthInterop
@@ -308,6 +311,7 @@ SPEC CHECKSUMS:
   EasyTipView: a92b6edc377b81c5ac18e9fd35d5ee78e9409488
   Eureka: e6d720290c56bb23333ad1a0e020b2a98a0e9a43
   FDWaveformView: c188be613947273cc83d6f0056505f60e6c4b9ac
+  Firebase: 3565ea88b830f28f2c77ecc524622bc71a20d085
   FirebaseAnalyticsInterop: 3f86269c38ae41f47afeb43ebf32a001f58fcdae
   FirebaseAuth: ce45d7c5d46bed90159f3a73b6efbe8976ed3573
   FirebaseAuthInterop: a0f37ae05833af156e72028f648d313f7e7592e9
@@ -354,6 +358,6 @@ SPEC CHECKSUMS:
   ViewAnimator: a9ceed80266e00fd435ec4fb99b2df64d580d0e4
   WMSegmentControl: 4bb3a61e28cd0a0fcfcf932bec1f5795835b9f3f
 
-PODFILE CHECKSUM: 721985e37b1a1c7598b2933d4a1d5ada3e2eaac7
+PODFILE CHECKSUM: f6fe550954ca4c377b57ec79df842dc93516b8a3
 
 COCOAPODS: 1.10.1

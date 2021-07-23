@@ -29,6 +29,7 @@ target 'Charging' do
   pod 'Codextended'
   pod 'DropDown'
   pod 'Charts'
+  pod 'Firebase'
   pod 'CRRefresh'
   pod 'FSPagerView'
   pod 'SVPinView'
