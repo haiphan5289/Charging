@@ -431,54 +431,61 @@
 			<key>orderHint</key>
 			<integer>61</integer>
 		</dict>
-		<key>SwiftPullToRefresh.xcscheme</key>
+		<key>SwiftGen.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 			<key>orderHint</key>
 			<integer>62</integer>
 		</dict>
-		<key>SwiftyGif.xcscheme</key>
+		<key>SwiftPullToRefresh.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 			<key>orderHint</key>
 			<integer>63</integer>
 		</dict>
-		<key>SwiftyJSON.xcscheme</key>
+		<key>SwiftyGif.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 			<key>orderHint</key>
 			<integer>64</integer>
 		</dict>
-		<key>Toast-Swift.xcscheme</key>
+		<key>SwiftyJSON.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 			<key>orderHint</key>
 			<integer>65</integer>
 		</dict>
-		<key>UIDropDown.xcscheme</key>
+		<key>Toast-Swift.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 			<key>orderHint</key>
 			<integer>66</integer>
 		</dict>
-		<key>ViewAnimator.xcscheme</key>
+		<key>UIDropDown.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 			<key>orderHint</key>
 			<integer>67</integer>
 		</dict>
-		<key>WMSegmentControl.xcscheme</key>
+		<key>ViewAnimator.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 			<key>orderHint</key>
 			<integer>68</integer>
+		</dict>
+		<key>WMSegmentControl.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+			<key>orderHint</key>
+			<integer>69</integer>
 		</dict>
 		<key>nanopb.xcscheme</key>
 		<dict>

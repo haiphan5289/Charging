@@ -170,6 +170,7 @@ PODS:
   - SVPinView (1.0.11)
   - SVProgressHUD (2.2.5)
   - SwiftDate (6.3.1)
+  - SwiftGen (6.4.0)
   - SwiftPullToRefresh (3.1.1)
   - SwiftyGif (5.4.0)
   - SwiftyJSON (5.0.1)
@@ -218,6 +219,7 @@ DEPENDENCIES:
   - SVPinView
   - SVProgressHUD
   - SwiftDate
+  - SwiftGen (~> 6.0)
   - SwiftPullToRefresh
   - SwiftyJSON
   - Toast-Swift (~> 4.0.1)
@@ -284,6 +286,7 @@ SPEC REPOS:
     - SVPinView
     - SVProgressHUD
     - SwiftDate
+    - SwiftGen
     - SwiftPullToRefresh
     - SwiftyGif
     - SwiftyJSON
@@ -350,6 +353,7 @@ SPEC CHECKSUMS:
   SVPinView: 9b538d0ba68cdb092afe4f0f67ec84cbed079466
   SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
   SwiftDate: 72d28954e8e1c6c1c0f917ccc8005e4f83c7d4b2
+  SwiftGen: 67860cc7c3cfc2ed25b9b74cfd55495fc89f9108
   SwiftPullToRefresh: f61d67439c5b8d66420fe57193cab8c279398e7a
   SwiftyGif: 5d4af95df24caf1c570dbbcb32a3b8a0763bc6d7
   SwiftyJSON: 2f33a42c6fbc52764d96f13368585094bfd8aa5e
@@ -358,6 +362,6 @@ SPEC CHECKSUMS:
   ViewAnimator: a9ceed80266e00fd435ec4fb99b2df64d580d0e4
   WMSegmentControl: 4bb3a61e28cd0a0fcfcf932bec1f5795835b9f3f
 
-PODFILE CHECKSUM: f6fe550954ca4c377b57ec79df842dc93516b8a3
+PODFILE CHECKSUM: 2430bb51954dbfb0132d8a8f5c22ea66ce657133
 
 COCOAPODS: 1.10.1

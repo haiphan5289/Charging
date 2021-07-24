@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		0B9C84244559475E204CA74F /* Pods_Charging.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 01CA878946CF011EB8FD3F25 /* Pods_Charging.framework */; };
+		93B83B8026AC474100EF968F /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 93B83B7F26AC474000EF968F /* Localizable.strings */; };
+		93B83B8626AC4D2D00EF968F /* Assets-Gen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93B83B8526AC4D2D00EF968F /* Assets-Gen.swift */; };
+		93B83B8826AC4D5300EF968F /* Strings-Gen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93B83B8726AC4D5300EF968F /* Strings-Gen.swift */; };
 		93BDED8026AB1C96003942C1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93BDED7F26AB1C96003942C1 /* AppDelegate.swift */; };
 		93BDED8226AB1C96003942C1 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93BDED8126AB1C96003942C1 /* SceneDelegate.swift */; };
 		93BDED8426AB1C96003942C1 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93BDED8326AB1C96003942C1 /* ViewController.swift */; };
@@ -132,6 +135,10 @@
 		01CA878946CF011EB8FD3F25 /* Pods_Charging.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Charging.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		71B72819D4736E58FEC516DC /* Pods-Charging.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Charging.release.xcconfig"; path = "Target Support Files/Pods-Charging/Pods-Charging.release.xcconfig"; sourceTree = "<group>"; };
 		884FA57311FCA8A1FD8664F5 /* Pods-Charging.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Charging.debug.xcconfig"; path = "Target Support Files/Pods-Charging/Pods-Charging.debug.xcconfig"; sourceTree = "<group>"; };
+		93B83B7F26AC474000EF968F /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
+		93B83B8326AC4B9D00EF968F /* swiftgen.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = swiftgen.yml; sourceTree = "<group>"; };
+		93B83B8526AC4D2D00EF968F /* Assets-Gen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Assets-Gen.swift"; sourceTree = "<group>"; };
+		93B83B8726AC4D5300EF968F /* Strings-Gen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Strings-Gen.swift"; sourceTree = "<group>"; };
 		93BDED7C26AB1C96003942C1 /* Charging.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Charging.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		93BDED7F26AB1C96003942C1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		93BDED8126AB1C96003942C1 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -274,9 +281,26 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		93B83B7E26AC46E100EF968F /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		93B83B8426AC4C1D00EF968F /* Generated */ = {
+			isa = PBXGroup;
+			children = (
+				93B83B8726AC4D5300EF968F /* Strings-Gen.swift */,
+				93B83B8526AC4D2D00EF968F /* Assets-Gen.swift */,
+			);
+			path = Generated;
+			sourceTree = "<group>";
+		};
 		93BDED7326AB1C96003942C1 = {
 			isa = PBXGroup;
 			children = (
+				93B83B8326AC4B9D00EF968F /* swiftgen.yml */,
 				93BDED7E26AB1C96003942C1 /* Charging */,
 				93BDED7D26AB1C96003942C1 /* Products */,
 				D9C2B0CBC3CA161F68DAF2B2 /* Pods */,
@@ -295,6 +319,8 @@
 		93BDED7E26AB1C96003942C1 /* Charging */ = {
 			isa = PBXGroup;
 			children = (
+				93B83B8426AC4C1D00EF968F /* Generated */,
+				93B83B7E26AC46E100EF968F /* Resources */,
 				93BDEE6B26AB2447003942C1 /* Realm */,
 				93BDEE2D26AB243F003942C1 /* Library */,
 				93BDEDE326AB242E003942C1 /* Categories */,
@@ -307,6 +333,7 @@
 				93BDED8126AB1C96003942C1 /* SceneDelegate.swift */,
 				93BDED8326AB1C96003942C1 /* ViewController.swift */,
 				93BDED8526AB1C96003942C1 /* Main.storyboard */,
+				93B83B7F26AC474000EF968F /* Localizable.strings */,
 				93BDED8826AB1C99003942C1 /* Assets.xcassets */,
 				93BDED8A26AB1C99003942C1 /* LaunchScreen.storyboard */,
 				93BDED8D26AB1C99003942C1 /* Info.plist */,
@@ -652,6 +679,7 @@
 				93BDEDE026AB23D1003942C1 /* GoogleSans-Italic.otf in Resources */,
 				93BDED8926AB1C99003942C1 /* Assets.xcassets in Resources */,
 				93BDEDE126AB23D1003942C1 /* GoogleSans-Medium.otf in Resources */,
+				93B83B8026AC474100EF968F /* Localizable.strings in Resources */,
 				93BDEEBF26AB2B44003942C1 /* Setting.storyboard in Resources */,
 				93BDEE9626AB2452003942C1 /* StartIndicator.png in Resources */,
 				93BDEE9A26AB2452003942C1 /* README.md in Resources */,
@@ -787,6 +815,7 @@
 				93BDEE5626AB243F003942C1 /* UIButton+Extension.swift in Sources */,
 				93BDED8026AB1C96003942C1 /* AppDelegate.swift in Sources */,
 				93BDEDD426AB23D1003942C1 /* BaseNavigationViewController.swift in Sources */,
+				93B83B8826AC4D5300EF968F /* Strings-Gen.swift in Sources */,
 				93BDEE5C26AB243F003942C1 /* UITextField_Extension.swift in Sources */,
 				93BDEEB026AB246D003942C1 /* KeyboardInfo.swift in Sources */,
 				93BDEE6226AB243F003942C1 /* Font+Extension.swift in Sources */,
@@ -815,6 +844,7 @@
 				93BDEDD626AB23D1003942C1 /* Message.swift in Sources */,
 				93BDEE6126AB243F003942C1 /* UIAllertVC+Extension.swift in Sources */,
 				93BDEE1B26AB242E003942C1 /* UISliderExtensions.swift in Sources */,
+				93B83B8626AC4D2D00EF968F /* Assets-Gen.swift in Sources */,
 				93BDEE6526AB243F003942C1 /* StringExtension.swift in Sources */,
 				93BDEE1726AB242E003942C1 /* UISegmentedControlExtensions.swift in Sources */,
 				93BDEEA126AB2452003942C1 /* ABVideoRangeSlider.swift in Sources */,

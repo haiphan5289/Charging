@@ -56,5 +56,6 @@ pod 'RETrimControl', '~> 1.2'
 pod 'UIDropDown'
 pod 'WMSegmentControl'
 pod 'HGCircularSlider'
+pod 'SwiftGen', '~> 6.0'
 
 end
