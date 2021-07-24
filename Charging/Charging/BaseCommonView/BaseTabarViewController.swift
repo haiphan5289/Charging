@@ -106,8 +106,9 @@ class BaseTabbarViewController: UITabBarController {
     }
     
     func setupUI() {
-//        self.tabBar.isTranslucent = false
-//        UITabBar.appearance().tintColor = TABBAR_COLOR
+        self.tabBar.isTranslucent = false
+        UITabBar.appearance().tintColor = Asset.brightskyblue.color
+        UITabBar.appearance().barTintColor = Asset.midnight.color
     }
     
     func setupTabbar() {

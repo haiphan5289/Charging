@@ -11,6 +11,10 @@
 		93B83B8026AC474100EF968F /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 93B83B7F26AC474000EF968F /* Localizable.strings */; };
 		93B83B8626AC4D2D00EF968F /* Assets-Gen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93B83B8526AC4D2D00EF968F /* Assets-Gen.swift */; };
 		93B83B8826AC4D5300EF968F /* Strings-Gen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93B83B8726AC4D5300EF968F /* Strings-Gen.swift */; };
+		93B83B8E26AC51B500EF968F /* FontsFree-Net-SFProDisplay-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 93B83B8C26AC51B500EF968F /* FontsFree-Net-SFProDisplay-Bold.ttf */; };
+		93B83B8F26AC51B500EF968F /* FontsFree-Net-SFProDisplay-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 93B83B8D26AC51B500EF968F /* FontsFree-Net-SFProDisplay-Regular.ttf */; };
+		93B83B9126AC528C00EF968F /* UIFont+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93B83B9026AC528C00EF968F /* UIFont+Extension.swift */; };
+		93B83B9426AC531500EF968F /* SettingDefaultFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93B83B9326AC531500EF968F /* SettingDefaultFont.swift */; };
 		93BDED8026AB1C96003942C1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93BDED7F26AB1C96003942C1 /* AppDelegate.swift */; };
 		93BDED8226AB1C96003942C1 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93BDED8126AB1C96003942C1 /* SceneDelegate.swift */; };
 		93BDED8426AB1C96003942C1 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93BDED8326AB1C96003942C1 /* ViewController.swift */; };
@@ -139,6 +143,10 @@
 		93B83B8326AC4B9D00EF968F /* swiftgen.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = swiftgen.yml; sourceTree = "<group>"; };
 		93B83B8526AC4D2D00EF968F /* Assets-Gen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Assets-Gen.swift"; sourceTree = "<group>"; };
 		93B83B8726AC4D5300EF968F /* Strings-Gen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Strings-Gen.swift"; sourceTree = "<group>"; };
+		93B83B8C26AC51B500EF968F /* FontsFree-Net-SFProDisplay-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "FontsFree-Net-SFProDisplay-Bold.ttf"; sourceTree = "<group>"; };
+		93B83B8D26AC51B500EF968F /* FontsFree-Net-SFProDisplay-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "FontsFree-Net-SFProDisplay-Regular.ttf"; sourceTree = "<group>"; };
+		93B83B9026AC528C00EF968F /* UIFont+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIFont+Extension.swift"; sourceTree = "<group>"; };
+		93B83B9326AC531500EF968F /* SettingDefaultFont.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingDefaultFont.swift; sourceTree = "<group>"; };
 		93BDED7C26AB1C96003942C1 /* Charging.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Charging.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		93BDED7F26AB1C96003942C1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		93BDED8126AB1C96003942C1 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -284,6 +292,7 @@
 		93B83B7E26AC46E100EF968F /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				93B83B8B26AC51AA00EF968F /* fontSFPro */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -295,6 +304,23 @@
 				93B83B8526AC4D2D00EF968F /* Assets-Gen.swift */,
 			);
 			path = Generated;
+			sourceTree = "<group>";
+		};
+		93B83B8B26AC51AA00EF968F /* fontSFPro */ = {
+			isa = PBXGroup;
+			children = (
+				93B83B8C26AC51B500EF968F /* FontsFree-Net-SFProDisplay-Bold.ttf */,
+				93B83B8D26AC51B500EF968F /* FontsFree-Net-SFProDisplay-Regular.ttf */,
+			);
+			path = fontSFPro;
+			sourceTree = "<group>";
+		};
+		93B83B9226AC530500EF968F /* Manage */ = {
+			isa = PBXGroup;
+			children = (
+				93B83B9326AC531500EF968F /* SettingDefaultFont.swift */,
+			);
+			path = Manage;
 			sourceTree = "<group>";
 		};
 		93BDED7326AB1C96003942C1 = {
@@ -328,6 +354,7 @@
 				93BDEE7126AB2452003942C1 /* Views */,
 				93BDEEAE26AB246D003942C1 /* Helper */,
 				93BDEDBD26AB23D1003942C1 /* BaseCommonView */,
+				93B83B9226AC530500EF968F /* Manage */,
 				93BDED9326AB1F85003942C1 /* Modules */,
 				93BDED7F26AB1C96003942C1 /* AppDelegate.swift */,
 				93BDED8126AB1C96003942C1 /* SceneDelegate.swift */,
@@ -464,6 +491,7 @@
 				93BDEE4626AB243F003942C1 /* StringExtension.swift */,
 				93BDEE4726AB243F003942C1 /* CodableExtension.swift */,
 				93BDEE4826AB243F003942C1 /* Encode+Extension.swift */,
+				93B83B9026AC528C00EF968F /* UIFont+Extension.swift */,
 				93BDEE4926AB243F003942C1 /* PushNotification */,
 				93BDEE4C26AB243F003942C1 /* DateExtension.swift */,
 			);
@@ -690,8 +718,10 @@
 				93BDEE9926AB2452003942C1 /* LICENSE in Resources */,
 				93BDEDE226AB23D1003942C1 /* GoogleSans-MediumItalic.otf in Resources */,
 				93BDEE9726AB2452003942C1 /* EndIndicator.png in Resources */,
+				93B83B8F26AC51B500EF968F /* FontsFree-Net-SFProDisplay-Regular.ttf in Resources */,
 				93BDEDDD26AB23D1003942C1 /* GoogleSans-BoldItalic.otf in Resources */,
 				93BDED8726AB1C96003942C1 /* Main.storyboard in Resources */,
+				93B83B8E26AC51B500EF968F /* FontsFree-Net-SFProDisplay-Bold.ttf in Resources */,
 				93BDEDDF26AB23D1003942C1 /* GoogleSans-Bold.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -807,6 +837,7 @@
 				93BDEE5726AB243F003942C1 /* UIColor+Extensions.swift in Sources */,
 				93BDEDD526AB23D1003942C1 /* BaseCollectionViewCell.swift in Sources */,
 				93BDEE1F26AB242E003942C1 /* UIViewExtensions.swift in Sources */,
+				93B83B9426AC531500EF968F /* SettingDefaultFont.swift in Sources */,
 				93BDEE0E26AB242E003942C1 /* UINavigationItemExtensions.swift in Sources */,
 				93BDEE9F26AB2452003942C1 /* ABProgressIndicator.swift in Sources */,
 				93BDEE2126AB242E003942C1 /* ActivityExt.swift in Sources */,
@@ -818,6 +849,7 @@
 				93B83B8826AC4D5300EF968F /* Strings-Gen.swift in Sources */,
 				93BDEE5C26AB243F003942C1 /* UITextField_Extension.swift in Sources */,
 				93BDEEB026AB246D003942C1 /* KeyboardInfo.swift in Sources */,
+				93B83B9126AC528C00EF968F /* UIFont+Extension.swift in Sources */,
 				93BDEE6226AB243F003942C1 /* Font+Extension.swift in Sources */,
 				93BDEE4D26AB243F003942C1 /* UIApplication+Extension.swift in Sources */,
 				93BDEE5826AB243F003942C1 /* CustomButton.swift in Sources */,
