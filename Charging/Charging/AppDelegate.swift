@@ -16,6 +16,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         
         self.setupFlowApp()
+        UIFont.overrideInitialize()
         
         ChargeManage.shared.start()
         
