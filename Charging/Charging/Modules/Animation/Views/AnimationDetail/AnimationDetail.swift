@@ -50,7 +50,7 @@ extension AnimationDetail {
         self.$listAnimation.asObservable()
             .bind(to: self.collectionView.rx.items(cellIdentifier: AnimationDetailCell.identifier, cellType: AnimationDetailCell.self)) { row, data, cell in
                 if row % 2 == 0 {
-                    cell.vContent.layer.borderWidth = 7.5
+                    cell.vContent.layer.borderWidth = 2
                     cell.vContent.layer.borderColor = Asset.brightskyblue.color.cgColor
                 } else {
                     cell.vContent.layer.borderWidth = 0

@@ -71,6 +71,12 @@ extension Animation: UITableViewDataSource {
         }
         
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let vc = AnimationSelection.createVCfromStoryBoard()
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
+    
 }
 extension Animation: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {

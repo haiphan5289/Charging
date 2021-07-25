@@ -48,6 +48,11 @@
                             <constraint firstAttribute="bottom" secondItem="Je8-1L-HEW" secondAttribute="bottom" id="iRl-YI-7Zc"/>
                             <constraint firstItem="Je8-1L-HEW" firstAttribute="top" secondItem="Qvx-0g-NAR" secondAttribute="top" id="yNW-DP-daD"/>
                         </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                <real key="value" value="0.0"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
                     </view>
                 </subviews>
             </view>

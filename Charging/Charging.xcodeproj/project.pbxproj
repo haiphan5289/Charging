@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		0B9C84244559475E204CA74F /* Pods_Charging.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 01CA878946CF011EB8FD3F25 /* Pods_Charging.framework */; };
+		9344733726AD99C6006A695D /* AnimationSelection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9344733626AD99C6006A695D /* AnimationSelection.swift */; };
+		9344733926AD9A33006A695D /* AnimationSelection.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9344733826AD9A33006A695D /* AnimationSelection.storyboard */; };
+		9344733B26ADA7E1006A695D /* HideNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9344733A26ADA7E1006A695D /* HideNavigationController.swift */; };
+		9344733D26ADB2A0006A695D /* FontsFree-Net-SFProText-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9344733C26ADB2A0006A695D /* FontsFree-Net-SFProText-Medium.ttf */; };
 		9363610F26AD0E7300FE6E4E /* ManageCharge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9363610E26AD0E7200FE6E4E /* ManageCharge.swift */; };
 		9363611126AD1A2700FE6E4E /* AnimationVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9363611026AD1A2700FE6E4E /* AnimationVM.swift */; };
 		9363611526AD1BB300FE6E4E /* AnimationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9363611326AD1BB300FE6E4E /* AnimationCell.swift */; };
@@ -153,6 +157,10 @@
 		01CA878946CF011EB8FD3F25 /* Pods_Charging.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Charging.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		71B72819D4736E58FEC516DC /* Pods-Charging.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Charging.release.xcconfig"; path = "Target Support Files/Pods-Charging/Pods-Charging.release.xcconfig"; sourceTree = "<group>"; };
 		884FA57311FCA8A1FD8664F5 /* Pods-Charging.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Charging.debug.xcconfig"; path = "Target Support Files/Pods-Charging/Pods-Charging.debug.xcconfig"; sourceTree = "<group>"; };
+		9344733626AD99C6006A695D /* AnimationSelection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimationSelection.swift; sourceTree = "<group>"; };
+		9344733826AD9A33006A695D /* AnimationSelection.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AnimationSelection.storyboard; sourceTree = "<group>"; };
+		9344733A26ADA7E1006A695D /* HideNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HideNavigationController.swift; sourceTree = "<group>"; };
+		9344733C26ADB2A0006A695D /* FontsFree-Net-SFProText-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "FontsFree-Net-SFProText-Medium.ttf"; sourceTree = "<group>"; };
 		9363610E26AD0E7200FE6E4E /* ManageCharge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManageCharge.swift; sourceTree = "<group>"; };
 		9363611026AD1A2700FE6E4E /* AnimationVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimationVM.swift; sourceTree = "<group>"; };
 		9363611326AD1BB300FE6E4E /* AnimationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimationCell.swift; sourceTree = "<group>"; };
@@ -317,6 +325,15 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		9344733526AD999B006A695D /* AnimationSelection */ = {
+			isa = PBXGroup;
+			children = (
+				9344733626AD99C6006A695D /* AnimationSelection.swift */,
+				9344733826AD9A33006A695D /* AnimationSelection.storyboard */,
+			);
+			path = AnimationSelection;
+			sourceTree = "<group>";
+		};
 		9363611226AD1B9A00FE6E4E /* Cell */ = {
 			isa = PBXGroup;
 			children = (
@@ -409,6 +426,7 @@
 		93B83B8B26AC51AA00EF968F /* fontSFPro */ = {
 			isa = PBXGroup;
 			children = (
+				9344733C26ADB2A0006A695D /* FontsFree-Net-SFProText-Medium.ttf */,
 				9363612426AD512100FE6E4E /* FontsFree-Net-SFProText-Bold.ttf */,
 				9363612326AD512100FE6E4E /* FontsFree-Net-SFProText-Regular.ttf */,
 			);
@@ -473,6 +491,7 @@
 			isa = PBXGroup;
 			children = (
 				93BDEEBB26AB2B24003942C1 /* Settings */,
+				9344733526AD999B006A695D /* AnimationSelection */,
 				93BDEEBA26AB2B1A003942C1 /* Animation */,
 			);
 			path = Modules;
@@ -493,6 +512,7 @@
 				93BDEDC726AB23D1003942C1 /* Utils.swift */,
 				93BDEDC826AB23D1003942C1 /* Prefix-Header.swift */,
 				93BDEDC926AB23D1003942C1 /* BaseNavigationController.swift */,
+				9344733A26ADA7E1006A695D /* HideNavigationController.swift */,
 				93BDEDCA26AB23D1003942C1 /* fonts */,
 			);
 			path = BaseCommonView;
@@ -808,6 +828,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9344733926AD9A33006A695D /* AnimationSelection.storyboard in Resources */,
 				93BDEE9826AB2452003942C1 /* ProgressIndicator.png in Resources */,
 				9363613526AD5D3C00FE6E4E /* AnimationDetailCell.xib in Resources */,
 				93BDED8C26AB1C99003942C1 /* LaunchScreen.storyboard in Resources */,
@@ -819,6 +840,7 @@
 				9363612B26AD51EE00FE6E4E /* ManageFont.xib in Resources */,
 				93BDEEBF26AB2B44003942C1 /* Setting.storyboard in Resources */,
 				93BDEE9626AB2452003942C1 /* StartIndicator.png in Resources */,
+				9344733D26ADB2A0006A695D /* FontsFree-Net-SFProText-Medium.ttf in Resources */,
 				93BDEE9A26AB2452003942C1 /* README.md in Resources */,
 				93BDEE9526AB2452003942C1 /* BorderLine.png in Resources */,
 				93BDEEA726AB2452003942C1 /* EmptyView.xib in Resources */,
@@ -960,6 +982,7 @@
 				93BDEE2126AB242E003942C1 /* ActivityExt.swift in Sources */,
 				93BDEE1E26AB242E003942C1 /* UINavigationControllerExtensions.swift in Sources */,
 				93BDEE2026AB242E003942C1 /* UIGestureRecognizerExtensions.swift in Sources */,
+				9344733726AD99C6006A695D /* AnimationSelection.swift in Sources */,
 				93BDEE5626AB243F003942C1 /* UIButton+Extension.swift in Sources */,
 				93BDED8026AB1C96003942C1 /* AppDelegate.swift in Sources */,
 				93BDEDD426AB23D1003942C1 /* BaseNavigationViewController.swift in Sources */,
@@ -1013,6 +1036,7 @@
 				93BDEE9D26AB2452003942C1 /* ABBorder.swift in Sources */,
 				93BDEDD726AB23D1003942C1 /* PopBaseViewController.swift in Sources */,
 				93BDEEA326AB2452003942C1 /* ABTimeView.swift in Sources */,
+				9344733B26ADA7E1006A695D /* HideNavigationController.swift in Sources */,
 				93BDEE1A26AB242E003942C1 /* UIActivityExtensions.swift in Sources */,
 				93BDEE1826AB242E003942C1 /* ColorExtensions.swift in Sources */,
 				93BDEEA226AB2452003942C1 /* ABStartIndicator.swift in Sources */,
