@@ -13,6 +13,7 @@ class ChargingView: UIView, UpdateDisplayProtocol, DisplayStaticHeightProtocol {
     static var bottom: CGFloat { return 0 }
     static var automaticHeight: Bool { return true }
     
+    @IBOutlet weak var lbCharging: UILabel!
     private let disposeBag = DisposeBag()
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -39,6 +40,9 @@ extension ChargingView: Weakifiable {
     }
     
     private func setupRX() {
-        
+        ChargeManage.shared.$eventBatteryLevel.bind { [weak self] value in
+            guard let wSelf = self, let value = value else { return }
+            wSelf.lbCharging.text = value.batterCharging
+        }.disposed(by: disposeBag)
     }
 }

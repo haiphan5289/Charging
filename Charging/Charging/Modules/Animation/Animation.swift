@@ -60,11 +60,13 @@ extension Animation: UITableViewDataSource {
             guard let cell = tableView.dequeueReusableCell(withIdentifier: ChargingView.identifier) as? HomeCellGeneric<ChargingView>  else {
                 fatalError("Please Implement")
             }
+            cell.backgroundColor = .clear
             return cell
         default:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: ChargingView.identifier) as? HomeCellGeneric<ChargingView>else {
                 fatalError("Please Implement")
             }
+            cell.backgroundColor = .clear
             return cell
         }
         

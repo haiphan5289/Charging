@@ -25,9 +25,22 @@ extension NSNumber {
     func money() -> String? {
        return NSNumber.formatCurrency.string(from: self)
     }
+    
+    func percentCharging() -> String? {
+        let value = CGFloat(truncating: self)
+        let p = Int(value * 100)
+        
+        return "\(p)%"
+    }
+    
 }
 
 extension Numeric {
+    
+    var batterCharging: String {
+        return (self as? NSNumber)?.percentCharging() ?? ""
+    }
+    
     var currency: String {
         return (self as? NSNumber)?.money() ?? ""//.currency(withISO3: "VND", placeSymbolFront: false) ?? ""
     }
