@@ -8,6 +8,14 @@
 
 /* Begin PBXBuildFile section */
 		0B9C84244559475E204CA74F /* Pods_Charging.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 01CA878946CF011EB8FD3F25 /* Pods_Charging.framework */; };
+		9363610F26AD0E7300FE6E4E /* ManageCharge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9363610E26AD0E7200FE6E4E /* ManageCharge.swift */; };
+		9363611126AD1A2700FE6E4E /* AnimationVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9363611026AD1A2700FE6E4E /* AnimationVM.swift */; };
+		9363611526AD1BB300FE6E4E /* AnimationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9363611326AD1BB300FE6E4E /* AnimationCell.swift */; };
+		9363611626AD1BB300FE6E4E /* AnimationCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9363611426AD1BB300FE6E4E /* AnimationCell.xib */; };
+		9363611A26AD1E8300FE6E4E /* ChargingView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9363611926AD1E8300FE6E4E /* ChargingView.xib */; };
+		9363611C26AD1E9900FE6E4E /* ChargingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9363611B26AD1E9900FE6E4E /* ChargingView.swift */; };
+		9363611F26AD1F4100FE6E4E /* HomeCellGeneric.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9363611E26AD1F4100FE6E4E /* HomeCellGeneric.swift */; };
+		9363612226AD208500FE6E4E /* AnimationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9363612126AD208500FE6E4E /* AnimationModel.swift */; };
 		93B83B8026AC474100EF968F /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 93B83B7F26AC474000EF968F /* Localizable.strings */; };
 		93B83B8626AC4D2D00EF968F /* Assets-Gen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93B83B8526AC4D2D00EF968F /* Assets-Gen.swift */; };
 		93B83B8826AC4D5300EF968F /* Strings-Gen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93B83B8726AC4D5300EF968F /* Strings-Gen.swift */; };
@@ -139,6 +147,14 @@
 		01CA878946CF011EB8FD3F25 /* Pods_Charging.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Charging.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		71B72819D4736E58FEC516DC /* Pods-Charging.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Charging.release.xcconfig"; path = "Target Support Files/Pods-Charging/Pods-Charging.release.xcconfig"; sourceTree = "<group>"; };
 		884FA57311FCA8A1FD8664F5 /* Pods-Charging.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Charging.debug.xcconfig"; path = "Target Support Files/Pods-Charging/Pods-Charging.debug.xcconfig"; sourceTree = "<group>"; };
+		9363610E26AD0E7200FE6E4E /* ManageCharge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManageCharge.swift; sourceTree = "<group>"; };
+		9363611026AD1A2700FE6E4E /* AnimationVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimationVM.swift; sourceTree = "<group>"; };
+		9363611326AD1BB300FE6E4E /* AnimationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimationCell.swift; sourceTree = "<group>"; };
+		9363611426AD1BB300FE6E4E /* AnimationCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AnimationCell.xib; sourceTree = "<group>"; };
+		9363611926AD1E8300FE6E4E /* ChargingView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChargingView.xib; sourceTree = "<group>"; };
+		9363611B26AD1E9900FE6E4E /* ChargingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChargingView.swift; sourceTree = "<group>"; };
+		9363611E26AD1F4100FE6E4E /* HomeCellGeneric.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeCellGeneric.swift; sourceTree = "<group>"; };
+		9363612126AD208500FE6E4E /* AnimationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimationModel.swift; sourceTree = "<group>"; };
 		93B83B7F26AC474000EF968F /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 		93B83B8326AC4B9D00EF968F /* swiftgen.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = swiftgen.yml; sourceTree = "<group>"; };
 		93B83B8526AC4D2D00EF968F /* Assets-Gen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Assets-Gen.swift"; sourceTree = "<group>"; };
@@ -289,6 +305,48 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		9363611226AD1B9A00FE6E4E /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				9363611326AD1BB300FE6E4E /* AnimationCell.swift */,
+				9363611426AD1BB300FE6E4E /* AnimationCell.xib */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		9363611726AD1E6A00FE6E4E /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				9363611826AD1E7100FE6E4E /* Charging */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		9363611826AD1E7100FE6E4E /* Charging */ = {
+			isa = PBXGroup;
+			children = (
+				9363611926AD1E8300FE6E4E /* ChargingView.xib */,
+				9363611B26AD1E9900FE6E4E /* ChargingView.swift */,
+			);
+			path = Charging;
+			sourceTree = "<group>";
+		};
+		9363611D26AD1F3200FE6E4E /* HomeCellGeneric */ = {
+			isa = PBXGroup;
+			children = (
+				9363611E26AD1F4100FE6E4E /* HomeCellGeneric.swift */,
+			);
+			path = HomeCellGeneric;
+			sourceTree = "<group>";
+		};
+		9363612026AD206600FE6E4E /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				9363612126AD208500FE6E4E /* AnimationModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		93B83B7E26AC46E100EF968F /* Resources */ = {
 			isa = PBXGroup;
 			children = (
@@ -319,6 +377,7 @@
 			isa = PBXGroup;
 			children = (
 				93B83B9326AC531500EF968F /* SettingDefaultFont.swift */,
+				9363610E26AD0E7200FE6E4E /* ManageCharge.swift */,
 			);
 			path = Manage;
 			sourceTree = "<group>";
@@ -527,6 +586,7 @@
 		93BDEE7126AB2452003942C1 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				9363611D26AD1F3200FE6E4E /* HomeCellGeneric */,
 				93BDEE7226AB2452003942C1 /* ABVideoRangeSlider */,
 				93BDEE7F26AB2452003942C1 /* RangeSlider */,
 				93BDEE8B26AB2452003942C1 /* EmptyView */,
@@ -618,6 +678,10 @@
 		93BDEEBA26AB2B1A003942C1 /* Animation */ = {
 			isa = PBXGroup;
 			children = (
+				9363612026AD206600FE6E4E /* Model */,
+				9363611726AD1E6A00FE6E4E /* Views */,
+				9363611226AD1B9A00FE6E4E /* Cell */,
+				9363611026AD1A2700FE6E4E /* AnimationVM.swift */,
 				93BDED9426AB1F94003942C1 /* Animation.swift */,
 				93BDED9526AB1F94003942C1 /* Animation.xib */,
 			);
@@ -707,6 +771,7 @@
 				93BDEDE026AB23D1003942C1 /* GoogleSans-Italic.otf in Resources */,
 				93BDED8926AB1C99003942C1 /* Assets.xcassets in Resources */,
 				93BDEDE126AB23D1003942C1 /* GoogleSans-Medium.otf in Resources */,
+				9363611A26AD1E8300FE6E4E /* ChargingView.xib in Resources */,
 				93B83B8026AC474100EF968F /* Localizable.strings in Resources */,
 				93BDEEBF26AB2B44003942C1 /* Setting.storyboard in Resources */,
 				93BDEE9626AB2452003942C1 /* StartIndicator.png in Resources */,
@@ -720,6 +785,7 @@
 				93BDEE9726AB2452003942C1 /* EndIndicator.png in Resources */,
 				93B83B8F26AC51B500EF968F /* FontsFree-Net-SFProDisplay-Regular.ttf in Resources */,
 				93BDEDDD26AB23D1003942C1 /* GoogleSans-BoldItalic.otf in Resources */,
+				9363611626AD1BB300FE6E4E /* AnimationCell.xib in Resources */,
 				93BDED8726AB1C96003942C1 /* Main.storyboard in Resources */,
 				93B83B8E26AC51B500EF968F /* FontsFree-Net-SFProDisplay-Bold.ttf in Resources */,
 				93BDEDDF26AB23D1003942C1 /* GoogleSans-Bold.otf in Resources */,
@@ -801,6 +867,7 @@
 				93BDEE2426AB242E003942C1 /* UISwitchExtensions.swift in Sources */,
 				93BDEE5126AB243F003942C1 /* UIWindow+Extension.swift in Sources */,
 				93BDEE1326AB242E003942C1 /* UITextViewExtensions.swift in Sources */,
+				9363611F26AD1F4100FE6E4E /* HomeCellGeneric.swift in Sources */,
 				93BDEE1C26AB242E003942C1 /* UIViewControllerExtensions.swift in Sources */,
 				93BDEE5B26AB243F003942C1 /* URL+Extension.swift in Sources */,
 				93BDEEB726AB2493003942C1 /* OptionalMessageDTO.swift in Sources */,
@@ -810,6 +877,7 @@
 				93BDEE5E26AB243F003942C1 /* StringSwiftMenu+Extension.swift in Sources */,
 				93BDEE6826AB243F003942C1 /* PushNotificationHandler.swift in Sources */,
 				93BDEE6F26AB2447003942C1 /* RealmManage.swift in Sources */,
+				9363610F26AD0E7300FE6E4E /* ManageCharge.swift in Sources */,
 				93BDEE6926AB243F003942C1 /* ProductViewModel.swift in Sources */,
 				93BDEE0B26AB242E003942C1 /* UIEdgeInsetsExtensions.swift in Sources */,
 				93BDEEB826AB2493003942C1 /* ReadJson.swift in Sources */,
@@ -822,6 +890,7 @@
 				93BDEE0F26AB242E003942C1 /* UIStackViewExtensions.swift in Sources */,
 				93BDEEB626AB2493003942C1 /* APILink.swift in Sources */,
 				93BDEE1926AB242E003942C1 /* UINavigationBarExtensions.swift in Sources */,
+				9363611126AD1A2700FE6E4E /* AnimationVM.swift in Sources */,
 				93BDEEBD26AB2B3A003942C1 /* Setting.swift in Sources */,
 				93BDEE2C26AB242E003942C1 /* UITextField+Extensions.swift in Sources */,
 				93BDEE5326AB243F003942C1 /* NumberExtension.swift in Sources */,
@@ -833,6 +902,7 @@
 				93BDEDDA26AB23D1003942C1 /* Utils.swift in Sources */,
 				93BDEE2526AB242E003942C1 /* UIButtonExtensions.swift in Sources */,
 				93BDEE0926AB242E003942C1 /* UISearchBarExtensions.swift in Sources */,
+				9363612226AD208500FE6E4E /* AnimationModel.swift in Sources */,
 				93BDEE5F26AB243F003942C1 /* PropertyWapper.swift in Sources */,
 				93BDEE5726AB243F003942C1 /* UIColor+Extensions.swift in Sources */,
 				93BDEDD526AB23D1003942C1 /* BaseCollectionViewCell.swift in Sources */,
@@ -865,6 +935,7 @@
 				93BDEE1D26AB242E003942C1 /* UIImageExtensions.swift in Sources */,
 				93BDEE1526AB242E003942C1 /* UIStoryboardExtensions.swift in Sources */,
 				93BDEE2826AB242E003942C1 /* UIRefreshControlExtensions.swift in Sources */,
+				9363611526AD1BB300FE6E4E /* AnimationCell.swift in Sources */,
 				93BDEDD926AB23D1003942C1 /* BaseTabarViewController.swift in Sources */,
 				93BDEEA026AB2452003942C1 /* ABThumbnailsManager.swift in Sources */,
 				93BDEE6026AB243F003942C1 /* ViewExtension.swift in Sources */,
@@ -872,6 +943,7 @@
 				93BDEE2326AB242E003942C1 /* UILabelExtensions.swift in Sources */,
 				93BDEE6426AB243F003942C1 /* ReadMoreTextViewExtension.swift in Sources */,
 				93BDEE1126AB242E003942C1 /* UICollectionViewExtensions.swift in Sources */,
+				9363611C26AD1E9900FE6E4E /* ChargingView.swift in Sources */,
 				93BDEE5926AB243F003942C1 /* CustomSegment.swift in Sources */,
 				93BDEDD626AB23D1003942C1 /* Message.swift in Sources */,
 				93BDEE6126AB243F003942C1 /* UIAllertVC+Extension.swift in Sources */,
