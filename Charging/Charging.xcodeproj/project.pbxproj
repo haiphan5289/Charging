@@ -12,6 +12,8 @@
 		9344733926AD9A33006A695D /* AnimationSelection.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9344733826AD9A33006A695D /* AnimationSelection.storyboard */; };
 		9344733B26ADA7E1006A695D /* HideNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9344733A26ADA7E1006A695D /* HideNavigationController.swift */; };
 		9344733D26ADB2A0006A695D /* FontsFree-Net-SFProText-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9344733C26ADB2A0006A695D /* FontsFree-Net-SFProText-Medium.ttf */; };
+		9344734126ADBA0D006A695D /* LisiConVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9344733F26ADBA0D006A695D /* LisiConVC.swift */; };
+		9344734226ADBA0D006A695D /* LisiConVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9344734026ADBA0D006A695D /* LisiConVC.xib */; };
 		9363610F26AD0E7300FE6E4E /* ManageCharge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9363610E26AD0E7200FE6E4E /* ManageCharge.swift */; };
 		9363611126AD1A2700FE6E4E /* AnimationVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9363611026AD1A2700FE6E4E /* AnimationVM.swift */; };
 		9363611526AD1BB300FE6E4E /* AnimationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9363611326AD1BB300FE6E4E /* AnimationCell.swift */; };
@@ -161,6 +163,8 @@
 		9344733826AD9A33006A695D /* AnimationSelection.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AnimationSelection.storyboard; sourceTree = "<group>"; };
 		9344733A26ADA7E1006A695D /* HideNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HideNavigationController.swift; sourceTree = "<group>"; };
 		9344733C26ADB2A0006A695D /* FontsFree-Net-SFProText-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "FontsFree-Net-SFProText-Medium.ttf"; sourceTree = "<group>"; };
+		9344733F26ADBA0D006A695D /* LisiConVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LisiConVC.swift; sourceTree = "<group>"; };
+		9344734026ADBA0D006A695D /* LisiConVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LisiConVC.xib; sourceTree = "<group>"; };
 		9363610E26AD0E7200FE6E4E /* ManageCharge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManageCharge.swift; sourceTree = "<group>"; };
 		9363611026AD1A2700FE6E4E /* AnimationVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimationVM.swift; sourceTree = "<group>"; };
 		9363611326AD1BB300FE6E4E /* AnimationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimationCell.swift; sourceTree = "<group>"; };
@@ -334,6 +338,15 @@
 			path = AnimationSelection;
 			sourceTree = "<group>";
 		};
+		9344733E26ADB98A006A695D /* ListiCon */ = {
+			isa = PBXGroup;
+			children = (
+				9344733F26ADBA0D006A695D /* LisiConVC.swift */,
+				9344734026ADBA0D006A695D /* LisiConVC.xib */,
+			);
+			path = ListiCon;
+			sourceTree = "<group>";
+		};
 		9363611226AD1B9A00FE6E4E /* Cell */ = {
 			isa = PBXGroup;
 			children = (
@@ -491,6 +504,7 @@
 			isa = PBXGroup;
 			children = (
 				93BDEEBB26AB2B24003942C1 /* Settings */,
+				9344733E26ADB98A006A695D /* ListiCon */,
 				9344733526AD999B006A695D /* AnimationSelection */,
 				93BDEEBA26AB2B1A003942C1 /* Animation */,
 			);
@@ -842,6 +856,7 @@
 				93BDEE9626AB2452003942C1 /* StartIndicator.png in Resources */,
 				9344733D26ADB2A0006A695D /* FontsFree-Net-SFProText-Medium.ttf in Resources */,
 				93BDEE9A26AB2452003942C1 /* README.md in Resources */,
+				9344734226ADBA0D006A695D /* LisiConVC.xib in Resources */,
 				93BDEE9526AB2452003942C1 /* BorderLine.png in Resources */,
 				93BDEEA726AB2452003942C1 /* EmptyView.xib in Resources */,
 				93BDEDDE26AB23D1003942C1 /* GoogleSans-Regular.otf in Resources */,
@@ -1025,6 +1040,7 @@
 				93BDEEA126AB2452003942C1 /* ABVideoRangeSlider.swift in Sources */,
 				93BDEE5D26AB243F003942C1 /* String+Extension.swift in Sources */,
 				93BDEEA426AB2452003942C1 /* ABVideoHelper.swift in Sources */,
+				9344734126ADBA0D006A695D /* LisiConVC.swift in Sources */,
 				93BDEE4E26AB243F003942C1 /* Obserable+Extension.swift in Sources */,
 				93BDEEA826AB2452003942C1 /* EmptyView.swift in Sources */,
 				93BDEE2226AB242E003942C1 /* UIWindowExtensions.swift in Sources */,

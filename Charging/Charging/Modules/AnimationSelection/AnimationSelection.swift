@@ -16,6 +16,10 @@ class AnimationSelection: HideNavigationController {
         case show, hide
     }
     
+    enum TapAction: Int, CaseIterable {
+        case icon, color, sound
+    }
+    
 //    var moviePlayer:AVContro!
 
     @IBOutlet weak var lbBattery: UILabel!
@@ -24,6 +28,7 @@ class AnimationSelection: HideNavigationController {
     @IBOutlet weak var vButtons: UIView!
     @IBOutlet weak var stackView: UIStackView!
     @IBOutlet weak var btStatus: UIButton!
+    @IBOutlet var bts: [UIButton]!
     
     @VariableReplay private var statusAction: StatusAction = .hide
     private let disposeBag = DisposeBag()
@@ -82,6 +87,23 @@ extension AnimationSelection {
         ChargeManage.shared.$eventBatteryLevel.bind(onNext: weakify({ value, wSelf in
             wSelf.lbBattery.text = value?.batterCharging
         })).disposed(by: disposeBag)
+        
+        TapAction.allCases.forEach { type in
+            let bt = self.bts[type.rawValue]
+            
+            bt.rx.tap.bind { _ in
+                
+                switch type {
+                case .icon:
+                    let vc = LisiConVC.createVC()
+                    self.present(vc, animated: true, completion: nil)
+                case .color: break
+                case .sound: break
+                }
+                
+            }.disposed(by: disposeBag)
+            
+        }
         
         self.$statusAction.asObservable().bind(onNext: weakify({ action, wSelf in
             
