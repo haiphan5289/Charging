@@ -28,7 +28,7 @@ extension Animation {
     private func setupUI() {
         tableView.delegate = self
         tableView.dataSource = self
-//        tableView.register(HomeCellGeneric<ChargingView>.self, forCellReuseIdentifier: ChargingView.identifier)
+        tableView.register(HomeCellGeneric<AnimationDetail>.self, forCellReuseIdentifier: AnimationDetail.identifier)
         tableView.register(HomeCellGeneric<ChargingView>.self, forCellReuseIdentifier: ChargingView.identifier)
     }
     
@@ -63,7 +63,7 @@ extension Animation: UITableViewDataSource {
             cell.backgroundColor = .clear
             return cell
         default:
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: ChargingView.identifier) as? HomeCellGeneric<ChargingView>else {
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: AnimationDetail.identifier) as? HomeCellGeneric<AnimationDetail>else {
                 fatalError("Please Implement")
             }
             cell.backgroundColor = .clear

@@ -20,6 +20,10 @@
 		9363612626AD512100FE6E4E /* FontsFree-Net-SFProText-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9363612426AD512100FE6E4E /* FontsFree-Net-SFProText-Bold.ttf */; };
 		9363612926AD51DE00FE6E4E /* ManageFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9363612826AD51DE00FE6E4E /* ManageFont.swift */; };
 		9363612B26AD51EE00FE6E4E /* ManageFont.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9363612A26AD51EE00FE6E4E /* ManageFont.xib */; };
+		9363612E26AD52FC00FE6E4E /* AnimationDetail.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9363612D26AD52FC00FE6E4E /* AnimationDetail.xib */; };
+		9363613026AD530C00FE6E4E /* AnimationDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9363612F26AD530C00FE6E4E /* AnimationDetail.swift */; };
+		9363613426AD5D3C00FE6E4E /* AnimationDetailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9363613226AD5D3C00FE6E4E /* AnimationDetailCell.swift */; };
+		9363613526AD5D3C00FE6E4E /* AnimationDetailCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9363613326AD5D3C00FE6E4E /* AnimationDetailCell.xib */; };
 		93B83B8026AC474100EF968F /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 93B83B7F26AC474000EF968F /* Localizable.strings */; };
 		93B83B8626AC4D2D00EF968F /* Assets-Gen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93B83B8526AC4D2D00EF968F /* Assets-Gen.swift */; };
 		93B83B8826AC4D5300EF968F /* Strings-Gen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93B83B8726AC4D5300EF968F /* Strings-Gen.swift */; };
@@ -161,6 +165,10 @@
 		9363612426AD512100FE6E4E /* FontsFree-Net-SFProText-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "FontsFree-Net-SFProText-Bold.ttf"; sourceTree = "<group>"; };
 		9363612826AD51DE00FE6E4E /* ManageFont.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManageFont.swift; sourceTree = "<group>"; };
 		9363612A26AD51EE00FE6E4E /* ManageFont.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ManageFont.xib; sourceTree = "<group>"; };
+		9363612D26AD52FC00FE6E4E /* AnimationDetail.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AnimationDetail.xib; sourceTree = "<group>"; };
+		9363612F26AD530C00FE6E4E /* AnimationDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimationDetail.swift; sourceTree = "<group>"; };
+		9363613226AD5D3C00FE6E4E /* AnimationDetailCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimationDetailCell.swift; sourceTree = "<group>"; };
+		9363613326AD5D3C00FE6E4E /* AnimationDetailCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AnimationDetailCell.xib; sourceTree = "<group>"; };
 		93B83B7F26AC474000EF968F /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 		93B83B8326AC4B9D00EF968F /* swiftgen.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = swiftgen.yml; sourceTree = "<group>"; };
 		93B83B8526AC4D2D00EF968F /* Assets-Gen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Assets-Gen.swift"; sourceTree = "<group>"; };
@@ -321,6 +329,7 @@
 		9363611726AD1E6A00FE6E4E /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				9363612C26AD52EB00FE6E4E /* AnimationDetail */,
 				9363611826AD1E7100FE6E4E /* Charging */,
 			);
 			path = Views;
@@ -359,6 +368,25 @@
 				9363612A26AD51EE00FE6E4E /* ManageFont.xib */,
 			);
 			path = ManageFont;
+			sourceTree = "<group>";
+		};
+		9363612C26AD52EB00FE6E4E /* AnimationDetail */ = {
+			isa = PBXGroup;
+			children = (
+				9363613126AD5D2100FE6E4E /* Cell */,
+				9363612D26AD52FC00FE6E4E /* AnimationDetail.xib */,
+				9363612F26AD530C00FE6E4E /* AnimationDetail.swift */,
+			);
+			path = AnimationDetail;
+			sourceTree = "<group>";
+		};
+		9363613126AD5D2100FE6E4E /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				9363613226AD5D3C00FE6E4E /* AnimationDetailCell.swift */,
+				9363613326AD5D3C00FE6E4E /* AnimationDetailCell.xib */,
+			);
+			path = Cell;
 			sourceTree = "<group>";
 		};
 		93B83B7E26AC46E100EF968F /* Resources */ = {
@@ -781,6 +809,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				93BDEE9826AB2452003942C1 /* ProgressIndicator.png in Resources */,
+				9363613526AD5D3C00FE6E4E /* AnimationDetailCell.xib in Resources */,
 				93BDED8C26AB1C99003942C1 /* LaunchScreen.storyboard in Resources */,
 				93BDEDE026AB23D1003942C1 /* GoogleSans-Italic.otf in Resources */,
 				93BDED8926AB1C99003942C1 /* Assets.xcassets in Resources */,
@@ -796,6 +825,7 @@
 				93BDEDDE26AB23D1003942C1 /* GoogleSans-Regular.otf in Resources */,
 				93BDED9726AB1F94003942C1 /* Animation.xib in Resources */,
 				93BDEE9926AB2452003942C1 /* LICENSE in Resources */,
+				9363612E26AD52FC00FE6E4E /* AnimationDetail.xib in Resources */,
 				93BDEDE226AB23D1003942C1 /* GoogleSans-MediumItalic.otf in Resources */,
 				93BDEE9726AB2452003942C1 /* EndIndicator.png in Resources */,
 				93BDEDDD26AB23D1003942C1 /* GoogleSans-BoldItalic.otf in Resources */,
@@ -892,6 +922,7 @@
 				93BDEE5E26AB243F003942C1 /* StringSwiftMenu+Extension.swift in Sources */,
 				93BDEE6826AB243F003942C1 /* PushNotificationHandler.swift in Sources */,
 				93BDEE6F26AB2447003942C1 /* RealmManage.swift in Sources */,
+				9363613026AD530C00FE6E4E /* AnimationDetail.swift in Sources */,
 				9363610F26AD0E7300FE6E4E /* ManageCharge.swift in Sources */,
 				93BDEE6926AB243F003942C1 /* ProductViewModel.swift in Sources */,
 				93BDEE0B26AB242E003942C1 /* UIEdgeInsetsExtensions.swift in Sources */,
@@ -903,6 +934,7 @@
 				93BDEE5526AB243F003942C1 /* Collection+Extension.swift in Sources */,
 				93BDEE0C26AB242E003942C1 /* UIScrollViewExtensions.swift in Sources */,
 				93BDEE0F26AB242E003942C1 /* UIStackViewExtensions.swift in Sources */,
+				9363613426AD5D3C00FE6E4E /* AnimationDetailCell.swift in Sources */,
 				93BDEEB626AB2493003942C1 /* APILink.swift in Sources */,
 				93BDEE1926AB242E003942C1 /* UINavigationBarExtensions.swift in Sources */,
 				9363611126AD1A2700FE6E4E /* AnimationVM.swift in Sources */,
