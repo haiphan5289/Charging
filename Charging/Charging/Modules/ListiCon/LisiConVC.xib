@@ -11,7 +11,10 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LisiConVC" customModule="Charging" customModuleProvider="target">
             <connections>
+                <outlet property="collectionView" destination="f0Z-XX-Oax" id="FER-Pt-sIB"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+                <outletCollection property="bts" destination="qTX-cR-ZsM" collectionClass="NSMutableArray" id="gmi-Ld-OQh"/>
+                <outletCollection property="bts" destination="E6e-vC-OZd" collectionClass="NSMutableArray" id="39C-Wr-elQ"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
@@ -26,9 +29,9 @@
                             <rect key="frame" x="16" y="0.0" width="382" height="49"/>
                             <subviews>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qTX-cR-ZsM">
-                                    <rect key="frame" x="0.0" y="0.0" width="52" height="49"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="70" height="49"/>
                                     <constraints>
-                                        <constraint firstAttribute="width" constant="52" id="zWY-e1-5mL"/>
+                                        <constraint firstAttribute="width" constant="70" id="zWY-e1-5mL"/>
                                     </constraints>
                                     <fontDescription key="fontDescription" type="system" weight="medium" pointSize="16"/>
                                     <state key="normal" title="Cancel">
@@ -36,15 +39,15 @@
                                     </state>
                                 </button>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Progress Icon" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6GU-lx-yCi">
-                                    <rect key="frame" x="52" y="0.0" width="278" height="49"/>
+                                    <rect key="frame" x="70" y="0.0" width="242" height="49"/>
                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="E6e-vC-OZd">
-                                    <rect key="frame" x="330" y="0.0" width="52" height="49"/>
+                                    <rect key="frame" x="312" y="0.0" width="70" height="49"/>
                                     <constraints>
-                                        <constraint firstAttribute="width" constant="52" id="LTW-Ni-7wQ"/>
+                                        <constraint firstAttribute="width" constant="70" id="LTW-Ni-7wQ"/>
                                     </constraints>
                                     <fontDescription key="fontDescription" type="system" weight="medium" pointSize="16"/>
                                     <state key="normal" title="Done">
@@ -74,7 +77,7 @@
                     </constraints>
                 </view>
                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="f0Z-XX-Oax">
-                    <rect key="frame" x="0.0" y="94" width="414" height="768"/>
+                    <rect key="frame" x="16" y="110" width="382" height="786"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="9t1-H3-s56">
                         <size key="itemSize" width="128" height="128"/>
@@ -87,13 +90,13 @@
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" name="151616"/>
             <constraints>
-                <constraint firstItem="f0Z-XX-Oax" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="88S-Vw-2RV"/>
                 <constraint firstItem="TEw-G7-BcY" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="LBJ-fX-Ysv"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="f0Z-XX-Oax" secondAttribute="trailing" id="Pxr-EB-6DV"/>
                 <constraint firstItem="TEw-G7-BcY" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="QDK-4e-mAt"/>
-                <constraint firstItem="f0Z-XX-Oax" firstAttribute="top" secondItem="TEw-G7-BcY" secondAttribute="bottom" id="SKM-Qd-ArS"/>
+                <constraint firstItem="f0Z-XX-Oax" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="16" id="QGX-Mb-i7C"/>
+                <constraint firstAttribute="trailing" secondItem="f0Z-XX-Oax" secondAttribute="trailing" constant="16" id="RCq-ds-hSN"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="TEw-G7-BcY" secondAttribute="trailing" id="TER-Mx-9nb"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="f0Z-XX-Oax" secondAttribute="bottom" id="kqP-a8-X54"/>
+                <constraint firstItem="f0Z-XX-Oax" firstAttribute="top" secondItem="TEw-G7-BcY" secondAttribute="bottom" constant="16" id="hA9-wN-Yoq"/>
+                <constraint firstAttribute="bottom" secondItem="f0Z-XX-Oax" secondAttribute="bottom" id="kqP-a8-X54"/>
             </constraints>
             <point key="canvasLocation" x="139" y="82"/>
         </view>
