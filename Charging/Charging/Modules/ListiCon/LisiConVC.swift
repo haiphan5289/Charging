@@ -30,6 +30,16 @@ class LisiConVC: UIViewController {
         self.setupUI()
         self.setupRX()
     }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        spaceLine = (self.collectionView.bounds.size.width - (Constant.widthCell * 3)) / 2
+        self.collectionView.reloadData()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+    }
 
 }
 extension LisiConVC {
@@ -38,9 +48,7 @@ extension LisiConVC {
         self.collectionView.delegate = self
         self.collectionView.register(ListiConCell.nib, forCellWithReuseIdentifier: ListiConCell.identifier)
         self.loadJSONEffect()
-        
-        spaceLine = (self.collectionView.bounds.size.width - (Constant.widthCell * 3)) / 2
-        self.collectionView.reloadData()
+        self.selectIcon = ChargeManage.shared.iconAnimation
     }
     
     private func setupRX() {
@@ -73,11 +81,12 @@ extension LisiConVC {
             .bind(to: self.collectionView.rx.items(cellIdentifier: ListiConCell.identifier, cellType: ListiConCell.self)) { row, data, cell in
                 guard let t = data.text else { return }
                 cell.imgIcon.image = UIImage(named: t)
-                cell.imgSelect.isHidden = ( row == 0 ) ? false : true
+                cell.imgSelect.isHidden = (self.selectIcon == data) ? false : true
         }.disposed(by: disposeBag)
         
         self.collectionView.rx.itemSelected.bind(onNext: weakify({ idx, wSelf in
             wSelf.selectIcon = wSelf.listIcon[idx.row]
+            wSelf.collectionView.reloadData()
         })).disposed(by: disposeBag)
     }
     

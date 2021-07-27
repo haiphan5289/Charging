@@ -42,6 +42,8 @@
 		93BC286B26B034CB00E754FA /* iphone8.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 93BC286A26B034CB00E754FA /* iphone8.mp4 */; };
 		93BC28B426B040BD00E754FA /* Check.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 93BC28B326B040BD00E754FA /* Check.storyboard */; };
 		93BC28B626B040CC00E754FA /* Check.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93BC28B526B040CC00E754FA /* Check.swift */; };
+		93BC28BA26B0551400E754FA /* CheckXib.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93BC28B826B0551400E754FA /* CheckXib.swift */; };
+		93BC28BB26B0551400E754FA /* CheckXib.xib in Resources */ = {isa = PBXBuildFile; fileRef = 93BC28B926B0551400E754FA /* CheckXib.xib */; };
 		93BDED8026AB1C96003942C1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93BDED7F26AB1C96003942C1 /* AppDelegate.swift */; };
 		93BDED8226AB1C96003942C1 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93BDED8126AB1C96003942C1 /* SceneDelegate.swift */; };
 		93BDED8426AB1C96003942C1 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93BDED8326AB1C96003942C1 /* ViewController.swift */; };
@@ -201,6 +203,8 @@
 		93BC286A26B034CB00E754FA /* iphone8.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = iphone8.mp4; sourceTree = "<group>"; };
 		93BC28B326B040BD00E754FA /* Check.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Check.storyboard; sourceTree = "<group>"; };
 		93BC28B526B040CC00E754FA /* Check.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Check.swift; sourceTree = "<group>"; };
+		93BC28B826B0551400E754FA /* CheckXib.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckXib.swift; sourceTree = "<group>"; };
+		93BC28B926B0551400E754FA /* CheckXib.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CheckXib.xib; sourceTree = "<group>"; };
 		93BDED7C26AB1C96003942C1 /* Charging.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Charging.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		93BDED7F26AB1C96003942C1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		93BDED8126AB1C96003942C1 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -506,6 +510,15 @@
 			path = Check;
 			sourceTree = "<group>";
 		};
+		93BC28B726B054FF00E754FA /* CheckXib */ = {
+			isa = PBXGroup;
+			children = (
+				93BC28B826B0551400E754FA /* CheckXib.swift */,
+				93BC28B926B0551400E754FA /* CheckXib.xib */,
+			);
+			path = CheckXib;
+			sourceTree = "<group>";
+		};
 		93BDED7326AB1C96003942C1 = {
 			isa = PBXGroup;
 			children = (
@@ -555,6 +568,7 @@
 		93BDED9326AB1F85003942C1 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				93BC28B726B054FF00E754FA /* CheckXib */,
 				93BC28B226B0402400E754FA /* Check */,
 				93BDEEBB26AB2B24003942C1 /* Settings */,
 				9344733E26ADB98A006A695D /* ListiCon */,
@@ -911,6 +925,7 @@
 				93BDEE9626AB2452003942C1 /* StartIndicator.png in Resources */,
 				9344733D26ADB2A0006A695D /* FontsFree-Net-SFProText-Medium.ttf in Resources */,
 				93BDEE9A26AB2452003942C1 /* README.md in Resources */,
+				93BC28BB26B0551400E754FA /* CheckXib.xib in Resources */,
 				9344734226ADBA0D006A695D /* LisiConVC.xib in Resources */,
 				93BDEE9526AB2452003942C1 /* BorderLine.png in Resources */,
 				93BDEEA726AB2452003942C1 /* EmptyView.xib in Resources */,
@@ -1023,6 +1038,7 @@
 				93BDEEB826AB2493003942C1 /* ReadJson.swift in Sources */,
 				93BDEE6726AB243F003942C1 /* Encode+Extension.swift in Sources */,
 				93BDEE6A26AB243F003942C1 /* DateExtension.swift in Sources */,
+				93BC28BA26B0551400E754FA /* CheckXib.swift in Sources */,
 				93BDEE1426AB242E003942C1 /* UIBarButtonItemExtensions.swift in Sources */,
 				93BDEDD126AB23D1003942C1 /* Constants.swift in Sources */,
 				93BDEE5526AB243F003942C1 /* Collection+Extension.swift in Sources */,

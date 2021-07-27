@@ -67,7 +67,10 @@ extension AnimationSelection {
                 switch type {
                 case .icon:
                     let vc = LisiConVC.createVC()
-                    self.present(vc, animated: true, completion: nil)
+                    guard let setupVC = vc as? LisiConVC else { return }
+                    setupVC.modalTransitionStyle = .crossDissolve
+                    setupVC.modalPresentationStyle = .overFullScreen
+                    self.present(setupVC, animated: true, completion: nil)
                 case .color: break
                 case .sound: break
                 }

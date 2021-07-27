@@ -19,3 +19,8 @@ struct IconModel: Codable {
 //    }
     
 }
+extension IconModel: Equatable {
+    public static func ==(lhs: IconModel, rhs: IconModel) -> Bool {
+        return lhs.text == rhs.text
+    }
+}
