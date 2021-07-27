@@ -49,6 +49,7 @@
 		93BC28C426B060D900E754FA /* ListColorCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93BC28C226B060D900E754FA /* ListColorCell.swift */; };
 		93BC28C526B060D900E754FA /* ListColorCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 93BC28C326B060D900E754FA /* ListColorCell.xib */; };
 		93BC28C826B0654500E754FA /* listicon.json in Resources */ = {isa = PBXBuildFile; fileRef = 93BC28C726B0654500E754FA /* listicon.json */; };
+		93BC28CA26B0765C00E754FA /* VideoEffect.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 93BC28C926B0765C00E754FA /* VideoEffect.mp4 */; };
 		93BDED8026AB1C96003942C1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93BDED7F26AB1C96003942C1 /* AppDelegate.swift */; };
 		93BDED8226AB1C96003942C1 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93BDED8126AB1C96003942C1 /* SceneDelegate.swift */; };
 		93BDED8426AB1C96003942C1 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93BDED8326AB1C96003942C1 /* ViewController.swift */; };
@@ -215,6 +216,7 @@
 		93BC28C226B060D900E754FA /* ListColorCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListColorCell.swift; sourceTree = "<group>"; };
 		93BC28C326B060D900E754FA /* ListColorCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ListColorCell.xib; sourceTree = "<group>"; };
 		93BC28C726B0654500E754FA /* listicon.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = listicon.json; sourceTree = "<group>"; };
+		93BC28C926B0765C00E754FA /* VideoEffect.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = VideoEffect.mp4; sourceTree = "<group>"; };
 		93BDED7C26AB1C96003942C1 /* Charging.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Charging.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		93BDED7F26AB1C96003942C1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		93BDED8126AB1C96003942C1 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -591,6 +593,7 @@
 				93B83B9226AC530500EF968F /* Manage */,
 				93BDED9326AB1F85003942C1 /* Modules */,
 				93BDED7F26AB1C96003942C1 /* AppDelegate.swift */,
+				93BC28C926B0765C00E754FA /* VideoEffect.mp4 */,
 				93BC286A26B034CB00E754FA /* iphone8.mp4 */,
 				93BDED8126AB1C96003942C1 /* SceneDelegate.swift */,
 				93BDED8326AB1C96003942C1 /* ViewController.swift */,
@@ -981,6 +984,7 @@
 				93BDEE9726AB2452003942C1 /* EndIndicator.png in Resources */,
 				93BDEDDD26AB23D1003942C1 /* GoogleSans-BoldItalic.otf in Resources */,
 				9363611626AD1BB300FE6E4E /* AnimationCell.xib in Resources */,
+				93BC28CA26B0765C00E754FA /* VideoEffect.mp4 in Resources */,
 				93BDED8726AB1C96003942C1 /* Main.storyboard in Resources */,
 				9363612626AD512100FE6E4E /* FontsFree-Net-SFProText-Bold.ttf in Resources */,
 				9363612526AD512100FE6E4E /* FontsFree-Net-SFProText-Regular.ttf in Resources */,

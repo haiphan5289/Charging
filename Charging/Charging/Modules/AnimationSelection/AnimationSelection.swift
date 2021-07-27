@@ -39,7 +39,7 @@ class AnimationSelection: HideNavigationController {
         self.setupUI()
         self.setupRX()
         self.view.layoutIfNeeded()
-        ChargeManage.shared.playAnimation(view: self.viewAnimation, link: "iphone8")
+        ChargeManage.shared.playAnimation(view: self.viewAnimation, link: "iphone8", avplayerfrom: .animationSelection)
     }
     
     

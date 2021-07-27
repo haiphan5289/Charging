@@ -27,6 +27,7 @@ internal enum Asset {
   internal static let backOpacity30 = ColorAsset(name: "backOpacity30")
   internal static let backOpacity60 = ColorAsset(name: "backOpacity60")
   internal static let brightskyblue = ColorAsset(name: "brightskyblue")
+  internal static let colorBg = ColorAsset(name: "colorBg")
   internal static let cyan = ColorAsset(name: "Cyan")
   internal static let green = ColorAsset(name: "Green")
   internal static let `none` = ColorAsset(name: "None")
@@ -42,6 +43,7 @@ internal enum Asset {
   internal static let icAnimationDetail = ImageAsset(name: "ic_animation_detail")
   internal static let icHomeCharging = ImageAsset(name: "ic_home_charging")
   internal static let textLogoHome = ImageAsset(name: "textLogoHome")
+  internal static let icSelectionColor = ImageAsset(name: "ic_selection_color")
   internal static let icSelect = ImageAsset(name: "ic_select")
   internal static let _1 = ImageAsset(name: "1")
   internal static let _10 = ImageAsset(name: "10")
@@ -61,6 +63,7 @@ internal enum Asset {
   internal static let _7 = ImageAsset(name: "7")
   internal static let _8 = ImageAsset(name: "8")
   internal static let _9 = ImageAsset(name: "9")
+  internal static let icSplash = ImageAsset(name: "ic_splash")
 }
 // swiftlint:enable identifier_name line_length nesting type_body_length type_name
 

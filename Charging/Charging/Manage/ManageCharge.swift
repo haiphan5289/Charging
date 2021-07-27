@@ -10,6 +10,11 @@ import RxSwift
 import MediaPlayer
 
 final class ChargeManage {
+    
+    enum AVPlayerfrom {
+        case animation, animationSelection
+    }
+    
     static var shared = ChargeManage()
     
     var batteryLevel: Float {
@@ -24,6 +29,8 @@ final class ChargeManage {
     @VariableReplay var iconAnimation: IconModel = IconModel(text: "1")
     @VariableReplay var colorIndex: Int = ListColorVC.ColorCell.white.rawValue
     
+    private var playerHome: AVPlayer?
+    private var avplayerfrom: AVPlayerfrom = .animation
     private let disposeBag = DisposeBag()
     private init() {
         
@@ -66,29 +73,53 @@ final class ChargeManage {
                 let m = icon.colorIndex 
                 wSelf.colorIndex = m
             }.disposed(by: disposeBag)
+        
+        NotificationCenter.default.rx
+            .notification(NSNotification.Name.AVPlayerItemDidPlayToEndTime)
+            .bind { [weak self] notify in
+                guard  let wSelf = self else { return }
+                
+                switch wSelf.avplayerfrom {
+                case .animation:
+                    if let player = wSelf.playerHome {
+                        wSelf.playAgain(player: player)
+                    }
+                case .animationSelection: break
+                }
+                
+            }.disposed(by: disposeBag)
     }
     
-    func playAnimation(view: UIView, link: String) {
+    func playAnimation(view: UIView, link: String, avplayerfrom: AVPlayerfrom) {
+        self.avplayerfrom = avplayerfrom
         guard let path = Bundle.main.path(forResource: "\(link)", ofType:"mp4")else {
             debugPrint("video.m4v not found")
             return
         }
         let url = URL(fileURLWithPath: path)
 //        let player = AVPlayer(url: URL(fileURLWithPath: path))
-        let player = AVPlayer(url: url)
-        
-        let playerLayer = AVPlayerLayer(player: player)
-        playerLayer.frame = view.bounds
-        view.layer.addSublayer(playerLayer)
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+//        let player = AVPlayer(url: url)
+        self.playerHome = AVPlayer(url: url)
+        if let player = self.playerHome {
+            let playerLayer = AVPlayerLayer(player: player)
+            playerLayer.frame = view.bounds
+            view.layer.addSublayer(playerLayer)
+            
             player.play()
+//            DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+//                player.play()
+//            }
         }
-        
     }
     
     private func setupData() {
         self.getIconModel()
         self.getColornModel()
+    }
+    
+    private func playAgain(player: AVPlayer) {
+        player.seek(to: CMTime.zero)
+        player.play()
     }
     
     private func getIconModel() {

@@ -20,7 +20,11 @@ class Animation: UIViewController {
         super.viewDidLoad()
         self.setupUI()
         self.setupRX()
-        
+    }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        self.tableView.reloadData()
     }
 }
 extension Animation {
@@ -33,10 +37,6 @@ extension Animation {
     }
     
     private func setupRX() {
-        ChargeManage.shared.$eventBatteryLevel.bind(onNext: weakify({ value, wSelf in
-            print("====== \(value)")
-        })).disposed(by: disposeBag)
-        
         self.viewModel.$listAnimation.asObservable().bind(onNext: weakify({ list, wSelf in
             wSelf.listAnimation = list
             wSelf.tableView.reloadData()
@@ -60,6 +60,7 @@ extension Animation: UITableViewDataSource {
             guard let cell = tableView.dequeueReusableCell(withIdentifier: ChargingView.identifier) as? HomeCellGeneric<ChargingView>  else {
                 fatalError("Please Implement")
             }
+            cell.view.playAnimation()
             cell.backgroundColor = .clear
             return cell
         default:

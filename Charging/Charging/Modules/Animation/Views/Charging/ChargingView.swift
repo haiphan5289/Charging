@@ -14,6 +14,7 @@ class ChargingView: UIView, UpdateDisplayProtocol, DisplayStaticHeightProtocol {
     static var automaticHeight: Bool { return true }
     
     @IBOutlet weak var lbCharging: UILabel!
+    @IBOutlet weak var viewAnimation: UIView!
     private let disposeBag = DisposeBag()
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -44,5 +45,10 @@ extension ChargingView: Weakifiable {
             guard let wSelf = self, let value = value else { return }
             wSelf.lbCharging.text = value.batterCharging
         }.disposed(by: disposeBag)
+        
+    }
+    
+    func playAnimation() {
+        ChargeManage.shared.playAnimation(view: self.viewAnimation, link: "VideoEffect", avplayerfrom: .animation)
     }
 }
