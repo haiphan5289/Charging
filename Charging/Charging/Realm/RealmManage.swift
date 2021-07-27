@@ -70,6 +70,40 @@ class RealmManage {
         }
         return listDiaryModel
     }
+    
+    private func getColorRealm() -> [ColorRealm] {
+        let list = realm.objects(ColorRealm.self).toArray(ofType: ColorRealm.self)
+        return list
+    }
+    func addAndUpdateColor(data: Int) {
+        let list = self.getColorRealm()
+        guard list.count > 0, let _ = list.first else {
+            let itemAdd = ColorRealm.init(colorIndex: ListColorVC.ColorCell.white.rawValue)
+            try! realm.write {
+                realm.add(itemAdd)
+                NotificationCenter.default.post(name: NSNotification.Name(PushNotificationKeys.updateColor.rawValue), object: itemAdd, userInfo: nil)
+            }
+            return
+        }
+        try! realm.write {
+            list[0].colorIndex = data
+            NotificationCenter.default.post(name: NSNotification.Name(PushNotificationKeys.updateColor.rawValue), object: list[0], userInfo: nil)
+        }
+    }
+    
+    func getColorModel() -> [Int] {
+        if self.getColorRealm().count <= 0 {
+            self.addAndUpdateColor(data: ListColorVC.ColorCell.white.rawValue)
+        }
+        
+        let listDiaryRealm = self.getColorRealm()
+        var listDiaryModel: [Int] = []
+        
+        for m in listDiaryRealm {
+            listDiaryModel.append(m.colorIndex)
+        }
+        return listDiaryModel
+    }
 //    
 //    private func getAudioEffect() -> [ManageEffectRealm] {
 //        let list = realm.objects(ManageEffectRealm.self).toArray(ofType: ManageEffectRealm.self)

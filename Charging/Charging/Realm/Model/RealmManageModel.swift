@@ -24,18 +24,14 @@ class IconModelRealm: Object {
     }
 }
 
-//class ManageEffectRealm: Object {
-//    @objc dynamic var effect: Data?
-//
-//    init(model: ManageEffectModel) {
-//        super.init()
-//        do {
-//            effect = try model.toData()
-//        } catch let err {
-//            print("\(err.localizedDescription)")
-//        }
-//    }
-//    required init() {
-//        super.init()
-//    }
-//}
+class ColorRealm: Object {
+    @objc dynamic var colorIndex: Int = 0
+
+    init(colorIndex: Int) {
+        super.init()
+        self.colorIndex = colorIndex
+    }
+    required init() {
+        super.init()
+    }
+}

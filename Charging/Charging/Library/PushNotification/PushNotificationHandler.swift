@@ -31,6 +31,7 @@ enum PushNotificationKeys : String {
     case didUpdateOrder = "didUpdateOrder"
     case didUpdateCartProduct = "didUpdateCartProduct"
     case updateIconModel = "updateIconModel"
+    case updateColor = "updateColor"
 
 }
 

@@ -71,7 +71,12 @@ extension AnimationSelection {
                     setupVC.modalTransitionStyle = .crossDissolve
                     setupVC.modalPresentationStyle = .overFullScreen
                     self.present(setupVC, animated: true, completion: nil)
-                case .color: break
+                case .color:
+                    let vc = ListColorVC.createVC()
+                    guard let setupVC = vc as? ListColorVC else { return }
+                    setupVC.modalTransitionStyle = .crossDissolve
+                    setupVC.modalPresentationStyle = .overFullScreen
+                    self.present(setupVC, animated: true, completion: nil)
                 case .sound: break
                 }
                 
@@ -104,6 +109,10 @@ extension AnimationSelection {
                 self.statusAction = .hide
             }
         }.disposed(by: disposeBag)
+        
+        ChargeManage.shared.$colorIndex.bind(onNext: weakify({ v, wSef in
+            wSef.lbBattery.textColor = ListColorVC.ColorCell.init(rawValue: v)?.color
+        })).disposed(by: disposeBag)
         
         ChargeManage.shared.$iconAnimation.bind(onNext: weakify({ v, wSelf in
             guard let d = v.text else { return }

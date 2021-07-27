@@ -22,6 +22,7 @@ final class ChargeManage {
     
     @VariableReplay var eventBatteryLevel: Float?
     @VariableReplay var iconAnimation: IconModel = IconModel(text: "1")
+    @VariableReplay var colorIndex: Int = ListColorVC.ColorCell.white.rawValue
     
     private let disposeBag = DisposeBag()
     private init() {
@@ -57,6 +58,14 @@ final class ChargeManage {
                 guard  let wSelf = self, let icon = notify.object as? IconModelRealm, let model = icon.setting?.toCodableObject() as IconModel?  else { return }
                 wSelf.iconAnimation = model
             }.disposed(by: disposeBag)
+        
+        NotificationCenter.default.rx
+            .notification(Notification.Name(rawValue: PushNotificationKeys.updateColor.rawValue))
+            .bind { [weak self] notify in
+                guard  let wSelf = self, let icon = notify.object as? ColorRealm else { return }
+                let m = icon.colorIndex 
+                wSelf.colorIndex = m
+            }.disposed(by: disposeBag)
     }
     
     func playAnimation(view: UIView, link: String) {
@@ -79,12 +88,19 @@ final class ChargeManage {
     
     private func setupData() {
         self.getIconModel()
+        self.getColornModel()
     }
     
     private func getIconModel() {
         let list = RealmManage.shared.getIconModel()
         if let f = list.first {
             self.iconAnimation = f
+        }
+    }
+    private func getColornModel() {
+        let list = RealmManage.shared.getColorModel()
+        if let f = list.first {
+            self.colorIndex = f
         }
     }
 }
