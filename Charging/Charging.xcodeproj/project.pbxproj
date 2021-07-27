@@ -39,6 +39,9 @@
 		93B83B8826AC4D5300EF968F /* Strings-Gen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93B83B8726AC4D5300EF968F /* Strings-Gen.swift */; };
 		93B83B9126AC528C00EF968F /* UIFont+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93B83B9026AC528C00EF968F /* UIFont+Extension.swift */; };
 		93B83B9426AC531500EF968F /* SettingDefaultFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93B83B9326AC531500EF968F /* SettingDefaultFont.swift */; };
+		93BC286B26B034CB00E754FA /* iphone8.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 93BC286A26B034CB00E754FA /* iphone8.mp4 */; };
+		93BC28B426B040BD00E754FA /* Check.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 93BC28B326B040BD00E754FA /* Check.storyboard */; };
+		93BC28B626B040CC00E754FA /* Check.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93BC28B526B040CC00E754FA /* Check.swift */; };
 		93BDED8026AB1C96003942C1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93BDED7F26AB1C96003942C1 /* AppDelegate.swift */; };
 		93BDED8226AB1C96003942C1 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93BDED8126AB1C96003942C1 /* SceneDelegate.swift */; };
 		93BDED8426AB1C96003942C1 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93BDED8326AB1C96003942C1 /* ViewController.swift */; };
@@ -195,6 +198,9 @@
 		93B83B8726AC4D5300EF968F /* Strings-Gen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Strings-Gen.swift"; sourceTree = "<group>"; };
 		93B83B9026AC528C00EF968F /* UIFont+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIFont+Extension.swift"; sourceTree = "<group>"; };
 		93B83B9326AC531500EF968F /* SettingDefaultFont.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingDefaultFont.swift; sourceTree = "<group>"; };
+		93BC286A26B034CB00E754FA /* iphone8.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = iphone8.mp4; sourceTree = "<group>"; };
+		93BC28B326B040BD00E754FA /* Check.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Check.storyboard; sourceTree = "<group>"; };
+		93BC28B526B040CC00E754FA /* Check.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Check.swift; sourceTree = "<group>"; };
 		93BDED7C26AB1C96003942C1 /* Charging.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Charging.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		93BDED7F26AB1C96003942C1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		93BDED8126AB1C96003942C1 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -491,6 +497,15 @@
 			path = Manage;
 			sourceTree = "<group>";
 		};
+		93BC28B226B0402400E754FA /* Check */ = {
+			isa = PBXGroup;
+			children = (
+				93BC28B326B040BD00E754FA /* Check.storyboard */,
+				93BC28B526B040CC00E754FA /* Check.swift */,
+			);
+			path = Check;
+			sourceTree = "<group>";
+		};
 		93BDED7326AB1C96003942C1 = {
 			isa = PBXGroup;
 			children = (
@@ -525,6 +540,7 @@
 				93B83B9226AC530500EF968F /* Manage */,
 				93BDED9326AB1F85003942C1 /* Modules */,
 				93BDED7F26AB1C96003942C1 /* AppDelegate.swift */,
+				93BC286A26B034CB00E754FA /* iphone8.mp4 */,
 				93BDED8126AB1C96003942C1 /* SceneDelegate.swift */,
 				93BDED8326AB1C96003942C1 /* ViewController.swift */,
 				93BDED8526AB1C96003942C1 /* Main.storyboard */,
@@ -539,6 +555,7 @@
 		93BDED9326AB1F85003942C1 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				93BC28B226B0402400E754FA /* Check */,
 				93BDEEBB26AB2B24003942C1 /* Settings */,
 				9344733E26ADB98A006A695D /* ListiCon */,
 				9344733526AD999B006A695D /* AnimationSelection */,
@@ -883,6 +900,8 @@
 				9363613526AD5D3C00FE6E4E /* AnimationDetailCell.xib in Resources */,
 				93BDED8C26AB1C99003942C1 /* LaunchScreen.storyboard in Resources */,
 				93BDEDE026AB23D1003942C1 /* GoogleSans-Italic.otf in Resources */,
+				93BC28B426B040BD00E754FA /* Check.storyboard in Resources */,
+				93BC286B26B034CB00E754FA /* iphone8.mp4 in Resources */,
 				93BDED8926AB1C99003942C1 /* Assets.xcassets in Resources */,
 				93BDEDE126AB23D1003942C1 /* GoogleSans-Medium.otf in Resources */,
 				9363611A26AD1E8300FE6E4E /* ChargingView.xib in Resources */,
@@ -1055,6 +1074,7 @@
 				93BDEDD326AB23D1003942C1 /* BaseTableViewCell.swift in Sources */,
 				93BDEE1026AB242E003942C1 /* UIView+Extension.swift in Sources */,
 				93BDEE2A26AB242E003942C1 /* UIFontExtensions.swift in Sources */,
+				93BC28B626B040CC00E754FA /* Check.swift in Sources */,
 				93BDEE5226AB243F003942C1 /* UILableExtension.swift in Sources */,
 				93BDEE1D26AB242E003942C1 /* UIImageExtensions.swift in Sources */,
 				93BDEE1526AB242E003942C1 /* UIStoryboardExtensions.swift in Sources */,

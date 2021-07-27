@@ -10,8 +10,6 @@ import RxSwift
 
 
 class RealmManage {
-    
-    
     static var shared = RealmManage()
     var realm : Realm!
     init() {
@@ -35,43 +33,43 @@ class RealmManage {
         print("schemaVersion after migration:\(RLMRealmConfiguration.default().schemaVersion)")
         RLMRealm.default()
     }
-//    private func getSettingApp() -> [SettingAppRealm] {
-//        let list = realm.objects(SettingAppRealm.self).toArray(ofType: SettingAppRealm.self)
-//        return list
-//    }
-//    func addAndUpdateSetting(data: Data) {
-//        let list = self.getSettingApp()
-//        guard list.count > 0, let _ = list.first else {
-//            let model: SettingEditAudioModel = SettingEditAudioModel()
-//            let itemAdd = SettingAppRealm.init(model: model)
-//            try! realm.write {
-//                realm.add(itemAdd)
-//                NotificationCenter.default.post(name: NSNotification.Name(PushNotificationKeys.updateSetting.rawValue), object: nil, userInfo: nil)
-//            }
-//            return
-//        }
-//        try! realm.write {
-//            list[0].setting = data
-//            NotificationCenter.default.post(name: NSNotification.Name(PushNotificationKeys.updateSetting.rawValue), object: nil, userInfo: nil)
-//        }
-//    }
-//    
-//    func getSettingModel() -> [SettingEditAudioModel] {
-//        if self.getSettingApp().count <= 0 {
-//            self.addAndUpdateSetting(data: Data())
-//        }
-//        
-//        let listDiaryRealm = self.getSettingApp()
-//        var listDiaryModel: [SettingEditAudioModel] = []
-//        
-//        for m in listDiaryRealm {
-//            guard let model = m.setting?.toCodableObject() as SettingEditAudioModel? else{
-//                return []
-//            }
-//            listDiaryModel.append(model)
-//        }
-//        return listDiaryModel
-//    }
+    private func getSettingApp() -> [IconModelRealm] {
+        let list = realm.objects(IconModelRealm.self).toArray(ofType: IconModelRealm.self)
+        return list
+    }
+    func addAndUpdateSetting(data: Data) {
+        let list = self.getSettingApp()
+        guard list.count > 0, let _ = list.first else {
+            let model: IconModel = IconModel(text: "1")
+            let itemAdd = IconModelRealm.init(model: model)
+            try! realm.write {
+                realm.add(itemAdd)
+                NotificationCenter.default.post(name: NSNotification.Name(PushNotificationKeys.updateIconModel.rawValue), object: itemAdd, userInfo: nil)
+            }
+            return
+        }
+        try! realm.write {
+            list[0].setting = data
+            NotificationCenter.default.post(name: NSNotification.Name(PushNotificationKeys.updateIconModel.rawValue), object: list[0], userInfo: nil)
+        }
+    }
+    
+    func getIconModel() -> [IconModel] {
+        if self.getSettingApp().count <= 0 {
+            self.addAndUpdateSetting(data: Data())
+        }
+        
+        let listDiaryRealm = self.getSettingApp()
+        var listDiaryModel: [IconModel] = []
+        
+        for m in listDiaryRealm {
+            guard let model = m.setting?.toCodableObject() as IconModel? else{
+                return []
+            }
+            listDiaryModel.append(model)
+        }
+        return listDiaryModel
+    }
 //    
 //    private func getAudioEffect() -> [ManageEffectRealm] {
 //        let list = realm.objects(ManageEffectRealm.self).toArray(ofType: ManageEffectRealm.self)

@@ -23,6 +23,7 @@ class LisiConVC: UIViewController {
     @IBOutlet weak var collectionView: UICollectionView!
     @VariableReplay private var listIcon: [IconModel] = []
     private var spaceLine: CGFloat = 0
+    private var selectIcon: IconModel?
     private let disposeBag = DisposeBag()
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -51,7 +52,17 @@ extension LisiConVC {
                 switch type {
                 case .cancel:
                     self.dismiss(animated: true, completion: nil)
-                case .done: break
+                case .done:
+                    self.dismiss(animated: true) {
+                        if let ic = self.selectIcon {
+                            do {
+                                let d = try ic.toData()
+                                RealmManage.shared.addAndUpdateSetting(data: d)
+                            } catch {
+                                print("\(error.localizedDescription)")
+                            }
+                        }
+                    }
                 }
                 
             }.disposed(by: disposeBag)
@@ -61,12 +72,13 @@ extension LisiConVC {
         self.$listIcon.asObservable()
             .bind(to: self.collectionView.rx.items(cellIdentifier: ListiConCell.identifier, cellType: ListiConCell.self)) { row, data, cell in
                 guard let t = data.text else { return }
-                
                 cell.imgIcon.image = UIImage(named: t)
-                
                 cell.imgSelect.isHidden = ( row == 0 ) ? false : true
-                
         }.disposed(by: disposeBag)
+        
+        self.collectionView.rx.itemSelected.bind(onNext: weakify({ idx, wSelf in
+            wSelf.selectIcon = wSelf.listIcon[idx.row]
+        })).disposed(by: disposeBag)
     }
     
     private func loadJSONEffect() {

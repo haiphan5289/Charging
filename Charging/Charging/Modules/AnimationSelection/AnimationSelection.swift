@@ -29,6 +29,8 @@ class AnimationSelection: HideNavigationController {
     @IBOutlet weak var stackView: UIStackView!
     @IBOutlet weak var btStatus: UIButton!
     @IBOutlet var bts: [UIButton]!
+    @IBOutlet weak var viewAnimation: UIView!
+    @IBOutlet weak var imageAnimation: UIImageView!
     
     @VariableReplay private var statusAction: StatusAction = .hide
     private let disposeBag = DisposeBag()
@@ -36,42 +38,11 @@ class AnimationSelection: HideNavigationController {
         super.viewDidLoad()
         self.setupUI()
         self.setupRX()
-        
-//        let url:NSURL = NSURL(string: "https://www.youtube.com/watch?v=Xsl5P1JdIvY&list=RDXsl5P1JdIvY&start_radio=1")!
-//
-//        moviePlayer = MPMoviePlayerController(contentURL: url as URL)
-//              moviePlayer.view.frame = CGRect(x: 20, y: 100, width: 200, height: 150)
-//
-//              self.view.addSubview(moviePlayer.view)
-//        moviePlayer.isFullscreen = true
-//
-//        moviePlayer.controlStyle = MPMovieControlStyle.embedded
-        
-//        let videoURL = URL(string: "https://clips.vorwaerts-gmbh.de/big_buck_bunny.mp4")
-//        let player = AVPlayer(url: videoURL!)
-//        let playerLayer = AVPlayerLayer(player: player)
-//        playerLayer.frame = self.view.bounds
-//        self.view.layer.addSublayer(playerLayer)
-//        player.play()
-        
-//        let url = URL(string:myURL)
-//
-//        let player = AVPlayer(url: url!)
-//
-//        avpController.player = player
-//
-//        avpController.view.frame.size.height = videoView.frame.size.height
-//
-//        avpController.view.frame.size.width = videoView.frame.size.width
-//
-//        self.videoView.addSubview(avpController.view)
-        
-//        let player = AVPlayer(url: URL(string: "https://www.youtube.com/watch?v=Xsl5P1JdIvY&list=RDXsl5P1JdIvY&start_radio=1")!) // your video url
-//              let playerLayer = AVPlayerLayer(player: player)
-//        playerLayer.frame = self.view.bounds
-//        self.view.layer.addSublayer(playerLayer)
-//              player.play()
+        self.view.layoutIfNeeded()
+        ChargeManage.shared.playAnimation(view: self.viewAnimation, link: "iphone8")
     }
+    
+    
 }
 extension AnimationSelection {
     
@@ -130,6 +101,11 @@ extension AnimationSelection {
                 self.statusAction = .hide
             }
         }.disposed(by: disposeBag)
+        
+        ChargeManage.shared.$iconAnimation.bind(onNext: weakify({ v, wSelf in
+            guard let d = v.text else { return }
+            wSelf.imageAnimation.image = UIImage(named: d)
+        })).disposed(by: disposeBag)
     }
     
 }

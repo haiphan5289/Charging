@@ -8,21 +8,21 @@ import Foundation
 import RealmSwift
 import UIKit
 
-//class SettingAppRealm: Object {
-//    @objc dynamic var setting: Data?
-//
-//    init(model: SettingEditAudioModel) {
-//        super.init()
-//        do {
-//            setting = try model.toData()
-//        } catch let err {
-//            print("\(err.localizedDescription)")
-//        }
-//    }
-//    required init() {
-//        super.init()
-//    }
-//}
+class IconModelRealm: Object {
+    @objc dynamic var setting: Data?
+
+    init(model: IconModel) {
+        super.init()
+        do {
+            setting = try model.toData()
+        } catch let err {
+            print("\(err.localizedDescription)")
+        }
+    }
+    required init() {
+        super.init()
+    }
+}
 
 //class ManageEffectRealm: Object {
 //    @objc dynamic var effect: Data?
