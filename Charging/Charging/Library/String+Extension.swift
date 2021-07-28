@@ -149,3 +149,15 @@ extension String {
         return html2AttributedString?.string ?? ""
     }
 }
+
+extension String {
+    
+    func getURLLocal(extensionMovie: AnimationDetail.ExtensionMovie) -> URL? {
+        guard let path = Bundle.main.path(forResource: self, ofType: extensionMovie.rawValue)else {
+            debugPrint("video.m4v not found")
+            return nil
+        }
+        return URL(fileURLWithPath: path)
+    }
+    
+}

@@ -28,6 +28,7 @@ final class ChargeManage {
     @VariableReplay var eventBatteryLevel: Float?
     @VariableReplay var iconAnimation: IconModel = IconModel(text: "1")
     @VariableReplay var colorIndex: Int = ListColorVC.ColorCell.white.rawValue
+    @VariableReplay var animationModel: IconModel = IconModel(text: ANIMATION_DEFAULT)
     
     private var playerHome: AVPlayer?
     private var avplayerfrom: AVPlayerfrom = .animation
@@ -67,6 +68,13 @@ final class ChargeManage {
             }.disposed(by: disposeBag)
         
         NotificationCenter.default.rx
+            .notification(Notification.Name(rawValue: PushNotificationKeys.updateAnimation.rawValue))
+            .bind { [weak self] notify in
+                guard  let wSelf = self, let icon = notify.object as? IconModelRealm, let model = icon.setting?.toCodableObject() as IconModel?  else { return }
+                wSelf.animationModel = model
+            }.disposed(by: disposeBag)
+        
+        NotificationCenter.default.rx
             .notification(Notification.Name(rawValue: PushNotificationKeys.updateColor.rawValue))
             .bind { [weak self] notify in
                 guard  let wSelf = self, let icon = notify.object as? ColorRealm else { return }
@@ -90,19 +98,20 @@ final class ChargeManage {
             }.disposed(by: disposeBag)
     }
     
-    func playAnimation(view: UIView, link: String, avplayerfrom: AVPlayerfrom) {
+    func playAnimation(view: UIView, url: URL, avplayerfrom: AVPlayerfrom) {
         self.avplayerfrom = avplayerfrom
-        guard let path = Bundle.main.path(forResource: "\(link)", ofType:"mp4")else {
-            debugPrint("video.m4v not found")
-            return
-        }
-        let url = URL(fileURLWithPath: path)
+//        guard let path = Bundle.main.path(forResource: "\(link)", ofType:"mp4")else {
+//            debugPrint("video.m4v not found")
+//            return
+//        }
+//        let url = URL(fileURLWithPath: path)
 //        let player = AVPlayer(url: URL(fileURLWithPath: path))
 //        let player = AVPlayer(url: url)
         self.playerHome = AVPlayer(url: url)
         if let player = self.playerHome {
             let playerLayer = AVPlayerLayer(player: player)
             playerLayer.frame = view.bounds
+            playerLayer.videoGravity = AVLayerVideoGravity.resize 
             view.layer.addSublayer(playerLayer)
             
             player.play()
@@ -115,6 +124,7 @@ final class ChargeManage {
     private func setupData() {
         self.getIconModel()
         self.getColornModel()
+        self.getAnimationModel()
     }
     
     private func playAgain(player: AVPlayer) {
@@ -132,6 +142,12 @@ final class ChargeManage {
         let list = RealmManage.shared.getColorModel()
         if let f = list.first {
             self.colorIndex = f
+        }
+    }
+    private func getAnimationModel() {
+        let list = RealmManage.shared.getAnimationIconModel()
+        if let f = list.first {
+            self.animationModel = f
         }
     }
 }

@@ -42,6 +42,11 @@ extension Animation {
             wSelf.listAnimation = list
             wSelf.tableView.reloadData()
         })).disposed(by: disposeBag)
+        
+        ChargeManage.shared.$animationModel.asObservable().bind(onNext: weakify({ item, wSelf in
+            wSelf.selectIconModel = item
+            wSelf.tableView.reloadData()
+        })).disposed(by: disposeBag)
     }
     
 
@@ -66,12 +71,23 @@ extension Animation: UITableViewDataSource {
             }
             cell.backgroundColor = .clear
             let item = self.listAnimation[indexPath.row]
+            cell.view.selectAnimation = self.selectIconModel
             cell.view.setupDisplay(item: item)
             cell.view.selectIconModel = { [weak self] v in
                 guard let wSelf = self else {
                     return
                 }
-                wSelf.selectIconModel = v
+                let vc = AnimationSelection.createVCfromStoryBoard()
+                vc.animationIconModel = v
+                
+                do {
+                    let data = try v.toData()
+                    RealmManage.shared.addAndUpdateAnimation(data: data)
+                } catch {
+                    print("\(error.localizedDescription)")
+                }
+                
+                wSelf.navigationController?.pushViewController(vc, animated: true)
             }
             return cell
         }

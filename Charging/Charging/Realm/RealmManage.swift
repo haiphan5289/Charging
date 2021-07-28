@@ -104,6 +104,44 @@ class RealmManage {
         }
         return listDiaryModel
     }
+    
+    private func getAnimationApp() -> [AnimationIconModelRealm] {
+        let list = realm.objects(AnimationIconModelRealm.self).toArray(ofType: AnimationIconModelRealm.self)
+        return list
+    }
+    func addAndUpdateAnimation(data: Data) {
+        let list = self.getAnimationApp()
+        guard list.count > 0, let _ = list.first else {
+            let model: IconModel = IconModel(text: ANIMATION_DEFAULT)
+            let itemAdd = AnimationIconModelRealm.init(model: model)
+            try! realm.write {
+                realm.add(itemAdd)
+                NotificationCenter.default.post(name: NSNotification.Name(PushNotificationKeys.updateAnimation.rawValue), object: itemAdd, userInfo: nil)
+            }
+            return
+        }
+        try! realm.write {
+            list[0].setting = data
+            NotificationCenter.default.post(name: NSNotification.Name(PushNotificationKeys.updateAnimation.rawValue), object: list[0], userInfo: nil)
+        }
+    }
+    
+    func getAnimationIconModel() -> [IconModel] {
+        if self.getAnimationApp().count <= 0 {
+            self.addAndUpdateAnimation(data: Data())
+        }
+        
+        let listDiaryRealm = self.getAnimationApp()
+        var listDiaryModel: [IconModel] = []
+        
+        for m in listDiaryRealm {
+            guard let model = m.setting?.toCodableObject() as IconModel? else{
+                return []
+            }
+            listDiaryModel.append(model)
+        }
+        return listDiaryModel
+    }
 //    
 //    private func getAudioEffect() -> [ManageEffectRealm] {
 //        let list = realm.objects(ManageEffectRealm.self).toArray(ofType: ManageEffectRealm.self)

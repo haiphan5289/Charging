@@ -26,10 +26,10 @@
                                 <rect key="frame" x="0.0" y="44" width="414" height="852"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_home_charging" translatesAutoresizingMaskIntoConstraints="NO" id="FZo-ua-Bng">
-                                        <rect key="frame" x="168.5" y="0.0" width="77" height="92"/>
+                                        <rect key="frame" x="183.5" y="0.0" width="47" height="63"/>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c3o-rp-YcC">
-                                        <rect key="frame" x="186" y="97" width="42.5" height="19.5"/>
+                                        <rect key="frame" x="186" y="68" width="42.5" height="19.5"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
                                         <color key="textColor" name="brightskyblue"/>
                                         <nil key="highlightedColor"/>
@@ -301,7 +301,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="ic_home_charging" width="77" height="92"/>
+        <image name="ic_home_charging" width="47" height="63"/>
         <namedColor name="151616">
             <color red="0.082352941176470587" green="0.086274509803921567" blue="0.086274509803921567" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

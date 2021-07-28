@@ -52,8 +52,8 @@ extension AnimationSelection {
         self.vButtons.layer.cornerRadius = 7
         self.vButtons.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
         
-        if let c = self.animationIconModel, let t = c.text {
-            ChargeManage.shared.playAnimation(view: self.viewAnimation, link: t, avplayerfrom: .animationSelection)
+        if let c = self.animationIconModel, let t = c.text, let url = t.getURLLocal(extensionMovie: .mov) {
+            ChargeManage.shared.playAnimation(view: self.viewAnimation, url: url, avplayerfrom: .animationSelection)
         }
     }
     

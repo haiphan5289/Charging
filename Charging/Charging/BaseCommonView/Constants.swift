@@ -8,6 +8,8 @@
 
 import UIKit
 
+let ANIMATION_DEFAULT = "04E6D715-F489-4A02-84A8-3086E9C5FD54"
+let UIIMAGE_DEFAULT = UIImage(named: "ic_splash")
 let TABBAR_COLOR = UIColor(named: "dodgerBlue1")
 let BUTTON_COLOR = UIColor(named: "ButtonColor")
 let COLOR_APP = UIColor(named: "ColorApp")

@@ -49,6 +49,11 @@ extension ChargingView: Weakifiable {
     }
     
     func playAnimation() {
-        ChargeManage.shared.playAnimation(view: self.viewAnimation, link: "VideoEffect", avplayerfrom: .animation)
+        
+        if let url = "VideoEffect".getURLLocal(extensionMovie: .mp4) {
+            ChargeManage.shared.playAnimation(view: self.viewAnimation,
+                                              url: url,
+                                              avplayerfrom: .animation)
+        }
     }
 }

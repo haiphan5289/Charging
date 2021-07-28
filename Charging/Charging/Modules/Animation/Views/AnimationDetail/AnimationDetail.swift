@@ -28,6 +28,8 @@ class AnimationDetail: UIView, UpdateDisplayProtocol, DisplayStaticHeightProtoco
     
     var selectIconModel:((IconModel) -> Void)?
     
+    var selectAnimation: IconModel?
+    
     @IBOutlet weak var lbTitle: UILabel!
     @IBOutlet weak var btSeeAll: UIButton!
     @IBOutlet weak var collectionView: UICollectionView!
@@ -65,10 +67,21 @@ extension AnimationDetail {
         self.$listAnimation.asObservable()
             .bind(to: self.collectionView.rx.items(cellIdentifier: AnimationDetailCell.identifier, cellType: AnimationDetailCell.self)) { row, data, cell in
                 guard let name = data.text else { return }
-                cell.imgSelection.isHidden = (row == 0) ? false : true
+                
+                if let s = self.selectAnimation, let n1 = s.text, let n2 = data.text {
+                    if n1 == n2 {
+                        cell.imgSelection.isHidden = false
+                    } else {
+                        cell.imgSelection.isHidden = true
+                    }
+                } else {
+                    cell.imgSelection.isHidden = true
+                }
                 
                 if let url = self.getUrlLocal(name: name, extensionMovie: .mov), let thumbnail = url.getThumbnailImage() {
                     cell.imgAnimation.image = thumbnail
+                } else {
+                    cell.imgAnimation.image = UIIMAGE_DEFAULT
                 }
                 
         }.disposed(by: disposeBag)
