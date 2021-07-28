@@ -21,6 +21,8 @@ class AnimationSelection: HideNavigationController {
     }
     
 //    var moviePlayer:AVContro!
+    var chargingAnimationModel: ChargingAnimationModel?
+    var animationIconModel: IconModel?
 
     @IBOutlet weak var lbBattery: UILabel!
     @IBOutlet weak var btBack: UIButton!
@@ -38,8 +40,6 @@ class AnimationSelection: HideNavigationController {
         super.viewDidLoad()
         self.setupUI()
         self.setupRX()
-        self.view.layoutIfNeeded()
-        ChargeManage.shared.playAnimation(view: self.viewAnimation, link: "iphone8", avplayerfrom: .animationSelection)
     }
     
     
@@ -51,6 +51,10 @@ extension AnimationSelection {
         self.vButtons.clipsToBounds = true
         self.vButtons.layer.cornerRadius = 7
         self.vButtons.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
+        
+        if let c = self.animationIconModel, let t = c.text {
+            ChargeManage.shared.playAnimation(view: self.viewAnimation, link: t, avplayerfrom: .animationSelection)
+        }
     }
     
     private func setupRX() {

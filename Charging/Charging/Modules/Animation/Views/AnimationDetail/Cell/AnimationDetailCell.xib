@@ -4,9 +4,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
-        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
-        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -19,44 +17,38 @@
                 <rect key="frame" x="0.0" y="0.0" width="65" height="95"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
-                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Qvx-0g-NAR">
+                    <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Qvx-0g-NAR">
                         <rect key="frame" x="0.0" y="0.0" width="65" height="95"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Je8-1L-HEW">
                                 <rect key="frame" x="0.0" y="0.0" width="65" height="95"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hvX-3O-mEG">
-                                <rect key="frame" x="50" y="80" width="12" height="12"/>
-                                <color key="backgroundColor" name="brightskyblue"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="12" id="IHq-yt-HB8"/>
-                                    <constraint firstAttribute="width" constant="12" id="IWh-31-NzK"/>
-                                </constraints>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                        <real key="value" value="6"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                            </button>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_selection_home" translatesAutoresizingMaskIntoConstraints="NO" id="ZPf-lB-elk">
+                                <rect key="frame" x="0.0" y="0.0" width="65" height="95"/>
+                            </imageView>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="hvX-3O-mEG" secondAttribute="trailing" constant="3" id="AOq-Wm-Z28"/>
-                            <constraint firstAttribute="bottom" secondItem="hvX-3O-mEG" secondAttribute="bottom" constant="3" id="K2I-1l-XAm"/>
+                            <constraint firstItem="ZPf-lB-elk" firstAttribute="top" secondItem="Qvx-0g-NAR" secondAttribute="top" id="0Vm-2s-kdT"/>
+                            <constraint firstItem="ZPf-lB-elk" firstAttribute="leading" secondItem="Qvx-0g-NAR" secondAttribute="leading" id="Dyu-Kv-uty"/>
                             <constraint firstAttribute="trailing" secondItem="Je8-1L-HEW" secondAttribute="trailing" id="UtV-nY-Hza"/>
+                            <constraint firstAttribute="trailing" secondItem="ZPf-lB-elk" secondAttribute="trailing" id="dQ8-8H-DEd"/>
                             <constraint firstItem="Je8-1L-HEW" firstAttribute="leading" secondItem="Qvx-0g-NAR" secondAttribute="leading" id="edf-pC-ns9"/>
                             <constraint firstAttribute="bottom" secondItem="Je8-1L-HEW" secondAttribute="bottom" id="iRl-YI-7Zc"/>
+                            <constraint firstAttribute="bottom" secondItem="ZPf-lB-elk" secondAttribute="bottom" id="kk1-w0-P6x"/>
                             <constraint firstItem="Je8-1L-HEW" firstAttribute="top" secondItem="Qvx-0g-NAR" secondAttribute="top" id="yNW-DP-daD"/>
                         </constraints>
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                <real key="value" value="0.0"/>
+                                <real key="value" value="15"/>
                             </userDefinedRuntimeAttribute>
                         </userDefinedRuntimeAttributes>
                     </view>
                 </subviews>
             </view>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
                 <constraint firstItem="Qvx-0g-NAR" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="MnW-89-bE7"/>
                 <constraint firstAttribute="trailing" secondItem="Qvx-0g-NAR" secondAttribute="trailing" id="RVW-Zx-Mtt"/>
@@ -64,19 +56,13 @@
                 <constraint firstAttribute="bottom" secondItem="Qvx-0g-NAR" secondAttribute="bottom" id="kw6-KA-5SC"/>
             </constraints>
             <connections>
-                <outlet property="btSelect" destination="hvX-3O-mEG" id="kX3-4q-Q5u"/>
                 <outlet property="imgAnimation" destination="Je8-1L-HEW" id="Lgs-kV-iFt"/>
-                <outlet property="vContent" destination="Qvx-0g-NAR" id="Llp-Mu-lm1"/>
+                <outlet property="imgSelection" destination="ZPf-lB-elk" id="bNe-ds-udK"/>
             </connections>
             <point key="canvasLocation" x="139" y="82"/>
         </collectionViewCell>
     </objects>
     <resources>
-        <namedColor name="brightskyblue">
-            <color red="0.0" green="0.82700002193450928" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
+        <image name="ic_selection_home" width="131" height="190"/>
     </resources>
 </document>

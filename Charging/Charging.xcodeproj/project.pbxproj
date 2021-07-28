@@ -34,6 +34,20 @@
 		9394B22A26AF09990051224A /* ListiConCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9394B22826AF09990051224A /* ListiConCell.xib */; };
 		9394B22D26AF109C0051224A /* listColor.json in Resources */ = {isa = PBXBuildFile; fileRef = 9394B22C26AF109C0051224A /* listColor.json */; };
 		9394B23026AF12B20051224A /* IconModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9394B22F26AF12B10051224A /* IconModel.swift */; };
+		93A77E2F26B19D3700BC2F31 /* iphoneX.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 93A77E2E26B19D3700BC2F31 /* iphoneX.mp4 */; };
+		93A77E3226B19D9200BC2F31 /* listVideo.json in Resources */ = {isa = PBXBuildFile; fileRef = 93A77E3126B19D9200BC2F31 /* listVideo.json */; };
+		93A77E3626B1ADFD00BC2F31 /* 04E6D715-F489-4A02-84A8-3086E9C5FD54.mov in Resources */ = {isa = PBXBuildFile; fileRef = 93A77E3426B1ADFD00BC2F31 /* 04E6D715-F489-4A02-84A8-3086E9C5FD54.mov */; };
+		93A77E3726B1ADFD00BC2F31 /* 16EE1331-5A07-4C53-A2CB-D2C97581241E.mov in Resources */ = {isa = PBXBuildFile; fileRef = 93A77E3526B1ADFD00BC2F31 /* 16EE1331-5A07-4C53-A2CB-D2C97581241E.mov */; };
+		93A77E4726B1AE1300BC2F31 /* Super lightning Wallpaper Video O.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 93A77E3926B1AE0F00BC2F31 /* Super lightning Wallpaper Video O.mp4 */; };
+		93A77E4826B1AE1300BC2F31 /* EAD60D2B-66CC-47CB-98BA-C21E6DF2D557.mov in Resources */ = {isa = PBXBuildFile; fileRef = 93A77E3A26B1AE0F00BC2F31 /* EAD60D2B-66CC-47CB-98BA-C21E6DF2D557.mov */; };
+		93A77E4926B1AE1300BC2F31 /* 3FADDE91-DDA3-495D-A430-E1CD889014A9.mov in Resources */ = {isa = PBXBuildFile; fileRef = 93A77E3C26B1AE1000BC2F31 /* 3FADDE91-DDA3-495D-A430-E1CD889014A9.mov */; };
+		93A77E4A26B1AE1300BC2F31 /* 1B2430F1-458A-4AD4-94F2-FFC4C305F126.mov in Resources */ = {isa = PBXBuildFile; fileRef = 93A77E3D26B1AE1000BC2F31 /* 1B2430F1-458A-4AD4-94F2-FFC4C305F126.mov */; };
+		93A77E4B26B1AE1300BC2F31 /* 6B092B07-F467-4E2A-B7CE-6A1E73489CCF.mov in Resources */ = {isa = PBXBuildFile; fileRef = 93A77E3F26B1AE1100BC2F31 /* 6B092B07-F467-4E2A-B7CE-6A1E73489CCF.mov */; };
+		93A77E4C26B1AE1300BC2F31 /* 576D4BAC-196C-4EE8-A0D2-F76D23EA257F.mov in Resources */ = {isa = PBXBuildFile; fileRef = 93A77E4026B1AE1100BC2F31 /* 576D4BAC-196C-4EE8-A0D2-F76D23EA257F.mov */; };
+		93A77E4D26B1AE1300BC2F31 /* 6BE2E98D-E704-4364-B93C-8DA79BD10301.mov in Resources */ = {isa = PBXBuildFile; fileRef = 93A77E4226B1AE1200BC2F31 /* 6BE2E98D-E704-4364-B93C-8DA79BD10301.mov */; };
+		93A77E4E26B1AE1300BC2F31 /* 6E49793C-6ED2-4570-A948-98294B2F9EF2.mov in Resources */ = {isa = PBXBuildFile; fileRef = 93A77E4326B1AE1200BC2F31 /* 6E49793C-6ED2-4570-A948-98294B2F9EF2.mov */; };
+		93A77E4F26B1AE1300BC2F31 /* 2AD2ABBD-DC0C-4614-97EE-987D1656EEB6.mov in Resources */ = {isa = PBXBuildFile; fileRef = 93A77E4526B1AE1300BC2F31 /* 2AD2ABBD-DC0C-4614-97EE-987D1656EEB6.mov */; };
+		93A77E5026B1AE1300BC2F31 /* 4CC2A45B-964E-4A2D-918B-2F51C92EE743.mov in Resources */ = {isa = PBXBuildFile; fileRef = 93A77E4626B1AE1300BC2F31 /* 4CC2A45B-964E-4A2D-918B-2F51C92EE743.mov */; };
 		93B83B8026AC474100EF968F /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 93B83B7F26AC474000EF968F /* Localizable.strings */; };
 		93B83B8626AC4D2D00EF968F /* Assets-Gen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93B83B8526AC4D2D00EF968F /* Assets-Gen.swift */; };
 		93B83B8826AC4D5300EF968F /* Strings-Gen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93B83B8726AC4D5300EF968F /* Strings-Gen.swift */; };
@@ -200,6 +214,20 @@
 		9394B22826AF09990051224A /* ListiConCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ListiConCell.xib; sourceTree = "<group>"; };
 		9394B22C26AF109C0051224A /* listColor.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = listColor.json; sourceTree = "<group>"; };
 		9394B22F26AF12B10051224A /* IconModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IconModel.swift; sourceTree = "<group>"; };
+		93A77E2E26B19D3700BC2F31 /* iphoneX.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = iphoneX.mp4; sourceTree = "<group>"; };
+		93A77E3126B19D9200BC2F31 /* listVideo.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = listVideo.json; sourceTree = "<group>"; };
+		93A77E3426B1ADFD00BC2F31 /* 04E6D715-F489-4A02-84A8-3086E9C5FD54.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = "04E6D715-F489-4A02-84A8-3086E9C5FD54.mov"; sourceTree = "<group>"; };
+		93A77E3526B1ADFD00BC2F31 /* 16EE1331-5A07-4C53-A2CB-D2C97581241E.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = "16EE1331-5A07-4C53-A2CB-D2C97581241E.mov"; sourceTree = "<group>"; };
+		93A77E3926B1AE0F00BC2F31 /* Super lightning Wallpaper Video O.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Super lightning Wallpaper Video O.mp4"; sourceTree = "<group>"; };
+		93A77E3A26B1AE0F00BC2F31 /* EAD60D2B-66CC-47CB-98BA-C21E6DF2D557.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = "EAD60D2B-66CC-47CB-98BA-C21E6DF2D557.mov"; sourceTree = "<group>"; };
+		93A77E3C26B1AE1000BC2F31 /* 3FADDE91-DDA3-495D-A430-E1CD889014A9.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = "3FADDE91-DDA3-495D-A430-E1CD889014A9.mov"; sourceTree = "<group>"; };
+		93A77E3D26B1AE1000BC2F31 /* 1B2430F1-458A-4AD4-94F2-FFC4C305F126.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = "1B2430F1-458A-4AD4-94F2-FFC4C305F126.mov"; sourceTree = "<group>"; };
+		93A77E3F26B1AE1100BC2F31 /* 6B092B07-F467-4E2A-B7CE-6A1E73489CCF.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = "6B092B07-F467-4E2A-B7CE-6A1E73489CCF.mov"; sourceTree = "<group>"; };
+		93A77E4026B1AE1100BC2F31 /* 576D4BAC-196C-4EE8-A0D2-F76D23EA257F.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = "576D4BAC-196C-4EE8-A0D2-F76D23EA257F.mov"; sourceTree = "<group>"; };
+		93A77E4226B1AE1200BC2F31 /* 6BE2E98D-E704-4364-B93C-8DA79BD10301.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = "6BE2E98D-E704-4364-B93C-8DA79BD10301.mov"; sourceTree = "<group>"; };
+		93A77E4326B1AE1200BC2F31 /* 6E49793C-6ED2-4570-A948-98294B2F9EF2.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = "6E49793C-6ED2-4570-A948-98294B2F9EF2.mov"; sourceTree = "<group>"; };
+		93A77E4526B1AE1300BC2F31 /* 2AD2ABBD-DC0C-4614-97EE-987D1656EEB6.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = "2AD2ABBD-DC0C-4614-97EE-987D1656EEB6.mov"; sourceTree = "<group>"; };
+		93A77E4626B1AE1300BC2F31 /* 4CC2A45B-964E-4A2D-918B-2F51C92EE743.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = "4CC2A45B-964E-4A2D-918B-2F51C92EE743.mov"; sourceTree = "<group>"; };
 		93B83B7F26AC474000EF968F /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 		93B83B8326AC4B9D00EF968F /* swiftgen.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = swiftgen.yml; sourceTree = "<group>"; };
 		93B83B8526AC4D2D00EF968F /* Assets-Gen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Assets-Gen.swift"; sourceTree = "<group>"; };
@@ -476,11 +504,80 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		93A77E3026B19D7400BC2F31 /* Videos */ = {
+			isa = PBXGroup;
+			children = (
+				93A77E4426B1AE1300BC2F31 /* Anima */,
+				93A77E4126B1AE1200BC2F31 /* HotAnimation */,
+				93A77E3E26B1AE1100BC2F31 /* Other */,
+				93A77E3B26B1AE1000BC2F31 /* Popular */,
+				93A77E3826B1AE0F00BC2F31 /* SuperHero */,
+				93A77E3326B1ADFD00BC2F31 /* Technology */,
+				93A77E3126B19D9200BC2F31 /* listVideo.json */,
+			);
+			path = Videos;
+			sourceTree = "<group>";
+		};
+		93A77E3326B1ADFD00BC2F31 /* Technology */ = {
+			isa = PBXGroup;
+			children = (
+				93A77E3426B1ADFD00BC2F31 /* 04E6D715-F489-4A02-84A8-3086E9C5FD54.mov */,
+				93A77E3526B1ADFD00BC2F31 /* 16EE1331-5A07-4C53-A2CB-D2C97581241E.mov */,
+			);
+			path = Technology;
+			sourceTree = "<group>";
+		};
+		93A77E3826B1AE0F00BC2F31 /* SuperHero */ = {
+			isa = PBXGroup;
+			children = (
+				93A77E3926B1AE0F00BC2F31 /* Super lightning Wallpaper Video O.mp4 */,
+				93A77E3A26B1AE0F00BC2F31 /* EAD60D2B-66CC-47CB-98BA-C21E6DF2D557.mov */,
+			);
+			path = SuperHero;
+			sourceTree = "<group>";
+		};
+		93A77E3B26B1AE1000BC2F31 /* Popular */ = {
+			isa = PBXGroup;
+			children = (
+				93A77E3C26B1AE1000BC2F31 /* 3FADDE91-DDA3-495D-A430-E1CD889014A9.mov */,
+				93A77E3D26B1AE1000BC2F31 /* 1B2430F1-458A-4AD4-94F2-FFC4C305F126.mov */,
+			);
+			path = Popular;
+			sourceTree = "<group>";
+		};
+		93A77E3E26B1AE1100BC2F31 /* Other */ = {
+			isa = PBXGroup;
+			children = (
+				93A77E3F26B1AE1100BC2F31 /* 6B092B07-F467-4E2A-B7CE-6A1E73489CCF.mov */,
+				93A77E4026B1AE1100BC2F31 /* 576D4BAC-196C-4EE8-A0D2-F76D23EA257F.mov */,
+			);
+			path = Other;
+			sourceTree = "<group>";
+		};
+		93A77E4126B1AE1200BC2F31 /* HotAnimation */ = {
+			isa = PBXGroup;
+			children = (
+				93A77E4226B1AE1200BC2F31 /* 6BE2E98D-E704-4364-B93C-8DA79BD10301.mov */,
+				93A77E4326B1AE1200BC2F31 /* 6E49793C-6ED2-4570-A948-98294B2F9EF2.mov */,
+			);
+			path = HotAnimation;
+			sourceTree = "<group>";
+		};
+		93A77E4426B1AE1300BC2F31 /* Anima */ = {
+			isa = PBXGroup;
+			children = (
+				93A77E4526B1AE1300BC2F31 /* 2AD2ABBD-DC0C-4614-97EE-987D1656EEB6.mov */,
+				93A77E4626B1AE1300BC2F31 /* 4CC2A45B-964E-4A2D-918B-2F51C92EE743.mov */,
+			);
+			path = Anima;
+			sourceTree = "<group>";
+		};
 		93B83B7E26AC46E100EF968F /* Resources */ = {
 			isa = PBXGroup;
 			children = (
 				93BC28C626B0652100E754FA /* ListColor */,
 				9394B22B26AF10590051224A /* ListiCon */,
+				93A77E3026B19D7400BC2F31 /* Videos */,
 				93B83B8B26AC51AA00EF968F /* fontSFPro */,
 			);
 			path = Resources;
@@ -593,6 +690,7 @@
 				93B83B9226AC530500EF968F /* Manage */,
 				93BDED9326AB1F85003942C1 /* Modules */,
 				93BDED7F26AB1C96003942C1 /* AppDelegate.swift */,
+				93A77E2E26B19D3700BC2F31 /* iphoneX.mp4 */,
 				93BC28C926B0765C00E754FA /* VideoEffect.mp4 */,
 				93BC286A26B034CB00E754FA /* iphone8.mp4 */,
 				93BDED8126AB1C96003942C1 /* SceneDelegate.swift */,
@@ -959,6 +1057,7 @@
 				93BC28C026B05E2900E754FA /* ListColorVC.xib in Resources */,
 				93BC28B426B040BD00E754FA /* Check.storyboard in Resources */,
 				93BC286B26B034CB00E754FA /* iphone8.mp4 in Resources */,
+				93A77E3726B1ADFD00BC2F31 /* 16EE1331-5A07-4C53-A2CB-D2C97581241E.mov in Resources */,
 				93BDED8926AB1C99003942C1 /* Assets.xcassets in Resources */,
 				93BC28C526B060D900E754FA /* ListColorCell.xib in Resources */,
 				93BDEDE126AB23D1003942C1 /* GoogleSans-Medium.otf in Resources */,
@@ -968,25 +1067,38 @@
 				93BDEEBF26AB2B44003942C1 /* Setting.storyboard in Resources */,
 				93BDEE9626AB2452003942C1 /* StartIndicator.png in Resources */,
 				9344733D26ADB2A0006A695D /* FontsFree-Net-SFProText-Medium.ttf in Resources */,
+				93A77E4C26B1AE1300BC2F31 /* 576D4BAC-196C-4EE8-A0D2-F76D23EA257F.mov in Resources */,
 				93BDEE9A26AB2452003942C1 /* README.md in Resources */,
 				93BC28BB26B0551400E754FA /* CheckXib.xib in Resources */,
+				93A77E2F26B19D3700BC2F31 /* iphoneX.mp4 in Resources */,
 				9344734226ADBA0D006A695D /* LisiConVC.xib in Resources */,
+				93A77E4F26B1AE1300BC2F31 /* 2AD2ABBD-DC0C-4614-97EE-987D1656EEB6.mov in Resources */,
 				93BDEE9526AB2452003942C1 /* BorderLine.png in Resources */,
 				93BC28C826B0654500E754FA /* listicon.json in Resources */,
+				93A77E4826B1AE1300BC2F31 /* EAD60D2B-66CC-47CB-98BA-C21E6DF2D557.mov in Resources */,
 				93BDEEA726AB2452003942C1 /* EmptyView.xib in Resources */,
+				93A77E4B26B1AE1300BC2F31 /* 6B092B07-F467-4E2A-B7CE-6A1E73489CCF.mov in Resources */,
 				93BDEDDE26AB23D1003942C1 /* GoogleSans-Regular.otf in Resources */,
 				93BDED9726AB1F94003942C1 /* Animation.xib in Resources */,
+				93A77E3226B19D9200BC2F31 /* listVideo.json in Resources */,
 				93BDEE9926AB2452003942C1 /* LICENSE in Resources */,
+				93A77E4926B1AE1300BC2F31 /* 3FADDE91-DDA3-495D-A430-E1CD889014A9.mov in Resources */,
+				93A77E3626B1ADFD00BC2F31 /* 04E6D715-F489-4A02-84A8-3086E9C5FD54.mov in Resources */,
 				9363612E26AD52FC00FE6E4E /* AnimationDetail.xib in Resources */,
 				93BDEDE226AB23D1003942C1 /* GoogleSans-MediumItalic.otf in Resources */,
 				9394B22D26AF109C0051224A /* listColor.json in Resources */,
 				9394B22A26AF09990051224A /* ListiConCell.xib in Resources */,
 				93BDEE9726AB2452003942C1 /* EndIndicator.png in Resources */,
 				93BDEDDD26AB23D1003942C1 /* GoogleSans-BoldItalic.otf in Resources */,
+				93A77E4D26B1AE1300BC2F31 /* 6BE2E98D-E704-4364-B93C-8DA79BD10301.mov in Resources */,
 				9363611626AD1BB300FE6E4E /* AnimationCell.xib in Resources */,
 				93BC28CA26B0765C00E754FA /* VideoEffect.mp4 in Resources */,
+				93A77E4A26B1AE1300BC2F31 /* 1B2430F1-458A-4AD4-94F2-FFC4C305F126.mov in Resources */,
+				93A77E4726B1AE1300BC2F31 /* Super lightning Wallpaper Video O.mp4 in Resources */,
 				93BDED8726AB1C96003942C1 /* Main.storyboard in Resources */,
+				93A77E5026B1AE1300BC2F31 /* 4CC2A45B-964E-4A2D-918B-2F51C92EE743.mov in Resources */,
 				9363612626AD512100FE6E4E /* FontsFree-Net-SFProText-Bold.ttf in Resources */,
+				93A77E4E26B1AE1300BC2F31 /* 6E49793C-6ED2-4570-A948-98294B2F9EF2.mov in Resources */,
 				9363612526AD512100FE6E4E /* FontsFree-Net-SFProText-Regular.ttf in Resources */,
 				93BDEDDF26AB23D1003942C1 /* GoogleSans-Bold.otf in Resources */,
 			);

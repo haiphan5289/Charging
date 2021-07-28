@@ -13,7 +13,8 @@ class Animation: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
     
-    private var listAnimation: [CGFloat] = []
+    private var listAnimation: [ChargingAnimationModel] = []
+    private var selectIconModel: IconModel?
     private var viewModel = AnimationVM()
     private let disposeBag = DisposeBag()
     override func viewDidLoad() {
@@ -41,13 +42,9 @@ extension Animation {
             wSelf.listAnimation = list
             wSelf.tableView.reloadData()
         })).disposed(by: disposeBag)
-        
-//        self.viewModel.$listAnimation.asObservable()
-//            .bind(to: tableView.rx.items(cellIdentifier: AnimationCell.identifier, cellType: AnimationCell.self)) {(row, element, cell) in
-//                cell.backgroundColor = (row % 2 == 0) ? .red : .blue
-//
-//        }.disposed(by: disposeBag)
     }
+    
+
  }
 extension Animation: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -68,6 +65,14 @@ extension Animation: UITableViewDataSource {
                 fatalError("Please Implement")
             }
             cell.backgroundColor = .clear
+            let item = self.listAnimation[indexPath.row]
+            cell.view.setupDisplay(item: item)
+            cell.view.selectIconModel = { [weak self] v in
+                guard let wSelf = self else {
+                    return
+                }
+                wSelf.selectIconModel = v
+            }
             return cell
         }
         
@@ -75,6 +80,11 @@ extension Animation: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let vc = AnimationSelection.createVCfromStoryBoard()
+        
+        if let s = self.selectIconModel {
+            vc.animationIconModel = s
+        }
+        
         self.navigationController?.pushViewController(vc, animated: true)
     }
     

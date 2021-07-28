@@ -62,7 +62,7 @@ class HomeCellGeneric<T: UIView>: UITableViewCell, UpdateDisplayProtocol where T
     }
     
     private func common() {
-//        selectionStyle = .none
+        selectionStyle = .none
         clipsToBounds = true
         contentView.clipsToBounds = true
         contentView.addSubview(view)

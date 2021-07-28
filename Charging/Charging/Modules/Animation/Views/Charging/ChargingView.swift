@@ -30,7 +30,7 @@ class ChargingView: UIView, UpdateDisplayProtocol, DisplayStaticHeightProtocol {
 }
 extension ChargingView: Weakifiable {
     
-    func setupDisplay(item: [Banner]?) {
+    func setupDisplay(item: [ChargingAnimationModel]?) {
         guard let item = item else {
             return
         }

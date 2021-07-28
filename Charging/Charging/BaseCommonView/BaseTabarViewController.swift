@@ -19,9 +19,9 @@ enum TypeTabbar: Int, CaseIterable {
     var image: UIImage? {
         switch self {
         case .animation:
-            return UIImage(named: "HomeInActive")
+            return UIImage(named: "ic_animation")
         case .setting:
-            return UIImage(named: "libraryInActive")
+            return UIImage(named: "ic_setting")
 //        case .imported:
 //            return UIImage(named: "ImportedInActive")
         }
@@ -89,19 +89,19 @@ class BaseTabbarViewController: UITabBarController {
     }
     
     override func tabBar(_ tabBar: UITabBar, didSelect item: UITabBarItem) {
-        guard let listTabbar = self.tabBar.items else {
-            return
-        }
-        
-        listTabbar.enumerated().forEach { (tabbar) in
-            if let type = TypeTabbar(rawValue: tabbar.offset) {
-                if tabbar.element == item {
-                    tabbar.element.image = type.imageActive
-                } else {
-                    tabbar.element.image = type.image
-                }
-            }
-        }
+//        guard let listTabbar = self.tabBar.items else {
+//            return
+//        }
+//
+//        listTabbar.enumerated().forEach { (tabbar) in
+//            if let type = TypeTabbar(rawValue: tabbar.offset) {
+//                if tabbar.element == item {
+//                    tabbar.element.image = type.imageActive
+//                } else {
+//                    tabbar.element.image = type.image
+//                }
+//            }
+//        }
         
     }
     
@@ -124,6 +124,7 @@ class BaseTabbarViewController: UITabBarController {
         TypeTabbar.allCases.forEach { (type) in
             if let vc = self.viewControllers?[type.rawValue] {
                 vc.tabBarItem.title = type.text
+                vc.tabBarItem.image = type.image
 //                switch type {
 //                case .animation:
 //                    vc.tabBarItem.image = type.imageActive

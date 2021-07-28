@@ -38,7 +38,7 @@
     </objects>
     <resources>
         <namedColor name="colorBg">
-            <color red="0.078431372549019607" green="0.035294117647058823" blue="0.30588235294117649" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.074509803921568626" green="0.011764705882352941" blue="0.29411764705882354" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>
 </document>

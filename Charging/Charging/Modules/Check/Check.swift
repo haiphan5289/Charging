@@ -15,21 +15,21 @@ class Check: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        
-        guard let path = Bundle.main.path(forResource: "iphone8", ofType:"mp4"), let url = URL(string: path) else {
-            debugPrint("video.m4v not found")
-            return
-        }
-        
-        let player = AVPlayer(url: URL(fileURLWithPath: path))
-        
-        let playerLayer = AVPlayerLayer(player: player)
-        self.view.layoutIfNeeded()
-        playerLayer.frame = self.viewCheck.bounds
-        self.viewCheck.layer.addSublayer(playerLayer)
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-            player.play()
-        }
+//        
+//        guard let path = Bundle.main.path(forResource: "iphone8", ofType:"mp4"), let url = URL(string: path) else {
+//            debugPrint("video.m4v not found")
+//            return
+//        }
+//        
+//        let player = AVPlayer(url: URL(fileURLWithPath: path))
+//        
+//        let playerLayer = AVPlayerLayer(player: player)
+//        self.view.layoutIfNeeded()
+//        playerLayer.frame = self.viewCheck.bounds
+//        self.viewCheck.layer.addSublayer(playerLayer)
+//        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+//            player.play()
+//        }
         
     }
     

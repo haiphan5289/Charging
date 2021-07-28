@@ -9,9 +9,8 @@ import UIKit
 
 class AnimationDetailCell: UICollectionViewCell {
 
-    @IBOutlet weak var vContent: UIView!
     @IBOutlet weak var imgAnimation: UIImageView!
-    @IBOutlet weak var btSelect: UIButton!
+    @IBOutlet weak var imgSelection: UIImageView!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
