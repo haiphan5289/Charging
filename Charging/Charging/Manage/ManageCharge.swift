@@ -30,6 +30,7 @@ final class ChargeManage {
     @VariableReplay var colorIndex: Int = ListColorVC.ColorCell.white.rawValue
     @VariableReplay var animationModel: IconModel = IconModel(text: ANIMATION_DEFAULT)
     @VariableReplay var eventPauseAVPlayer: Void?
+    @VariableReplay var eventPlayAVPlayer: Void?
     
     private var playerHome: AVPlayer?
     private var playerAnimationSelection: AVPlayer?
@@ -114,6 +115,19 @@ final class ChargeManage {
                 }
             }
         }.disposed(by: disposeBag)
+        
+        self.$eventPlayAVPlayer.asObservable().bind { _ in
+            switch self.avplayerfrom {
+            case .animation:
+                if let player = self.playerHome {
+                    self.playAgain(player: player)
+                }
+            case .animationSelection:
+                if let player = self.playerAnimationSelection {
+                    self.playAgain(player: player)
+                }
+            }
+        }.disposed(by: disposeBag)
     }
     
     func playAnimation(view: UIView, url: URL, avplayerfrom: AVPlayerfrom) {
@@ -167,6 +181,10 @@ final class ChargeManage {
         self.getIconModel()
         self.getColornModel()
         self.getAnimationModel()
+    }
+    
+    func updateAVPlayerfrom(avplayerfrom: AVPlayerfrom) {
+        self.avplayerfrom = avplayerfrom
     }
     
     private func pauseAVPlayer(player: AVPlayer) {

@@ -42,7 +42,7 @@ extension UIViewController {
         view.addSubview(statusBarView)
     }
     
-    static func createVC() -> UIViewController {
+    static func createVC() -> Self {
         let vc = Self.init(nibName: "\(self)", bundle: nil)
         return vc
     }

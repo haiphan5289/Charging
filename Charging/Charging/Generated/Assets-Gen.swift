@@ -70,6 +70,7 @@ internal enum Asset {
   internal static let _7 = ImageAsset(name: "7")
   internal static let _8 = ImageAsset(name: "8")
   internal static let _9 = ImageAsset(name: "9")
+  internal static let icBackSelection = ImageAsset(name: "ic_back_selection")
   internal static let icSplash = ImageAsset(name: "ic_splash")
   internal static let logoSplash = ImageAsset(name: "logo_splash")
   internal static let _70e67e82e96dc7050e02274d368698b7 = ImageAsset(name: "70e67e82e96dc7050e02274d368698b7")

@@ -23,6 +23,12 @@ class Animation: UIViewController {
         self.setupRX()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        ChargeManage.shared.updateAVPlayerfrom(avplayerfrom: .animation)
+        ChargeManage.shared.eventPlayAVPlayer = ()
+    }
+    
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         self.tableView.reloadData()
@@ -88,6 +94,10 @@ extension Animation: UITableViewDataSource {
                 }
                 
                 wSelf.navigationController?.pushViewController(vc, animated: true)
+            }
+            cell.view.actionSeeAll = {
+                let vc = ListAnimation.createVC()
+                self.navigationController?.pushViewController(vc, animated: true)
             }
             return cell
         }

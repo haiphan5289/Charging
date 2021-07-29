@@ -27,6 +27,7 @@ class AnimationDetail: UIView, UpdateDisplayProtocol, DisplayStaticHeightProtoco
     static var automaticHeight: Bool { return true }
     
     var selectIconModel:((IconModel) -> Void)?
+    var actionSeeAll:(() -> Void)?
     
     var selectAnimation: IconModel?
     
@@ -90,6 +91,10 @@ extension AnimationDetail {
             guard let wSelf = self else { return }
             let item = wSelf.listAnimation[idx.row]
             wSelf.selectIconModel?(item)
+        }.disposed(by: disposeBag)
+        
+        self.btSeeAll.rx.tap.bind { _ in
+            self.actionSeeAll?()
         }.disposed(by: disposeBag)
     }
     
