@@ -29,8 +29,10 @@ final class ChargeManage {
     @VariableReplay var iconAnimation: IconModel = IconModel(text: "1")
     @VariableReplay var colorIndex: Int = ListColorVC.ColorCell.white.rawValue
     @VariableReplay var animationModel: IconModel = IconModel(text: ANIMATION_DEFAULT)
+    @VariableReplay var eventPauseAVPlayer: Void?
     
     private var playerHome: AVPlayer?
+    private var playerAnimationSelection: AVPlayer?
     private var avplayerfrom: AVPlayerfrom = .animation
     private let disposeBag = DisposeBag()
     private init() {
@@ -92,32 +94,72 @@ final class ChargeManage {
                     if let player = wSelf.playerHome {
                         wSelf.playAgain(player: player)
                     }
-                case .animationSelection: break
+                case .animationSelection:
+                    if let player = wSelf.playerAnimationSelection {
+                        wSelf.playAgain(player: player)
+                    }
                 }
                 
             }.disposed(by: disposeBag)
+        
+        self.$eventPauseAVPlayer.asObservable().bind { _ in
+            switch self.avplayerfrom {
+            case .animation:
+                if let player = self.playerHome {
+                    self.pauseAVPlayer(player: player)
+                }
+            case .animationSelection:
+                if let player = self.playerAnimationSelection {
+                    self.pauseAVPlayer(player: player)
+                }
+            }
+        }.disposed(by: disposeBag)
     }
     
     func playAnimation(view: UIView, url: URL, avplayerfrom: AVPlayerfrom) {
         self.avplayerfrom = avplayerfrom
-//        guard let path = Bundle.main.path(forResource: "\(link)", ofType:"mp4")else {
-//            debugPrint("video.m4v not found")
-//            return
-//        }
-//        let url = URL(fileURLWithPath: path)
-//        let player = AVPlayer(url: URL(fileURLWithPath: path))
-//        let player = AVPlayer(url: url)
-        self.playerHome = AVPlayer(url: url)
-        if let player = self.playerHome {
-            let playerLayer = AVPlayerLayer(player: player)
-            playerLayer.frame = view.bounds
-            playerLayer.videoGravity = AVLayerVideoGravity.resize 
-            view.layer.addSublayer(playerLayer)
+        switch avplayerfrom {
+        case .animation:
             
-            player.play()
-//            DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-//                player.play()
-//            }
+    //        guard let path = Bundle.main.path(forResource: "\(link)", ofType:"mp4")else {
+    //            debugPrint("video.m4v not found")
+    //            return
+    //        }
+    //        let url = URL(fileURLWithPath: path)
+    //        let player = AVPlayer(url: URL(fileURLWithPath: path))
+    //        let player = AVPlayer(url: url)
+            self.playerHome = AVPlayer(url: url)
+            if let player = self.playerHome {
+                let playerLayer = AVPlayerLayer(player: player)
+                playerLayer.frame = view.bounds
+                playerLayer.videoGravity = AVLayerVideoGravity.resize
+                view.layer.addSublayer(playerLayer)
+                
+                player.play()
+    //            DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+    //                player.play()
+    //            }
+            }
+        default:
+    //        guard let path = Bundle.main.path(forResource: "\(link)", ofType:"mp4")else {
+    //            debugPrint("video.m4v not found")
+    //            return
+    //        }
+    //        let url = URL(fileURLWithPath: path)
+    //        let player = AVPlayer(url: URL(fileURLWithPath: path))
+    //        let player = AVPlayer(url: url)
+            self.playerAnimationSelection = AVPlayer(url: url)
+            if let player = self.playerAnimationSelection {
+                let playerLayer = AVPlayerLayer(player: player)
+                playerLayer.frame = view.bounds
+                playerLayer.videoGravity = AVLayerVideoGravity.resize
+                view.layer.addSublayer(playerLayer)
+                
+                player.play()
+    //            DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+    //                player.play()
+    //            }
+            }
         }
     }
     
@@ -125,6 +167,10 @@ final class ChargeManage {
         self.getIconModel()
         self.getColornModel()
         self.getAnimationModel()
+    }
+    
+    private func pauseAVPlayer(player: AVPlayer) {
+        player.pause()
     }
     
     private func playAgain(player: AVPlayer) {

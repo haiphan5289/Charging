@@ -90,6 +90,16 @@ extension UIView {
         gradient.locations = locations
         self.layer.insertSublayer(gradient, at: 0)
     }
+    
+    func gradientHozorital(color: [Color]) {
+        let l = CAGradientLayer()
+        l.frame = self.bounds
+        l.colors = color
+        l.startPoint = CGPoint(x: 0, y: 0.5)
+        l.endPoint = CGPoint(x: 1, y: 0.5)
+        l.cornerRadius = 16
+        layer.insertSublayer(l, at: 0)
+    }
 }
 
 
@@ -240,4 +250,53 @@ extension UIView {
         get { return objc_getAssociatedObject(self, &key) as? String ?? "" }
         set { objc_setAssociatedObject(self, &key, newValue, .OBJC_ASSOCIATION_RETAIN) }
     }
+}
+typealias GradientPoints = (startPoint: CGPoint, endPoint: CGPoint)
+
+enum GradientOrientation {
+  case topRightBottomLeft
+  case topLeftBottomRight
+  case horizontal
+  case vertical
+
+var startPoint: CGPoint {
+    return points.startPoint
+}
+
+var endPoint: CGPoint {
+    return points.endPoint
+}
+
+var points: GradientPoints {
+    switch self {
+    case .topRightBottomLeft:
+        return (CGPoint(x: 0.0, y: 1.0), CGPoint(x: 1.0, y: 0.0))
+    case .topLeftBottomRight:
+        return (CGPoint(x: 0.0, y: 0.0), CGPoint(x: 1, y: 1))
+    case .horizontal:
+        return (CGPoint(x: 0.0, y: 0.5), CGPoint(x: 1.0, y: 0.5))
+    case .vertical:
+        return (CGPoint(x: 0.0, y: 0.0), CGPoint(x: 0.0, y: 1.0))
+    }
+  }
+}
+
+extension UIView {
+
+func applyGradient(withColours colours: [UIColor], locations: [NSNumber]? = nil) {
+    let gradient: CAGradientLayer = CAGradientLayer()
+    gradient.frame = self.bounds
+    gradient.colors = colours.map { $0.cgColor }
+    gradient.locations = locations
+    self.layer.insertSublayer(gradient, at: 0)
+}
+
+func applyGradient(withColours colours: [UIColor], gradientOrientation orientation: GradientOrientation) {
+    let gradient: CAGradientLayer = CAGradientLayer()
+    gradient.frame = self.bounds
+    gradient.colors = colours.map { $0.cgColor }
+    gradient.startPoint = orientation.startPoint
+    gradient.endPoint = orientation.endPoint
+    self.layer.insertSublayer(gradient, at: 0)
+  }
 }

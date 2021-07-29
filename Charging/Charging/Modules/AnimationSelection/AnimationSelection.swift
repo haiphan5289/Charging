@@ -33,6 +33,8 @@ class AnimationSelection: HideNavigationController {
     @IBOutlet var bts: [UIButton]!
     @IBOutlet weak var viewAnimation: UIView!
     @IBOutlet weak var imageAnimation: UIImageView!
+    @IBOutlet weak var btSetAnimation: UIButton!
+    @IBOutlet weak var viewButtonSetAnimation: UIView!
     
     @VariableReplay private var statusAction: StatusAction = .hide
     private let disposeBag = DisposeBag()
@@ -40,6 +42,12 @@ class AnimationSelection: HideNavigationController {
         super.viewDidLoad()
         self.setupUI()
         self.setupRX()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        ChargeManage.shared.eventPauseAVPlayer = ()
     }
     
     
@@ -55,6 +63,12 @@ extension AnimationSelection {
         if let c = self.animationIconModel, let t = c.text, let url = t.getURLLocal(extensionMovie: .mov) {
             ChargeManage.shared.playAnimation(view: self.viewAnimation, url: url, avplayerfrom: .animationSelection)
         }
+        
+//        self.viewButtonSetAnimation.gradientHozorital(color: [Asset._0090Ff.color, Asset._00D3Ff.color])
+//        self.view.applyGradient(colours: [.yellow, .blue, .red], locations: [0.0, 0.5, 1.0])
+        
+        self.btSetAnimation.applyGradient(withColours: [Asset._0090Ff.color, Asset._00D3Ff.color], gradientOrientation: .horizontal)
+        
     }
     
     private func setupRX() {
@@ -122,6 +136,10 @@ extension AnimationSelection {
             guard let d = v.text else { return }
             wSelf.imageAnimation.image = UIImage(named: d)
         })).disposed(by: disposeBag)
+        
+        self.btBack.rx.tap.bind { _ in
+            self.navigationController?.popViewController(animated: true, nil)
+        }.disposed(by: disposeBag)
     }
     
 }
