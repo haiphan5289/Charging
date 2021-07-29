@@ -32,6 +32,8 @@
 		9363613526AD5D3C00FE6E4E /* AnimationDetailCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9363613326AD5D3C00FE6E4E /* AnimationDetailCell.xib */; };
 		9381C88F26B2FB5B00D84CE5 /* ListAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9381C88D26B2FB5B00D84CE5 /* ListAnimation.swift */; };
 		9381C89026B2FB5B00D84CE5 /* ListAnimation.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9381C88E26B2FB5B00D84CE5 /* ListAnimation.xib */; };
+		9381C89426B3029200D84CE5 /* ListAnimationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9381C89226B3029200D84CE5 /* ListAnimationCell.swift */; };
+		9381C89526B3029200D84CE5 /* ListAnimationCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9381C89326B3029200D84CE5 /* ListAnimationCell.xib */; };
 		9394B22926AF09990051224A /* ListiConCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9394B22726AF09990051224A /* ListiConCell.swift */; };
 		9394B22A26AF09990051224A /* ListiConCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9394B22826AF09990051224A /* ListiConCell.xib */; };
 		9394B22D26AF109C0051224A /* listColor.json in Resources */ = {isa = PBXBuildFile; fileRef = 9394B22C26AF109C0051224A /* listColor.json */; };
@@ -214,6 +216,8 @@
 		9363613326AD5D3C00FE6E4E /* AnimationDetailCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AnimationDetailCell.xib; sourceTree = "<group>"; };
 		9381C88D26B2FB5B00D84CE5 /* ListAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListAnimation.swift; sourceTree = "<group>"; };
 		9381C88E26B2FB5B00D84CE5 /* ListAnimation.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ListAnimation.xib; sourceTree = "<group>"; };
+		9381C89226B3029200D84CE5 /* ListAnimationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListAnimationCell.swift; sourceTree = "<group>"; };
+		9381C89326B3029200D84CE5 /* ListAnimationCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ListAnimationCell.xib; sourceTree = "<group>"; };
 		9394B22726AF09990051224A /* ListiConCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListiConCell.swift; sourceTree = "<group>"; };
 		9394B22826AF09990051224A /* ListiConCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ListiConCell.xib; sourceTree = "<group>"; };
 		9394B22C26AF109C0051224A /* listColor.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = listColor.json; sourceTree = "<group>"; };
@@ -486,10 +490,20 @@
 		9381C88C26B2FB3D00D84CE5 /* ListAnimation */ = {
 			isa = PBXGroup;
 			children = (
+				9381C89126B3027300D84CE5 /* Cell */,
 				9381C88D26B2FB5B00D84CE5 /* ListAnimation.swift */,
 				9381C88E26B2FB5B00D84CE5 /* ListAnimation.xib */,
 			);
 			path = ListAnimation;
+			sourceTree = "<group>";
+		};
+		9381C89126B3027300D84CE5 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				9381C89226B3029200D84CE5 /* ListAnimationCell.swift */,
+				9381C89326B3029200D84CE5 /* ListAnimationCell.xib */,
+			);
+			path = Cell;
 			sourceTree = "<group>";
 		};
 		9394B22626AF097A0051224A /* Cell */ = {
@@ -1069,6 +1083,7 @@
 				93BDED8C26AB1C99003942C1 /* LaunchScreen.storyboard in Resources */,
 				93BDEDE026AB23D1003942C1 /* GoogleSans-Italic.otf in Resources */,
 				93BC28C026B05E2900E754FA /* ListColorVC.xib in Resources */,
+				9381C89526B3029200D84CE5 /* ListAnimationCell.xib in Resources */,
 				93BC28B426B040BD00E754FA /* Check.storyboard in Resources */,
 				93BC286B26B034CB00E754FA /* iphone8.mp4 in Resources */,
 				93A77E3726B1ADFD00BC2F31 /* 16EE1331-5A07-4C53-A2CB-D2C97581241E.mov in Resources */,
@@ -1231,6 +1246,7 @@
 				9381C88F26B2FB5B00D84CE5 /* ListAnimation.swift in Sources */,
 				93BDEE0A26AB242E003942C1 /* UITableViewExtensions.swift in Sources */,
 				93BDEE6626AB243F003942C1 /* CodableExtension.swift in Sources */,
+				9381C89426B3029200D84CE5 /* ListAnimationCell.swift in Sources */,
 				93BDEDDA26AB23D1003942C1 /* Utils.swift in Sources */,
 				93BDEE2526AB242E003942C1 /* UIButtonExtensions.swift in Sources */,
 				93BDEE0926AB242E003942C1 /* UISearchBarExtensions.swift in Sources */,

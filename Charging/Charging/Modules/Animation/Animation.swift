@@ -97,6 +97,8 @@ extension Animation: UITableViewDataSource {
             }
             cell.view.actionSeeAll = {
                 let vc = ListAnimation.createVC()
+                let link = self.listAnimation[indexPath.row].link ?? []
+                vc.listAnimation = link
                 self.navigationController?.pushViewController(vc, animated: true)
             }
             return cell

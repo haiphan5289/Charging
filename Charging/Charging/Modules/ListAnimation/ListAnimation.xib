@@ -11,6 +11,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ListAnimation" customModule="Charging" customModuleProvider="target">
             <connections>
+                <outlet property="collectionView" destination="ahl-og-yPX" id="Ayf-cl-odv"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -18,8 +19,26 @@
         <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
             <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="ahl-og-yPX">
+                    <rect key="frame" x="16" y="71" width="382" height="825"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="pJw-a0-910">
+                        <size key="itemSize" width="128" height="128"/>
+                        <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                        <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                        <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                    </collectionViewFlowLayout>
+                </collectionView>
+            </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" name="colorBg"/>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="ahl-og-yPX" secondAttribute="bottom" id="Y5U-ob-ctf"/>
+                <constraint firstItem="ahl-og-yPX" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="27" id="q4o-Xw-eh0"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="ahl-og-yPX" secondAttribute="trailing" constant="16" id="qPA-vG-DBh"/>
+                <constraint firstItem="ahl-og-yPX" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="16" id="r9q-Mr-Sj0"/>
+            </constraints>
             <point key="canvasLocation" x="139" y="82"/>
         </view>
     </objects>

@@ -79,7 +79,7 @@ extension AnimationDetail {
                     cell.imgSelection.isHidden = true
                 }
                 
-                if let url = self.getUrlLocal(name: name, extensionMovie: .mov), let thumbnail = url.getThumbnailImage() {
+                if let url = name.getURLLocal(extensionMovie: .mov), let thumbnail = url.getThumbnailImage() {
                     cell.imgAnimation.image = thumbnail
                 } else {
                     cell.imgAnimation.image = UIIMAGE_DEFAULT
@@ -96,14 +96,6 @@ extension AnimationDetail {
         self.btSeeAll.rx.tap.bind { _ in
             self.actionSeeAll?()
         }.disposed(by: disposeBag)
-    }
-    
-    private func getUrlLocal(name: String, extensionMovie: ExtensionMovie) -> URL? {
-        guard let path = Bundle.main.path(forResource: "\(name)", ofType: extensionMovie.rawValue)else {
-            debugPrint("video.m4v not found")
-            return nil
-        }
-        return URL(fileURLWithPath: path)
     }
     
 }
