@@ -16,9 +16,10 @@ class AnimationDetail: UIView, UpdateDisplayProtocol, DisplayStaticHeightProtoco
     }
     
     struct Constant {
-//        static let heightCell: CGFloat = 190
-//        static let widthCell: CGFloat = 130
-        static let sizeCell = CGSize(width: 130, height: 190)
+        static let heightCell: CGFloat = 190
+        static let widthCell: CGFloat = 107
+        static let heightImageSelection: CGFloat = 156
+        static let sizeCell = CGSize(width: 71, height: 156)
         static let spaceCell: CGFloat = 10
     }
     
@@ -79,11 +80,13 @@ extension AnimationDetail {
                     cell.imgSelection.isHidden = true
                 }
                 
-                if let url = name.getURLLocal(extensionMovie: .mov), let thumbnail = url.getThumbnailImage() {
+                if let url = name.getURLLocal(extensionMovie: .mov), let thumbnail = url.getThumbnailImage()?.resizeImage(Constant.sizeCell) {
                     cell.imgAnimation.image = thumbnail
                 } else {
                     cell.imgAnimation.image = UIIMAGE_DEFAULT
                 }
+                
+                cell.imgSelection.image = Asset.icSelectionHome.image.resizeImage(Constant.sizeCell) 
                 
         }.disposed(by: disposeBag)
         
@@ -102,6 +105,10 @@ extension AnimationDetail {
 extension AnimationDetail: UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+//        let name = self.listAnimation[indexPath.row].text ?? ""
+//        if let url = name.getURLLocal(extensionMovie: .mov), let thumbnail = url.getThumbnailImage(), let new = self.resizeImage(image: thumbnail, targetSize: Constant.sizeCell) {
+//            return new.size
+//        }
         return Constant.sizeCell
     }
     

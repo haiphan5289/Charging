@@ -12,9 +12,10 @@ import RxSwift
 class ListAnimation: BaseNavigationViewController {
     
     struct Constant {
-        static let widthCell: CGFloat = 109
+        static let widthCell: CGFloat = 71
         static let heightCell: CGFloat = 158
         static let spaceSection: CGFloat = 8
+        static let sizeCell: CGSize = CGSize(width: 71, height: 156)
     }
 
     @IBOutlet weak var collectionView: UICollectionView!
@@ -58,11 +59,11 @@ extension ListAnimation {
 }
 extension ListAnimation: UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: Constant.widthCell, height: Constant.heightCell)
+        return Constant.sizeCell
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
-        return self.spaceLine
+        return 30
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
