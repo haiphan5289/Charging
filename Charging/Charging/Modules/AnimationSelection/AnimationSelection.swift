@@ -35,6 +35,7 @@ class AnimationSelection: HideNavigationController {
     @IBOutlet weak var imageAnimation: UIImageView!
     @IBOutlet weak var btSetAnimation: UIButton!
     @IBOutlet weak var viewButtonSetAnimation: UIView!
+    private let viewSuccess: SuccessView = SuccessView.loadXib()
     
     @VariableReplay private var statusAction: StatusAction = .hide
     private let disposeBag = DisposeBag()
@@ -91,16 +92,14 @@ extension AnimationSelection {
                 switch type {
                 case .icon:
                     let vc = LisiConVC.createVC()
-                    guard let setupVC = vc as? LisiConVC else { return }
-                    setupVC.modalTransitionStyle = .crossDissolve
-                    setupVC.modalPresentationStyle = .overFullScreen
-                    self.present(setupVC, animated: true, completion: nil)
+                    vc.modalTransitionStyle = .crossDissolve
+                    vc.modalPresentationStyle = .overFullScreen
+                    self.present(vc, animated: true, completion: nil)
                 case .color:
                     let vc = ListColorVC.createVC()
-                    guard let setupVC = vc as? ListColorVC else { return }
-                    setupVC.modalTransitionStyle = .crossDissolve
-                    setupVC.modalPresentationStyle = .overFullScreen
-                    self.present(setupVC, animated: true, completion: nil)
+                    vc.modalTransitionStyle = .crossDissolve
+                    vc.modalPresentationStyle = .overFullScreen
+                    self.present(vc, animated: true, completion: nil)
                 case .sound: break
                 }
                 
@@ -110,17 +109,13 @@ extension AnimationSelection {
         
         self.$statusAction.asObservable().bind(onNext: weakify({ action, wSelf in
             
-            let vs = [wSelf.btBack, wSelf.stackView]
-            
             switch action {
             case .hide:
-                vs.forEach { v in
-                    v?.isHidden = true
-                }
+                wSelf.btBack.isHidden = false
+                wSelf.stackView.isHidden = true
             case .show:
-                vs.forEach { v in
-                    v?.isHidden = false
-                }
+                wSelf.btBack.isHidden = true
+                wSelf.stackView.isHidden = false
             }
             
         })).disposed(by: disposeBag)
@@ -146,6 +141,25 @@ extension AnimationSelection {
         self.btBack.rx.tap.bind { _ in
             self.navigationController?.popViewController(animated: true, nil)
         }.disposed(by: disposeBag)
+        
+        self.btSetAnimation.rx.tap.bind { _ in
+            guard let v = self.animationIconModel else { return }
+            do {
+                let data = try v.toData()
+                RealmManage.shared.addAndUpdateAnimation(data: data)
+            } catch {
+                print("\(error.localizedDescription)")
+            }
+            
+            do {
+                self.showSuccessView()
+            }
+            
+        }.disposed(by: disposeBag)
+    }
+    
+    private func showSuccessView() {
+        self.viewSuccess.addView(parentView: self.view)
     }
     
 }

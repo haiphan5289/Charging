@@ -85,14 +85,6 @@ extension Animation: UITableViewDataSource {
                 }
                 let vc = AnimationSelection.createVCfromStoryBoard()
                 vc.animationIconModel = v
-                
-                do {
-                    let data = try v.toData()
-                    RealmManage.shared.addAndUpdateAnimation(data: data)
-                } catch {
-                    print("\(error.localizedDescription)")
-                }
-                
                 wSelf.navigationController?.pushViewController(vc, animated: true)
             }
             cell.view.actionSeeAll = {

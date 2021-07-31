@@ -34,6 +34,8 @@
 		9381C89026B2FB5B00D84CE5 /* ListAnimation.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9381C88E26B2FB5B00D84CE5 /* ListAnimation.xib */; };
 		9381C89426B3029200D84CE5 /* ListAnimationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9381C89226B3029200D84CE5 /* ListAnimationCell.swift */; };
 		9381C89526B3029200D84CE5 /* ListAnimationCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9381C89326B3029200D84CE5 /* ListAnimationCell.xib */; };
+		938E8A3C26B53BFD00BC173D /* SuccessView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 938E8A3B26B53BFD00BC173D /* SuccessView.swift */; };
+		938E8A3E26B53C0900BC173D /* SuccessView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 938E8A3D26B53C0900BC173D /* SuccessView.xib */; };
 		9394B22926AF09990051224A /* ListiConCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9394B22726AF09990051224A /* ListiConCell.swift */; };
 		9394B22A26AF09990051224A /* ListiConCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9394B22826AF09990051224A /* ListiConCell.xib */; };
 		9394B22D26AF109C0051224A /* listColor.json in Resources */ = {isa = PBXBuildFile; fileRef = 9394B22C26AF109C0051224A /* listColor.json */; };
@@ -226,6 +228,8 @@
 		9381C88E26B2FB5B00D84CE5 /* ListAnimation.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ListAnimation.xib; sourceTree = "<group>"; };
 		9381C89226B3029200D84CE5 /* ListAnimationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListAnimationCell.swift; sourceTree = "<group>"; };
 		9381C89326B3029200D84CE5 /* ListAnimationCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ListAnimationCell.xib; sourceTree = "<group>"; };
+		938E8A3B26B53BFD00BC173D /* SuccessView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuccessView.swift; sourceTree = "<group>"; };
+		938E8A3D26B53C0900BC173D /* SuccessView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SuccessView.xib; sourceTree = "<group>"; };
 		9394B22726AF09990051224A /* ListiConCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListiConCell.swift; sourceTree = "<group>"; };
 		9394B22826AF09990051224A /* ListiConCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ListiConCell.xib; sourceTree = "<group>"; };
 		9394B22C26AF109C0051224A /* listColor.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = listColor.json; sourceTree = "<group>"; };
@@ -520,6 +524,15 @@
 				9381C89326B3029200D84CE5 /* ListAnimationCell.xib */,
 			);
 			path = Cell;
+			sourceTree = "<group>";
+		};
+		938E8A3A26B53BE300BC173D /* Success */ = {
+			isa = PBXGroup;
+			children = (
+				938E8A3B26B53BFD00BC173D /* SuccessView.swift */,
+				938E8A3D26B53C0900BC173D /* SuccessView.xib */,
+			);
+			path = Success;
 			sourceTree = "<group>";
 		};
 		9394B22626AF097A0051224A /* Cell */ = {
@@ -960,6 +973,7 @@
 		93BDEE7126AB2452003942C1 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				938E8A3A26B53BE300BC173D /* Success */,
 				9363611D26AD1F3200FE6E4E /* HomeCellGeneric */,
 				93BDEE7226AB2452003942C1 /* ABVideoRangeSlider */,
 				93BDEE7F26AB2452003942C1 /* RangeSlider */,
@@ -1152,6 +1166,7 @@
 				93BC286B26B034CB00E754FA /* iphone8.mp4 in Resources */,
 				93A77E3726B1ADFD00BC2F31 /* 16EE1331-5A07-4C53-A2CB-D2C97581241E.mov in Resources */,
 				93BDED8926AB1C99003942C1 /* Assets.xcassets in Resources */,
+				938E8A3E26B53C0900BC173D /* SuccessView.xib in Resources */,
 				93BC28C526B060D900E754FA /* ListColorCell.xib in Resources */,
 				93B68B4D26B4606100EC4B64 /* HowToUseAnimationCell.xib in Resources */,
 				93BDEDE126AB23D1003942C1 /* GoogleSans-Medium.otf in Resources */,
@@ -1359,6 +1374,7 @@
 				93BDEE1526AB242E003942C1 /* UIStoryboardExtensions.swift in Sources */,
 				93BDEE2826AB242E003942C1 /* UIRefreshControlExtensions.swift in Sources */,
 				9363611526AD1BB300FE6E4E /* AnimationCell.swift in Sources */,
+				938E8A3C26B53BFD00BC173D /* SuccessView.swift in Sources */,
 				93BDEDD926AB23D1003942C1 /* BaseTabarViewController.swift in Sources */,
 				93BDEEA026AB2452003942C1 /* ABThumbnailsManager.swift in Sources */,
 				93BDEE6026AB243F003942C1 /* ViewExtension.swift in Sources */,
