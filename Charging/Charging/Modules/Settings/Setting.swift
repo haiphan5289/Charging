@@ -77,6 +77,14 @@ extension Setting {
             }.disposed(by: disposeBag)
         
         self.tableView.rx.itemSelected.bind(onNext: weakify({ (index, wSelf) in
+            let type = wSelf.datatSource[index.row]
+            
+            switch type {
+            case .animation:
+                let vc = HowToUserAnimation.createVC()
+                wSelf.navigationController?.pushViewController(vc, animated: true)
+            default: break
+            }
             
         })).disposed(by: disposeBag)
     }

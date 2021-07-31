@@ -56,6 +56,10 @@
 		93B68B3E26B445B200EC4B64 /* HeaderSetting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93B68B3D26B445B200EC4B64 /* HeaderSetting.swift */; };
 		93B68B4226B4514500EC4B64 /* SettingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93B68B4026B4514500EC4B64 /* SettingCell.swift */; };
 		93B68B4326B4514500EC4B64 /* SettingCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 93B68B4126B4514500EC4B64 /* SettingCell.xib */; };
+		93B68B4726B458D500EC4B64 /* HowToUserAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93B68B4526B458D500EC4B64 /* HowToUserAnimation.swift */; };
+		93B68B4826B458D500EC4B64 /* HowToUserAnimation.xib in Resources */ = {isa = PBXBuildFile; fileRef = 93B68B4626B458D500EC4B64 /* HowToUserAnimation.xib */; };
+		93B68B4C26B4606100EC4B64 /* HowToUseAnimationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93B68B4A26B4606100EC4B64 /* HowToUseAnimationCell.swift */; };
+		93B68B4D26B4606100EC4B64 /* HowToUseAnimationCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 93B68B4B26B4606100EC4B64 /* HowToUseAnimationCell.xib */; };
 		93B83B8026AC474100EF968F /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 93B83B7F26AC474000EF968F /* Localizable.strings */; };
 		93B83B8626AC4D2D00EF968F /* Assets-Gen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93B83B8526AC4D2D00EF968F /* Assets-Gen.swift */; };
 		93B83B8826AC4D5300EF968F /* Strings-Gen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93B83B8726AC4D5300EF968F /* Strings-Gen.swift */; };
@@ -244,6 +248,10 @@
 		93B68B3D26B445B200EC4B64 /* HeaderSetting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderSetting.swift; sourceTree = "<group>"; };
 		93B68B4026B4514500EC4B64 /* SettingCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingCell.swift; sourceTree = "<group>"; };
 		93B68B4126B4514500EC4B64 /* SettingCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SettingCell.xib; sourceTree = "<group>"; };
+		93B68B4526B458D500EC4B64 /* HowToUserAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HowToUserAnimation.swift; sourceTree = "<group>"; };
+		93B68B4626B458D500EC4B64 /* HowToUserAnimation.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HowToUserAnimation.xib; sourceTree = "<group>"; };
+		93B68B4A26B4606100EC4B64 /* HowToUseAnimationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HowToUseAnimationCell.swift; sourceTree = "<group>"; };
+		93B68B4B26B4606100EC4B64 /* HowToUseAnimationCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HowToUseAnimationCell.xib; sourceTree = "<group>"; };
 		93B83B7F26AC474000EF968F /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 		93B83B8326AC4B9D00EF968F /* swiftgen.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = swiftgen.yml; sourceTree = "<group>"; };
 		93B83B8526AC4D2D00EF968F /* Assets-Gen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Assets-Gen.swift"; sourceTree = "<group>"; };
@@ -634,6 +642,25 @@
 			path = Cell;
 			sourceTree = "<group>";
 		};
+		93B68B4426B458A700EC4B64 /* HowToUseAnimation */ = {
+			isa = PBXGroup;
+			children = (
+				93B68B4926B4603F00EC4B64 /* Cell */,
+				93B68B4526B458D500EC4B64 /* HowToUserAnimation.swift */,
+				93B68B4626B458D500EC4B64 /* HowToUserAnimation.xib */,
+			);
+			path = HowToUseAnimation;
+			sourceTree = "<group>";
+		};
+		93B68B4926B4603F00EC4B64 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				93B68B4A26B4606100EC4B64 /* HowToUseAnimationCell.swift */,
+				93B68B4B26B4606100EC4B64 /* HowToUseAnimationCell.xib */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
 		93B83B7E26AC46E100EF968F /* Resources */ = {
 			isa = PBXGroup;
 			children = (
@@ -771,6 +798,7 @@
 			children = (
 				93BC28B726B054FF00E754FA /* CheckXib */,
 				93BC28B226B0402400E754FA /* Check */,
+				93B68B4426B458A700EC4B64 /* HowToUseAnimation */,
 				93BDEEBB26AB2B24003942C1 /* Settings */,
 				93BC28BC26B05E1500E754FA /* ListColor */,
 				9344733E26ADB98A006A695D /* ListiCon */,
@@ -1125,6 +1153,7 @@
 				93A77E3726B1ADFD00BC2F31 /* 16EE1331-5A07-4C53-A2CB-D2C97581241E.mov in Resources */,
 				93BDED8926AB1C99003942C1 /* Assets.xcassets in Resources */,
 				93BC28C526B060D900E754FA /* ListColorCell.xib in Resources */,
+				93B68B4D26B4606100EC4B64 /* HowToUseAnimationCell.xib in Resources */,
 				93BDEDE126AB23D1003942C1 /* GoogleSans-Medium.otf in Resources */,
 				9363611A26AD1E8300FE6E4E /* ChargingView.xib in Resources */,
 				93B83B8026AC474100EF968F /* Localizable.strings in Resources */,
@@ -1161,6 +1190,7 @@
 				93A77E4D26B1AE1300BC2F31 /* 6BE2E98D-E704-4364-B93C-8DA79BD10301.mov in Resources */,
 				9363611626AD1BB300FE6E4E /* AnimationCell.xib in Resources */,
 				93BC28CA26B0765C00E754FA /* VideoEffect.mp4 in Resources */,
+				93B68B4826B458D500EC4B64 /* HowToUserAnimation.xib in Resources */,
 				93A77E4A26B1AE1300BC2F31 /* 1B2430F1-458A-4AD4-94F2-FFC4C305F126.mov in Resources */,
 				93A77E4726B1AE1300BC2F31 /* Super lightning Wallpaper Video O.mp4 in Resources */,
 				93BDED8726AB1C96003942C1 /* Main.storyboard in Resources */,
@@ -1284,11 +1314,13 @@
 				93BDED8426AB1C96003942C1 /* ViewController.swift in Sources */,
 				9381C88F26B2FB5B00D84CE5 /* ListAnimation.swift in Sources */,
 				93BDEE0A26AB242E003942C1 /* UITableViewExtensions.swift in Sources */,
+				93B68B4726B458D500EC4B64 /* HowToUserAnimation.swift in Sources */,
 				93BDEE6626AB243F003942C1 /* CodableExtension.swift in Sources */,
 				9381C89426B3029200D84CE5 /* ListAnimationCell.swift in Sources */,
 				93BDEDDA26AB23D1003942C1 /* Utils.swift in Sources */,
 				93BDEE2526AB242E003942C1 /* UIButtonExtensions.swift in Sources */,
 				93BDEE0926AB242E003942C1 /* UISearchBarExtensions.swift in Sources */,
+				93B68B4C26B4606100EC4B64 /* HowToUseAnimationCell.swift in Sources */,
 				9363612226AD208500FE6E4E /* AnimationModel.swift in Sources */,
 				93BDEE5F26AB243F003942C1 /* PropertyWapper.swift in Sources */,
 				93BDEE5726AB243F003942C1 /* UIColor+Extensions.swift in Sources */,
