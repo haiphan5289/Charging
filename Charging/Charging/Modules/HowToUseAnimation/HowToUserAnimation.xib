@@ -11,7 +11,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HowToUserAnimation" customModule="Charging" customModuleProvider="target">
             <connections>
-                <outlet property="btOpenShortcuts" destination="tX6-y1-sr0" id="qyA-Lz-25j"/>
+                <outlet property="btOpenShortcuts" destination="tX6-y1-sr0" id="9ky-fP-9EF"/>
                 <outlet property="collectionView" destination="NXj-pd-kjC" id="fMp-bJ-eeh"/>
                 <outlet property="pageControl" destination="V3a-xN-wCy" id="lPa-rr-VQ0"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>

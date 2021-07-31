@@ -101,6 +101,13 @@ extension HowToUserAnimation {
                 cell.lbTitle.attributedText = data.text
                 cell.imageAnimation.image = data.imageState
         }.disposed(by: disposeBag)
+        
+        self.btOpenShortcuts.rx.tap.bind { _ in
+//            (string: "shortcuts://x-callback-url/run-shortcut?name=Airplane&x-success=shortcutsdemo://")
+            if let url = URL(string: "shortcuts://") {
+                UIApplication.shared.open(url, options: [:], completionHandler: nil)
+            }
+        }.disposed(by: disposeBag)
     }
     
 }
