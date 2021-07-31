@@ -20,7 +20,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let winScene = (scene as? UIWindowScene) else { return }
         self.window = UIWindow(windowScene: winScene)
 //        let vc = BaseTabbarViewController()
-        let vc = BaseTabbarViewController()
+//        let vc = BaseTabbarViewController()
+        let vc = IntroduceAppVC.createVC()
         
         let navi: UINavigationController = UINavigationController(rootViewController: vc)
         window?.rootViewController = navi

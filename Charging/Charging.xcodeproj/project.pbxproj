@@ -36,6 +36,10 @@
 		9381C89526B3029200D84CE5 /* ListAnimationCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9381C89326B3029200D84CE5 /* ListAnimationCell.xib */; };
 		938E8A3C26B53BFD00BC173D /* SuccessView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 938E8A3B26B53BFD00BC173D /* SuccessView.swift */; };
 		938E8A3E26B53C0900BC173D /* SuccessView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 938E8A3D26B53C0900BC173D /* SuccessView.xib */; };
+		938E8A4226B546E100BC173D /* IntroduceAppVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 938E8A4026B546E100BC173D /* IntroduceAppVC.swift */; };
+		938E8A4326B546E100BC173D /* IntroduceAppVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 938E8A4126B546E100BC173D /* IntroduceAppVC.xib */; };
+		938E8A4726B5536700BC173D /* AmazingView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 938E8A4626B5536700BC173D /* AmazingView.xib */; };
+		938E8A4926B5538800BC173D /* AmazingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 938E8A4826B5538800BC173D /* AmazingView.swift */; };
 		9394B22926AF09990051224A /* ListiConCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9394B22726AF09990051224A /* ListiConCell.swift */; };
 		9394B22A26AF09990051224A /* ListiConCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9394B22826AF09990051224A /* ListiConCell.xib */; };
 		9394B22D26AF109C0051224A /* listColor.json in Resources */ = {isa = PBXBuildFile; fileRef = 9394B22C26AF109C0051224A /* listColor.json */; };
@@ -230,6 +234,10 @@
 		9381C89326B3029200D84CE5 /* ListAnimationCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ListAnimationCell.xib; sourceTree = "<group>"; };
 		938E8A3B26B53BFD00BC173D /* SuccessView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuccessView.swift; sourceTree = "<group>"; };
 		938E8A3D26B53C0900BC173D /* SuccessView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SuccessView.xib; sourceTree = "<group>"; };
+		938E8A4026B546E100BC173D /* IntroduceAppVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroduceAppVC.swift; sourceTree = "<group>"; };
+		938E8A4126B546E100BC173D /* IntroduceAppVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = IntroduceAppVC.xib; sourceTree = "<group>"; };
+		938E8A4626B5536700BC173D /* AmazingView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AmazingView.xib; sourceTree = "<group>"; };
+		938E8A4826B5538800BC173D /* AmazingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AmazingView.swift; sourceTree = "<group>"; };
 		9394B22726AF09990051224A /* ListiConCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListiConCell.swift; sourceTree = "<group>"; };
 		9394B22826AF09990051224A /* ListiConCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ListiConCell.xib; sourceTree = "<group>"; };
 		9394B22C26AF109C0051224A /* listColor.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = listColor.json; sourceTree = "<group>"; };
@@ -535,6 +543,33 @@
 			path = Success;
 			sourceTree = "<group>";
 		};
+		938E8A3F26B546AE00BC173D /* IntroduceApp */ = {
+			isa = PBXGroup;
+			children = (
+				938E8A4426B5534200BC173D /* Views */,
+				938E8A4026B546E100BC173D /* IntroduceAppVC.swift */,
+				938E8A4126B546E100BC173D /* IntroduceAppVC.xib */,
+			);
+			path = IntroduceApp;
+			sourceTree = "<group>";
+		};
+		938E8A4426B5534200BC173D /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				938E8A4526B5534F00BC173D /* AmazingView */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		938E8A4526B5534F00BC173D /* AmazingView */ = {
+			isa = PBXGroup;
+			children = (
+				938E8A4626B5536700BC173D /* AmazingView.xib */,
+				938E8A4826B5538800BC173D /* AmazingView.swift */,
+			);
+			path = AmazingView;
+			sourceTree = "<group>";
+		};
 		9394B22626AF097A0051224A /* Cell */ = {
 			isa = PBXGroup;
 			children = (
@@ -809,6 +844,7 @@
 		93BDED9326AB1F85003942C1 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				938E8A3F26B546AE00BC173D /* IntroduceApp */,
 				93BC28B726B054FF00E754FA /* CheckXib */,
 				93BC28B226B0402400E754FA /* Check */,
 				93B68B4426B458A700EC4B64 /* HowToUseAnimation */,
@@ -1177,6 +1213,7 @@
 				93BDEE9626AB2452003942C1 /* StartIndicator.png in Resources */,
 				9344733D26ADB2A0006A695D /* FontsFree-Net-SFProText-Medium.ttf in Resources */,
 				93A77E4C26B1AE1300BC2F31 /* 576D4BAC-196C-4EE8-A0D2-F76D23EA257F.mov in Resources */,
+				938E8A4326B546E100BC173D /* IntroduceAppVC.xib in Resources */,
 				93BDEE9A26AB2452003942C1 /* README.md in Resources */,
 				93BC28BB26B0551400E754FA /* CheckXib.xib in Resources */,
 				93A77E2F26B19D3700BC2F31 /* iphoneX.mp4 in Resources */,
@@ -1211,6 +1248,7 @@
 				93BDED8726AB1C96003942C1 /* Main.storyboard in Resources */,
 				93A77E5026B1AE1300BC2F31 /* 4CC2A45B-964E-4A2D-918B-2F51C92EE743.mov in Resources */,
 				9363612626AD512100FE6E4E /* FontsFree-Net-SFProText-Bold.ttf in Resources */,
+				938E8A4726B5536700BC173D /* AmazingView.xib in Resources */,
 				93A77E4E26B1AE1300BC2F31 /* 6E49793C-6ED2-4570-A948-98294B2F9EF2.mov in Resources */,
 				9363612526AD512100FE6E4E /* FontsFree-Net-SFProText-Regular.ttf in Resources */,
 				93BDEDDF26AB23D1003942C1 /* GoogleSans-Bold.otf in Resources */,
@@ -1364,6 +1402,7 @@
 				93BDEDD226AB23D1003942C1 /* BaseNavigationLargeTitle.swift in Sources */,
 				9363612926AD51DE00FE6E4E /* ManageFont.swift in Sources */,
 				93BDEE5026AB243F003942C1 /* UITapgesture+Extension.swift in Sources */,
+				938E8A4926B5538800BC173D /* AmazingView.swift in Sources */,
 				93BDEEB926AB2493003942C1 /* Request.swift in Sources */,
 				93BDEDD326AB23D1003942C1 /* BaseTableViewCell.swift in Sources */,
 				93BDEE1026AB242E003942C1 /* UIView+Extension.swift in Sources */,
@@ -1409,6 +1448,7 @@
 				93BDEDD726AB23D1003942C1 /* PopBaseViewController.swift in Sources */,
 				93BDEEA326AB2452003942C1 /* ABTimeView.swift in Sources */,
 				9344733B26ADA7E1006A695D /* HideNavigationController.swift in Sources */,
+				938E8A4226B546E100BC173D /* IntroduceAppVC.swift in Sources */,
 				93BDEE1A26AB242E003942C1 /* UIActivityExtensions.swift in Sources */,
 				93BDEE1826AB242E003942C1 /* ColorExtensions.swift in Sources */,
 				93BDEEA226AB2452003942C1 /* ABStartIndicator.swift in Sources */,

@@ -23,7 +23,7 @@
                                 <constraint firstAttribute="height" constant="30" id="DtQ-Zz-dmJ"/>
                             </constraints>
                         </imageView>
-                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_prenium_setting" translatesAutoresizingMaskIntoConstraints="NO" id="E7r-3x-AlY">
+                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_prenium_setting" translatesAutoresizingMaskIntoConstraints="NO" id="E7r-3x-AlY">
                             <rect key="frame" x="16" y="65" width="382" height="70"/>
                         </imageView>
                     </subviews>
@@ -52,7 +52,7 @@
         </view>
     </objects>
     <resources>
-        <image name="ic_prenium_setting" width="343" height="70"/>
+        <image name="ic_prenium_setting" width="418" height="70"/>
         <image name="ic_setting_setting" width="92" height="29"/>
     </resources>
 </document>

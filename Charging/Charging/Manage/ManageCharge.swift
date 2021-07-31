@@ -12,7 +12,7 @@ import MediaPlayer
 final class ChargeManage {
     
     enum AVPlayerfrom {
-        case animation, animationSelection
+        case animation, animationSelection, introduce
     }
     
     static var shared = ChargeManage()
@@ -34,6 +34,7 @@ final class ChargeManage {
     
     private var playerHome: AVPlayer?
     private var playerAnimationSelection: AVPlayer?
+    private var playerIntroduce: AVPlayer?
     private var avplayerfrom: AVPlayerfrom = .animation
     private let disposeBag = DisposeBag()
     private init() {
@@ -99,6 +100,10 @@ final class ChargeManage {
                     if let player = wSelf.playerAnimationSelection {
                         wSelf.playAgain(player: player)
                     }
+                case .introduce:
+                    if let player = wSelf.playerIntroduce {
+                        wSelf.playAgain(player: player)
+                    }
                 }
                 
             }.disposed(by: disposeBag)
@@ -113,6 +118,10 @@ final class ChargeManage {
                 if let player = self.playerAnimationSelection {
                     self.pauseAVPlayer(player: player)
                 }
+            case .introduce:
+                if let player = self.playerIntroduce {
+                    self.pauseAVPlayer(player: player)
+                }
             }
         }.disposed(by: disposeBag)
         
@@ -124,6 +133,10 @@ final class ChargeManage {
                 }
             case .animationSelection:
                 if let player = self.playerAnimationSelection {
+                    self.playAgain(player: player)
+                }
+            case .introduce:
+                if let player = self.playerIntroduce {
                     self.playAgain(player: player)
                 }
             }
@@ -154,12 +167,25 @@ final class ChargeManage {
     //                player.play()
     //            }
             }
+        case .introduce:
+            self.playerIntroduce = AVPlayer(url: url)
+            if let player = self.playerIntroduce {
+                let playerLayer = AVPlayerLayer(player: player)
+                playerLayer.frame = view.bounds
+                playerLayer.videoGravity = AVLayerVideoGravity.resize
+                view.layer.addSublayer(playerLayer)
+                
+                player.play()
+    //            DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+    //                player.play()
+    //            }
+            }
         default:
-    //        guard let path = Bundle.main.path(forResource: "\(link)", ofType:"mp4")else {
-    //            debugPrint("video.m4v not found")
-    //            return
-    //        }
-    //        let url = URL(fileURLWithPath: path)
+//            guard let path = Bundle.main.path(forResource: "\(link)", ofType:"mp4")else {
+//                debugPrint("video.m4v not found")
+//                return
+//            }
+//            let url = URL(fileURLWithPath: path)
     //        let player = AVPlayer(url: URL(fileURLWithPath: path))
     //        let player = AVPlayer(url: url)
             self.playerAnimationSelection = AVPlayer(url: url)
