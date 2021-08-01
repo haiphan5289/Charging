@@ -40,6 +40,8 @@
 		938E8A4326B546E100BC173D /* IntroduceAppVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 938E8A4126B546E100BC173D /* IntroduceAppVC.xib */; };
 		938E8A4726B5536700BC173D /* AmazingView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 938E8A4626B5536700BC173D /* AmazingView.xib */; };
 		938E8A4926B5538800BC173D /* AmazingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 938E8A4826B5538800BC173D /* AmazingView.swift */; };
+		938E8A4C26B5AEC100BC173D /* FullAccessView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 938E8A4B26B5AEC100BC173D /* FullAccessView.xib */; };
+		938E8A4E26B5AECF00BC173D /* FullAccessView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 938E8A4D26B5AECF00BC173D /* FullAccessView.swift */; };
 		9394B22926AF09990051224A /* ListiConCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9394B22726AF09990051224A /* ListiConCell.swift */; };
 		9394B22A26AF09990051224A /* ListiConCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9394B22826AF09990051224A /* ListiConCell.xib */; };
 		9394B22D26AF109C0051224A /* listColor.json in Resources */ = {isa = PBXBuildFile; fileRef = 9394B22C26AF109C0051224A /* listColor.json */; };
@@ -238,6 +240,8 @@
 		938E8A4126B546E100BC173D /* IntroduceAppVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = IntroduceAppVC.xib; sourceTree = "<group>"; };
 		938E8A4626B5536700BC173D /* AmazingView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AmazingView.xib; sourceTree = "<group>"; };
 		938E8A4826B5538800BC173D /* AmazingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AmazingView.swift; sourceTree = "<group>"; };
+		938E8A4B26B5AEC100BC173D /* FullAccessView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FullAccessView.xib; sourceTree = "<group>"; };
+		938E8A4D26B5AECF00BC173D /* FullAccessView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullAccessView.swift; sourceTree = "<group>"; };
 		9394B22726AF09990051224A /* ListiConCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListiConCell.swift; sourceTree = "<group>"; };
 		9394B22826AF09990051224A /* ListiConCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ListiConCell.xib; sourceTree = "<group>"; };
 		9394B22C26AF109C0051224A /* listColor.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = listColor.json; sourceTree = "<group>"; };
@@ -556,6 +560,7 @@
 		938E8A4426B5534200BC173D /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				938E8A4A26B5AEA600BC173D /* FullAccess */,
 				938E8A4526B5534F00BC173D /* AmazingView */,
 			);
 			path = Views;
@@ -568,6 +573,15 @@
 				938E8A4826B5538800BC173D /* AmazingView.swift */,
 			);
 			path = AmazingView;
+			sourceTree = "<group>";
+		};
+		938E8A4A26B5AEA600BC173D /* FullAccess */ = {
+			isa = PBXGroup;
+			children = (
+				938E8A4B26B5AEC100BC173D /* FullAccessView.xib */,
+				938E8A4D26B5AECF00BC173D /* FullAccessView.swift */,
+			);
+			path = FullAccess;
 			sourceTree = "<group>";
 		};
 		9394B22626AF097A0051224A /* Cell */ = {
@@ -1246,6 +1260,7 @@
 				93A77E4A26B1AE1300BC2F31 /* 1B2430F1-458A-4AD4-94F2-FFC4C305F126.mov in Resources */,
 				93A77E4726B1AE1300BC2F31 /* Super lightning Wallpaper Video O.mp4 in Resources */,
 				93BDED8726AB1C96003942C1 /* Main.storyboard in Resources */,
+				938E8A4C26B5AEC100BC173D /* FullAccessView.xib in Resources */,
 				93A77E5026B1AE1300BC2F31 /* 4CC2A45B-964E-4A2D-918B-2F51C92EE743.mov in Resources */,
 				9363612626AD512100FE6E4E /* FontsFree-Net-SFProText-Bold.ttf in Resources */,
 				938E8A4726B5536700BC173D /* AmazingView.xib in Resources */,
@@ -1392,6 +1407,7 @@
 				93BDEDD426AB23D1003942C1 /* BaseNavigationViewController.swift in Sources */,
 				93B83B8826AC4D5300EF968F /* Strings-Gen.swift in Sources */,
 				93BDEE5C26AB243F003942C1 /* UITextField_Extension.swift in Sources */,
+				938E8A4E26B5AECF00BC173D /* FullAccessView.swift in Sources */,
 				93BDEEB026AB246D003942C1 /* KeyboardInfo.swift in Sources */,
 				93B83B9126AC528C00EF968F /* UIFont+Extension.swift in Sources */,
 				93BDEE6226AB243F003942C1 /* Font+Extension.swift in Sources */,

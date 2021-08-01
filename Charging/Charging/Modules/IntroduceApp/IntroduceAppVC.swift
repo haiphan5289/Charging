@@ -18,6 +18,7 @@ class IntroduceAppVC: UIViewController {
     @IBOutlet weak var vAnimation: UIView!
     @IBOutlet weak var btContinue: UIButton!
     private let vAmazing: AmazingView = AmazingView.loadXib()
+    private let fullAccess: FullAccessView = FullAccessView.loadXib()
     
     @VariableReplay private var stateView: StateView = .amazing
     private let disposeBag = DisposeBag()
@@ -45,6 +46,14 @@ extension IntroduceAppVC {
             make.bottom.equalTo(self.btContinue.snp.top)
         }
         
+        self.fullAccess.isHidden = true
+        self.view.addSubview(self.fullAccess)
+        self.fullAccess.snp.makeConstraints { make in
+            make.left.right.equalToSuperview()
+            make.top.equalToSuperview()
+            make.bottom.equalTo(self.btContinue.snp.top)
+        }
+        
 
     }
     
@@ -62,8 +71,9 @@ extension IntroduceAppVC {
                 self.stateView = .choosen
                 self.vAmazing.moveView()
                 
-                
-            case .choosen: break
+            case .choosen:
+                self.vAmazing.isHidden = true
+                self.fullAccess.isHidden = false
             
             }
             
