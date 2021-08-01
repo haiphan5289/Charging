@@ -45,6 +45,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let vc = BaseTabbarViewController()
 //        let vc = AnimationSelection.createVC()
         vc.openfrom = .app
+        vc.autoMove()
         let navi: UINavigationController = UINavigationController(rootViewController: vc)
         window?.rootViewController = navi
         window?.makeKeyAndVisible()

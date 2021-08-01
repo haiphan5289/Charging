@@ -117,9 +117,13 @@ class BaseTabbarViewController: UITabBarController {
         UITabBar.appearance().barTintColor = Asset.midnight.color
     }
     
+    func autoMove() {
+        let animation = Animation(nibName: "Animation", bundle: nil)
+        animation.autoMove()
+    }
+    
     func setupTabbar() {
         let animation = Animation(nibName: "Animation", bundle: nil)
-        animation.autoMove(oepnfrom: self.openfrom)
         let setting = Setting.createVCfromStoryBoard()
 //        let nvLibraryVC = BaseNavigationController(rootViewController: libraryVC)
 //        let importedVC = ImportedVC.createVC()

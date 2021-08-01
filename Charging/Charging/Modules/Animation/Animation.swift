@@ -55,7 +55,7 @@ extension Animation {
         })).disposed(by: disposeBag)
     }
     
-    func autoMove(oepnfrom: BaseTabbarViewController.openfrom) {
+    func autoMove() {
         DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
             let vc = AnimationSelection.createVCfromStoryBoard()
             vc.openfrom = .app
