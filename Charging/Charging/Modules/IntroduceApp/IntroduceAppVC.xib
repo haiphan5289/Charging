@@ -10,8 +10,12 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="IntroduceAppVC" customModule="Charging" customModuleProvider="target">
             <connections>
+                <outlet property="bottomView" destination="c8v-i3-uzh" id="198-I9-nCL"/>
+                <outlet property="bottomViewStack" destination="l80-59-iX5" id="ueR-Qi-T5f"/>
                 <outlet property="btContinue" destination="MMH-NR-cPS" id="UJn-Sg-W5f"/>
+                <outlet property="btContinue2" destination="Obw-r8-pSJ" id="p4H-DV-BIl"/>
                 <outlet property="vAnimation" destination="q8b-0I-0YL" id="ush-bD-1pF"/>
+                <outlet property="vBottom" destination="X6T-1b-FMM" id="lkT-Zw-eG5"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -24,60 +28,79 @@
                     <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 </view>
-                <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="HGQ-Mo-bmD">
-                    <rect key="frame" x="44" y="838" width="326" height="24"/>
+                <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="X6T-1b-FMM">
+                    <rect key="frame" x="0.0" y="748" width="414" height="148"/>
                     <subviews>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HJb-hl-IN4">
-                            <rect key="frame" x="0.0" y="0.0" width="108.5" height="24"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="10"/>
-                            <state key="normal" title="TERM OF USER">
+                        <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="HGQ-Mo-bmD">
+                            <rect key="frame" x="44" y="90" width="326" height="24"/>
+                            <subviews>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HJb-hl-IN4">
+                                    <rect key="frame" x="0.0" y="0.0" width="108.5" height="24"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                    <state key="normal" title="TERM OF USER">
+                                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </state>
+                                </button>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zEU-dR-wGM">
+                                    <rect key="frame" x="108.5" y="0.0" width="109" height="24"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                    <state key="normal" title="RESTORE">
+                                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </state>
+                                </button>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="49E-KH-Gpv">
+                                    <rect key="frame" x="217.5" y="0.0" width="108.5" height="24"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                    <state key="normal" title="PRIVACY">
+                                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </state>
+                                </button>
+                            </subviews>
+                        </stackView>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MMH-NR-cPS">
+                            <rect key="frame" x="44" y="0.0" width="326" height="52"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="52" id="nvK-lz-nhx"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                            <state key="normal" title="Continue">
                                 <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </state>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                    <real key="value" value="20"/>
+                                </userDefinedRuntimeAttribute>
+                            </userDefinedRuntimeAttributes>
                         </button>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zEU-dR-wGM">
-                            <rect key="frame" x="108.5" y="0.0" width="109" height="24"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="10"/>
-                            <state key="normal" title="RESTORE">
-                                <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            </state>
-                        </button>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="49E-KH-Gpv">
-                            <rect key="frame" x="217.5" y="0.0" width="108.5" height="24"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="10"/>
-                            <state key="normal" title="PRIVACY">
-                                <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            </state>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Obw-r8-pSJ">
+                            <rect key="frame" x="44" y="0.0" width="326" height="52"/>
                         </button>
                     </subviews>
-                </stackView>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MMH-NR-cPS">
-                    <rect key="frame" x="43" y="748" width="328" height="52"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="52" id="nvK-lz-nhx"/>
+                        <constraint firstItem="MMH-NR-cPS" firstAttribute="top" secondItem="X6T-1b-FMM" secondAttribute="top" id="08R-jd-lgP"/>
+                        <constraint firstItem="MMH-NR-cPS" firstAttribute="top" secondItem="Obw-r8-pSJ" secondAttribute="top" id="2fH-pD-eg3"/>
+                        <constraint firstItem="MMH-NR-cPS" firstAttribute="bottom" secondItem="Obw-r8-pSJ" secondAttribute="bottom" id="GGf-PZ-doN"/>
+                        <constraint firstItem="MMH-NR-cPS" firstAttribute="trailing" secondItem="HGQ-Mo-bmD" secondAttribute="trailing" id="ILl-U8-WGA"/>
+                        <constraint firstItem="MMH-NR-cPS" firstAttribute="leading" secondItem="Obw-r8-pSJ" secondAttribute="leading" id="Tjh-Hz-adY"/>
+                        <constraint firstItem="HGQ-Mo-bmD" firstAttribute="leading" secondItem="X6T-1b-FMM" secondAttribute="leading" constant="44" id="Tw9-AP-Tji"/>
+                        <constraint firstItem="HGQ-Mo-bmD" firstAttribute="top" secondItem="MMH-NR-cPS" secondAttribute="bottom" constant="38" id="XJ9-VR-ysK"/>
+                        <constraint firstItem="MMH-NR-cPS" firstAttribute="leading" secondItem="HGQ-Mo-bmD" secondAttribute="leading" id="auf-CY-4cK"/>
+                        <constraint firstAttribute="bottom" secondItem="HGQ-Mo-bmD" secondAttribute="bottom" constant="34" id="c8v-i3-uzh"/>
+                        <constraint firstItem="MMH-NR-cPS" firstAttribute="trailing" secondItem="Obw-r8-pSJ" secondAttribute="trailing" id="lNv-Cl-gP2"/>
+                        <constraint firstAttribute="trailing" secondItem="HGQ-Mo-bmD" secondAttribute="trailing" constant="44" id="ofd-I5-BbU"/>
                     </constraints>
-                    <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
-                    <state key="normal" title="Continue">
-                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                    </state>
-                    <userDefinedRuntimeAttributes>
-                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                            <real key="value" value="20"/>
-                        </userDefinedRuntimeAttribute>
-                    </userDefinedRuntimeAttributes>
-                </button>
+                </view>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
-                <constraint firstItem="MMH-NR-cPS" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="43" id="40w-qn-3vG"/>
                 <constraint firstItem="q8b-0I-0YL" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="HH7-59-M3P"/>
-                <constraint firstItem="HGQ-Mo-bmD" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="44" id="WRr-2K-Jjz"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="q8b-0I-0YL" secondAttribute="trailing" id="aPh-FQ-Tpe"/>
                 <constraint firstItem="q8b-0I-0YL" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="d2M-Sd-Eie"/>
-                <constraint firstItem="HGQ-Mo-bmD" firstAttribute="top" secondItem="MMH-NR-cPS" secondAttribute="bottom" constant="38" id="f5U-lK-Ifq"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="HGQ-Mo-bmD" secondAttribute="trailing" constant="44" id="gOa-V3-GD8"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="MMH-NR-cPS" secondAttribute="trailing" constant="43" id="mOo-0V-fHV"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="HGQ-Mo-bmD" secondAttribute="bottom" id="njY-Md-pxQ"/>
+                <constraint firstItem="X6T-1b-FMM" firstAttribute="bottom" secondItem="i5M-Pr-FkT" secondAttribute="bottom" id="l80-59-iX5"/>
+                <constraint firstItem="X6T-1b-FMM" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="r1c-xU-3wh"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="X6T-1b-FMM" secondAttribute="trailing" id="siJ-Yb-RrV"/>
                 <constraint firstAttribute="bottom" secondItem="q8b-0I-0YL" secondAttribute="bottom" id="vkp-a7-qLL"/>
             </constraints>
             <point key="canvasLocation" x="139" y="82"/>

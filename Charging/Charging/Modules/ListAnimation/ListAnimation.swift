@@ -12,10 +12,11 @@ import RxSwift
 class ListAnimation: BaseNavigationViewController {
     
     struct Constant {
-        static let widthCell: CGFloat = 71
-        static let heightCell: CGFloat = 158
+        static let widthCell: CGFloat = 107
+        static let heightCell: CGFloat = 190
         static let spaceSection: CGFloat = 8
-        static let sizeCell: CGSize = CGSize(width: 71, height: 156)
+        static let sizeCell = CGSize(width: 107, height: 190)
+        static let resizeImage = CGSize(width: 214, height: 380)
     }
 
     @IBOutlet weak var collectionView: UICollectionView!
@@ -47,7 +48,7 @@ extension ListAnimation {
             .bind(to: self.collectionView.rx.items(cellIdentifier: ListAnimationCell.identifier, cellType: ListAnimationCell.self)) { row, data, cell in
                 guard let name = data.text else { return }
               
-                if let url = name.getURLLocal(extensionMovie: .mov), let thumbnail = url.getThumbnailImage() {
+                if let url = name.getURLLocal(extensionMovie: .mov), let thumbnail = url.getThumbnailImage()?.resizeImage(Constant.resizeImage) {
                     cell.imgCell.image = thumbnail
                 } else {
                     cell.imgCell.image = UIIMAGE_DEFAULT
@@ -63,7 +64,7 @@ extension ListAnimation: UICollectionViewDelegate, UICollectionViewDelegateFlowL
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
-        return 30
+        return spaceLine
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {

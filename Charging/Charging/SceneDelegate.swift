@@ -18,7 +18,18 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
         guard let _ = (scene as? UIWindowScene) else { return }
         guard let winScene = (scene as? UIWindowScene) else { return }
-        self.window = UIWindow(windowScene: winScene)
+        
+        switch ChargeManage.shared.batteryState {
+        case .charging, .full:
+            self.setupFlowShortcutsApp(winScene: winScene)
+        default:
+            self.setupFlowApp(winScene: winScene)
+        }
+        
+    }
+    
+    func setupFlowApp(winScene: UIWindowScene) {
+        window = UIWindow(windowScene: winScene)
 //        let vc = BaseTabbarViewController()
 //        let vc = BaseTabbarViewController()
         let vc = IntroduceAppVC.createVC()
@@ -27,6 +38,18 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window?.rootViewController = navi
         window?.makeKeyAndVisible()
     }
+    
+    func setupFlowShortcutsApp(winScene: UIWindowScene) {
+        window = UIWindow(windowScene: winScene)
+//        let vc = BaseTabbarViewController()
+//        let vc = BaseTabbarViewController()
+        let vc = BaseTabbarViewController()
+        
+        let navi: UINavigationController = UINavigationController(rootViewController: vc)
+        window?.rootViewController = navi
+        window?.makeKeyAndVisible()
+    }
+    
     func sceneDidDisconnect(_ scene: UIScene) {
         // Called as the scene is being released by the system.
         // This occurs shortly after the scene enters the background, or when its session is discarded.

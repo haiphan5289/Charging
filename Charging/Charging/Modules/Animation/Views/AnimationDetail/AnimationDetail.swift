@@ -19,7 +19,8 @@ class AnimationDetail: UIView, UpdateDisplayProtocol, DisplayStaticHeightProtoco
         static let heightCell: CGFloat = 190
         static let widthCell: CGFloat = 107
         static let heightImageSelection: CGFloat = 156
-        static let sizeCell = CGSize(width: 71, height: 156)
+        static let sizeCell = CGSize(width: 131, height: 190)
+        static let resizeImage = CGSize(width: 262, height: 380)
         static let spaceCell: CGFloat = 10
     }
     
@@ -80,13 +81,11 @@ extension AnimationDetail {
                     cell.imgSelection.isHidden = true
                 }
                 
-                if let url = name.getURLLocal(extensionMovie: .mov), let thumbnail = url.getThumbnailImage()?.resizeImage(Constant.sizeCell) {
+                if let url = name.getURLLocal(extensionMovie: .mov), let thumbnail = url.getThumbnailImage()?.resizeImage(Constant.resizeImage) {
                     cell.imgAnimation.image = thumbnail
                 } else {
                     cell.imgAnimation.image = UIIMAGE_DEFAULT
                 }
-                
-                cell.imgSelection.image = Asset.icSelectionHome.image.resizeImage(Constant.sizeCell) 
                 
         }.disposed(by: disposeBag)
         

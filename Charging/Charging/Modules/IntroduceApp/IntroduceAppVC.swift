@@ -12,11 +12,15 @@ import RxSwift
 class IntroduceAppVC: UIViewController {
 
     enum StateView {
-        case amazing, choosen
+        case amazing, choosen, fullAccess
     }
     
     @IBOutlet weak var vAnimation: UIView!
     @IBOutlet weak var btContinue: UIButton!
+    @IBOutlet weak var btContinue2: UIButton!
+    @IBOutlet weak var vBottom: UIView!
+    @IBOutlet weak var bottomViewStack: NSLayoutConstraint!
+    @IBOutlet weak var bottomView: NSLayoutConstraint!
     private let vAmazing: AmazingView = AmazingView.loadXib()
     private let fullAccess: FullAccessView = FullAccessView.loadXib()
     
@@ -54,16 +58,16 @@ extension IntroduceAppVC {
             make.bottom.equalTo(self.btContinue.snp.top)
         }
         
-
+        self.bottomView.constant = self.view.safeAreaBottom
     }
     
     private func setupRX() {
         Observable<Int>.interval(.seconds(1), scheduler: MainScheduler.asyncInstance)
             .bind(onNext: weakify({ (_, wSelf) in
-//                wSelf.animationButton()
+                wSelf.animationButton()
             })).disposed(by: disposeBag)
         
-        self.btContinue.rx.tap.bind { _ in
+        self.btContinue2.rx.tap.bind { _ in
             
             switch self.stateView {
             
@@ -72,12 +76,20 @@ extension IntroduceAppVC {
                 self.vAmazing.moveView()
                 
             case .choosen:
+                self.stateView = .fullAccess
                 self.vAmazing.isHidden = true
                 self.fullAccess.isHidden = false
-            
+                
+            case .fullAccess:
+                let vc = BaseTabbarViewController()
+                self.navigationController?.pushViewController(vc, animated: true)
             }
             
         }.disposed(by: disposeBag)
+        
+        self.fullAccess.$status.bind(onNext: weakify({ stt, wSelf in
+            wSelf.vBottom.backgroundColor = (stt == .hide) ? UIColor.clear : Asset._0D043A.color
+        })).disposed(by: disposeBag)
     }
     
     private func animationButton() {

@@ -13,6 +13,10 @@ class FullAccessView: UIView {
     enum StatusView {
         case show, hide
     }
+    
+    enum Prenium: Int, CaseIterable {
+        case week, month, year
+    }
 
     @IBOutlet weak var btShowOptions: UIButton!
     @IBOutlet weak var stackWeek: UIStackView!
@@ -20,8 +24,11 @@ class FullAccessView: UIView {
     @IBOutlet weak var stackViewPrenium: UIStackView!
     @IBOutlet weak var imageDropdown: UIImageView!
     @IBOutlet weak var lbMore: UILabel!
+    @IBOutlet var bts: [UIButton]!
+    @IBOutlet var views: [UIView]!
     
-    @VariableReplay private var status: StatusView = .hide
+    @VariableReplay private var statePrenium: Prenium = .week
+    @VariableReplay var status: StatusView = .hide
     private let disposeBag = DisposeBag()
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -59,15 +66,33 @@ extension FullAccessView {
         
         
         self.$status.asObservable().bind { stt in
-            
             switch stt {
             case .show:
                 self.show()
+                self.backgroundColor = Asset._0D043A.color
             case .hide:
                 self.hide()
+                self.backgroundColor = UIColor.clear
+            }
+        }.disposed(by: disposeBag)
+        
+        self.$statePrenium.asObservable().bind { state in
+            
+            self.views.enumerated().forEach { item in
+                item.element.layer.borderColor = (item.offset == state.rawValue) ? UIColor.white.cgColor : UIColor.clear.cgColor
+                item.element.backgroundColor = (item.offset == state.rawValue) ? UIColor.clear : Asset._3B3070.color
             }
             
         }.disposed(by: disposeBag)
+        
+        Prenium.allCases.forEach { type in
+            let bt = self.bts[type.rawValue]
+            
+            bt.rx.tap.bind { _ in
+                self.statePrenium = type
+            }.disposed(by: disposeBag)
+            
+        }
         
     }
     
