@@ -16,10 +16,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         
-        self.setupFlowApp()
         UIFont.overrideInitialize()
         
         ChargeManage.shared.start()
+        
+        switch ChargeManage.shared.batteryState {
+        case .charging, .full:
+            self.setupFlowShortcutsApp()
+        default:
+            self.setupFlowApp()
+        }
         
         return true
     }
@@ -38,9 +44,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func setupFlowShortcutsApp() {
         window = UIWindow.init(frame: UIScreen.main.bounds)
 //        let vc = BaseTabbarViewController()
-//        let vc = BaseTabbarViewController()
         let vc = BaseTabbarViewController()
-        
+//        let vc = AnimationSelection.createVC()
+        vc.openfrom = .app
         let navi: UINavigationController = UINavigationController(rootViewController: vc)
         window?.rootViewController = navi
         window?.makeKeyAndVisible()

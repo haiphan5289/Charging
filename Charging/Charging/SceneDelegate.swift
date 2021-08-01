@@ -42,9 +42,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     func setupFlowShortcutsApp(winScene: UIWindowScene) {
         window = UIWindow(windowScene: winScene)
 //        let vc = BaseTabbarViewController()
-//        let vc = BaseTabbarViewController()
         let vc = BaseTabbarViewController()
-        
+//        let vc = AnimationSelection.createVC()
+        vc.openfrom = .app
         let navi: UINavigationController = UINavigationController(rootViewController: vc)
         window?.rootViewController = navi
         window?.makeKeyAndVisible()

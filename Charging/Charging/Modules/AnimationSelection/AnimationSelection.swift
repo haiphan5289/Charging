@@ -20,6 +20,8 @@ class AnimationSelection: HideNavigationController {
         case icon, color, sound
     }
     
+    var openfrom: BaseTabbarViewController.openfrom = .home
+    
 //    var moviePlayer:AVContro!
     var chargingAnimationModel: ChargingAnimationModel?
     var animationIconModel: IconModel?
@@ -76,11 +78,19 @@ extension AnimationSelection {
         
         self.btSetAnimation.applyGradient(withColours: [Asset._0090Ff.color, Asset._00D3Ff.color], gradientOrientation: .horizontal)
         
+        if self.openfrom == .app {
+            if let t = ChargeManage.shared.animationModel.text, let url = t.getURLLocal(extensionMovie: .mov) {
+                ChargeManage.shared.playAnimation(view: self.viewAnimation, url: url, avplayerfrom: .animationSelection)
+            }
+        }
+        
+        
     }
     
     private func setupRX() {
         
         ChargeManage.shared.$eventBatteryLevel.bind(onNext: weakify({ value, wSelf in
+            print("===== value \(value)")
             wSelf.lbBattery.text = value?.batterCharging
         })).disposed(by: disposeBag)
         
@@ -139,6 +149,7 @@ extension AnimationSelection {
         })).disposed(by: disposeBag)
         
         self.btBack.rx.tap.bind { _ in
+            
             self.navigationController?.popViewController(animated: true, nil)
         }.disposed(by: disposeBag)
         

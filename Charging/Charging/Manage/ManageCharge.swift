@@ -55,6 +55,7 @@ final class ChargeManage {
             .notification(Notification.Name(rawValue: UIDevice.batteryLevelDidChangeNotification.rawValue))
             .bind { notify in
                 self.eventBatteryLevel = self.batteryLevel
+                print("==== batteryLevel \(UIDevice.current.batteryLevel) ")
             }.disposed(by: disposeBag)
         
         

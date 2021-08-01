@@ -51,6 +51,12 @@ enum TypeTabbar: Int, CaseIterable {
 
 class BaseTabbarViewController: UITabBarController {
     
+    enum openfrom {
+        case home, app
+    }
+    
+    var openfrom: openfrom = .home
+    
     private let disposeBag = DisposeBag()
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -113,6 +119,7 @@ class BaseTabbarViewController: UITabBarController {
     
     func setupTabbar() {
         let animation = Animation(nibName: "Animation", bundle: nil)
+        animation.autoMove(oepnfrom: self.openfrom)
         let setting = Setting.createVCfromStoryBoard()
 //        let nvLibraryVC = BaseNavigationController(rootViewController: libraryVC)
 //        let importedVC = ImportedVC.createVC()

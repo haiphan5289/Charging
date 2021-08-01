@@ -55,6 +55,13 @@ extension Animation {
         })).disposed(by: disposeBag)
     }
     
+    func autoMove(oepnfrom: BaseTabbarViewController.openfrom) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+            let vc = AnimationSelection.createVCfromStoryBoard()
+            vc.openfrom = .app
+            self.navigationController?.pushViewController(vc, animated: true)
+        }
+    }
 
  }
 extension Animation: UITableViewDataSource {
