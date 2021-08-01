@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Intents
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -19,6 +20,29 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UIFont.overrideInitialize()
         
         ChargeManage.shared.start()
+//
+//        if let shortcutItem = launchOptions?[UIApplication.LaunchOptionsKey.shortcutItem] as? UIApplicationShortcutItem {
+//            if shortcutItem.type == "com.yoursite.yourapp.adduser" {
+//                // shortcut was triggered!
+//
+//            }
+//        }
+//
+//        let icon = UIApplicationShortcutIcon(type: .add)
+//        let item = UIApplicationShortcutItem(type: "com.yoursite.yourapp.adduser", localizedTitle: "Add User", localizedSubtitle: "Meet someone new", icon: icon, userInfo: nil)
+//        UIApplication.shared.shortcutItems = [item]
+//
+//        // Add a user activity to the list of suggestions.
+//        var suggestions = [INShortcut(userActivity: orderFavoriteBeverageUserActivity)]
+//
+//        // Add an intent to the list of suggestions. To create
+//        // a shortcut from an intent, the intent must be valid.
+//        if let shortcut = INShortcut(intent: orderSoupOfTheDayIntent) {
+//            suggestions.append(shortcut)
+//        }
+//
+//        // Suggest the shortcuts.
+//        INVoiceShortcutCenter.shared.setShortcutSuggestions(suggestions)
         
         return true
     }
