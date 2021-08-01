@@ -192,7 +192,7 @@ final class ChargeManage {
             self.playerAnimationSelection = AVPlayer(url: url)
             if let player = self.playerAnimationSelection {
                 let playerLayer = AVPlayerLayer(player: player)
-                playerLayer.frame = view.bounds
+                playerLayer.frame = UIScreen.main.bounds
                 playerLayer.videoGravity = AVLayerVideoGravity.resize
                 view.layer.addSublayer(playerLayer)
                 
