@@ -77,13 +77,7 @@ extension AnimationSelection {
 //        self.view.applyGradient(colours: [.yellow, .blue, .red], locations: [0.0, 0.5, 1.0])
         
         self.btSetAnimation.applyGradient(withColours: [Asset._0090Ff.color, Asset._00D3Ff.color], gradientOrientation: .horizontal)
-        
-        if self.openfrom == .app {
-            if let t = ChargeManage.shared.animationModel.text, let url = t.getURLLocal(extensionMovie: .mov) {
-                ChargeManage.shared.playAnimation(view: self.viewAnimation, url: url, avplayerfrom: .animationSelection)
-            }
-        }
-        
+
         
     }
     
@@ -149,8 +143,13 @@ extension AnimationSelection {
         })).disposed(by: disposeBag)
         
         self.btBack.rx.tap.bind { _ in
+            switch self.openfrom {
+            case .app:
+                let vc = BaseTabbarViewController()
+                self.navigationController?.pushViewController(vc, animated: true)
+            default: self.navigationController?.popViewController(animated: true, nil)
+            }
             
-            self.navigationController?.popViewController(animated: true, nil)
         }.disposed(by: disposeBag)
         
         self.btSetAnimation.rx.tap.bind { _ in
