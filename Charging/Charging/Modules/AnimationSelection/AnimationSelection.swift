@@ -24,7 +24,7 @@ class AnimationSelection: HideNavigationController {
     
 //    var moviePlayer:AVContro!
     var chargingAnimationModel: ChargingAnimationModel?
-    var animationIconModel: IconModel?
+    var animationIconModel: Video?
 
     @IBOutlet weak var lbBattery: UILabel!
     @IBOutlet weak var btBack: UIButton!
@@ -68,9 +68,13 @@ extension AnimationSelection {
         self.vButtons.layer.cornerRadius = 7
         self.vButtons.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
         
-        if let c = self.animationIconModel, let t = c.text, let url = t.getURLLocal(extensionMovie: .mov) {
+        if let c = self.animationIconModel, let t = c.filename, let url = URL(string: t) {
             ChargeManage.shared.playAnimation(view: self.viewAnimation, url: url, avplayerfrom: .animationSelection)
         }
+        
+//        if let c = self.animationIconModel, let t = c.filename, let url = t.getURLLocal(extensionMovie: .mov) {
+//            ChargeManage.shared.playAnimation(view: self.viewAnimation, url: url, avplayerfrom: .animationSelection)
+//        }
         
 //        self.viewButtonSetAnimation.gradientHozorital(color: [Asset._0090Ff.color, Asset._00D3Ff.color])
 //        self.view.applyGradient(colours: [.yellow, .blue, .red], locations: [0.0, 0.5, 1.0])

@@ -29,7 +29,7 @@ class AnimationDetail: UIView, UpdateDisplayProtocol, DisplayStaticHeightProtoco
     static var bottom: CGFloat { return 0 }
     static var automaticHeight: Bool { return true }
     
-    var selectIconModel:((IconModel) -> Void)?
+    var selectIconModel:((Video) -> Void)?
     var actionSeeAll:(() -> Void)?
     
     var selectAnimation: IconModel?
@@ -81,7 +81,7 @@ extension AnimationDetail {
                 }
                 
                 // check cached image
-                if let t = data.image, let cachedImage = imageCache.object(forKey: t as NSString)  {
+                if let t = data.image, let cachedImage = ChargeManage.shared.imageCache.object(forKey: t as NSString)  {
                     let thumbnail = cachedImage.resizeImage(Constant.resizeImage)
                     cell.imgAnimation.image = thumbnail
                     return
@@ -92,7 +92,7 @@ extension AnimationDetail {
             
                         if let image = image, let t = data.image {
                             let thumbnail = image.resizeImage(Constant.resizeImage)
-                            imageCache.setObject(image, forKey: t as NSString)
+                            ChargeManage.shared.imageCache.setObject(image, forKey: t as NSString)
                             cell.imgAnimation.image = thumbnail
                         } else {
                             cell.imgAnimation.image = UIIMAGE_DEFAULT
@@ -117,7 +117,7 @@ extension AnimationDetail {
         self.collectionView.rx.itemSelected.bind { [weak self] idx in
             guard let wSelf = self else { return }
             let item = wSelf.listAnimation[idx.row]
-//            wSelf.selectIconModel?(item)
+            wSelf.selectIconModel?(item)
         }.disposed(by: disposeBag)
         
         self.btSeeAll.rx.tap.bind { _ in

@@ -49,7 +49,7 @@ extension ListAnimation {
             .bind(to: self.collectionView.rx.items(cellIdentifier: ListAnimationCell.identifier, cellType: ListAnimationCell.self)) { row, data, cell in
                 
                 // check cached image
-                if let t = data.image, let cachedImage = imageCache.object(forKey: t as NSString)  {
+                if let t = data.image, let cachedImage = ChargeManage.shared.imageCache.object(forKey: t as NSString)  {
                     let thumbnail = cachedImage.resizeImage(Constant.resizeImage)
                     cell.imgCell.image = thumbnail
                     return
@@ -61,7 +61,7 @@ extension ListAnimation {
                         
                         if let image = image, let t = data.image {
                             let thumbnail = image.resizeImage(Constant.resizeImage)
-                            imageCache.setObject(image, forKey: t as NSString)
+                            ChargeManage.shared.imageCache.setObject(image, forKey: t as NSString)
                             cell.imgCell.image = thumbnail
                         } else {
                             cell.imgCell.image = UIIMAGE_DEFAULT

@@ -9,7 +9,7 @@ import UIKit
 import RxSwift
 import RxCocoa
 
-let imageCache = NSCache<NSString, UIImage>()
+
 class Animation: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
@@ -113,15 +113,15 @@ extension Animation: UITableViewDataSource {
         
     }
     
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let vc = AnimationSelection.createVCfromStoryBoard()
-        
-        if let s = self.selectIconModel {
-            vc.animationIconModel = s
-        }
-        
-        self.navigationController?.pushViewController(vc, animated: true)
-    }
+//    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+//        let vc = AnimationSelection.createVCfromStoryBoard()
+//
+//        if let s = self.selectIconModel {
+//            vc.animationIconModel = s
+//        }
+//
+//        self.navigationController?.pushViewController(vc, animated: true)
+//    }
     
 }
 extension Animation: UITableViewDelegate {

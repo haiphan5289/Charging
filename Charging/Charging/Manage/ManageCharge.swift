@@ -25,6 +25,8 @@ final class ChargeManage {
         return UIDevice.current.batteryState
     }
     
+    let imageCache = NSCache<NSString, UIImage>()
+    
     @VariableReplay var eventBatteryLevel: Float?
     @VariableReplay var iconAnimation: IconModel = IconModel(text: "1")
     @VariableReplay var colorIndex: Int = ListColorVC.ColorCell.white.rawValue
@@ -33,10 +35,12 @@ final class ChargeManage {
     @VariableReplay var eventPlayAVPlayer: Void?
     @VariableReplay var listAnimation: [AnimationModel] = []
     
+    private let videoCache = NSCache<NSString, AVPlayer>()
     private var playerHome: AVPlayer?
     private var playerAnimationSelection: AVPlayer?
     private var playerIntroduce: AVPlayer?
     private var avplayerfrom: AVPlayerfrom = .animation
+    private var disposeScroll: Disposable?
     private let disposeBag = DisposeBag()
     private init() {
         
@@ -192,11 +196,23 @@ final class ChargeManage {
     //        let player = AVPlayer(url: url)
             self.playerAnimationSelection = AVPlayer(url: url)
             if let player = self.playerAnimationSelection {
+                
+                // check cached image
+                if let cachedVideo = ChargeManage.shared.videoCache.object(forKey: url.absoluteString as NSString)  {
+                    self.playerAnimationSelection = cachedVideo
+                    let playerLayer = AVPlayerLayer(player: cachedVideo)
+                    playerLayer.frame = UIScreen.main.bounds
+                    playerLayer.videoGravity = AVLayerVideoGravity.resize
+                    view.layer.addSublayer(playerLayer)
+                    cachedVideo.play()
+                    return
+                }
+                
                 let playerLayer = AVPlayerLayer(player: player)
                 playerLayer.frame = UIScreen.main.bounds
                 playerLayer.videoGravity = AVLayerVideoGravity.resize
                 view.layer.addSublayer(playerLayer)
-                
+                self.videoCache.setObject(player, forKey: url.absoluteString as NSString)
                 player.play()
     //            DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
     //                player.play()
@@ -204,6 +220,7 @@ final class ChargeManage {
             }
         }
     }
+
     
     private func setupData() {
         self.getIconModel()
