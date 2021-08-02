@@ -36,6 +36,11 @@ class IntroduceAppVC: UIViewController {
         super.viewWillAppear(animated)
         self.navigationController?.isNavigationBarHidden = true
     }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        ChargeManage.shared.eventPauseAVPlayer = ()
+    }
 }
 extension IntroduceAppVC {
     
@@ -115,7 +120,7 @@ extension IntroduceAppVC {
         let url = URL(fileURLWithPath: path)
         
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-            ChargeManage.shared.playAnimation(view: self.vAnimation, url: url, avplayerfrom: .animation)
+            ChargeManage.shared.playAnimation(view: self.vAnimation, url: url, avplayerfrom: .introduce)
         }
     }
     
