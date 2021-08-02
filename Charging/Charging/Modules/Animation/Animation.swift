@@ -9,6 +9,7 @@ import UIKit
 import RxSwift
 import RxCocoa
 
+let imageCache = NSCache<NSString, UIImage>()
 class Animation: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
@@ -73,7 +74,7 @@ extension Animation {
  }
 extension Animation: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.listAnimation.count
+        return self.listAnimation.count + 1
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
@@ -90,7 +91,7 @@ extension Animation: UITableViewDataSource {
                 fatalError("Please Implement")
             }
             cell.backgroundColor = .clear
-            let item = self.listAnimation[indexPath.row]
+            let item = self.listAnimation[indexPath.row - 1]
             cell.view.selectAnimation = self.selectIconModel
             cell.view.setupDisplay(item: item)
             cell.view.selectIconModel = { [weak self] v in
@@ -103,8 +104,8 @@ extension Animation: UITableViewDataSource {
             }
             cell.view.actionSeeAll = {
                 let vc = ListAnimation.createVC()
-//                let link = self.listAnimation[indexPath.row].link ?? []
-//                vc.listAnimation = link
+                let link = self.listAnimation[indexPath.row - 1].videos ?? []
+                vc.listAnimation = link
                 self.navigationController?.pushViewController(vc, animated: true)
             }
             return cell

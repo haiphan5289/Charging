@@ -70,8 +70,6 @@ extension AnimationDetail {
     private func setupRX() {
         self.$listAnimation.asObservable()
             .bind(to: self.collectionView.rx.items(cellIdentifier: AnimationDetailCell.identifier, cellType: AnimationDetailCell.self)) { row, data, cell in
-                guard let name = data.filename else { return }
-                
                 if let s = self.selectAnimation, let n1 = s.text, let n2 = data.filename {
                     if n1 == n2 {
                         cell.imgSelection.isHidden = false
@@ -82,11 +80,19 @@ extension AnimationDetail {
                     cell.imgSelection.isHidden = true
                 }
                 
+                // check cached image
+                if let t = data.image, let cachedImage = imageCache.object(forKey: t as NSString)  {
+                    let thumbnail = cachedImage.resizeImage(Constant.resizeImage)
+                    cell.imgAnimation.image = thumbnail
+                    return
+                }
+                
                 if let t = data.image, let url = URL(string: t) {
-                    
                     KingfisherManager.shared.retrieveImage(with: url, options: nil, progressBlock: nil, completionHandler: { image, error, cacheType, imageURL in
-                        
-                        if let thumbnail = image?.resizeImage(Constant.resizeImage) {
+            
+                        if let image = image, let t = data.image {
+                            let thumbnail = image.resizeImage(Constant.resizeImage)
+                            imageCache.setObject(image, forKey: t as NSString)
                             cell.imgAnimation.image = thumbnail
                         } else {
                             cell.imgAnimation.image = UIIMAGE_DEFAULT

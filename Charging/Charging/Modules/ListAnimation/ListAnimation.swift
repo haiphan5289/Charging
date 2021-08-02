@@ -8,6 +8,7 @@
 import UIKit
 import RxCocoa
 import RxSwift
+import Kingfisher
 
 class ListAnimation: BaseNavigationViewController {
     
@@ -20,7 +21,7 @@ class ListAnimation: BaseNavigationViewController {
     }
 
     @IBOutlet weak var collectionView: UICollectionView!
-    @VariableReplay var listAnimation: [IconModel] = []
+    @VariableReplay var listAnimation: [Video] = []
     private var spaceLine: CGFloat = 0
     private let disposeBag = DisposeBag()
     override func viewDidLoad() {
@@ -46,10 +47,27 @@ extension ListAnimation {
     private func setupRX() {
         self.$listAnimation.asObservable()
             .bind(to: self.collectionView.rx.items(cellIdentifier: ListAnimationCell.identifier, cellType: ListAnimationCell.self)) { row, data, cell in
-                guard let name = data.text else { return }
-              
-                if let url = name.getURLLocal(extensionMovie: .mov), let thumbnail = url.getThumbnailImage()?.resizeImage(Constant.resizeImage) {
+                
+                // check cached image
+                if let t = data.image, let cachedImage = imageCache.object(forKey: t as NSString)  {
+                    let thumbnail = cachedImage.resizeImage(Constant.resizeImage)
                     cell.imgCell.image = thumbnail
+                    return
+                }
+                
+                if let t = data.image, let url = URL(string: t) {
+                    
+                    KingfisherManager.shared.retrieveImage(with: url, options: nil, progressBlock: nil, completionHandler: { image, error, cacheType, imageURL in
+                        
+                        if let image = image, let t = data.image {
+                            let thumbnail = image.resizeImage(Constant.resizeImage)
+                            imageCache.setObject(image, forKey: t as NSString)
+                            cell.imgCell.image = thumbnail
+                        } else {
+                            cell.imgCell.image = UIIMAGE_DEFAULT
+                        }
+                        
+                    })
                 } else {
                     cell.imgCell.image = UIIMAGE_DEFAULT
                 }
