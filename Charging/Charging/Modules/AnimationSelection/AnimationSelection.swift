@@ -36,7 +36,6 @@ class AnimationSelection: HideNavigationController {
     @IBOutlet weak var viewAnimation: UIView!
     @IBOutlet weak var imageAnimation: UIImageView!
     @IBOutlet weak var btSetAnimation: UIButton!
-    @IBOutlet weak var viewButtonSetAnimation: UIView!
     private let viewSuccess: SuccessView = SuccessView.loadXib()
     
     @VariableReplay private var statusAction: StatusAction = .hide
@@ -84,7 +83,6 @@ extension AnimationSelection {
     private func setupRX() {
         
         ChargeManage.shared.$eventBatteryLevel.bind(onNext: weakify({ value, wSelf in
-            print("===== value \(value)")
             wSelf.lbBattery.text = value?.batterCharging
         })).disposed(by: disposeBag)
         

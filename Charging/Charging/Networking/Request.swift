@@ -308,17 +308,10 @@ struct RequestService {
                 .subscribe(onNext: { (msg) in
                     do {
                         if let jsonDic = msg.dictionaryObject {
-                            if msg["result"].boolValue {
-                                let data = try JSONSerialization.data(withJSONObject: jsonDic, options: .prettyPrinted)
-                                let objec = try JSONDecoder().decode(T.self, from: data)
-                                observe.onNext(.success(objec))
-                                observe.onCompleted()
-                            } else {
-                                let data = try JSONSerialization.data(withJSONObject: jsonDic, options: .prettyPrinted)
-                                let objec = try JSONDecoder().decode(ErrorService.self, from: data)
-                                observe.onNext(.failure(objec))
-                                observe.onCompleted()
-                            }
+                            let data = try JSONSerialization.data(withJSONObject: jsonDic, options: .prettyPrinted)
+                            let objec = try JSONDecoder().decode(T.self, from: data)
+                            observe.onNext(.success(objec))
+                            observe.onCompleted()
                         }
                     } catch let err {
                         print(err.localizedDescription)

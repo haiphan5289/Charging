@@ -61,6 +61,10 @@
 		93A77E4E26B1AE1300BC2F31 /* 6E49793C-6ED2-4570-A948-98294B2F9EF2.mov in Resources */ = {isa = PBXBuildFile; fileRef = 93A77E4326B1AE1200BC2F31 /* 6E49793C-6ED2-4570-A948-98294B2F9EF2.mov */; };
 		93A77E4F26B1AE1300BC2F31 /* 2AD2ABBD-DC0C-4614-97EE-987D1656EEB6.mov in Resources */ = {isa = PBXBuildFile; fileRef = 93A77E4526B1AE1300BC2F31 /* 2AD2ABBD-DC0C-4614-97EE-987D1656EEB6.mov */; };
 		93A77E5026B1AE1300BC2F31 /* 4CC2A45B-964E-4A2D-918B-2F51C92EE743.mov in Resources */ = {isa = PBXBuildFile; fileRef = 93A77E4626B1AE1300BC2F31 /* 4CC2A45B-964E-4A2D-918B-2F51C92EE743.mov */; };
+		93AA872E26B83A4E00691FEA /* DataLocal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93AA872A26B83A4D00691FEA /* DataLocal.swift */; };
+		93AA872F26B83A4E00691FEA /* ActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93AA872B26B83A4D00691FEA /* ActivityIndicator.swift */; };
+		93AA873026B83A4E00691FEA /* RuleEureka.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93AA872C26B83A4D00691FEA /* RuleEureka.swift */; };
+		93AA873126B83A4E00691FEA /* ListProductStream.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93AA872D26B83A4E00691FEA /* ListProductStream.swift */; };
 		93B68B3C26B4459B00EC4B64 /* HeaderSetting.xib in Resources */ = {isa = PBXBuildFile; fileRef = 93B68B3B26B4459B00EC4B64 /* HeaderSetting.xib */; };
 		93B68B3E26B445B200EC4B64 /* HeaderSetting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93B68B3D26B445B200EC4B64 /* HeaderSetting.swift */; };
 		93B68B4226B4514500EC4B64 /* SettingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93B68B4026B4514500EC4B64 /* SettingCell.swift */; };
@@ -262,6 +266,10 @@
 		93A77E4326B1AE1200BC2F31 /* 6E49793C-6ED2-4570-A948-98294B2F9EF2.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = "6E49793C-6ED2-4570-A948-98294B2F9EF2.mov"; sourceTree = "<group>"; };
 		93A77E4526B1AE1300BC2F31 /* 2AD2ABBD-DC0C-4614-97EE-987D1656EEB6.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = "2AD2ABBD-DC0C-4614-97EE-987D1656EEB6.mov"; sourceTree = "<group>"; };
 		93A77E4626B1AE1300BC2F31 /* 4CC2A45B-964E-4A2D-918B-2F51C92EE743.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = "4CC2A45B-964E-4A2D-918B-2F51C92EE743.mov"; sourceTree = "<group>"; };
+		93AA872A26B83A4D00691FEA /* DataLocal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataLocal.swift; sourceTree = "<group>"; };
+		93AA872B26B83A4D00691FEA /* ActivityIndicator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivityIndicator.swift; sourceTree = "<group>"; };
+		93AA872C26B83A4D00691FEA /* RuleEureka.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RuleEureka.swift; sourceTree = "<group>"; };
+		93AA872D26B83A4E00691FEA /* ListProductStream.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListProductStream.swift; sourceTree = "<group>"; };
 		93B68B3B26B4459B00EC4B64 /* HeaderSetting.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HeaderSetting.xib; sourceTree = "<group>"; };
 		93B68B3D26B445B200EC4B64 /* HeaderSetting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderSetting.swift; sourceTree = "<group>"; };
 		93B68B4026B4514500EC4B64 /* SettingCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingCell.swift; sourceTree = "<group>"; };
@@ -1100,6 +1108,10 @@
 		93BDEEAE26AB246D003942C1 /* Helper */ = {
 			isa = PBXGroup;
 			children = (
+				93AA872B26B83A4D00691FEA /* ActivityIndicator.swift */,
+				93AA872A26B83A4D00691FEA /* DataLocal.swift */,
+				93AA872D26B83A4E00691FEA /* ListProductStream.swift */,
+				93AA872C26B83A4D00691FEA /* RuleEureka.swift */,
 				93BDEEAF26AB246D003942C1 /* KeyboardInfo.swift */,
 			);
 			path = Helper;
@@ -1339,6 +1351,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				93AA873126B83A4E00691FEA /* ListProductStream.swift in Sources */,
 				93BDEE0D26AB242E003942C1 /* UILayoutPriorityExtensions.swift in Sources */,
 				93BDEE1626AB242E003942C1 /* UITabBarExtensions.swift in Sources */,
 				93BDEDD826AB23D1003942C1 /* HelperAlert.swift in Sources */,
@@ -1355,9 +1368,11 @@
 				93BC28C426B060D900E754FA /* ListColorCell.swift in Sources */,
 				93BDEE6326AB243F003942C1 /* UIViewController+Rx.swift in Sources */,
 				93BDEE5426AB243F003942C1 /* ViewControllerExtension.swift in Sources */,
+				93AA872F26B83A4E00691FEA /* ActivityIndicator.swift in Sources */,
 				93BDEE7026AB2447003942C1 /* RealmManageModel.swift in Sources */,
 				93BDEE5E26AB243F003942C1 /* StringSwiftMenu+Extension.swift in Sources */,
 				93BDEE6826AB243F003942C1 /* PushNotificationHandler.swift in Sources */,
+				93AA872E26B83A4E00691FEA /* DataLocal.swift in Sources */,
 				93BDEE6F26AB2447003942C1 /* RealmManage.swift in Sources */,
 				9363613026AD530C00FE6E4E /* AnimationDetail.swift in Sources */,
 				9363610F26AD0E7300FE6E4E /* ManageCharge.swift in Sources */,
@@ -1449,6 +1464,7 @@
 				93BDEE1B26AB242E003942C1 /* UISliderExtensions.swift in Sources */,
 				93B83B8626AC4D2D00EF968F /* Assets-Gen.swift in Sources */,
 				93BDEE6526AB243F003942C1 /* StringExtension.swift in Sources */,
+				93AA873026B83A4E00691FEA /* RuleEureka.swift in Sources */,
 				93BDEE1726AB242E003942C1 /* UISegmentedControlExtensions.swift in Sources */,
 				93BDEEA126AB2452003942C1 /* ABVideoRangeSlider.swift in Sources */,
 				93BDEE5D26AB243F003942C1 /* String+Extension.swift in Sources */,

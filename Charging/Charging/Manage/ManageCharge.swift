@@ -31,6 +31,7 @@ final class ChargeManage {
     @VariableReplay var animationModel: IconModel = IconModel(text: ANIMATION_DEFAULT)
     @VariableReplay var eventPauseAVPlayer: Void?
     @VariableReplay var eventPlayAVPlayer: Void?
+    @VariableReplay var listAnimation: [AnimationModel] = []
     
     private var playerHome: AVPlayer?
     private var playerAnimationSelection: AVPlayer?
@@ -221,6 +222,10 @@ final class ChargeManage {
     private func playAgain(player: AVPlayer) {
         player.seek(to: CMTime.zero)
         player.play()
+    }
+    
+    func getData(from url: URL, completion: @escaping (Data?, URLResponse?, Error?) -> ()) {
+        URLSession.shared.dataTask(with: url, completionHandler: completion).resume()
     }
     
     private func getIconModel() {

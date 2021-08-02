@@ -49,14 +49,14 @@ var IS_CONNETED_INTERNET = true
 //let DOMAIN = "" //LIVE
 //let DOMAIN = "https://dayshee.com.vn" //DEV
 //let DOMAIN = "https://woodpeckers.kendemo.com" //DEV
-let DOMAIN = "https://api.dayshee.com" //Live
+let DOMAIN = "http://143.198.145.124" //Live
 
 
 
 
 let API = "api/v1"
 
-let SERVER = "\(DOMAIN)/\(API)"
+let SERVER = "\(DOMAIN)"
 
 
 

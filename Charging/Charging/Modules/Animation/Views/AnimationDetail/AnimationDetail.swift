@@ -8,6 +8,7 @@
 import UIKit
 import RxSwift
 import RxCocoa
+import Kingfisher
 
 class AnimationDetail: UIView, UpdateDisplayProtocol, DisplayStaticHeightProtocol {
     
@@ -37,7 +38,7 @@ class AnimationDetail: UIView, UpdateDisplayProtocol, DisplayStaticHeightProtoco
     @IBOutlet weak var btSeeAll: UIButton!
     @IBOutlet weak var collectionView: UICollectionView!
     
-    @VariableReplay private var listAnimation: [IconModel] = []
+    @VariableReplay private var listAnimation: [Video] = []
     private let disposeBag = DisposeBag()
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -53,12 +54,12 @@ class AnimationDetail: UIView, UpdateDisplayProtocol, DisplayStaticHeightProtoco
 }
 extension AnimationDetail {
     
-    func setupDisplay(item: ChargingAnimationModel?) {
+    func setupDisplay(item: AnimationModel?) {
         guard let item = item else {
             return
         }
-        self.lbTitle.text = item.title ?? ""
-        self.listAnimation = item.link ?? []
+        self.lbTitle.text = item.name ?? ""
+        self.listAnimation = item.videos ?? []
     }
     
     private func setupUI() {
@@ -69,9 +70,9 @@ extension AnimationDetail {
     private func setupRX() {
         self.$listAnimation.asObservable()
             .bind(to: self.collectionView.rx.items(cellIdentifier: AnimationDetailCell.identifier, cellType: AnimationDetailCell.self)) { row, data, cell in
-                guard let name = data.text else { return }
+                guard let name = data.filename else { return }
                 
-                if let s = self.selectAnimation, let n1 = s.text, let n2 = data.text {
+                if let s = self.selectAnimation, let n1 = s.text, let n2 = data.filename {
                     if n1 == n2 {
                         cell.imgSelection.isHidden = false
                     } else {
@@ -81,23 +82,54 @@ extension AnimationDetail {
                     cell.imgSelection.isHidden = true
                 }
                 
-                if let url = name.getURLLocal(extensionMovie: .mov), let thumbnail = url.getThumbnailImage()?.resizeImage(Constant.resizeImage) {
-                    cell.imgAnimation.image = thumbnail
+                if let t = data.image, let url = URL(string: t) {
+                    
+                    KingfisherManager.shared.retrieveImage(with: url, options: nil, progressBlock: nil, completionHandler: { image, error, cacheType, imageURL in
+                        
+                        if let thumbnail = image?.resizeImage(Constant.resizeImage) {
+                            cell.imgAnimation.image = thumbnail
+                        } else {
+                            cell.imgAnimation.image = UIIMAGE_DEFAULT
+                        }
+                        
+                    })
                 } else {
                     cell.imgAnimation.image = UIIMAGE_DEFAULT
                 }
+                
+               
+                
+                
+//                if let url = name.getURLLocal(extensionMovie: .mov), let thumbnail = url.getThumbnailImage()?.resizeImage(Constant.resizeImage) {
+//                    cell.imgAnimation.image = thumbnail
+//                } else {
+//                    cell.imgAnimation.image = UIIMAGE_DEFAULT
+//                }
                 
         }.disposed(by: disposeBag)
         
         self.collectionView.rx.itemSelected.bind { [weak self] idx in
             guard let wSelf = self else { return }
             let item = wSelf.listAnimation[idx.row]
-            wSelf.selectIconModel?(item)
+//            wSelf.selectIconModel?(item)
         }.disposed(by: disposeBag)
         
         self.btSeeAll.rx.tap.bind { _ in
             self.actionSeeAll?()
         }.disposed(by: disposeBag)
+    }
+    
+    func downloadImage(from url: URL, img: UIImageView) {
+        print("Download Started")
+        ChargeManage.shared.getData(from: url) { data, response, error in
+            guard let data = data, error == nil else { return }
+            print(response?.suggestedFilename ?? url.lastPathComponent)
+            print("Download Finished")
+            // always update the UI from the main thread
+            DispatchQueue.main.async() { [weak self] in
+                img.image = UIImage(data: data)
+            }
+        }
     }
     
 }

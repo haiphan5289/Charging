@@ -13,7 +13,7 @@ class Animation: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
     
-    private var listAnimation: [ChargingAnimationModel] = []
+    private var listAnimation: [AnimationModel] = []
     private var selectIconModel: IconModel?
     private var viewModel = AnimationVM()
     private let disposeBag = DisposeBag()
@@ -44,6 +44,11 @@ extension Animation {
     }
     
     private func setupRX() {
+        
+        self.viewModel.indicator.asObservable().bind(onNext: { (item) in
+            item ? LoadingManager.instance.show() : LoadingManager.instance.dismiss()
+        }).disposed(by: disposeBag)
+        
         self.viewModel.$listAnimation.asObservable().bind(onNext: weakify({ list, wSelf in
             wSelf.listAnimation = list
             wSelf.tableView.reloadData()
@@ -55,13 +60,15 @@ extension Animation {
         })).disposed(by: disposeBag)
     }
     
-    func autoMove() {
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-            let vc = AnimationSelection.createVCfromStoryBoard()
-            vc.openfrom = .app
-            self.navigationController?.pushViewController(vc, animated: true)
-        }
-    }
+//    func autoMove() {
+//        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+//            let vc = AnimationSelection.createVCfromStoryBoard()
+//            vc.openfrom = .app
+//            self.navigationController?.pushViewController(vc, animated: true)
+//        }
+//    }
+    
+    
 
  }
 extension Animation: UITableViewDataSource {
@@ -96,8 +103,8 @@ extension Animation: UITableViewDataSource {
             }
             cell.view.actionSeeAll = {
                 let vc = ListAnimation.createVC()
-                let link = self.listAnimation[indexPath.row].link ?? []
-                vc.listAnimation = link
+//                let link = self.listAnimation[indexPath.row].link ?? []
+//                vc.listAnimation = link
                 self.navigationController?.pushViewController(vc, animated: true)
             }
             return cell
