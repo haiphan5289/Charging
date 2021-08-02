@@ -10,6 +10,7 @@ import UIKit
 
 enum APILink: String {
     case listAnimation = "/client/showAllCategoriesWithVideos?page_category=0&"
+    case listSound = "/client/showAllSounds"
     
     var value: String {
         return "\(self)"

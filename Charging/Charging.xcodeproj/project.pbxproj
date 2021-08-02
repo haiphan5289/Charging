@@ -65,6 +65,11 @@
 		93AA872F26B83A4E00691FEA /* ActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93AA872B26B83A4D00691FEA /* ActivityIndicator.swift */; };
 		93AA873026B83A4E00691FEA /* RuleEureka.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93AA872C26B83A4D00691FEA /* RuleEureka.swift */; };
 		93AA873126B83A4E00691FEA /* ListProductStream.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93AA872D26B83A4E00691FEA /* ListProductStream.swift */; };
+		93AA873526B860BF00691FEA /* ListSoundVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93AA873326B860BF00691FEA /* ListSoundVC.swift */; };
+		93AA873626B860BF00691FEA /* ListSoundVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 93AA873426B860BF00691FEA /* ListSoundVC.xib */; };
+		93AA873826B860DF00691FEA /* ListSoundVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93AA873726B860DF00691FEA /* ListSoundVM.swift */; };
+		93AA873D26B8628A00691FEA /* ListSoundCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93AA873B26B8628A00691FEA /* ListSoundCell.swift */; };
+		93AA873E26B8628A00691FEA /* ListSoundCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 93AA873C26B8628A00691FEA /* ListSoundCell.xib */; };
 		93B68B3C26B4459B00EC4B64 /* HeaderSetting.xib in Resources */ = {isa = PBXBuildFile; fileRef = 93B68B3B26B4459B00EC4B64 /* HeaderSetting.xib */; };
 		93B68B3E26B445B200EC4B64 /* HeaderSetting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93B68B3D26B445B200EC4B64 /* HeaderSetting.swift */; };
 		93B68B4226B4514500EC4B64 /* SettingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93B68B4026B4514500EC4B64 /* SettingCell.swift */; };
@@ -270,6 +275,11 @@
 		93AA872B26B83A4D00691FEA /* ActivityIndicator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivityIndicator.swift; sourceTree = "<group>"; };
 		93AA872C26B83A4D00691FEA /* RuleEureka.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RuleEureka.swift; sourceTree = "<group>"; };
 		93AA872D26B83A4E00691FEA /* ListProductStream.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListProductStream.swift; sourceTree = "<group>"; };
+		93AA873326B860BF00691FEA /* ListSoundVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListSoundVC.swift; sourceTree = "<group>"; };
+		93AA873426B860BF00691FEA /* ListSoundVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ListSoundVC.xib; sourceTree = "<group>"; };
+		93AA873726B860DF00691FEA /* ListSoundVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListSoundVM.swift; sourceTree = "<group>"; };
+		93AA873B26B8628A00691FEA /* ListSoundCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListSoundCell.swift; sourceTree = "<group>"; };
+		93AA873C26B8628A00691FEA /* ListSoundCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ListSoundCell.xib; sourceTree = "<group>"; };
 		93B68B3B26B4459B00EC4B64 /* HeaderSetting.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HeaderSetting.xib; sourceTree = "<group>"; };
 		93B68B3D26B445B200EC4B64 /* HeaderSetting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderSetting.swift; sourceTree = "<group>"; };
 		93B68B4026B4514500EC4B64 /* SettingCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingCell.swift; sourceTree = "<group>"; };
@@ -687,6 +697,26 @@
 			path = Anima;
 			sourceTree = "<group>";
 		};
+		93AA873226B860A300691FEA /* ListSound */ = {
+			isa = PBXGroup;
+			children = (
+				93AA873926B8626B00691FEA /* Cell */,
+				93AA873426B860BF00691FEA /* ListSoundVC.xib */,
+				93AA873326B860BF00691FEA /* ListSoundVC.swift */,
+				93AA873726B860DF00691FEA /* ListSoundVM.swift */,
+			);
+			path = ListSound;
+			sourceTree = "<group>";
+		};
+		93AA873926B8626B00691FEA /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				93AA873B26B8628A00691FEA /* ListSoundCell.swift */,
+				93AA873C26B8628A00691FEA /* ListSoundCell.xib */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
 		93B68B3926B4458100EC4B64 /* Views */ = {
 			isa = PBXGroup;
 			children = (
@@ -874,6 +904,7 @@
 				93BC28B226B0402400E754FA /* Check */,
 				93B68B4426B458A700EC4B64 /* HowToUseAnimation */,
 				93BDEEBB26AB2B24003942C1 /* Settings */,
+				93AA873226B860A300691FEA /* ListSound */,
 				93BC28BC26B05E1500E754FA /* ListColor */,
 				9344733E26ADB98A006A695D /* ListiCon */,
 				9344733526AD999B006A695D /* AnimationSelection */,
@@ -1259,6 +1290,7 @@
 				93BDED9726AB1F94003942C1 /* Animation.xib in Resources */,
 				93A77E3226B19D9200BC2F31 /* listVideo.json in Resources */,
 				93BDEE9926AB2452003942C1 /* LICENSE in Resources */,
+				93AA873E26B8628A00691FEA /* ListSoundCell.xib in Resources */,
 				93A77E4926B1AE1300BC2F31 /* 3FADDE91-DDA3-495D-A430-E1CD889014A9.mov in Resources */,
 				93A77E3626B1ADFD00BC2F31 /* 04E6D715-F489-4A02-84A8-3086E9C5FD54.mov in Resources */,
 				9363612E26AD52FC00FE6E4E /* AnimationDetail.xib in Resources */,
@@ -1266,6 +1298,7 @@
 				9394B22D26AF109C0051224A /* listColor.json in Resources */,
 				9394B22A26AF09990051224A /* ListiConCell.xib in Resources */,
 				93BDEE9726AB2452003942C1 /* EndIndicator.png in Resources */,
+				93AA873626B860BF00691FEA /* ListSoundVC.xib in Resources */,
 				93B68B3C26B4459B00EC4B64 /* HeaderSetting.xib in Resources */,
 				93BDEDDD26AB23D1003942C1 /* GoogleSans-BoldItalic.otf in Resources */,
 				93A77E4D26B1AE1300BC2F31 /* 6BE2E98D-E704-4364-B93C-8DA79BD10301.mov in Resources */,
@@ -1389,6 +1422,7 @@
 				93BDEE0C26AB242E003942C1 /* UIScrollViewExtensions.swift in Sources */,
 				93BDEE0F26AB242E003942C1 /* UIStackViewExtensions.swift in Sources */,
 				9363613426AD5D3C00FE6E4E /* AnimationDetailCell.swift in Sources */,
+				93AA873526B860BF00691FEA /* ListSoundVC.swift in Sources */,
 				93BDEEB626AB2493003942C1 /* APILink.swift in Sources */,
 				93BDEE1926AB242E003942C1 /* UINavigationBarExtensions.swift in Sources */,
 				9363611126AD1A2700FE6E4E /* AnimationVM.swift in Sources */,
@@ -1410,6 +1444,7 @@
 				9363612226AD208500FE6E4E /* AnimationModel.swift in Sources */,
 				93BDEE5F26AB243F003942C1 /* PropertyWapper.swift in Sources */,
 				93BDEE5726AB243F003942C1 /* UIColor+Extensions.swift in Sources */,
+				93AA873826B860DF00691FEA /* ListSoundVM.swift in Sources */,
 				93BDEDD526AB23D1003942C1 /* BaseCollectionViewCell.swift in Sources */,
 				93BDEE1F26AB242E003942C1 /* UIViewExtensions.swift in Sources */,
 				93B83B9426AC531500EF968F /* SettingDefaultFont.swift in Sources */,
@@ -1472,6 +1507,7 @@
 				9394B22926AF09990051224A /* ListiConCell.swift in Sources */,
 				9344734126ADBA0D006A695D /* LisiConVC.swift in Sources */,
 				93BDEE4E26AB243F003942C1 /* Obserable+Extension.swift in Sources */,
+				93AA873D26B8628A00691FEA /* ListSoundCell.swift in Sources */,
 				93BDEEA826AB2452003942C1 /* EmptyView.swift in Sources */,
 				93BDEE2226AB242E003942C1 /* UIWindowExtensions.swift in Sources */,
 				93BDED9626AB1F94003942C1 /* Animation.swift in Sources */,

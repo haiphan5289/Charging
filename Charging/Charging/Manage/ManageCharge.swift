@@ -34,6 +34,7 @@ final class ChargeManage {
     @VariableReplay var eventPauseAVPlayer: Void?
     @VariableReplay var eventPlayAVPlayer: Void?
     @VariableReplay var listAnimation: [AnimationModel] = []
+    @VariableReplay var listSound: [SoundModel] = []
     
     private let videoCache = NSCache<NSString, AVPlayer>()
     private var playerHome: AVPlayer?
@@ -137,7 +138,7 @@ final class ChargeManage {
                 if let player = self.playerHome {
                     self.playAgain(player: player)
                 }
-            case .animationSelection:
+            case .animationSelection: break
                 if let player = self.playerAnimationSelection {
                     self.playAgain(player: player)
                 }
@@ -214,6 +215,8 @@ final class ChargeManage {
                 view.layer.addSublayer(playerLayer)
                 self.videoCache.setObject(player, forKey: url.absoluteString as NSString)
                 player.play()
+                
+                
     //            DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
     //                player.play()
     //            }

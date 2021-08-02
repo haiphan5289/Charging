@@ -86,6 +86,8 @@ internal enum Asset {
   internal static let _7 = ImageAsset(name: "7")
   internal static let _8 = ImageAsset(name: "8")
   internal static let _9 = ImageAsset(name: "9")
+  internal static let icPauseSound = ImageAsset(name: "ic_pause_sound")
+  internal static let icPlaySound = ImageAsset(name: "ic_play_sound")
   internal static let icBackSelection = ImageAsset(name: "ic_back_selection")
   internal static let icSelectionIcon = ImageAsset(name: "ic_selection_icon")
   internal static let icSelectionRight = ImageAsset(name: "ic_selection_right")

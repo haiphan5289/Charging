@@ -106,7 +106,11 @@ extension AnimationSelection {
                     vc.modalTransitionStyle = .crossDissolve
                     vc.modalPresentationStyle = .overFullScreen
                     self.present(vc, animated: true, completion: nil)
-                case .sound: break
+                case .sound: 
+                    let vc = ListSoundVC.createVC()
+                    vc.modalTransitionStyle = .crossDissolve
+                    vc.modalPresentationStyle = .overFullScreen
+                    self.present(vc, animated: true, completion: nil)
                 }
                 
             }.disposed(by: disposeBag)
