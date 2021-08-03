@@ -21,7 +21,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UIFont.overrideInitialize()
         
         ChargeManage.shared.start()
-        
+        ChargeManage.shared.createFolder(folder: LINK_ANIMATION)
         
         switch ChargeManage.shared.batteryState {
         case .charging, .full:
@@ -47,10 +47,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func setupFlowShortcutsApp() {
         window = UIWindow.init(frame: UIScreen.main.bounds)
 //        let vc = BaseTabbarViewController()
-        let vc = BaseTabbarViewController()
+//        let vc = BaseTabbarViewController()
 //        let vc = AnimationSelection.createVC()
-//        let vc = AnimationSelection.createVCfromStoryBoard()
-//        vc.openfrom = .app
+        let vc = AnimationSelection.createVCfromStoryBoard()
+        vc.openfrom = .app
 //        vc.autoMove()
         let navi: UINavigationController = UINavigationController(rootViewController: vc)
         window?.rootViewController = navi

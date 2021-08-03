@@ -15,7 +15,7 @@ class Animation: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     
     private var listAnimation: [AnimationModel] = []
-    private var selectIconModel: IconModel?
+    private var selectIconModel: AnimationRealmModel?
     private var viewModel = AnimationVM()
     private let disposeBag = DisposeBag()
     override func viewDidLoad() {

@@ -50,7 +50,7 @@ class AnimationSelection: HideNavigationController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         ChargeManage.shared.updateAVPlayerfrom(avplayerfrom: .animationSelection)
-        ChargeManage.shared.eventPlayAVPlayer = ()
+//        ChargeManage.shared.eventPlayAVPlayer = ()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -69,9 +69,16 @@ extension AnimationSelection {
         self.vButtons.layer.cornerRadius = 7
         self.vButtons.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
         
-        if let c = self.animationIconModel, let t = c.filename, let url = URL(string: t) {
-            ChargeManage.shared.playAnimation(view: self.viewAnimation, url: url, avplayerfrom: .animationSelection)
+        switch  self.openfrom {
+        case .home:
+            if let c = self.animationIconModel, let t = c.filename, let url = URL(string: t) {
+                ChargeManage.shared.playAnimation(view: self.viewAnimation, url: url, avplayerfrom: .animationSelection)
+            }
+        case .app:
+            ChargeManage.shared.playVideofromApp(view: self.viewAnimation)
         }
+        
+
         
 //        if let c = self.animationIconModel, let t = c.filename, let url = t.getURLLocal(extensionMovie: .mov) {
 //            ChargeManage.shared.playAnimation(view: self.viewAnimation, url: url, avplayerfrom: .animationSelection)
@@ -177,9 +184,10 @@ extension AnimationSelection {
         }.disposed(by: disposeBag)
         
         self.btSetAnimation.rx.tap.bind { _ in
-            guard let v = self.animationIconModel else { return }
+            guard let v =  self.animationIconModel, let t = v.filename, let url = URL(string: t) else { return }
             do {
-                let data = try v.toData()
+                let model = AnimationRealmModel(destinationURL: url)
+                let data = try model.toData()
                 RealmManage.shared.addAndUpdateAnimation(data: data)
             } catch {
                 print("\(error.localizedDescription)")

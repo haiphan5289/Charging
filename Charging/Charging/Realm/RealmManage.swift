@@ -112,7 +112,7 @@ class RealmManage {
     func addAndUpdateAnimation(data: Data) {
         let list = self.getAnimationApp()
         guard list.count > 0, let _ = list.first else {
-            let model: IconModel = IconModel(text: ANIMATION_DEFAULT)
+            let model: AnimationRealmModel = AnimationRealmModel(destinationURL: ChargeManage.shared.urlDefault())
             let itemAdd = AnimationIconModelRealm.init(model: model)
             try! realm.write {
                 realm.add(itemAdd)
@@ -126,16 +126,16 @@ class RealmManage {
         }
     }
     
-    func getAnimationIconModel() -> [IconModel] {
+    func getAnimationIconModel() -> [AnimationRealmModel] {
         if self.getAnimationApp().count <= 0 {
             self.addAndUpdateAnimation(data: Data())
         }
         
         let listDiaryRealm = self.getAnimationApp()
-        var listDiaryModel: [IconModel] = []
+        var listDiaryModel: [AnimationRealmModel] = []
         
         for m in listDiaryRealm {
-            guard let model = m.setting?.toCodableObject() as IconModel? else{
+            guard let model = m.setting?.toCodableObject() as AnimationRealmModel? else{
                 return []
             }
             listDiaryModel.append(model)

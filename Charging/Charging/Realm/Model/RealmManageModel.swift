@@ -39,7 +39,7 @@ class ColorRealm: Object {
 class AnimationIconModelRealm: Object {
     @objc dynamic var setting: Data?
 
-    init(model: IconModel) {
+    init(model: AnimationRealmModel) {
         super.init()
         do {
             setting = try model.toData()

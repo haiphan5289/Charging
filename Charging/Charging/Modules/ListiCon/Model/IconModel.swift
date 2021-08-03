@@ -24,3 +24,16 @@ extension IconModel: Equatable {
         return lhs.text == rhs.text
     }
 }
+
+struct AnimationRealmModel: Codable {
+    let destinationURL: URL
+    
+    enum CodingKeys: String, CodingKey {
+        case destinationURL
+    }
+//    public init(from decoder: Decoder) throws {
+//        let values = try decoder.container(keyedBy: CodingKeys.self)
+//        text = try values.decodeIfPresent(String.self, forKey: .text)
+//    }
+    
+}

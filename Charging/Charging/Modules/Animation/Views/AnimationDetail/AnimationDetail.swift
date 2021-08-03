@@ -32,7 +32,7 @@ class AnimationDetail: UIView, UpdateDisplayProtocol, DisplayStaticHeightProtoco
     var selectIconModel:((Video) -> Void)?
     var actionSeeAll:(() -> Void)?
     
-    var selectAnimation: IconModel?
+    var selectAnimation: AnimationRealmModel?
     
     @IBOutlet weak var lbTitle: UILabel!
     @IBOutlet weak var btSeeAll: UIButton!
@@ -70,8 +70,9 @@ extension AnimationDetail {
     private func setupRX() {
         self.$listAnimation.asObservable()
             .bind(to: self.collectionView.rx.items(cellIdentifier: AnimationDetailCell.identifier, cellType: AnimationDetailCell.self)) { row, data, cell in
-                if let s = self.selectAnimation, let n1 = s.text, let n2 = data.filename {
-                    if n1 == n2 {
+                if let s = self.selectAnimation, let n2 = data.filename, let u2 = URL(string: n2)?.lastPathComponent {
+
+                    if s.destinationURL.lastPathComponent == u2 {
                         cell.imgSelection.isHidden = false
                     } else {
                         cell.imgSelection.isHidden = true
