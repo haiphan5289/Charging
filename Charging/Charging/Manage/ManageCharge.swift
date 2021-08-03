@@ -309,7 +309,7 @@ final class ChargeManage: ActivityTrackingProgressProtocol {
     private func getIconModel() {
         let list = RealmManage.shared.getIconModel()
         if let f = list.first {
-//            self.iconAnimation = f
+            self.iconAnimation = f
         }
     }
     private func getColornModel() {
