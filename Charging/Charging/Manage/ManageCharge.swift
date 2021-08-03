@@ -62,14 +62,16 @@ final class ChargeManage: ActivityTrackingProgressProtocol {
     @VariableReplay var iconAnimation: IconModel = IconModel(text: "1")
     @VariableReplay var colorIndex: Int = ListColorVC.ColorCell.white.rawValue
     @VariableReplay var animationModel: AnimationRealmModel?
+    @VariableReplay var soundMode: SoundRealmModel?
     @VariableReplay var eventPauseAVPlayer: Void?
     @VariableReplay var eventPlayAVPlayer: Void?
     @VariableReplay var listAnimation: [AnimationModel] = []
     @VariableReplay var listSound: [SoundModel] = []
     @VariableReplay var loadingModel: LoadingModel?
-    @VariableReplay private var listSoundCache: [CacheSound] = []
+//    @VariableReplay private var listSoundCache: [CacheSound] = []
 //    @VariableReplay var listAnimationCache: [CacheAnimation] = []
     @VariableReplay var listURL: [URL] = []
+    @VariableReplay var listSoundCache: [URL] = []
 //    @VariableReplay private var selectAnimationDraft: AnimationRealmModel?
     
     private let videoCache = NSCache<NSString, AVPlayer>()
@@ -77,7 +79,6 @@ final class ChargeManage: ActivityTrackingProgressProtocol {
     private var playerAnimationSelection: AVPlayer?
     private var playerIntroduce: AVPlayer?
     private var avplayerfrom: AVPlayerfrom = .animation
-    private var disposeScroll: Disposable?
     private let disposeBag = DisposeBag()
     private init() {
         
@@ -192,14 +193,6 @@ final class ChargeManage: ActivityTrackingProgressProtocol {
         self.avplayerfrom = avplayerfrom
         switch avplayerfrom {
         case .animation:
-            
-    //        guard let path = Bundle.main.path(forResource: "\(link)", ofType:"mp4")else {
-    //            debugPrint("video.m4v not found")
-    //            return
-    //        }
-    //        let url = URL(fileURLWithPath: path)
-    //        let player = AVPlayer(url: URL(fileURLWithPath: path))
-    //        let player = AVPlayer(url: url)
             self.playerHome = AVPlayer(url: url)
             if let player = self.playerHome {
                 let playerLayer = AVPlayerLayer(player: player)
@@ -208,9 +201,6 @@ final class ChargeManage: ActivityTrackingProgressProtocol {
                 view.layer.addSublayer(playerLayer)
                 
                 player.play()
-    //            DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-    //                player.play()
-    //            }
             }
         case .introduce:
             self.playerIntroduce = AVPlayer(url: url)
@@ -221,32 +211,8 @@ final class ChargeManage: ActivityTrackingProgressProtocol {
                 view.layer.addSublayer(playerLayer)
                 
                 player.play()
-    //            DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-    //                player.play()
-    //            }
             }
         default:
-//            guard let path = Bundle.main.path(forResource: "\(link)", ofType:"mp4")else {
-//                debugPrint("video.m4v not found")
-//                return
-//            }
-//            let url = URL(fileURLWithPath: path)
-    //        let player = AVPlayer(url: URL(fileURLWithPath: path))
-    //        let player = AVPlayer(url: url)
-            
-//            self.playerAnimationSelection = AVPlayer(url: url)
-//            if let player = self.playerIntroduce {
-//                let playerLayer = AVPlayerLayer(player: player)
-//                playerLayer.frame = UIScreen.main.bounds
-//                playerLayer.videoGravity = AVLayerVideoGravity.resize
-//                view.layer.addSublayer(playerLayer)
-//
-//                player.play()
-//    //            DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-//    //                player.play()
-//    //            }
-//            }
-            
             // check cached image
             
             if let index = self.listURL.firstIndex(where: { $0.lastPathComponent == url.lastPathComponent })  {
@@ -276,7 +242,7 @@ final class ChargeManage: ActivityTrackingProgressProtocol {
 //                    wSelf.videoCache.setObject(p, forKey: url.absoluteString as NSString)
 //                    wSelf.listAnimationCache.append(CacheAnimation(originURL: url.absoluteString, destinationURL: dowloadURL))
 //                    wSelf.selectAnimationDraft = Am(originURL: url.absoluteString, destinationURL: dowloadURL)
-                    wSelf.copy(oldUrl: dowloadURL, success: { copyURL in
+                    wSelf.copy(oldUrl: dowloadURL, folderName: LINK_ANIMATION, success: { copyURL in
                         wSelf.listURL.append(copyURL)
                     }, failure: { _ in
                         
@@ -311,7 +277,13 @@ final class ChargeManage: ActivityTrackingProgressProtocol {
         self.getIconModel()
         self.getColornModel()
         self.getAnimationModel()
+        self.getSound()
+        ChargeManage.shared.createFolder(folder: LINK_ANIMATION)
+        ChargeManage.shared.createFolder(folder: LINK_SOUND)
         self.getListRecord()
+        self.getListSound()
+        
+        
     }
     
     func updateAVPlayerfrom(avplayerfrom: AVPlayerfrom) {
@@ -327,6 +299,8 @@ final class ChargeManage: ActivityTrackingProgressProtocol {
         player.seek(to: CMTime.zero)
         player.play()
     }
+    
+    
     
     func getData(from url: URL, completion: @escaping (Data?, URLResponse?, Error?) -> ()) {
         URLSession.shared.dataTask(with: url, completionHandler: completion).resume()
@@ -347,27 +321,37 @@ final class ChargeManage: ActivityTrackingProgressProtocol {
     private func getAnimationModel() {
         let list = RealmManage.shared.getAnimationIconModel()
         if let f = list.first {
-//            self.animationModel = f
             self.animationModel = f
         }
     }
+    private func getSound() {
+        let list = RealmManage.shared.getSound()
+        if let f = list.first {
+            self.soundMode = f
+        }
+    }
     
-    func dowloadURL(string: String, completion: @escaping ((URL) -> Void) ) {
+    func dowloadURL(url: URL, completion: @escaping ((URL) -> Void) ) {
         // check cached image
-        if let index = self.listSoundCache.firstIndex(where: { $0.originURL == string })  {
-            completion(self.listSoundCache[index].destinationURL)
+        if let index = self.listSoundCache.firstIndex(where: { $0.lastPathComponent == url.lastPathComponent })  {
+            completion(self.listSoundCache[index])
             return
         }
 
         RequestService.shared
-            .startDownload(audioUrl: string) { [weak self] loadingModel in
+            .startDownload(audioUrl: url.absoluteString) { [weak self] loadingModel in
                 guard let wSelf = self else { return }
                 wSelf.loadingModel = loadingModel
         }
         .bind { [weak self] dowURL  in
             guard let wSelf = self, let dowloadURL = dowURL else { return }
 
-            wSelf.listSoundCache.append(CacheSound(originURL: string, destinationURL: dowloadURL))
+            wSelf.copy(oldUrl: dowloadURL, folderName: LINK_SOUND, success: { copyURL in
+                wSelf.listSoundCache.append(copyURL)
+            }, failure: { _ in
+                
+            })
+            
             completion(dowloadURL)
         }.disposed(by: disposeBag)
         
@@ -390,13 +374,13 @@ final class ChargeManage: ActivityTrackingProgressProtocol {
         return URL(fileURLWithPath: path)
     }
     
-    func copy(oldUrl: URL, success: @escaping ((URL) -> Void), failure: @escaping ((Error?) -> Void)) {
+    func copy(oldUrl: URL, folderName: String, success: @escaping ((URL) -> Void), failure: @escaping ((Error?) -> Void)) {
         //get media item first
         
         let documentURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
         
         let name = oldUrl.lastPathComponent
-        let outputURL = documentURL.appendingPathComponent("\(LINK_ANIMATION)/\(name)")
+        let outputURL = documentURL.appendingPathComponent("\(folderName)/\(name)")
         do
             {
                 try FileManager.default.copyItem(at: oldUrl, to: outputURL)
@@ -456,4 +440,31 @@ final class ChargeManage: ActivityTrackingProgressProtocol {
         }
     }
     
+    private func getListSound() {
+        guard let documentDirectoryPath = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true).first else {
+            return
+        }
+        let appURL = URL(fileURLWithPath: documentDirectoryPath)
+        let pdfPath = appURL.appendingPathComponent(LINK_SOUND)
+        do {
+            let contents = try FileManager.default.contentsOfDirectory(at: pdfPath , includingPropertiesForKeys: nil, options: .skipsHiddenFiles)
+            //print the file listing to the console
+            let l =  contents.sorted { ( u1: URL, u2: URL) -> Bool in
+                do{
+                    let values1 = try u1.resourceValues(forKeys: [.creationDateKey, .contentModificationDateKey])
+                    let values2 = try u2.resourceValues(forKeys: [.creationDateKey, .contentModificationDateKey])
+                    if let date1 = values1.contentModificationDate, let date2 = values2.contentModificationDate {
+                        return date1.compare(date2) == ComparisonResult.orderedDescending
+                    }
+                }catch _{
+                }
+                
+                return true
+            }
+            self.listSoundCache = l
+            
+        } catch let err {
+            print("\(err.localizedDescription)")
+        }
+    }
 }

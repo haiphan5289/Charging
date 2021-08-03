@@ -26,6 +26,7 @@ class AnimationSelection: HideNavigationController {
 //    var moviePlayer:AVContro!
     var chargingAnimationModel: ChargingAnimationModel?
     var animationIconModel: Video?
+    var selectSound: SoundRealmModel?
 
     @IBOutlet weak var lbBattery: UILabel!
     @IBOutlet weak var btBack: UIButton!
@@ -39,6 +40,7 @@ class AnimationSelection: HideNavigationController {
     @IBOutlet weak var btSetAnimation: UIButton!
     private let viewSuccess: SuccessView = SuccessView.loadXib()
     
+    private var bombSoundEffect: AVAudioPlayer = AVAudioPlayer()
     @VariableReplay private var statusAction: StatusAction = .hide
     private let disposeBag = DisposeBag()
     override func viewDidLoad() {
@@ -76,6 +78,13 @@ extension AnimationSelection {
             }
         case .app:
             ChargeManage.shared.playVideofromApp(view: self.viewAnimation)
+            let sound = ChargeManage.shared.soundMode
+            print("======== \(sound?.destinationURL)")
+            let listSound = ChargeManage.shared.listSoundCache
+            if  let s = sound, let index = listSound.firstIndex(where: { $0.lastPathComponent == s.destinationURL.lastPathComponent }) {
+                self.playAudio(url: listSound[index])
+            }
+            
         }
         
 
@@ -133,6 +142,7 @@ extension AnimationSelection {
                     self.present(vc, animated: true, completion: nil)
                 case .sound: 
                     let vc = ListSoundVC.createVC()
+                    vc.delegate = self
                     vc.modalTransitionStyle = .crossDissolve
                     vc.modalPresentationStyle = .overFullScreen
                     self.present(vc, animated: true, completion: nil)
@@ -184,14 +194,27 @@ extension AnimationSelection {
         }.disposed(by: disposeBag)
         
         self.btSetAnimation.rx.tap.bind { _ in
-            guard let v =  self.animationIconModel, let t = v.filename, let url = URL(string: t) else { return }
-            do {
-                let model = AnimationRealmModel(destinationURL: url)
-                let data = try model.toData()
-                RealmManage.shared.addAndUpdateAnimation(data: data)
-            } catch {
-                print("\(error.localizedDescription)")
+            if let v =  self.animationIconModel, let t = v.filename, let url = URL(string: t) {
+                do {
+                    let model = AnimationRealmModel(destinationURL: url)
+                    let data = try model.toData()
+                    RealmManage.shared.addAndUpdateAnimation(data: data)
+                } catch {
+                    print("\(error.localizedDescription)")
+                }
             }
+
+            if let s = self.selectSound {
+                do {
+                    let t = s.destinationURL
+                    let model = AnimationRealmModel(destinationURL: t)
+                    let data = try model.toData()
+                    RealmManage.shared.addAndUpdateSound(data: data)
+                } catch {
+                    print("\(error.localizedDescription)")
+                }
+            }
+            
             
             do {
                 self.showSuccessView()
@@ -204,4 +227,28 @@ extension AnimationSelection {
         self.viewSuccess.addView(parentView: self.view)
     }
     
+    private func playAudio(url: URL) {
+        //detect If Audio isplaying that solve to play Audio
+        do {
+            self.bombSoundEffect = try AVAudioPlayer(contentsOf: url)
+            self.bombSoundEffect.prepareToPlay()
+            self.bombSoundEffect.volume = 1.0
+            self.bombSoundEffect.play()
+            self.bombSoundEffect.delegate = self
+        } catch {
+            print(" Erro play Audio \(error.localizedDescription) ")
+        }
+    }
+    
+}
+extension AnimationSelection: SoundCallBack {
+    func resendSound(sound: SoundRealmModel) {
+        self.selectSound = sound
+        self.playAudio(url: sound.destinationURL)
+    }
+}
+extension AnimationSelection: AVAudioPlayerDelegate {
+    func audioPlayerDidFinishPlaying(_ player: AVAudioPlayer, successfully flag: Bool) {
+        self.bombSoundEffect.play()
+    }
 }

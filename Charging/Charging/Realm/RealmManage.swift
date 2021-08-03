@@ -142,44 +142,44 @@ class RealmManage {
         }
         return listDiaryModel
     }
-//    
-//    private func getAudioEffect() -> [ManageEffectRealm] {
-//        let list = realm.objects(ManageEffectRealm.self).toArray(ofType: ManageEffectRealm.self)
-//        return list
-//    }
-//    func addAndUpdateEffect(data: Data) {
-//        let list = self.getAudioEffect()
-//        guard list.count > 0, let _ = list.first else {
-//            let model: ManageEffectModel = ManageEffectModel()
-//            let itemAdd = ManageEffectRealm.init(model: model)
-//            try! realm.write {
-//                realm.add(itemAdd)
-//                NotificationCenter.default.post(name: NSNotification.Name(PushNotificationKeys.updateEffect.rawValue), object: nil, userInfo: nil)
-//            }
-//            return
-//        }
-//        try! realm.write {
-//            list[0].effect = data
-//            NotificationCenter.default.post(name: NSNotification.Name(PushNotificationKeys.updateEffect.rawValue), object: nil, userInfo: nil)
-//        }
-//    }
-//    
-//    func getEffect() -> [ManageEffectModel] {
-//        if self.getAudioEffect().count <= 0 {
-//            self.addAndUpdateEffect(data: Data())
-//        }
-//        
-//        let listDiaryRealm = self.getAudioEffect()
-//        var listDiaryModel: [ManageEffectModel] = []
-//        
-//        for m in listDiaryRealm {
-//            guard let model = m.effect?.toCodableObject() as ManageEffectModel? else{
-//                return []
-//            }
-//            listDiaryModel.append(model)
-//        }
-//        return listDiaryModel
-//    }
+    
+    private func getSoundApp() -> [SoundModelRealm] {
+        let list = realm.objects(SoundModelRealm.self).toArray(ofType: SoundModelRealm.self)
+        return list
+    }
+    func addAndUpdateSound(data: Data) {
+        let list = self.getSoundApp()
+        guard list.count > 0, let _ = list.first else {
+            let model: SoundRealmModel = SoundRealmModel(destinationURL: ChargeManage.shared.urlDefault())
+            let itemAdd = SoundModelRealm.init(model: model)
+            try! realm.write {
+                realm.add(itemAdd)
+                NotificationCenter.default.post(name: NSNotification.Name(PushNotificationKeys.updateAnimation.rawValue), object: itemAdd, userInfo: nil)
+            }
+            return
+        }
+        try! realm.write {
+            list[0].setting = data
+            NotificationCenter.default.post(name: NSNotification.Name(PushNotificationKeys.updateAnimation.rawValue), object: list[0], userInfo: nil)
+        }
+    }
+    
+    func getSound() -> [SoundRealmModel] {
+        if self.getSoundApp().count <= 0 {
+            self.addAndUpdateSound(data: Data())
+        }
+        
+        let listDiaryRealm = self.getSoundApp()
+        var listDiaryModel: [SoundRealmModel] = []
+        
+        for m in listDiaryRealm {
+            guard let model = m.setting?.toCodableObject() as SoundRealmModel? else{
+                return []
+            }
+            listDiaryModel.append(model)
+        }
+        return listDiaryModel
+    }
 }
 extension Results {
     func toArray<T>(ofType: T.Type) -> [T] {

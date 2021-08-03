@@ -10,14 +10,20 @@ import RxCocoa
 import RxSwift
 import MediaPlayer
 
+protocol SoundCallBack {
+    func resendSound(sound: SoundRealmModel)
+}
+
 class ListSoundVC: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet var bts: [UIButton]!
     
+    var delegate: SoundCallBack?
     private let viewModel = ListSoundVM()
     @VariableReplay private var listSound: [SoundModel] = []
     private var index: Int?
+    private var selectSound: SoundRealmModel?
      
     private let disposeBag = DisposeBag()
     override func viewDidLoad() {
@@ -61,6 +67,9 @@ extension ListSoundVC {
             }.disposed(by: disposeBag)
         
         self.tableView.rx.itemSelected.bind(onNext: weakify({ (index, wSelf) in
+            
+            guard let cell = wSelf.tableView.cellForRow(at: index) as? ListSoundCell, let finalURL = cell.finalURL else { return }
+            wSelf.selectSound = SoundRealmModel(destinationURL: finalURL)
             wSelf.index = index.row
             wSelf.tableView.reloadData()
         })).disposed(by: disposeBag)
@@ -75,7 +84,10 @@ extension ListSoundVC {
                     self.dismiss(animated: true, completion: nil)
                 case .done:
                     self.dismiss(animated: true) {
-                        //                        RealmManage.shared.addAndUpdateColor(data: self.colorIndex)                    }
+                        if let s = self.selectSound {
+                            self.delegate?.resendSound(sound: s)
+                        }
+                        
                     }
                     
                 }

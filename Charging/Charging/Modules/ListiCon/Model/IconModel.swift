@@ -37,3 +37,15 @@ struct AnimationRealmModel: Codable {
 //    }
     
 }
+struct SoundRealmModel: Codable {
+    let destinationURL: URL
+    
+    enum CodingKeys: String, CodingKey {
+        case destinationURL
+    }
+//    public init(from decoder: Decoder) throws {
+//        let values = try decoder.container(keyedBy: CodingKeys.self)
+//        text = try values.decodeIfPresent(String.self, forKey: .text)
+//    }
+    
+}

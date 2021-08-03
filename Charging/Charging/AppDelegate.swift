@@ -21,7 +21,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UIFont.overrideInitialize()
         
         ChargeManage.shared.start()
-        ChargeManage.shared.createFolder(folder: LINK_ANIMATION)
+        
         
         switch ChargeManage.shared.batteryState {
         case .charging, .full:

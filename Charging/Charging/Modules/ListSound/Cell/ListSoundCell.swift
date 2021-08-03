@@ -21,10 +21,11 @@ class ListSoundCell: UITableViewCell {
     @IBOutlet weak var imgSelection: UIImageView!
     
     var fileName: String?
+    var finalURL: URL?
     
     @VariableReplay var stateVideo: StateVideo = .none
     
-    private var finalURL: URL?
+    
     private var bombSoundEffect: AVAudioPlayer = AVAudioPlayer()
     private var isPlaying: Bool = false
     private let disposeBag = DisposeBag()
@@ -94,12 +95,12 @@ extension ListSoundCell {
     }
     
     private func dowloadURL(complention:@escaping ((URL) -> Void) ) {
-        guard let text = self.fileName else {
+        guard let text = self.fileName, let url = URL(string: text) else {
             return
         }
        
-        ChargeManage.shared.dowloadURL(string: text) { url in
-            complention(url)
+        ChargeManage.shared.dowloadURL(url: url) { dowloadURL in
+            complention(dowloadURL)
         }
         
     }
