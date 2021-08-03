@@ -31,10 +31,8 @@ class ListSoundVM: ActivityTrackingProgressProtocol  {
                     }
                     self.listSound = model
                     ChargeManage.shared.listSound = model
-                case .failure(let _): break
+                case .failure( _): break
                 }}.disposed(by: disposeBag)
-        
-        
     }
     
 }

@@ -22,6 +22,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         ChargeManage.shared.start()
         
+        
         switch ChargeManage.shared.batteryState {
         case .charging, .full:
             self.setupFlowShortcutsApp()

@@ -328,6 +328,37 @@ struct RequestService {
             return Disposables.create()
         })
     }
+    
+    
+    func startDownload(audioUrl:String, processPercent: @escaping ((ChargeManage.LoadingModel) -> Void)) -> Observable<URL?> {
+        return Observable.create { (sub) -> Disposable in
+            let fileUrl = self.getSaveFileUrl(fileName: audioUrl)
+            let destination: DownloadRequest.Destination = { _, _ in
+                return (fileUrl, [.removePreviousFile, .createIntermediateDirectories])
+            }
+
+            AF.download(audioUrl, to:destination)
+                .downloadProgress { (progress) in
+    //                self.progressLabel.text = (String)(progress.fractionCompleted)
+                    processPercent(ChargeManage.LoadingModel(current: Float(progress.completedUnitCount),
+                                                             total: Float(progress.totalUnitCount)))
+                }
+                .responseData { (data) in
+                    sub.onNext(data.fileURL)
+            }
+            
+            return Disposables.create()
+        }
+    }
+
+    func getSaveFileUrl(fileName: String) -> URL {
+        let documentsURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
+        let nameUrl = URL(string: fileName)
+        let fileURL = documentsURL.appendingPathComponent((nameUrl?.lastPathComponent)!)
+        NSLog(fileURL.absoluteString)
+        return fileURL
+    }
+    
 }
 
 extension Dictionary {

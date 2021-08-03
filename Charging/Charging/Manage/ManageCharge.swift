@@ -9,7 +9,20 @@ import Foundation
 import RxSwift
 import MediaPlayer
 
-final class ChargeManage {
+final class ChargeManage: ActivityTrackingProgressProtocol {
+    
+    struct LoadingModel {
+        let current: Float
+        let total: Float
+        init(current: Float, total: Float) {
+            self.current = current
+            self.total = total
+        }
+        
+        func getPercent() -> Float {
+            return Float((self.current) / self.total)
+        }
+    }
     
     enum AVPlayerfrom {
         case animation, animationSelection, introduce
@@ -35,6 +48,7 @@ final class ChargeManage {
     @VariableReplay var eventPlayAVPlayer: Void?
     @VariableReplay var listAnimation: [AnimationModel] = []
     @VariableReplay var listSound: [SoundModel] = []
+    @VariableReplay var loadingModel: LoadingModel?
     
     private let videoCache = NSCache<NSString, AVPlayer>()
     private var playerHome: AVPlayer?
@@ -138,7 +152,7 @@ final class ChargeManage {
                 if let player = self.playerHome {
                     self.playAgain(player: player)
                 }
-            case .animationSelection: break
+            case .animationSelection: 
                 if let player = self.playerAnimationSelection {
                     self.playAgain(player: player)
                 }
@@ -195,32 +209,45 @@ final class ChargeManage {
 //            let url = URL(fileURLWithPath: path)
     //        let player = AVPlayer(url: URL(fileURLWithPath: path))
     //        let player = AVPlayer(url: url)
-            self.playerAnimationSelection = AVPlayer(url: url)
-            if let player = self.playerAnimationSelection {
-                
-                // check cached image
-                if let cachedVideo = ChargeManage.shared.videoCache.object(forKey: url.absoluteString as NSString)  {
-                    self.playerAnimationSelection = cachedVideo
-                    let playerLayer = AVPlayerLayer(player: cachedVideo)
-                    playerLayer.frame = UIScreen.main.bounds
-                    playerLayer.videoGravity = AVLayerVideoGravity.resize
-                    view.layer.addSublayer(playerLayer)
-                    cachedVideo.play()
-                    return
-                }
-                
-                let playerLayer = AVPlayerLayer(player: player)
+            
+            
+            // check cached image
+            if let cachedVideo = ChargeManage.shared.videoCache.object(forKey: url.absoluteString as NSString)  {
+                self.playerAnimationSelection = cachedVideo
+                self.playerAnimationSelection = AVPlayer(url: url)
+                let playerLayer = AVPlayerLayer(player: cachedVideo)
                 playerLayer.frame = UIScreen.main.bounds
                 playerLayer.videoGravity = AVLayerVideoGravity.resize
                 view.layer.addSublayer(playerLayer)
-                self.videoCache.setObject(player, forKey: url.absoluteString as NSString)
-                player.play()
-                
-                
-    //            DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-    //                player.play()
-    //            }
+                cachedVideo.play()
+                return
             }
+            
+            RequestService.shared
+                .startDownload(audioUrl: url.absoluteString) { [weak self] loadingModel in
+                    guard let wSelf = self else { return }
+                    wSelf.loadingModel = loadingModel
+            }.trackActivity(self.indicator)
+            .bind { [weak self] dowURL  in
+                guard let wSelf = self, let dowloadURL = dowURL else { return }
+                wSelf.playerAnimationSelection = AVPlayer(url: dowloadURL)
+                let playerLayer = AVPlayerLayer(player: wSelf.playerAnimationSelection)
+                playerLayer.frame = UIScreen.main.bounds
+                playerLayer.videoGravity = AVLayerVideoGravity.resize
+                view.layer.addSublayer(playerLayer)
+                if let p = wSelf.playerAnimationSelection {
+                    wSelf.videoCache.setObject(p, forKey: url.absoluteString as NSString)
+                    p.play()
+                }
+
+            }.disposed(by: disposeBag)
+                
+
+
+//
+//            DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+//                player.play()
+//            }
         }
     }
 
@@ -265,5 +292,23 @@ final class ChargeManage {
         if let f = list.first {
             self.animationModel = f
         }
+    }
+    
+    func dowloadURL(string: String) -> Observable<URL> {
+//        http://143.198.145.124/client/showFileDestination/16278831595358542524781.mp3
+//        return RequestService.shared.startDownload(audioUrl: string)
+//            .trackActivity(self.indicator)
+//            .map { url -> URL in
+//            return url ?? self.urlDefault()
+//        }
+        return Observable.just(URL(fileURLWithPath: "path"))
+    }
+    
+    private func urlDefault() -> URL {
+        guard let path = Bundle.main.path(forResource: "iphoneX", ofType:"mp4")else {
+            debugPrint("video.m4v not found")
+            return URL(fileURLWithPath: "path")
+        }
+        return URL(fileURLWithPath: path)
     }
 }

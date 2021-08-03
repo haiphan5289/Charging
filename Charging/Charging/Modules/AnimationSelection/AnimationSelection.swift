@@ -9,6 +9,7 @@ import UIKit
 import RxCocoa
 import RxSwift
 import MediaPlayer
+import SVProgressHUD
 
 class AnimationSelection: HideNavigationController {
     
@@ -49,7 +50,7 @@ class AnimationSelection: HideNavigationController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         ChargeManage.shared.updateAVPlayerfrom(avplayerfrom: .animationSelection)
-        ChargeManage.shared.eventPlayAVPlayer = ()
+//        ChargeManage.shared.eventPlayAVPlayer = ()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -85,6 +86,16 @@ extension AnimationSelection {
     }
     
     private func setupRX() {
+        
+        ChargeManage.shared.$loadingModel.asObservable().bind(onNext: weakify({ value, wSelf in
+            guard let value = value?.getPercent() else { return }
+            SVProgressHUD.showProgress(Float(value), status: "Loading...\(Double(value).roundTo())%")
+        })).disposed(by: disposeBag)
+        
+        ChargeManage.shared.indicator.asObservable().bind(onNext: weakify({ item, wSelf in
+            print("===== \(item)")
+            item ? LoadingManager.instance.show() : LoadingManager.instance.dismiss()
+        })).disposed(by: disposeBag)
         
         ChargeManage.shared.$eventBatteryLevel.bind(onNext: weakify({ value, wSelf in
             wSelf.lbBattery.text = value?.batterCharging

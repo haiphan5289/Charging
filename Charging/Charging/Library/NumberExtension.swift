@@ -109,4 +109,10 @@ extension Double {
         let divisor = pow(10.0, Double(places))
         return (self * divisor) / divisor
     }
+    
+    func roundTo() -> String {
+        let value = self * 100
+        let stringValue = String(format: "%.1f", value)
+        return stringValue
+    }
 }
