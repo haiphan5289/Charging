@@ -97,10 +97,10 @@ extension ListSoundCell {
         guard let text = self.fileName else {
             return
         }
-        
-        ChargeManage.shared.dowloadURL(string: text).bind { url  in
+       
+        ChargeManage.shared.dowloadURL(string: text) { url in
             complention(url)
-        }.disposed(by: disposeBag)
+        }
         
     }
     

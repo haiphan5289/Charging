@@ -112,7 +112,7 @@ extension Double {
     
     func roundTo() -> String {
         let value = self * 100
-        let stringValue = String(format: "%.1f", value)
+        let stringValue = String(format: "%.2f", value)
         return stringValue
     }
 }

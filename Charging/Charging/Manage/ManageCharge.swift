@@ -24,6 +24,24 @@ final class ChargeManage: ActivityTrackingProgressProtocol {
         }
     }
     
+    struct CacheSound {
+        let originURL: String
+        let destinationURL: URL
+        init(originURL: String, destinationURL: URL) {
+            self.originURL = originURL
+            self.destinationURL = destinationURL
+        }
+    }
+    
+    struct CacheAnimation {
+        let originURL: String
+        let destinationURL: URL
+        init(originURL: String, destinationURL: URL) {
+            self.originURL = originURL
+            self.destinationURL = destinationURL
+        }
+    }
+    
     enum AVPlayerfrom {
         case animation, animationSelection, introduce
     }
@@ -49,6 +67,8 @@ final class ChargeManage: ActivityTrackingProgressProtocol {
     @VariableReplay var listAnimation: [AnimationModel] = []
     @VariableReplay var listSound: [SoundModel] = []
     @VariableReplay var loadingModel: LoadingModel?
+    @VariableReplay private var listSoundCache: [CacheSound] = []
+    @VariableReplay private var listAnimationCache: [CacheAnimation] = []
     
     private let videoCache = NSCache<NSString, AVPlayer>()
     private var playerHome: AVPlayer?
@@ -192,7 +212,7 @@ final class ChargeManage: ActivityTrackingProgressProtocol {
             self.playerIntroduce = AVPlayer(url: url)
             if let player = self.playerIntroduce {
                 let playerLayer = AVPlayerLayer(player: player)
-                playerLayer.frame = view.bounds
+                playerLayer.frame = UIScreen.main.bounds
                 playerLayer.videoGravity = AVLayerVideoGravity.resize
                 view.layer.addSublayer(playerLayer)
                 
@@ -210,24 +230,36 @@ final class ChargeManage: ActivityTrackingProgressProtocol {
     //        let player = AVPlayer(url: URL(fileURLWithPath: path))
     //        let player = AVPlayer(url: url)
             
+//            self.playerAnimationSelection = AVPlayer(url: url)
+//            if let player = self.playerIntroduce {
+//                let playerLayer = AVPlayerLayer(player: player)
+//                playerLayer.frame = UIScreen.main.bounds
+//                playerLayer.videoGravity = AVLayerVideoGravity.resize
+//                view.layer.addSublayer(playerLayer)
+//
+//                player.play()
+//    //            DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+//    //                player.play()
+//    //            }
+//            }
             
             // check cached image
-            if let cachedVideo = ChargeManage.shared.videoCache.object(forKey: url.absoluteString as NSString)  {
-                self.playerAnimationSelection = cachedVideo
-                self.playerAnimationSelection = AVPlayer(url: url)
-                let playerLayer = AVPlayerLayer(player: cachedVideo)
+            if let index = self.listAnimationCache.firstIndex(where: { $0.originURL == url.absoluteString })  {
+                self.playerAnimationSelection = AVPlayer(url: self.listAnimationCache[index].destinationURL)
+                let playerLayer = AVPlayerLayer(player: self.playerAnimationSelection)
                 playerLayer.frame = UIScreen.main.bounds
                 playerLayer.videoGravity = AVLayerVideoGravity.resize
                 view.layer.addSublayer(playerLayer)
-                cachedVideo.play()
+                self.playerAnimationSelection?.play()
+                print("==== \(self.listAnimationCache[index].destinationURL)")
                 return
             }
-            
+
             RequestService.shared
                 .startDownload(audioUrl: url.absoluteString) { [weak self] loadingModel in
                     guard let wSelf = self else { return }
                     wSelf.loadingModel = loadingModel
-            }.trackActivity(self.indicator)
+            }
             .bind { [weak self] dowURL  in
                 guard let wSelf = self, let dowloadURL = dowURL else { return }
                 wSelf.playerAnimationSelection = AVPlayer(url: dowloadURL)
@@ -236,18 +268,13 @@ final class ChargeManage: ActivityTrackingProgressProtocol {
                 playerLayer.videoGravity = AVLayerVideoGravity.resize
                 view.layer.addSublayer(playerLayer)
                 if let p = wSelf.playerAnimationSelection {
-                    wSelf.videoCache.setObject(p, forKey: url.absoluteString as NSString)
+//                    wSelf.videoCache.setObject(p, forKey: url.absoluteString as NSString)
+                    self?.listAnimationCache.append(CacheAnimation(originURL: url.absoluteString, destinationURL: dowloadURL))
+                    print("==== \(dowloadURL.absoluteString)")
                     p.play()
                 }
 
             }.disposed(by: disposeBag)
-                
-
-
-//
-//            DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-//                player.play()
-//            }
         }
     }
 
@@ -264,6 +291,7 @@ final class ChargeManage: ActivityTrackingProgressProtocol {
     
     private func pauseAVPlayer(player: AVPlayer) {
         player.pause()
+        player.seek(to: CMTime.zero)
     }
     
     private func playAgain(player: AVPlayer) {
@@ -294,14 +322,34 @@ final class ChargeManage: ActivityTrackingProgressProtocol {
         }
     }
     
-    func dowloadURL(string: String) -> Observable<URL> {
-//        http://143.198.145.124/client/showFileDestination/16278831595358542524781.mp3
-//        return RequestService.shared.startDownload(audioUrl: string)
-//            .trackActivity(self.indicator)
-//            .map { url -> URL in
-//            return url ?? self.urlDefault()
-//        }
-        return Observable.just(URL(fileURLWithPath: "path"))
+    func dowloadURL(string: String, completion: @escaping ((URL) -> Void) ) {
+        // check cached image
+        if let index = self.listSoundCache.firstIndex(where: { $0.originURL == string })  {
+            completion(self.listSoundCache[index].destinationURL)
+            return
+        }
+
+        RequestService.shared
+            .startDownload(audioUrl: string) { [weak self] loadingModel in
+                guard let wSelf = self else { return }
+                wSelf.loadingModel = loadingModel
+        }
+        .bind { [weak self] dowURL  in
+            guard let wSelf = self, let dowloadURL = dowURL else { return }
+
+            wSelf.listSoundCache.append(CacheSound(originURL: string, destinationURL: dowloadURL))
+            completion(dowloadURL)
+        }.disposed(by: disposeBag)
+        
+//                if let index = self.listSoundCache.firstIndex(where: { $0.originURL == string })  {
+//                    completion(self.listSoundCache[index].destinationURL)
+//                    return
+//                }
+//
+//        let url = self.urlDefault()
+//        self.listSoundCache.append(CacheSound(originURL: string, destinationURL: url))
+//        completion(url)
+        
     }
     
     private func urlDefault() -> URL {
