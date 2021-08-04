@@ -72,6 +72,7 @@ final class ChargeManage: ActivityTrackingProgressProtocol {
 //    @VariableReplay var listAnimationCache: [CacheAnimation] = []
     @VariableReplay var listURL: [URL] = []
     @VariableReplay var listSoundCache: [URL] = []
+    @VariableReplay var eventDisAppears: Void?
     var listImagesURL: [URL] = []
 //    @VariableReplay private var selectAnimationDraft: AnimationRealmModel?
     
@@ -188,6 +189,11 @@ final class ChargeManage: ActivityTrackingProgressProtocol {
                 }
             }
         }.disposed(by: disposeBag)
+        
+        self.$eventDisAppears.asObservable().bind { _ in
+            RequestService.shared.cancelRequest()
+        }.disposed(by: disposeBag)
+        
     }
     
     func playAnimation(view: UIView, url: URL, avplayerfrom: AVPlayerfrom) {
@@ -549,4 +555,5 @@ final class ChargeManage: ActivityTrackingProgressProtocol {
             print("\(err.localizedDescription)")
         }
     }
+    
 }

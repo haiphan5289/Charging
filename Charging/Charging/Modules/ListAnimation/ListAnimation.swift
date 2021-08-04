@@ -73,6 +73,13 @@ extension ListAnimation {
                 }
                 
         }.disposed(by: disposeBag)
+        
+        self.collectionView.rx.itemSelected.bind(onNext: weakify({ idx, wSelf in
+            let vc = AnimationSelection.createVCfromStoryBoard()
+            let item = self.listAnimation[idx.row]
+            vc.animationIconModel = item
+            wSelf.navigationController?.pushViewController(vc, animated: true)
+        })).disposed(by: disposeBag)
     }
     
 }

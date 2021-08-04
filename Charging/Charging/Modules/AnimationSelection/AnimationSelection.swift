@@ -57,7 +57,7 @@ class AnimationSelection: HideNavigationController {
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        
+        ChargeManage.shared.eventDisAppears = ()
         ChargeManage.shared.eventPauseAVPlayer = ()
         self.bombSoundEffect.stop()
     }
@@ -116,6 +116,10 @@ extension AnimationSelection {
             SVProgressHUD.showProgress(Float(value), status: "Loading...\(Double(value).roundTo())%")
             
         })).disposed(by: disposeBag)
+        
+        self.rx.viewWillDisappear.asObservable().bind { _ in
+            SVProgressHUD.dismiss()
+        }.disposed(by: disposeBag)
         
         ChargeManage.shared.indicator.asObservable().bind(onNext: weakify({ item, wSelf in
             item ? LoadingManager.instance.show() : LoadingManager.instance.dismiss()

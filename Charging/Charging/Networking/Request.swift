@@ -359,6 +359,14 @@ struct RequestService {
         return fileURL
     }
     
+    func cancelRequest() {
+        AF.session.getTasksWithCompletionHandler { (sessionDataTask, uploadData, downloadData) in
+            sessionDataTask.forEach { $0.cancel() }
+            uploadData.forEach { $0.cancel() }
+            downloadData.forEach { $0.cancel() }
+        }
+    }
+    
 }
 
 extension Dictionary {

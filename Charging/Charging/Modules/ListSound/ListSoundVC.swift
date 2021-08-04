@@ -24,6 +24,7 @@ class ListSoundVC: UIViewController {
     @VariableReplay private var listSound: [SoundModel] = []
     private var index: Int?
     private var selectSound: SoundRealmModel?
+    private var listAVPlayer: [AVAudioPlayer] = []
      
     private let disposeBag = DisposeBag()
     override func viewDidLoad() {
@@ -63,11 +64,18 @@ extension ListSoundVC {
                 } else {
                     cell.imgSelection.isHidden = true
                 }
+                cell.statePlay = { (_, av) in
+                    self.listAVPlayer.append(av)
+                    self.index = row
+                    if let finalURL = cell.finalURL {
+                        self.selectSound = SoundRealmModel(destinationURL: finalURL)
+                    }
+                    self.tableView.reloadData()
+                }
                 
             }.disposed(by: disposeBag)
         
         self.tableView.rx.itemSelected.bind(onNext: weakify({ (index, wSelf) in
-            
             guard let cell = wSelf.tableView.cellForRow(at: index) as? ListSoundCell, let finalURL = cell.finalURL else { return }
             wSelf.selectSound = SoundRealmModel(destinationURL: finalURL)
             wSelf.index = index.row
@@ -81,9 +89,16 @@ extension ListSoundVC {
                 
                 switch type {
                 case .cancel:
+                    self.listAVPlayer.forEach { p in
+                        p.stop()
+                    }
                     self.dismiss(animated: true, completion: nil)
                 case .done:
                     self.dismiss(animated: true) {
+                        self.listAVPlayer.forEach { p in
+                            p.stop()
+                        }
+                        
                         if let s = self.selectSound {
                             self.delegate?.resendSound(sound: s)
                         }
