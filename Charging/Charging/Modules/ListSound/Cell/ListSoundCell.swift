@@ -71,7 +71,7 @@ extension ListSoundCell {
         }.disposed(by: disposeBag)
         
         self.btPlay.rx.tap.bind { _ in
-            self.statePlay?(self.stateVideo, bombSoundEffect)
+            self.statePlay?(self.stateVideo, self.bombSoundEffect)
             guard (self.finalURL != nil) else {
                 self.flowDowloadURL()
                 return

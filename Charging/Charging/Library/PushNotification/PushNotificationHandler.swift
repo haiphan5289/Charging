@@ -33,6 +33,7 @@ enum PushNotificationKeys : String {
     case updateIconModel = "updateIconModel"
     case updateColor = "updateColor"
     case updateAnimation = "updateAnimation"
+    case updateAnimationFirst = "updateAnimationFirst"
 
 }
 

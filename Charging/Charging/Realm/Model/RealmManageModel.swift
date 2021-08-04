@@ -68,3 +68,19 @@ class SoundModelRealm: Object {
         super.init()
     }
 }
+
+class ShowAnimationFirstRealm: Object {
+    @objc dynamic var setting: Data?
+
+    init(model: ShowAnimationFirstModel) {
+        super.init()
+        do {
+            setting = try model.toData()
+        } catch let err {
+            print("\(err.localizedDescription)")
+        }
+    }
+    required init() {
+        super.init()
+    }
+}

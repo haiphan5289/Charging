@@ -27,7 +27,7 @@ class AnimationVM: ActivityTrackingProgressProtocol {
 //            }.disposed(by: disposeBag)
 //    }
 //
-    private func getListAnimation() {
+    func getListAnimation() {
         RequestService.shared.APIData(ofType: OptionalMessageDTO<[AnimationModel]>.self,
                                       url: APILink.listAnimation.rawValue,
                                       parameters: nil,

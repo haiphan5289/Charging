@@ -12,6 +12,10 @@ import RxCocoa
 
 class Animation: UIViewController {
     
+    enum Openfrom {
+        case selectAnimation, home
+    }
+    
     @IBOutlet weak var tableView: UITableView!
     
     private var listAnimation: [AnimationModel] = []
@@ -28,6 +32,15 @@ class Animation: UIViewController {
         super.viewWillAppear(animated)
         ChargeManage.shared.updateAVPlayerfrom(avplayerfrom: .animation)
         ChargeManage.shared.eventPlayAVPlayer = ()
+
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        if ChargeManage.shared.openfrom == .selectAnimation {
+            self.viewModel.getListAnimation()
+            ChargeManage.shared.openfrom = .home
+        }
     }
     
     override func viewDidLayoutSubviews() {

@@ -39,6 +39,7 @@ class AnimationSelection: HideNavigationController {
     @IBOutlet weak var imageAnimation: UIImageView!
     @IBOutlet weak var btSetAnimation: UIButton!
     private let viewSuccess: SuccessView = SuccessView.loadXib()
+    private var moveBack: Bool = true
     
     private var bombSoundEffect: AVAudioPlayer = AVAudioPlayer()
     @VariableReplay private var statusAction: StatusAction = .hide
@@ -53,13 +54,22 @@ class AnimationSelection: HideNavigationController {
         super.viewWillAppear(animated)
         ChargeManage.shared.updateAVPlayerfrom(avplayerfrom: .animationSelection)
 //        ChargeManage.shared.eventPlayAVPlayer = ()
+        
+        if !self.moveBack {
+            self.bombSoundEffect.play()
+        }
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         ChargeManage.shared.eventDisAppears = ()
-        ChargeManage.shared.eventPauseAVPlayer = ()
-        self.bombSoundEffect.stop()
+        if self.moveBack {
+            ChargeManage.shared.eventPauseAVPlayer = ()
+            self.bombSoundEffect.stop()
+        } else {
+            self.bombSoundEffect.pause()
+        }
+        
     }
     
     
@@ -80,7 +90,6 @@ extension AnimationSelection {
         case .app:
             ChargeManage.shared.playVideofromApp(view: self.viewAnimation)
             let sound = ChargeManage.shared.soundMode
-            print("======== \(sound?.destinationURL)")
             let listSound = ChargeManage.shared.listSoundCache
             if  let s = sound, let index = listSound.firstIndex(where: { $0.lastPathComponent == s.destinationURL.lastPathComponent }) {
                 self.playAudio(url: listSound[index])
@@ -189,11 +198,14 @@ extension AnimationSelection {
         })).disposed(by: disposeBag)
         
         self.btBack.rx.tap.bind { _ in
+            self.moveBack = true
             switch self.openfrom {
             case .app:
                 let vc = BaseTabbarViewController()
+                ChargeManage.shared.openfrom = .selectAnimation
                 self.navigationController?.pushViewController(vc, animated: true)
-            default: self.navigationController?.popViewController(animated: true, nil)
+            default:
+                self.navigationController?.popViewController(animated: true, nil)
             }
             
         }.disposed(by: disposeBag)
@@ -218,6 +230,21 @@ extension AnimationSelection {
                 } catch {
                     print("\(error.localizedDescription)")
                 }
+            }
+            
+            if let f = ChargeManage.shared.animaionShowFirst, f.isFirst ?? false {
+                do {
+                    let model = ShowAnimationFirstModel(isFirst: false)
+                    let data = try model.toData()
+                    RealmManage.shared.addAndUpdateShowAnimationFirst(data: data)
+                    let vc = HowToUserAnimation.createVC()
+                    self.moveBack = false
+                    self.navigationController?.pushViewController(vc, animated: true)
+                } catch {
+                    print("\(error.localizedDescription)")
+                }
+                
+                
             }
             
             

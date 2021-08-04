@@ -180,6 +180,44 @@ class RealmManage {
         }
         return listDiaryModel
     }
+    
+    private func getShowAnimationFirstApp() -> [ShowAnimationFirstRealm] {
+        let list = realm.objects(ShowAnimationFirstRealm.self).toArray(ofType: ShowAnimationFirstRealm.self)
+        return list
+    }
+    func addAndUpdateShowAnimationFirst(data: Data) {
+        let list = self.getShowAnimationFirstApp()
+        guard list.count > 0, let _ = list.first else {
+            let model: ShowAnimationFirstModel = ShowAnimationFirstModel(isFirst: true)
+            let itemAdd = ShowAnimationFirstRealm.init(model: model)
+            try! realm.write {
+                realm.add(itemAdd)
+                NotificationCenter.default.post(name: NSNotification.Name(PushNotificationKeys.updateAnimationFirst.rawValue), object: itemAdd, userInfo: nil)
+            }
+            return
+        }
+        try! realm.write {
+            list[0].setting = data
+            NotificationCenter.default.post(name: NSNotification.Name(PushNotificationKeys.updateAnimationFirst.rawValue), object: list[0], userInfo: nil)
+        }
+    }
+    
+    func getAnimationShowFirst() -> [ShowAnimationFirstModel] {
+        if self.getShowAnimationFirstApp().count <= 0 {
+            self.addAndUpdateShowAnimationFirst(data: Data())
+        }
+        
+        let listDiaryRealm = self.getShowAnimationFirstApp()
+        var listDiaryModel: [ShowAnimationFirstModel] = []
+        
+        for m in listDiaryRealm {
+            guard let model = m.setting?.toCodableObject() as ShowAnimationFirstModel? else{
+                return []
+            }
+            listDiaryModel.append(model)
+        }
+        return listDiaryModel
+    }
 }
 extension Results {
     func toArray<T>(ofType: T.Type) -> [T] {

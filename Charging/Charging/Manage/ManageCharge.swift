@@ -73,6 +73,9 @@ final class ChargeManage: ActivityTrackingProgressProtocol {
     @VariableReplay var listURL: [URL] = []
     @VariableReplay var listSoundCache: [URL] = []
     @VariableReplay var eventDisAppears: Void?
+    
+    var animaionShowFirst: ShowAnimationFirstModel?
+    var openfrom: Animation.Openfrom = .home
     var listImagesURL: [URL] = []
 //    @VariableReplay private var selectAnimationDraft: AnimationRealmModel?
     
@@ -132,6 +135,14 @@ final class ChargeManage: ActivityTrackingProgressProtocol {
                 guard  let wSelf = self, let icon = notify.object as? ColorRealm else { return }
                 let m = icon.colorIndex 
                 wSelf.colorIndex = m
+            }.disposed(by: disposeBag)
+        
+        NotificationCenter.default.rx
+            .notification(Notification.Name(rawValue: PushNotificationKeys.updateAnimationFirst.rawValue))
+            .bind { [weak self] notify in
+                guard  let wSelf = self, let m = notify.object as? ShowAnimationFirstRealm,
+                       let model = m.setting?.toCodableObject() as ShowAnimationFirstModel? else { return }
+                wSelf.animaionShowFirst = model
             }.disposed(by: disposeBag)
         
         NotificationCenter.default.rx
@@ -303,6 +314,7 @@ final class ChargeManage: ActivityTrackingProgressProtocol {
         self.getColornModel()
         self.getAnimationModel()
         self.getSound()
+        self.getAnimationShowFirst()
         ChargeManage.shared.createFolder(folder: LINK_ANIMATION)
         ChargeManage.shared.createFolder(folder: LINK_SOUND)
         ChargeManage.shared.createFolder(folder: LINK_IMAGES)
@@ -318,6 +330,9 @@ final class ChargeManage: ActivityTrackingProgressProtocol {
     private func pauseAVPlayer(player: AVPlayer) {
         player.pause()
         player.seek(to: CMTime.zero)
+        self.playerHome = nil
+        self.playerIntroduce = nil
+        self.playerAnimationSelection = nil
     }
     
     private func playAgain(player: AVPlayer) {
@@ -353,6 +368,13 @@ final class ChargeManage: ActivityTrackingProgressProtocol {
         let list = RealmManage.shared.getSound()
         if let f = list.first {
             self.soundMode = f
+        }
+    }
+    
+    private func getAnimationShowFirst() {
+        let list = RealmManage.shared.getAnimationShowFirst()
+        if let f = list.first {
+            self.animaionShowFirst = f
         }
     }
     
