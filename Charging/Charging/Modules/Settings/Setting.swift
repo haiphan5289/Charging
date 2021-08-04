@@ -83,7 +83,29 @@ extension Setting {
             case .animation:
                 let vc = HowToUserAnimation.createVC()
                 wSelf.navigationController?.pushViewController(vc, animated: true)
-            default: break
+            case .contact:
+                guard let url = URL(string: LINK_SUPPORT) else { return }
+                UIApplication.shared.open(url)
+            case .privacy:
+                guard let url = URL(string: LINK_PRICAVY) else { return }
+                UIApplication.shared.open(url)
+            case .term:
+                guard let url = URL(string: LINK_TERM) else { return }
+                UIApplication.shared.open(url)
+            case .share:
+                let objectsToShare: [String] = ["Charging Animation"]
+                let activityVC = UIActivityViewController(activityItems: objectsToShare, applicationActivities: nil)
+                activityVC.excludedActivityTypes = [.airDrop, .addToReadingList, .assignToContact,
+                                                    .mail, .message, .postToFacebook, .postToWhatsApp]
+                activityVC.completionWithItemsHandler = {(activityType: UIActivity.ActivityType?, completed: Bool, returnedItems: [Any]?, error: Error?) in
+        //            if !completed {
+        //                return
+        //            }
+//                    activityVC.dismiss(animated: true) {
+//                        self.dismiss(animated: true, completion: nil)
+//                    }
+                }
+                self.present(activityVC, animated: true, completion: nil)
             }
             
         })).disposed(by: disposeBag)

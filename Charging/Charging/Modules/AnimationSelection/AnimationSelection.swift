@@ -59,6 +59,7 @@ class AnimationSelection: HideNavigationController {
         super.viewWillDisappear(animated)
         
         ChargeManage.shared.eventPauseAVPlayer = ()
+        self.bombSoundEffect.stop()
     }
     
     

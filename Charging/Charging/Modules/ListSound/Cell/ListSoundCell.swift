@@ -42,6 +42,11 @@ class ListSoundCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
+    override func removeFromSuperview() {
+        superview?.removeFromSuperview()
+        self.bombSoundEffect.stop()
+    }
+    
 }
 extension ListSoundCell {
     

@@ -15,12 +15,17 @@ class IntroduceAppVC: UIViewController {
         case amazing, choosen, fullAccess
     }
     
+    enum ActionBottom: Int, CaseIterable {
+        case term, restore, privacy
+    }
+    
     @IBOutlet weak var vAnimation: UIView!
     @IBOutlet weak var btContinue: UIButton!
     @IBOutlet weak var btContinue2: UIButton!
     @IBOutlet weak var vBottom: UIView!
     @IBOutlet weak var bottomViewStack: NSLayoutConstraint!
     @IBOutlet weak var bottomView: NSLayoutConstraint!
+    @IBOutlet var bts: [UIButton]!
     private let vAmazing: AmazingView = AmazingView.loadXib()
     private let fullAccess: FullAccessView = FullAccessView.loadXib()
     
@@ -95,6 +100,22 @@ extension IntroduceAppVC {
         self.fullAccess.$status.bind(onNext: weakify({ stt, wSelf in
             wSelf.vBottom.backgroundColor = (stt == .hide) ? UIColor.clear : Asset._0D043A.color
         })).disposed(by: disposeBag)
+        
+        ActionBottom.allCases.forEach { (type) in
+            let bt = self.bts[type.rawValue]
+            
+            bt.rx.tap.bind { _ in
+                switch type {
+                case .privacy:
+                    guard let url = URL(string: LINK_PRICAVY) else { return }
+                    UIApplication.shared.open(url)
+                case .restore: break
+                case .term:
+                    guard let url = URL(string: LINK_TERM) else { return }
+                    UIApplication.shared.open(url)
+                }
+            }.disposed(by: disposeBag)
+        }
     }
     
     private func animationButton() {
