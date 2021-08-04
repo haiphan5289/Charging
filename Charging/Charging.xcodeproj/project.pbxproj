@@ -217,6 +217,7 @@
 /* Begin PBXFileReference section */
 		01CA878946CF011EB8FD3F25 /* Pods_Charging.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Charging.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2E902A3526BA4D7500ACED39 /* Intents.intentdefinition */ = {isa = PBXFileReference; lastKnownFileType = file.intentdefinition; path = Intents.intentdefinition; sourceTree = "<group>"; };
+		2EDFAAD126BA65070070458D /* Charging.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Charging.entitlements; sourceTree = "<group>"; };
 		71B72819D4736E58FEC516DC /* Pods-Charging.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Charging.release.xcconfig"; path = "Target Support Files/Pods-Charging/Pods-Charging.release.xcconfig"; sourceTree = "<group>"; };
 		884FA57311FCA8A1FD8664F5 /* Pods-Charging.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Charging.debug.xcconfig"; path = "Target Support Files/Pods-Charging/Pods-Charging.debug.xcconfig"; sourceTree = "<group>"; };
 		9344733626AD99C6006A695D /* AnimationSelection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimationSelection.swift; sourceTree = "<group>"; };
@@ -869,6 +870,7 @@
 		93BDED7E26AB1C96003942C1 /* Charging */ = {
 			isa = PBXGroup;
 			children = (
+				2EDFAAD126BA65070070458D /* Charging.entitlements */,
 				93B83B8426AC4C1D00EF968F /* Generated */,
 				93B83B7E26AC46E100EF968F /* Resources */,
 				93BDEE6B26AB2447003942C1 /* Realm */,
@@ -1671,6 +1673,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Charging/Charging.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 3RF4VVNP87;
 				INFOPLIST_FILE = Charging/Info.plist;
@@ -1679,6 +1682,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 0.2;
 				PRODUCT_BUNDLE_IDENTIFIER = com.ChargingAnimation;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -1692,6 +1696,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Charging/Charging.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 3RF4VVNP87;
 				INFOPLIST_FILE = Charging/Info.plist;
@@ -1700,6 +1705,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 0.2;
 				PRODUCT_BUNDLE_IDENTIFIER = com.ChargingAnimation;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
