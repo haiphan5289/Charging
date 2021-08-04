@@ -53,6 +53,11 @@ extension Animation {
         self.viewModel.$listAnimation.asObservable().bind(onNext: weakify({ list, wSelf in
             wSelf.listAnimation = list
             wSelf.tableView.reloadData()
+            
+//            DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
+//                wSelf.tableView.reloadData()
+//            }
+            
         })).disposed(by: disposeBag)
         
         ChargeManage.shared.$animationModel.asObservable().bind(onNext: weakify({ item, wSelf in

@@ -197,7 +197,7 @@ extension AnimationSelection {
         self.btSetAnimation.rx.tap.bind { _ in
             if let v =  self.animationIconModel, let t = v.filename, let url = URL(string: t) {
                 do {
-                    let model = AnimationRealmModel(destinationURL: url)
+                    let model = AnimationRealmModel(destinationURL: url, isDefault: false)
                     let data = try model.toData()
                     RealmManage.shared.addAndUpdateAnimation(data: data)
                 } catch {
@@ -208,7 +208,7 @@ extension AnimationSelection {
             if let s = self.selectSound {
                 do {
                     let t = s.destinationURL
-                    let model = AnimationRealmModel(destinationURL: t)
+                    let model = SoundRealmModel(destinationURL: t)
                     let data = try model.toData()
                     RealmManage.shared.addAndUpdateSound(data: data)
                 } catch {

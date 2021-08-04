@@ -72,6 +72,7 @@ final class ChargeManage: ActivityTrackingProgressProtocol {
 //    @VariableReplay var listAnimationCache: [CacheAnimation] = []
     @VariableReplay var listURL: [URL] = []
     @VariableReplay var listSoundCache: [URL] = []
+    var listImagesURL: [URL] = []
 //    @VariableReplay private var selectAnimationDraft: AnimationRealmModel?
     
     private let videoCache = NSCache<NSString, AVPlayer>()
@@ -269,6 +270,24 @@ final class ChargeManage: ActivityTrackingProgressProtocol {
                     player.play()
                 }
             }
+        } else {
+            self.playVideoDefault(view: view)
+        }
+    }
+    
+    
+    private func playVideoDefault(view: UIView) {
+        self.avplayerfrom = .animationSelection
+        self.playerAnimationSelection = AVPlayer(url: self.urlDefault())
+        if let player = self.playerAnimationSelection {
+            let playerLayer = AVPlayerLayer(player: player)
+            playerLayer.frame = UIScreen.main.bounds
+            playerLayer.videoGravity = AVLayerVideoGravity.resize
+            view.layer.addSublayer(playerLayer)
+            player.play()
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+                player.play()
+            }
         }
     }
 
@@ -280,10 +299,10 @@ final class ChargeManage: ActivityTrackingProgressProtocol {
         self.getSound()
         ChargeManage.shared.createFolder(folder: LINK_ANIMATION)
         ChargeManage.shared.createFolder(folder: LINK_SOUND)
+        ChargeManage.shared.createFolder(folder: LINK_IMAGES)
         self.getListRecord()
         self.getListSound()
-        
-        
+        self.getListImages()
     }
     
     func updateAVPlayerfrom(avplayerfrom: AVPlayerfrom) {
@@ -329,6 +348,41 @@ final class ChargeManage: ActivityTrackingProgressProtocol {
         if let f = list.first {
             self.soundMode = f
         }
+    }
+    
+    func dowloadImageURL(url: URL, completion: @escaping ((URL) -> Void) ) {
+        // check cached image
+        if let index = self.listImagesURL.firstIndex(where: { $0.lastPathComponent == url.lastPathComponent })  {
+            completion(self.listImagesURL[index])
+            return
+        }
+
+        RequestService.shared
+            .startDownload(audioUrl: url.absoluteString) { [weak self] loadingModel in
+                guard let wSelf = self else { return }
+//                wSelf.loadingModel = loadingModel
+        }
+        .bind { [weak self] dowURL  in
+            guard let wSelf = self, let dowloadURL = dowURL else { return }
+
+            wSelf.copy(oldUrl: dowloadURL, folderName: LINK_IMAGES, success: { copyURL in
+                wSelf.listImagesURL.append(copyURL)
+            }, failure: { _ in
+                
+            })
+            
+            completion(dowloadURL)
+        }.disposed(by: disposeBag)
+        
+//                if let index = self.listSoundCache.firstIndex(where: { $0.originURL == string })  {
+//                    completion(self.listSoundCache[index].destinationURL)
+//                    return
+//                }
+//
+//        let url = self.urlDefault()
+//        self.listSoundCache.append(CacheSound(originURL: string, destinationURL: url))
+//        completion(url)
+        
     }
     
     func dowloadURL(url: URL, completion: @escaping ((URL) -> Void) ) {
@@ -462,6 +516,34 @@ final class ChargeManage: ActivityTrackingProgressProtocol {
                 return true
             }
             self.listSoundCache = l
+            
+        } catch let err {
+            print("\(err.localizedDescription)")
+        }
+    }
+    
+    private func getListImages() {
+        guard let documentDirectoryPath = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true).first else {
+            return
+        }
+        let appURL = URL(fileURLWithPath: documentDirectoryPath)
+        let pdfPath = appURL.appendingPathComponent(LINK_IMAGES)
+        do {
+            let contents = try FileManager.default.contentsOfDirectory(at: pdfPath , includingPropertiesForKeys: nil, options: .skipsHiddenFiles)
+            //print the file listing to the console
+            let l =  contents.sorted { ( u1: URL, u2: URL) -> Bool in
+                do{
+                    let values1 = try u1.resourceValues(forKeys: [.creationDateKey, .contentModificationDateKey])
+                    let values2 = try u2.resourceValues(forKeys: [.creationDateKey, .contentModificationDateKey])
+                    if let date1 = values1.contentModificationDate, let date2 = values2.contentModificationDate {
+                        return date1.compare(date2) == ComparisonResult.orderedDescending
+                    }
+                }catch _{
+                }
+                
+                return true
+            }
+            self.listImagesURL = l
             
         } catch let err {
             print("\(err.localizedDescription)")

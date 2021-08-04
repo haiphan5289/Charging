@@ -20,6 +20,7 @@ let WHITE_COLOR = UIColor.white
 var IMAGE_RESIZE = CGSize.init(width: 640, height: 640)
 let LINK_ANIMATION = "ANIMATION"
 let LINK_SOUND = "SOUND"
+let LINK_IMAGES = "IMAGES"
 let LINK_TERM = "https://sites.google.com/view/charginganimation-show/terms-and-condition"
 let LINK_PRICAVY = "https://sites.google.com/view/charginganimation-show/privacy-policy"
 let LINK_SUPPORT = "https://sites.google.com/view/charginganimation-show/support"

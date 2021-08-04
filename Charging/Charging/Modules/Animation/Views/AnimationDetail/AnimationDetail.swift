@@ -89,8 +89,21 @@ extension AnimationDetail {
                 }
                 
                 if let t = data.image, let url = URL(string: t) {
+                    
+//                    ChargeManage.shared.dowloadImageURL(url: url) { dowloadURL in
+//                        do {
+//                            let data = try Data(contentsOf: dowloadURL)
+//                            let img = UIImage(data: data)
+//                            let thumbnail = img?.resizeImage(Constant.resizeImage)
+//                            cell.imgAnimation.image = thumbnail
+//                        } catch {
+//
+//                        }
+//
+//                    }
+                    
                     KingfisherManager.shared.retrieveImage(with: url, options: nil, progressBlock: nil, completionHandler: { image, error, cacheType, imageURL in
-            
+
                         if let image = image, let t = data.image {
                             let thumbnail = image.resizeImage(Constant.resizeImage)
                             ChargeManage.shared.imageCache.setObject(image, forKey: t as NSString)
@@ -98,7 +111,7 @@ extension AnimationDetail {
                         } else {
                             cell.imgAnimation.image = UIIMAGE_DEFAULT
                         }
-                        
+
                     })
                 } else {
                     cell.imgAnimation.image = UIIMAGE_DEFAULT

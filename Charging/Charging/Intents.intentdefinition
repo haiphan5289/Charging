@@ -8,7 +8,7 @@
 			<key>INEnumDisplayName</key>
 			<string>Soup</string>
 			<key>INEnumDisplayNameID</key>
-			<string>JdRZ4n</string>
+			<string>BZqbEe</string>
 			<key>INEnumGeneratesHeader</key>
 			<true/>
 			<key>INEnumName</key>
@@ -21,7 +21,7 @@
 					<key>INEnumValueDisplayName</key>
 					<string>unknown</string>
 					<key>INEnumValueDisplayNameID</key>
-					<string>Prs30J</string>
+					<string>5vf2fJ</string>
 					<key>INEnumValueName</key>
 					<string>unknown</string>
 				</dict>
@@ -31,13 +31,13 @@
 	<key>INIntentDefinitionModelVersion</key>
 	<string>1.2</string>
 	<key>INIntentDefinitionNamespace</key>
-	<string>XeIqBe</string>
+	<string>weIsKQ</string>
 	<key>INIntentDefinitionSystemVersion</key>
-	<string>20F71</string>
+	<string>19E266</string>
 	<key>INIntentDefinitionToolsBuildVersion</key>
-	<string>12E507</string>
+	<string>12D4e</string>
 	<key>INIntentDefinitionToolsVersion</key>
-	<string>12.5.1</string>
+	<string>12.4</string>
 	<key>INIntents</key>
 	<array>
 		<dict>
@@ -46,9 +46,9 @@
 			<key>INIntentConfigurable</key>
 			<true/>
 			<key>INIntentDescription</key>
-			<string>Order Shop Order Shop Order Shop Order Shop </string>
+			<string>Charging Animation</string>
 			<key>INIntentDescriptionID</key>
-			<string>yAEdPw</string>
+			<string>9gnobc</string>
 			<key>INIntentLastParameterTag</key>
 			<integer>3</integer>
 			<key>INIntentManagedParameterCombinations</key>
@@ -58,9 +58,9 @@
 					<key>INIntentParameterCombinationSupportsBackgroundExecution</key>
 					<true/>
 					<key>INIntentParameterCombinationTitle</key>
-					<string>Soup Soup Soup Soup Soup Soup Soup Soup </string>
+					<string>Charging Animation</string>
 					<key>INIntentParameterCombinationTitleID</key>
-					<string>zZ4Eg1</string>
+					<string>PbKs9N</string>
 					<key>INIntentParameterCombinationUpdatesLinked</key>
 					<true/>
 				</dict>
@@ -76,9 +76,9 @@
 					<key>INIntentParameterCombinationSupportsBackgroundExecution</key>
 					<true/>
 					<key>INIntentParameterCombinationTitle</key>
-					<string>Soup Soup Soup Soup Soup Soup Soup Soup </string>
+					<string>Charging Animation</string>
 					<key>INIntentParameterCombinationTitleID</key>
-					<string>iw4ktL</string>
+					<string>jL0CDR</string>
 				</dict>
 			</dict>
 			<key>INIntentParameters</key>
@@ -91,7 +91,7 @@
 					<key>INIntentParameterDisplayName</key>
 					<string>Soup</string>
 					<key>INIntentParameterDisplayNameID</key>
-					<string>RCX4tl</string>
+					<string>29TBws</string>
 					<key>INIntentParameterDisplayPriority</key>
 					<integer>1</integer>
 					<key>INIntentParameterMetadata</key>
@@ -99,7 +99,7 @@
 						<key>INIntentParameterMetadataCapitalization</key>
 						<string>Sentences</string>
 						<key>INIntentParameterMetadataDefaultValueID</key>
-						<string>7hP0DQ</string>
+						<string>nRoI9L</string>
 					</dict>
 					<key>INIntentParameterName</key>
 					<string>Soup</string>
@@ -123,7 +123,7 @@
 							<key>INIntentParameterPromptDialogFormatString</key>
 							<string>There are ${count} options matching ‘${Soup}’.</string>
 							<key>INIntentParameterPromptDialogFormatStringID</key>
-							<string>DxpbzE</string>
+							<string>NdRbRj</string>
 							<key>INIntentParameterPromptDialogType</key>
 							<string>DisambiguationIntroduction</string>
 						</dict>
@@ -133,7 +133,7 @@
 							<key>INIntentParameterPromptDialogFormatString</key>
 							<string>Just to confirm, you wanted ‘${Soup}’?</string>
 							<key>INIntentParameterPromptDialogFormatStringID</key>
-							<string>a85f2W</string>
+							<string>FAbWJe</string>
 							<key>INIntentParameterPromptDialogType</key>
 							<string>Confirmation</string>
 						</dict>
@@ -167,7 +167,7 @@
 			<key>INIntentTitle</key>
 			<string>Charging Animation</string>
 			<key>INIntentTitleID</key>
-			<string>SHTDmO</string>
+			<string>f3TN6d</string>
 			<key>INIntentType</key>
 			<string>Custom</string>
 			<key>INIntentVerb</key>

@@ -112,7 +112,7 @@ class RealmManage {
     func addAndUpdateAnimation(data: Data) {
         let list = self.getAnimationApp()
         guard list.count > 0, let _ = list.first else {
-            let model: AnimationRealmModel = AnimationRealmModel(destinationURL: ChargeManage.shared.urlDefault())
+            let model: AnimationRealmModel = AnimationRealmModel(destinationURL: ChargeManage.shared.urlDefault(), isDefault: true)
             let itemAdd = AnimationIconModelRealm.init(model: model)
             try! realm.write {
                 realm.add(itemAdd)

@@ -27,9 +27,10 @@ extension IconModel: Equatable {
 
 struct AnimationRealmModel: Codable {
     let destinationURL: URL
+    let isDefault: Bool
     
     enum CodingKeys: String, CodingKey {
-        case destinationURL
+        case destinationURL, isDefault
     }
 //    public init(from decoder: Decoder) throws {
 //        let values = try decoder.container(keyedBy: CodingKeys.self)
