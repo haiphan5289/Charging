@@ -265,7 +265,6 @@ final class ChargeManage: ActivityTrackingProgressProtocol {
                     }, failure: { _ in
                         
                     })
-                    print("==== \(dowloadURL.absoluteString)")
                     p.play()
                 }
 

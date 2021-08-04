@@ -26,7 +26,7 @@ class ListSoundCell: UITableViewCell {
     @VariableReplay var stateVideo: StateVideo = .none
     
     
-    private var bombSoundEffect: AVAudioPlayer = AVAudioPlayer()
+    var bombSoundEffect: AVAudioPlayer = AVAudioPlayer()
     private var isPlaying: Bool = false
     private let disposeBag = DisposeBag()
     override func awakeFromNib() {
@@ -62,6 +62,7 @@ extension ListSoundCell {
                 wSelf.btPlay.setImage(Asset.icPlaySound.image, for: .normal)
             case .pause:
                 wSelf.btPlay.setImage(Asset.icPlaySound.image, for: .normal)
+                wSelf.bombSoundEffect.pause()
             case .play:
                 wSelf.btPlay.setImage(Asset.icPauseSound.image, for: .normal)
                 guard let url = wSelf.finalURL else { return }

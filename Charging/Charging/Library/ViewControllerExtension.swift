@@ -9,7 +9,6 @@
 import Foundation
 import UIKit
 import Firebase
-import Firebase
 
 protocol Weakifiable: AnyObject {}
 extension Weakifiable {

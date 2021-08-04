@@ -53,6 +53,10 @@
 		93A66C0F26BADBA100E1C25E /* PremiumViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93A66C0B26BADBA100E1C25E /* PremiumViewController.swift */; };
 		93A66C1026BADBA100E1C25E /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93A66C0C26BADBA100E1C25E /* Configuration.swift */; };
 		93A66C1226BAED8700E1C25E /* NSDecimalNumber.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93A66C1126BAED8700E1C25E /* NSDecimalNumber.swift */; };
+		93A66C1626BAF37400E1C25E /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 93A66C1526BAF37400E1C25E /* GoogleService-Info.plist */; };
+		93A66C1826BAFE1E00E1C25E /* FirebaseManage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93A66C1726BAFE1E00E1C25E /* FirebaseManage.swift */; };
+		93A66C1C26BAFFAE00E1C25E /* LoadFirebase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93A66C1A26BAFFAE00E1C25E /* LoadFirebase.swift */; };
+		93A66C1D26BAFFAE00E1C25E /* LoadFirebase.xib in Resources */ = {isa = PBXBuildFile; fileRef = 93A66C1B26BAFFAE00E1C25E /* LoadFirebase.xib */; };
 		93A77E2F26B19D3700BC2F31 /* iphoneX.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 93A77E2E26B19D3700BC2F31 /* iphoneX.mp4 */; };
 		93A77E3226B19D9200BC2F31 /* listVideo.json in Resources */ = {isa = PBXBuildFile; fileRef = 93A77E3126B19D9200BC2F31 /* listVideo.json */; };
 		93AA872E26B83A4E00691FEA /* DataLocal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93AA872A26B83A4D00691FEA /* DataLocal.swift */; };
@@ -257,6 +261,10 @@
 		93A66C0B26BADBA100E1C25E /* PremiumViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PremiumViewController.swift; sourceTree = "<group>"; };
 		93A66C0C26BADBA100E1C25E /* Configuration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Configuration.swift; sourceTree = "<group>"; };
 		93A66C1126BAED8700E1C25E /* NSDecimalNumber.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSDecimalNumber.swift; sourceTree = "<group>"; };
+		93A66C1526BAF37400E1C25E /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
+		93A66C1726BAFE1E00E1C25E /* FirebaseManage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseManage.swift; sourceTree = "<group>"; };
+		93A66C1A26BAFFAE00E1C25E /* LoadFirebase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadFirebase.swift; sourceTree = "<group>"; };
+		93A66C1B26BAFFAE00E1C25E /* LoadFirebase.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoadFirebase.xib; sourceTree = "<group>"; };
 		93A77E2E26B19D3700BC2F31 /* iphoneX.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = iphoneX.mp4; sourceTree = "<group>"; };
 		93A77E3126B19D9200BC2F31 /* listVideo.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = listVideo.json; sourceTree = "<group>"; };
 		93AA872A26B83A4D00691FEA /* DataLocal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataLocal.swift; sourceTree = "<group>"; };
@@ -644,6 +652,15 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
+		93A66C1926BAFF9A00E1C25E /* LoadFirebase */ = {
+			isa = PBXGroup;
+			children = (
+				93A66C1A26BAFFAE00E1C25E /* LoadFirebase.swift */,
+				93A66C1B26BAFFAE00E1C25E /* LoadFirebase.xib */,
+			);
+			path = LoadFirebase;
+			sourceTree = "<group>";
+		};
 		93A77E3026B19D7400BC2F31 /* Videos */ = {
 			isa = PBXGroup;
 			children = (
@@ -753,6 +770,7 @@
 			children = (
 				9363612726AD51C300FE6E4E /* ManageFont */,
 				9363610E26AD0E7200FE6E4E /* ManageCharge.swift */,
+				93A66C1726BAFE1E00E1C25E /* FirebaseManage.swift */,
 			);
 			path = Manage;
 			sourceTree = "<group>";
@@ -846,6 +864,7 @@
 				93B83B7F26AC474000EF968F /* Localizable.strings */,
 				93BDED8826AB1C99003942C1 /* Assets.xcassets */,
 				93BDED8A26AB1C99003942C1 /* LaunchScreen.storyboard */,
+				93A66C1526BAF37400E1C25E /* GoogleService-Info.plist */,
 				93BDED8D26AB1C99003942C1 /* Info.plist */,
 			);
 			path = Charging;
@@ -854,6 +873,7 @@
 		93BDED9326AB1F85003942C1 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				93A66C1926BAFF9A00E1C25E /* LoadFirebase */,
 				93A66C0726BADBA100E1C25E /* InApp */,
 				938E8A3F26B546AE00BC173D /* IntroduceApp */,
 				93BC28B726B054FF00E754FA /* CheckXib */,
@@ -1208,6 +1228,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				93A66C1D26BAFFAE00E1C25E /* LoadFirebase.xib in Resources */,
 				9344733926AD9A33006A695D /* AnimationSelection.storyboard in Resources */,
 				93BDEE9826AB2452003942C1 /* ProgressIndicator.png in Resources */,
 				9363613526AD5D3C00FE6E4E /* AnimationDetailCell.xib in Resources */,
@@ -1221,6 +1242,7 @@
 				93BC28C526B060D900E754FA /* ListColorCell.xib in Resources */,
 				93B68B4D26B4606100EC4B64 /* HowToUseAnimationCell.xib in Resources */,
 				93BDEDE126AB23D1003942C1 /* GoogleSans-Medium.otf in Resources */,
+				93A66C1626BAF37400E1C25E /* GoogleService-Info.plist in Resources */,
 				9363611A26AD1E8300FE6E4E /* ChargingView.xib in Resources */,
 				93B83B8026AC474100EF968F /* Localizable.strings in Resources */,
 				9363612B26AD51EE00FE6E4E /* ManageFont.xib in Resources */,
@@ -1398,6 +1420,7 @@
 				93BDEE9F26AB2452003942C1 /* ABProgressIndicator.swift in Sources */,
 				93BDEE2126AB242E003942C1 /* ActivityExt.swift in Sources */,
 				93BDEE1E26AB242E003942C1 /* UINavigationControllerExtensions.swift in Sources */,
+				93A66C1826BAFE1E00E1C25E /* FirebaseManage.swift in Sources */,
 				93BDEE2026AB242E003942C1 /* UIGestureRecognizerExtensions.swift in Sources */,
 				93BC28BF26B05E2900E754FA /* ListColorVC.swift in Sources */,
 				9344733726AD99C6006A695D /* AnimationSelection.swift in Sources */,
@@ -1417,6 +1440,7 @@
 				93BDEDD226AB23D1003942C1 /* BaseNavigationLargeTitle.swift in Sources */,
 				9363612926AD51DE00FE6E4E /* ManageFont.swift in Sources */,
 				93BDEE5026AB243F003942C1 /* UITapgesture+Extension.swift in Sources */,
+				93A66C1C26BAFFAE00E1C25E /* LoadFirebase.swift in Sources */,
 				938E8A4926B5538800BC173D /* AmazingView.swift in Sources */,
 				93BDEEB926AB2493003942C1 /* Request.swift in Sources */,
 				93BDEDD326AB23D1003942C1 /* BaseTableViewCell.swift in Sources */,

@@ -66,42 +66,74 @@ PODS:
   - EasyTipView (2.1.0)
   - Eureka (5.3.3)
   - FDWaveformView (5.0.1)
-  - Firebase (2.5.1)
-  - FirebaseAnalyticsInterop (1.5.0)
-  - FirebaseAuth (6.4.2):
-    - FirebaseAuthInterop (~> 1.0)
-    - FirebaseCore (~> 6.2)
-    - GoogleUtilities/AppDelegateSwizzler (~> 6.2)
-    - GoogleUtilities/Environment (~> 6.2)
-    - GTMSessionFetcher/Core (~> 1.1)
-  - FirebaseAuthInterop (1.1.0)
-  - FirebaseCore (6.5.0):
-    - FirebaseCoreDiagnostics (~> 1.0)
-    - FirebaseCoreDiagnosticsInterop (~> 1.0)
-    - GoogleUtilities/Environment (~> 6.4)
-    - GoogleUtilities/Logger (~> 6.4)
-  - FirebaseCoreDiagnostics (1.7.0):
-    - GoogleDataTransport (~> 7.4)
-    - GoogleUtilities/Environment (~> 6.7)
-    - GoogleUtilities/Logger (~> 6.7)
-    - nanopb (~> 1.30906.0)
-  - FirebaseCoreDiagnosticsInterop (1.2.0)
-  - FirebaseInstanceID (4.2.8):
-    - FirebaseCore (~> 6.5)
-    - GoogleUtilities/Environment (~> 6.4)
-    - GoogleUtilities/UserDefaults (~> 6.4)
-  - FirebaseMessaging (4.1.10):
-    - FirebaseAnalyticsInterop (~> 1.3)
-    - FirebaseCore (~> 6.2)
-    - FirebaseInstanceID (~> 4.1)
-    - GoogleUtilities/AppDelegateSwizzler (~> 6.2)
-    - GoogleUtilities/Environment (~> 6.2)
-    - GoogleUtilities/Reachability (~> 6.2)
-    - GoogleUtilities/UserDefaults (~> 6.2)
-    - Protobuf (>= 3.9.2, ~> 3.9)
+  - Firebase/Analytics (8.2.0):
+    - Firebase/Core
+  - Firebase/Core (8.2.0):
+    - Firebase/CoreOnly
+    - FirebaseAnalytics (~> 8.2.0)
+  - Firebase/CoreOnly (8.2.0):
+    - FirebaseCore (= 8.2.0)
+  - Firebase/RemoteConfig (8.2.0):
+    - Firebase/CoreOnly
+    - FirebaseRemoteConfig (~> 8.2.0)
+  - FirebaseABTesting (8.2.0):
+    - FirebaseCore (~> 8.0)
+  - FirebaseAnalytics (8.2.0):
+    - FirebaseAnalytics/AdIdSupport (= 8.2.0)
+    - FirebaseCore (~> 8.0)
+    - FirebaseInstallations (~> 8.0)
+    - GoogleUtilities/AppDelegateSwizzler (~> 7.4)
+    - GoogleUtilities/MethodSwizzler (~> 7.4)
+    - GoogleUtilities/Network (~> 7.4)
+    - "GoogleUtilities/NSData+zlib (~> 7.4)"
+    - nanopb (~> 2.30908.0)
+  - FirebaseAnalytics/AdIdSupport (8.2.0):
+    - FirebaseCore (~> 8.0)
+    - FirebaseInstallations (~> 8.0)
+    - GoogleAppMeasurement (= 8.2.0)
+    - GoogleUtilities/AppDelegateSwizzler (~> 7.4)
+    - GoogleUtilities/MethodSwizzler (~> 7.4)
+    - GoogleUtilities/Network (~> 7.4)
+    - "GoogleUtilities/NSData+zlib (~> 7.4)"
+    - nanopb (~> 2.30908.0)
+  - FirebaseCore (8.2.0):
+    - FirebaseCoreDiagnostics (~> 8.0)
+    - GoogleUtilities/Environment (~> 7.4)
+    - GoogleUtilities/Logger (~> 7.4)
+  - FirebaseCoreDiagnostics (8.2.0):
+    - GoogleDataTransport (~> 9.0)
+    - GoogleUtilities/Environment (~> 7.4)
+    - GoogleUtilities/Logger (~> 7.4)
+    - nanopb (~> 2.30908.0)
+  - FirebaseInstallations (8.2.0):
+    - FirebaseCore (~> 8.0)
+    - GoogleUtilities/Environment (~> 7.4)
+    - GoogleUtilities/UserDefaults (~> 7.4)
+    - PromisesObjC (~> 1.2)
+  - FirebaseRemoteConfig (8.2.0):
+    - FirebaseABTesting (~> 8.0)
+    - FirebaseCore (~> 8.0)
+    - FirebaseInstallations (~> 8.0)
+    - GoogleUtilities/Environment (~> 7.4)
+    - "GoogleUtilities/NSData+zlib (~> 7.4)"
   - FSPagerView (0.8.3)
-  - GoogleDataTransport (7.5.1):
-    - nanopb (~> 1.30906.0)
+  - GoogleAppMeasurement (8.2.0):
+    - GoogleAppMeasurement/AdIdSupport (= 8.2.0)
+    - GoogleUtilities/AppDelegateSwizzler (~> 7.4)
+    - GoogleUtilities/MethodSwizzler (~> 7.4)
+    - GoogleUtilities/Network (~> 7.4)
+    - "GoogleUtilities/NSData+zlib (~> 7.4)"
+    - nanopb (~> 2.30908.0)
+  - GoogleAppMeasurement/AdIdSupport (8.2.0):
+    - GoogleUtilities/AppDelegateSwizzler (~> 7.4)
+    - GoogleUtilities/MethodSwizzler (~> 7.4)
+    - GoogleUtilities/Network (~> 7.4)
+    - "GoogleUtilities/NSData+zlib (~> 7.4)"
+    - nanopb (~> 2.30908.0)
+  - GoogleDataTransport (9.0.1):
+    - GoogleUtilities/Environment (~> 7.2)
+    - nanopb (~> 2.30908.0)
+    - PromisesObjC (~> 1.2)
   - GoogleMaps (3.1.0):
     - GoogleMaps/Maps (= 3.1.0)
   - GoogleMaps/Base (3.1.0)
@@ -112,24 +144,25 @@ PODS:
     - GooglePlaces (= 3.1.0)
   - GooglePlaces (3.1.0):
     - GoogleMaps/Base (= 3.1.0)
-  - GoogleUtilities/AppDelegateSwizzler (6.7.2):
+  - GoogleUtilities/AppDelegateSwizzler (7.4.3):
     - GoogleUtilities/Environment
     - GoogleUtilities/Logger
     - GoogleUtilities/Network
-  - GoogleUtilities/Environment (6.7.2):
+  - GoogleUtilities/Environment (7.4.3):
     - PromisesObjC (~> 1.2)
-  - GoogleUtilities/Logger (6.7.2):
+  - GoogleUtilities/Logger (7.4.3):
     - GoogleUtilities/Environment
-  - GoogleUtilities/Network (6.7.2):
+  - GoogleUtilities/MethodSwizzler (7.4.3):
+    - GoogleUtilities/Logger
+  - GoogleUtilities/Network (7.4.3):
     - GoogleUtilities/Logger
     - "GoogleUtilities/NSData+zlib"
     - GoogleUtilities/Reachability
-  - "GoogleUtilities/NSData+zlib (6.7.2)"
-  - GoogleUtilities/Reachability (6.7.2):
+  - "GoogleUtilities/NSData+zlib (7.4.3)"
+  - GoogleUtilities/Reachability (7.4.3):
     - GoogleUtilities/Logger
-  - GoogleUtilities/UserDefaults (6.7.2):
+  - GoogleUtilities/UserDefaults (7.4.3):
     - GoogleUtilities/Logger
-  - GTMSessionFetcher/Core (1.6.1)
   - HGCircularSlider (2.2.0)
   - IQKeyboardManagerSwift (6.5.6)
   - KeychainSwift (19.0.0)
@@ -137,18 +170,17 @@ PODS:
     - Kingfisher/Core (= 5.12.0)
   - Kingfisher/Core (5.12.0)
   - MBProgressHUD (1.2.0)
-  - nanopb (1.30906.0):
-    - nanopb/decode (= 1.30906.0)
-    - nanopb/encode (= 1.30906.0)
-  - nanopb/decode (1.30906.0)
-  - nanopb/encode (1.30906.0)
+  - nanopb (2.30908.0):
+    - nanopb/decode (= 2.30908.0)
+    - nanopb/encode (= 2.30908.0)
+  - nanopb/decode (2.30908.0)
+  - nanopb/encode (2.30908.0)
   - NVActivityIndicatorView (5.1.1):
     - NVActivityIndicatorView/Base (= 5.1.1)
   - NVActivityIndicatorView/Base (5.1.1)
   - PhotoSlider (1.2.0):
     - Kingfisher
   - PromisesObjC (1.2.12)
-  - Protobuf (3.17.0)
   - Realm (4.3.2):
     - Realm/Headers (= 4.3.2)
   - Realm/Headers (4.3.2)
@@ -197,10 +229,8 @@ DEPENDENCIES:
   - EasyTipView
   - Eureka
   - FDWaveformView
-  - Firebase
-  - FirebaseAuth (~> 6.4.1)
-  - FirebaseCore (~> 6.5.0)
-  - FirebaseMessaging (~> 4.1.10)
+  - Firebase/Analytics
+  - Firebase/RemoteConfig
   - FSPagerView
   - GooglePlacePicker
   - GooglePlaces
@@ -252,21 +282,19 @@ SPEC REPOS:
     - Eureka
     - FDWaveformView
     - Firebase
-    - FirebaseAnalyticsInterop
-    - FirebaseAuth
-    - FirebaseAuthInterop
+    - FirebaseABTesting
+    - FirebaseAnalytics
     - FirebaseCore
     - FirebaseCoreDiagnostics
-    - FirebaseCoreDiagnosticsInterop
-    - FirebaseInstanceID
-    - FirebaseMessaging
+    - FirebaseInstallations
+    - FirebaseRemoteConfig
     - FSPagerView
+    - GoogleAppMeasurement
     - GoogleDataTransport
     - GoogleMaps
     - GooglePlacePicker
     - GooglePlaces
     - GoogleUtilities
-    - GTMSessionFetcher
     - HGCircularSlider
     - IQKeyboardManagerSwift
     - KeychainSwift
@@ -276,7 +304,6 @@ SPEC REPOS:
     - NVActivityIndicatorView
     - PhotoSlider
     - PromisesObjC
-    - Protobuf
     - Realm
     - RealmSwift
     - RETrimControl
@@ -320,32 +347,29 @@ SPEC CHECKSUMS:
   EasyTipView: a92b6edc377b81c5ac18e9fd35d5ee78e9409488
   Eureka: e6d720290c56bb23333ad1a0e020b2a98a0e9a43
   FDWaveformView: c188be613947273cc83d6f0056505f60e6c4b9ac
-  Firebase: 3565ea88b830f28f2c77ecc524622bc71a20d085
-  FirebaseAnalyticsInterop: 3f86269c38ae41f47afeb43ebf32a001f58fcdae
-  FirebaseAuth: ce45d7c5d46bed90159f3a73b6efbe8976ed3573
-  FirebaseAuthInterop: a0f37ae05833af156e72028f648d313f7e7592e9
-  FirebaseCore: 632e05cc5e1199d9147122c16d92305eb04c34bd
-  FirebaseCoreDiagnostics: 770ac5958e1372ce67959ae4b4f31d8e127c3ac1
-  FirebaseCoreDiagnosticsInterop: 296e2c5f5314500a850ad0b83e9e7c10b011a850
-  FirebaseInstanceID: ce993a3c3670a8f5d47ce371ac5d143c560608c5
-  FirebaseMessaging: 089b7a4991425783384acc8bcefcd78c0af913bd
+  Firebase: 12c568897b807321964e89d2b263ef4c6cff3db6
+  FirebaseABTesting: 5f37131c5eceea579c471c915f7a0f8cad484d1f
+  FirebaseAnalytics: 7a744b1e7dc50125cb37714c6bdaea167e412082
+  FirebaseCore: 3a83f24c3de69ec9f9a426e2598125ea51f3a2ce
+  FirebaseCoreDiagnostics: 61384f54989065b15c36b5922b65112e86811d3c
+  FirebaseInstallations: 9394ea09e242bf0816e95ac30e56a9214cc86ced
+  FirebaseRemoteConfig: 6695557b3dac704527c952502e799586941d399e
   FSPagerView: 670405b2f18e2a87fa37f20b00de783e562c25a8
-  GoogleDataTransport: f56af7caa4ed338dc8e138a5d7c5973e66440833
+  GoogleAppMeasurement: b52eafc9dff542d580700e708216568bd2fbf168
+  GoogleDataTransport: 04c3e9a480bbcaa2ec3f5d27f1cdeb6a92f20c8d
   GoogleMaps: 5c13302e6fe6bb6e686b267196586b91cd594225
   GooglePlacePicker: fa975116ac202ac29822c0a79758ea1c4db5a95f
   GooglePlaces: e874db179f2675c4f3eeda0b686b540273a578b0
-  GoogleUtilities: 7f2f5a07f888cdb145101d6042bc4422f57e70b3
-  GTMSessionFetcher: 36689134877faeb055b27dfa4ccc9ceaa42e029e
+  GoogleUtilities: 45dbb24a7f351d69d0a601482b39ad6c32e30dab
   HGCircularSlider: afb1942743a2df156dcc7a3500216e523e14266b
   IQKeyboardManagerSwift: c7df9d2deb356c04522f5c4b7b6e4ce4d8ed94fe
   KeychainSwift: a06190cf933ad46b1e0abc3d77d29c06331715c7
   Kingfisher: dc6e0f53bb5b12c3e75bedb0e01bbd7a640eea69
   MBProgressHUD: 3ee5efcc380f6a79a7cc9b363dd669c5e1ae7406
-  nanopb: 59317e09cf1f1a0af72f12af412d54edf52603fc
+  nanopb: a0ba3315591a9ae0a16a309ee504766e90db0c96
   NVActivityIndicatorView: 1f6c5687f1171810aa27a3296814dc2d7dec3667
   PhotoSlider: 0d3c864ddf6edeb1027cb39911a26b3b707e9ba9
   PromisesObjC: 3113f7f76903778cf4a0586bd1ab89329a0b7b97
-  Protobuf: 7327d4444215b5f18e560a97f879ff5503c4581c
   Realm: 5e92902e2875dff4bb0fd02f67bb737c3d5db2bc
   RealmSwift: 9a360fc7bae04fc2e308a34fbd899d5faa2d6b22
   RETrimControl: f415424c530469b116065d63661e3547d6377bf4
@@ -370,6 +394,6 @@ SPEC CHECKSUMS:
   ViewAnimator: a9ceed80266e00fd435ec4fb99b2df64d580d0e4
   WMSegmentControl: 4bb3a61e28cd0a0fcfcf932bec1f5795835b9f3f
 
-PODFILE CHECKSUM: fc78fae2024f53f726fbe0bea0aa92575509ba00
+PODFILE CHECKSUM: 6d5f6e11d8540ec4a954ed9e4a76db9f7ba11e7c
 
 COCOAPODS: 1.10.1

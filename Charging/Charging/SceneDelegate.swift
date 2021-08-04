@@ -33,7 +33,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window = UIWindow(windowScene: winScene)
 //        let vc = BaseTabbarViewController()
 //        let vc = BaseTabbarViewController()
-        let vc = IntroduceAppVC.createVC()
+        let vc = LoadFirebase.createVC()
         
         let navi: UINavigationController = UINavigationController(rootViewController: vc)
         window?.rootViewController = navi

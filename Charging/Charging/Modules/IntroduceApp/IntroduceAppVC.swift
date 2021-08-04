@@ -10,6 +10,8 @@ import RxCocoa
 import RxSwift
 import SwiftyStoreKit
 import StoreKit
+import Firebase
+import FirebaseRemoteConfig
 
 class IntroduceAppVC: UIViewController {
 
@@ -77,12 +79,36 @@ extension IntroduceAppVC {
         self.bottomView.constant = self.view.safeAreaBottom
         
         SHARE_APPLICATION_DELEGATE.inappManager.requestProducts { success, list in
-            print("====== \(success) ===== \(list)")
+//            print("====== \(success) ===== \(list)")
         let a = SKProduct()
             a.price
             a.productIdentifier
+            
+            
+//            let remoteConfig = RemoteConfig.remoteConfig()
+//            let settings = RemoteConfigSettings()
+//            settings.minimumFetchInterval = 0
+//            remoteConfig.configSettings = settings
+//
+////            remoteConfig.fetch { (status, error) -> Void in
+////              if status == .success {
+////                print("Config fetched!")
+////                remoteConfig.activate { changed, error in
+////                  // ...
+////                }
+////              } else {
+////                print("Config not fetched")
+////                print("Error: \(error?.localizedDescription ?? "No error available.")")
+////              }
+////            }
+//
+//            remoteConfig.fetch(withExpirationDuration: 5) { remote, err in
+//                print("===== \(remoteConfig.configValue(forKey: "prenium").stringValue)")
+//            }
         }
     }
+    
+    
 
     private func setupRX() {
         Observable<Int>.interval(.seconds(1), scheduler: MainScheduler.asyncInstance)

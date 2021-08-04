@@ -22,6 +22,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         UIDevice.current.isBatteryMonitoringEnabled = true
         
+        FirebaseApp.configure()
+        
         UIFont.overrideInitialize()
         
         ChargeManage.shared.start()
@@ -42,7 +44,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window = UIWindow.init(frame: UIScreen.main.bounds)
 //        let vc = BaseTabbarViewController()
 //        let vc = BaseTabbarViewController()
-        let vc = IntroduceAppVC.createVC()
+        let vc = LoadFirebase.createVC()
         
         let navi: UINavigationController = UINavigationController(rootViewController: vc)
         window?.rootViewController = navi

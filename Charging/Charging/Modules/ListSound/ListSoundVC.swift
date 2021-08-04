@@ -61,11 +61,13 @@ extension ListSoundVC {
                 cell.fileName = element.filename
                 if let index = self.index, index == row {
                     cell.imgSelection.isHidden = false
+//                    cell.stateVideo = .play
                 } else {
                     cell.imgSelection.isHidden = true
+//                    cell.stateVideo = .pause
                 }
+                self.listAVPlayer.append(cell.bombSoundEffect)
                 cell.statePlay = { (_, av) in
-                    self.listAVPlayer.append(av)
                     self.index = row
                     if let finalURL = cell.finalURL {
                         self.selectSound = SoundRealmModel(destinationURL: finalURL)

@@ -7,16 +7,16 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "EDB636E3-BCBD-427C-965A-219D03524C4A"
+            uuid = "A177B394-49C6-4C94-9810-7F97C0EFC84B"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Charging/Manage/ManageCharge.swift"
+            filePath = "Charging/Modules/ListSound/Cell/ListSoundCell.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "242"
-            endingLineNumber = "242"
-            landmarkName = "playAnimation(view:url:avplayerfrom:)"
+            startingLineNumber = "114"
+            endingLineNumber = "114"
+            landmarkName = "playAudio(url:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
