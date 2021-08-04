@@ -21,7 +21,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         switch ChargeManage.shared.batteryState {
         case .charging, .full:
-            self.setupFlowShortcutsApp(winScene: winScene)
+//            self.setupFlowShortcutsApp(winScene: winScene)
+            self.setupFlowApp(winScene: winScene)
         default:
             self.setupFlowApp(winScene: winScene)
         }

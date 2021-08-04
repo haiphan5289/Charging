@@ -8,6 +8,8 @@
 import UIKit
 import RxCocoa
 import RxSwift
+import SwiftyStoreKit
+import StoreKit
 
 class IntroduceAppVC: UIViewController {
 
@@ -29,6 +31,7 @@ class IntroduceAppVC: UIViewController {
     private let vAmazing: AmazingView = AmazingView.loadXib()
     private let fullAccess: FullAccessView = FullAccessView.loadXib()
     
+    private var statePrenium: FullAccessView.Prenium = .week
     @VariableReplay private var stateView: StateView = .amazing
     private let disposeBag = DisposeBag()
     override func viewDidLoad() {
@@ -67,10 +70,20 @@ extension IntroduceAppVC {
             make.top.equalToSuperview()
             make.bottom.equalTo(self.btContinue.snp.top)
         }
+        self.fullAccess.tapStatePrenium = { stt in
+            self.statePrenium = stt
+        }
         
         self.bottomView.constant = self.view.safeAreaBottom
+        
+        SHARE_APPLICATION_DELEGATE.inappManager.requestProducts { success, list in
+            print("====== \(success) ===== \(list)")
+        let a = SKProduct()
+            a.price
+            a.productIdentifier
+        }
     }
-    
+
     private func setupRX() {
         Observable<Int>.interval(.seconds(1), scheduler: MainScheduler.asyncInstance)
             .bind(onNext: weakify({ (_, wSelf) in
@@ -91,8 +104,16 @@ extension IntroduceAppVC {
                 self.fullAccess.isHidden = false
                 
             case .fullAccess:
-                let vc = BaseTabbarViewController()
-                self.navigationController?.pushViewController(vc, animated: true)
+                switch self.statePrenium {
+                case .week:
+                    self.weekly()
+                case .month:
+                    self.monthly()
+                case .year:
+                    self.yearly()
+                }
+//                let vc = BaseTabbarViewController()
+//                self.navigationController?.pushViewController(vc, animated: true)
             }
             
         }.disposed(by: disposeBag)
@@ -109,7 +130,7 @@ extension IntroduceAppVC {
                 case .privacy:
                     guard let url = URL(string: LINK_PRICAVY) else { return }
                     UIApplication.shared.open(url)
-                case .restore: break
+                case .restore: self.restoreInApp()
                 case .term:
                     guard let url = URL(string: LINK_TERM) else { return }
                     UIApplication.shared.open(url)
@@ -145,4 +166,56 @@ extension IntroduceAppVC {
         }
     }
     
+}
+extension IntroduceAppVC {
+    
+    //Action restore
+    @objc func restoreInApp() {
+        if (SHARE_APPLICATION_DELEGATE.inappManager.canMakePurchase()) {
+            SHARE_APPLICATION_DELEGATE.inappManager.restoreCompletedTransactions()
+        }
+    }
+    
+    //Action 3 nút sẽ call
+    func weekly() {
+        self.sub(.weekly)
+    }
+    
+    func monthly() {
+        self.sub(.monthly)
+    }
+    
+    func yearly() {
+        self.sub(.yearly)
+    }
+    
+    func dayfree() {
+        self.sub(.dayfree)
+    }
+    
+    func sub(_ model: ProductID) {
+        self.subscriptionAction(productId: model.rawValue)
+    }
+    
+    func subscriptionAction(productId: String) {
+        //self.showLoading()
+        SwiftyStoreKit.purchaseProduct(productId, atomically: true) { [weak self] (result) in
+            guard let `self` = self else { return }
+            //self.hideLoading()
+            switch result {
+            case .success(_):
+                Configuration.joinPremiumUser(join: true)
+                self.showAlert(title: "Successful", message: "Successful") { [weak self] in
+                    self?.dismiss(animated: true, completion: { [weak self] in
+                        //self?.delegate?.didFinishJoinPremium()
+                        SHARE_APPLICATION_DELEGATE.setupFlowApp()
+                    })
+                }
+            case .error(_):
+                self.showAlert(title: "Cannot subcribe", message: "Cannot subcribe")
+                break
+            }
+        }
+        
+    }
 }

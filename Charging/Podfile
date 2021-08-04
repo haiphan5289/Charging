@@ -57,5 +57,7 @@ pod 'UIDropDown'
 pod 'WMSegmentControl'
 pod 'HGCircularSlider'
 pod 'SwiftGen', '~> 6.0'
+pod 'SwiftyStoreKit'
+pod 'KeychainSwift', '~> 19.0'
 
 end

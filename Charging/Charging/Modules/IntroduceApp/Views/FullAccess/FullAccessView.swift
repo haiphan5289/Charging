@@ -17,6 +17,8 @@ class FullAccessView: UIView {
     enum Prenium: Int, CaseIterable {
         case week, month, year
     }
+    
+    var tapStatePrenium: ((Prenium) -> Void)?
 
     @IBOutlet weak var btShowOptions: UIButton!
     @IBOutlet weak var stackWeek: UIStackView!
@@ -90,6 +92,7 @@ extension FullAccessView {
             
             bt.rx.tap.bind { _ in
                 self.statePrenium = type
+                self.tapStatePrenium?(type)
             }.disposed(by: disposeBag)
             
         }
