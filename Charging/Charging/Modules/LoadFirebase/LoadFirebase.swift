@@ -7,7 +7,7 @@
 
 import UIKit
 
-class LoadFirebase: UIViewController {
+class LoadFirebase: HideNavigationController {
 
     override func viewDidLoad() {
         super.viewDidLoad()

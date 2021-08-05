@@ -50,8 +50,8 @@ extension ListAnimation {
                 
                 // check cached image
                 if let t = data.image, let cachedImage = ChargeManage.shared.imageCache.object(forKey: t as NSString)  {
-                    let thumbnail = cachedImage.resizeImage(Constant.resizeImage)
-                    cell.imgCell.image = thumbnail
+//                    let thumbnail = cachedImage.resizeImage(Constant.resizeImage)
+                    cell.imgCell.image = cachedImage
                     return
                 }
                 
@@ -60,9 +60,9 @@ extension ListAnimation {
                     KingfisherManager.shared.retrieveImage(with: url, options: nil, progressBlock: nil, completionHandler: { image, error, cacheType, imageURL in
                         
                         if let image = image, let t = data.image {
-                            let thumbnail = image.resizeImage(Constant.resizeImage)
+//                            let thumbnail = image.resizeImage(Constant.resizeImage)
                             ChargeManage.shared.imageCache.setObject(image, forKey: t as NSString)
-                            cell.imgCell.image = thumbnail
+                            cell.imgCell.image = image
                         } else {
                             cell.imgCell.image = UIIMAGE_DEFAULT
                         }
