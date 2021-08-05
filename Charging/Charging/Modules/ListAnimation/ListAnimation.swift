@@ -13,10 +13,10 @@ import Kingfisher
 class ListAnimation: BaseNavigationViewController {
     
     struct Constant {
-        static let widthCell: CGFloat = 107
+        static let widthCell: CGFloat = 110
         static let heightCell: CGFloat = 190
-        static let spaceSection: CGFloat = 8
-        static let sizeCell = CGSize(width: 107, height: 190)
+        static let spaceSection: CGFloat = 10
+        static let sizeCell = CGSize(width: 110, height: 190)
         static let resizeImage = CGSize(width: 214, height: 380)
     }
 
