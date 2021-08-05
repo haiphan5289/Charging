@@ -170,10 +170,10 @@ extension AnimationSelection {
             
             switch action {
             case .hide:
-                wSelf.btBack.isHidden = false
+                wSelf.btBack.isHidden = true
                 wSelf.stackView.isHidden = true
             case .show:
-                wSelf.btBack.isHidden = true
+                wSelf.btBack.isHidden = false
                 wSelf.stackView.isHidden = false
             }
             

@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina5_5" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clipsSubviews="YES" contentMode="scaleToFill" id="iN0-l3-epB" customClass="ImageAnimation" customModule="Charging" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="131" height="190"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="7Zr-kK-GAf">
+                    <rect key="frame" x="0.0" y="0.0" width="131" height="190"/>
+                </imageView>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_selection_home" translatesAutoresizingMaskIntoConstraints="NO" id="DgA-Tc-i3f">
+                    <rect key="frame" x="0.0" y="0.0" width="131" height="190"/>
+                </imageView>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="DgA-Tc-i3f" secondAttribute="trailing" id="HRY-xe-eli"/>
+                <constraint firstItem="7Zr-kK-GAf" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="hVa-uQ-mIC"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="DgA-Tc-i3f" secondAttribute="bottom" id="i20-O2-EJM"/>
+                <constraint firstItem="DgA-Tc-i3f" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="mCn-C5-rQT"/>
+                <constraint firstAttribute="trailing" secondItem="7Zr-kK-GAf" secondAttribute="trailing" id="qIR-QC-jO1"/>
+                <constraint firstItem="7Zr-kK-GAf" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="rJg-YH-FT3"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="7Zr-kK-GAf" secondAttribute="bottom" id="vVb-vN-9VI"/>
+                <constraint firstItem="DgA-Tc-i3f" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="vmI-of-TBH"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <userDefinedRuntimeAttributes>
+                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                    <real key="value" value="15"/>
+                </userDefinedRuntimeAttribute>
+            </userDefinedRuntimeAttributes>
+            <connections>
+                <outlet property="imgAnimation" destination="7Zr-kK-GAf" id="lIW-ki-L3i"/>
+                <outlet property="imgSelection" destination="DgA-Tc-i3f" id="nzb-I3-jUB"/>
+            </connections>
+            <point key="canvasLocation" x="138.40579710144928" y="81.521739130434796"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="ic_selection_home" width="131" height="190"/>
+    </resources>
+</document>

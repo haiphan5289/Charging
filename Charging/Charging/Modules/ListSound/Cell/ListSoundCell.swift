@@ -72,19 +72,17 @@ extension ListSoundCell {
         }.disposed(by: disposeBag)
         
         self.btPlay.rx.tap.bind { _ in
-            self.statePlay?(self.stateVideo, self.bombSoundEffect)
             guard (self.finalURL != nil) else {
                 self.flowDowloadURL()
                 return
             }
-            
-            
             
             switch self.stateVideo {
             case .pause, .none, .finishPlay:
                 self.stateVideo = .play
             case .play:
                 self.stateVideo = .pause
+                self.statePlay?(self.stateVideo, self.bombSoundEffect)
             }
             
         }.disposed(by: disposeBag)
@@ -96,6 +94,7 @@ extension ListSoundCell {
             guard let wSelf = self else { return }
             wSelf.finalURL = url
             wSelf.stateVideo = .play
+            wSelf.statePlay?(wSelf.stateVideo, wSelf.bombSoundEffect)
         }
         
     }

@@ -36,38 +36,56 @@
                             <nil key="highlightedColor"/>
                         </label>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mVJ-5Y-wsq">
-                            <rect key="frame" x="348" y="-2.5" width="50" height="27"/>
+                            <rect key="frame" x="348" y="2" width="50" height="18"/>
                             <fontDescription key="fontDescription" type="boldSystem" pointSize="12"/>
                             <state key="normal" title="SEE ALL">
                                 <color key="titleColor" name="brightskyblue"/>
                             </state>
                         </button>
-                        <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="fGN-a3-Xlk">
+                        <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="eR3-iN-VwY">
                             <rect key="frame" x="16" y="30" width="398" height="190"/>
-                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <subviews>
+                                <view clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5AM-yZ-ziY">
+                                    <rect key="frame" x="0.0" y="0.0" width="130" height="190"/>
+                                    <subviews>
+                                        <stackView opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="WvP-YQ-dyM">
+                                            <rect key="frame" x="0.0" y="0.0" width="130" height="190"/>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </stackView>
+                                    </subviews>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <constraints>
+                                        <constraint firstAttribute="bottom" secondItem="WvP-YQ-dyM" secondAttribute="bottom" id="8ft-nK-hbR"/>
+                                        <constraint firstItem="WvP-YQ-dyM" firstAttribute="top" secondItem="5AM-yZ-ziY" secondAttribute="top" id="9Ae-Be-fmm"/>
+                                        <constraint firstAttribute="trailing" secondItem="WvP-YQ-dyM" secondAttribute="trailing" id="BHn-ZT-nrj"/>
+                                        <constraint firstAttribute="height" constant="190" id="Cc8-UM-rcW"/>
+                                        <constraint firstItem="WvP-YQ-dyM" firstAttribute="leading" secondItem="5AM-yZ-ziY" secondAttribute="leading" id="L0Z-ju-grT"/>
+                                    </constraints>
+                                </view>
+                            </subviews>
                             <constraints>
-                                <constraint firstAttribute="height" constant="190" id="84r-g2-Pgp"/>
+                                <constraint firstItem="5AM-yZ-ziY" firstAttribute="leading" secondItem="lag-5X-Xxp" secondAttribute="leading" id="3xM-BJ-L26"/>
+                                <constraint firstItem="5AM-yZ-ziY" firstAttribute="trailing" secondItem="lag-5X-Xxp" secondAttribute="trailing" id="AGx-U8-3Ke"/>
+                                <constraint firstItem="5AM-yZ-ziY" firstAttribute="bottom" secondItem="lag-5X-Xxp" secondAttribute="bottom" id="E4s-kU-muq"/>
+                                <constraint firstAttribute="height" constant="190" id="EpG-y4-34M"/>
+                                <constraint firstItem="5AM-yZ-ziY" firstAttribute="top" secondItem="lag-5X-Xxp" secondAttribute="top" id="wRR-ae-iys"/>
                             </constraints>
-                            <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="YpU-12-YcV">
-                                <size key="itemSize" width="128" height="128"/>
-                                <size key="headerReferenceSize" width="0.0" height="0.0"/>
-                                <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
-                            </collectionViewFlowLayout>
-                        </collectionView>
+                            <viewLayoutGuide key="contentLayoutGuide" id="lag-5X-Xxp"/>
+                            <viewLayoutGuide key="frameLayoutGuide" id="rgA-2r-b4c"/>
+                        </scrollView>
                     </subviews>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
-                        <constraint firstAttribute="trailing" secondItem="fGN-a3-Xlk" secondAttribute="trailing" id="0C6-V2-NGu"/>
+                        <constraint firstItem="eR3-iN-VwY" firstAttribute="top" secondItem="mVJ-5Y-wsq" secondAttribute="bottom" constant="10" id="0cH-L0-kei"/>
                         <constraint firstAttribute="trailing" secondItem="mVJ-5Y-wsq" secondAttribute="trailing" constant="16" id="2yk-pB-gIg"/>
                         <constraint firstItem="Hn1-ug-r5l" firstAttribute="top" secondItem="3E3-eX-kNJ" secondAttribute="top" id="DUq-ol-4Gf"/>
                         <constraint firstItem="7CS-XQ-7Va" firstAttribute="centerY" secondItem="Hn1-ug-r5l" secondAttribute="centerY" id="IaM-4E-D9K"/>
                         <constraint firstItem="Hn1-ug-r5l" firstAttribute="leading" secondItem="7CS-XQ-7Va" secondAttribute="trailing" constant="6" id="Vmg-HV-AWx"/>
                         <constraint firstItem="mVJ-5Y-wsq" firstAttribute="centerY" secondItem="Hn1-ug-r5l" secondAttribute="centerY" id="aEP-qR-td3"/>
                         <constraint firstItem="7CS-XQ-7Va" firstAttribute="leading" secondItem="3E3-eX-kNJ" secondAttribute="leading" constant="16" id="g3A-m3-jOt"/>
-                        <constraint firstAttribute="bottom" secondItem="fGN-a3-Xlk" secondAttribute="bottom" constant="20" id="ghh-te-Yek"/>
-                        <constraint firstItem="fGN-a3-Xlk" firstAttribute="leading" secondItem="7CS-XQ-7Va" secondAttribute="leading" id="ijJ-TI-oVw"/>
-                        <constraint firstItem="fGN-a3-Xlk" firstAttribute="top" secondItem="7CS-XQ-7Va" secondAttribute="bottom" constant="10" id="nUc-CG-PG4"/>
+                        <constraint firstItem="eR3-iN-VwY" firstAttribute="leading" secondItem="3E3-eX-kNJ" secondAttribute="leading" constant="16" id="jR3-0h-H0p"/>
+                        <constraint firstAttribute="bottom" secondItem="eR3-iN-VwY" secondAttribute="bottom" constant="20" id="m5P-M9-68e"/>
+                        <constraint firstAttribute="trailing" secondItem="eR3-iN-VwY" secondAttribute="trailing" id="xLW-fH-Wxm"/>
                     </constraints>
                 </view>
             </subviews>
@@ -82,8 +100,8 @@
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
                 <outlet property="btSeeAll" destination="mVJ-5Y-wsq" id="53C-Xd-Zx3"/>
-                <outlet property="collectionView" destination="fGN-a3-Xlk" id="wGC-7B-NWL"/>
                 <outlet property="lbTitle" destination="Hn1-ug-r5l" id="2TT-y2-zbR"/>
+                <outlet property="stackView" destination="WvP-YQ-dyM" id="zxx-9R-lnh"/>
             </connections>
             <point key="canvasLocation" x="137.68115942028987" y="81.696428571428569"/>
         </view>

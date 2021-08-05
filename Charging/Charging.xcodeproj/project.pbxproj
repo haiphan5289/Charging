@@ -59,6 +59,8 @@
 		93A66C1D26BAFFAE00E1C25E /* LoadFirebase.xib in Resources */ = {isa = PBXBuildFile; fileRef = 93A66C1B26BAFFAE00E1C25E /* LoadFirebase.xib */; };
 		93A77E2F26B19D3700BC2F31 /* iphoneX.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 93A77E2E26B19D3700BC2F31 /* iphoneX.mp4 */; };
 		93A77E3226B19D9200BC2F31 /* listVideo.json in Resources */ = {isa = PBXBuildFile; fileRef = 93A77E3126B19D9200BC2F31 /* listVideo.json */; };
+		93A927F326BC16920028B503 /* ImageAnimation.xib in Resources */ = {isa = PBXBuildFile; fileRef = 93A927F226BC16920028B503 /* ImageAnimation.xib */; };
+		93A927F526BC16A90028B503 /* ImageAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93A927F426BC16A90028B503 /* ImageAnimation.swift */; };
 		93AA872E26B83A4E00691FEA /* DataLocal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93AA872A26B83A4D00691FEA /* DataLocal.swift */; };
 		93AA872F26B83A4E00691FEA /* ActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93AA872B26B83A4D00691FEA /* ActivityIndicator.swift */; };
 		93AA873026B83A4E00691FEA /* RuleEureka.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93AA872C26B83A4D00691FEA /* RuleEureka.swift */; };
@@ -267,6 +269,8 @@
 		93A66C1B26BAFFAE00E1C25E /* LoadFirebase.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoadFirebase.xib; sourceTree = "<group>"; };
 		93A77E2E26B19D3700BC2F31 /* iphoneX.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = iphoneX.mp4; sourceTree = "<group>"; };
 		93A77E3126B19D9200BC2F31 /* listVideo.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = listVideo.json; sourceTree = "<group>"; };
+		93A927F226BC16920028B503 /* ImageAnimation.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ImageAnimation.xib; sourceTree = "<group>"; };
+		93A927F426BC16A90028B503 /* ImageAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageAnimation.swift; sourceTree = "<group>"; };
 		93AA872A26B83A4D00691FEA /* DataLocal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataLocal.swift; sourceTree = "<group>"; };
 		93AA872B26B83A4D00691FEA /* ActivityIndicator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivityIndicator.swift; sourceTree = "<group>"; };
 		93AA872C26B83A4D00691FEA /* RuleEureka.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RuleEureka.swift; sourceTree = "<group>"; };
@@ -519,6 +523,7 @@
 		9363612C26AD52EB00FE6E4E /* AnimationDetail */ = {
 			isa = PBXGroup;
 			children = (
+				93A927F026BC16720028B503 /* Views */,
 				9363613126AD5D2100FE6E4E /* Cell */,
 				9363612D26AD52FC00FE6E4E /* AnimationDetail.xib */,
 				9363612F26AD530C00FE6E4E /* AnimationDetail.swift */,
@@ -667,6 +672,23 @@
 				93A77E3126B19D9200BC2F31 /* listVideo.json */,
 			);
 			path = Videos;
+			sourceTree = "<group>";
+		};
+		93A927F026BC16720028B503 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				93A927F126BC167D0028B503 /* ImageAnimation */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		93A927F126BC167D0028B503 /* ImageAnimation */ = {
+			isa = PBXGroup;
+			children = (
+				93A927F226BC16920028B503 /* ImageAnimation.xib */,
+				93A927F426BC16A90028B503 /* ImageAnimation.swift */,
+			);
+			path = ImageAnimation;
 			sourceTree = "<group>";
 		};
 		93AA873226B860A300691FEA /* ListSound */ = {
@@ -1230,6 +1252,7 @@
 			files = (
 				93A66C1D26BAFFAE00E1C25E /* LoadFirebase.xib in Resources */,
 				9344733926AD9A33006A695D /* AnimationSelection.storyboard in Resources */,
+				93A927F326BC16920028B503 /* ImageAnimation.xib in Resources */,
 				93BDEE9826AB2452003942C1 /* ProgressIndicator.png in Resources */,
 				9363613526AD5D3C00FE6E4E /* AnimationDetailCell.xib in Resources */,
 				93BDED8C26AB1C99003942C1 /* LaunchScreen.storyboard in Resources */,
@@ -1446,6 +1469,7 @@
 				93BDEDD326AB23D1003942C1 /* BaseTableViewCell.swift in Sources */,
 				93BDEE1026AB242E003942C1 /* UIView+Extension.swift in Sources */,
 				93BDEE2A26AB242E003942C1 /* UIFontExtensions.swift in Sources */,
+				93A927F526BC16A90028B503 /* ImageAnimation.swift in Sources */,
 				93BC28B626B040CC00E754FA /* Check.swift in Sources */,
 				93BDEE5226AB243F003942C1 /* UILableExtension.swift in Sources */,
 				93BDEE1D26AB242E003942C1 /* UIImageExtensions.swift in Sources */,
