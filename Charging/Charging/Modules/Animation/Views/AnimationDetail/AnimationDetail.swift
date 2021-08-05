@@ -130,8 +130,13 @@ extension AnimationDetail {
         
         self.collectionView.rx.itemSelected.bind { [weak self] idx in
             guard let wSelf = self else { return }
-            let item = wSelf.listAnimation[idx.row]
-            wSelf.selectIconModel?(item)
+            if idx.row <= LIMIT_PRENIUM {
+                let item = wSelf.listAnimation[idx.row]
+                wSelf.selectIconModel?(item)
+            } else if Configuration.inPremiumUser() {
+                let item = wSelf.listAnimation[idx.row]
+                wSelf.selectIconModel?(item)
+            }
         }.disposed(by: disposeBag)
         
         self.btSeeAll.rx.tap.bind { _ in
