@@ -12,6 +12,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ListColorVC" customModule="Charging" customModuleProvider="target">
             <connections>
                 <outlet property="tableView" destination="Zw5-UM-B5J" id="KN0-cc-RSh"/>
+                <outlet property="vHeader" destination="lW1-8E-a9k" id="Ua7-YS-iYh"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
                 <outletCollection property="bts" destination="Mm1-lR-583" collectionClass="NSMutableArray" id="sFr-kI-QTF"/>
                 <outletCollection property="bts" destination="7dX-SO-otf" collectionClass="NSMutableArray" id="r3n-TU-heh"/>

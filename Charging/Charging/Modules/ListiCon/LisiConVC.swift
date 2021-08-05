@@ -21,6 +21,7 @@ class LisiConVC: UIViewController {
 
     @IBOutlet var bts: [UIButton]!
     @IBOutlet weak var collectionView: UICollectionView!
+    @IBOutlet weak var vHeader: UIView!
     @VariableReplay private var listIcon: [IconModel] = []
     private var spaceLine: CGFloat = 0
     private var selectIcon: IconModel?
@@ -49,6 +50,9 @@ extension LisiConVC {
         self.collectionView.register(ListiConCell.nib, forCellWithReuseIdentifier: ListiConCell.identifier)
         self.loadJSONEffect()
         self.selectIcon = ChargeManage.shared.iconAnimation
+        self.vHeader.clipsToBounds = true
+        self.vHeader.layer.cornerRadius = 15
+        self.vHeader.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
     }
     
     private func setupRX() {

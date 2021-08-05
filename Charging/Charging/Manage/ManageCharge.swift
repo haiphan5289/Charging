@@ -248,27 +248,53 @@ final class ChargeManage: ActivityTrackingProgressProtocol {
                 .startDownload(audioUrl: url.absoluteString) { [weak self] loadingModel in
                     guard let wSelf = self else { return }
                     wSelf.loadingModel = loadingModel
-            }
-            .bind { [weak self] dowURL  in
-                guard let wSelf = self, let dowloadURL = dowURL else { return }
-                wSelf.playerAnimationSelection = AVPlayer(url: dowloadURL)
-                let playerLayer = AVPlayerLayer(player: wSelf.playerAnimationSelection)
-                playerLayer.frame = UIScreen.main.bounds
-                playerLayer.videoGravity = AVLayerVideoGravity.resize
-                view.layer.addSublayer(playerLayer)
-                if let p = wSelf.playerAnimationSelection {
-//                    wSelf.videoCache.setObject(p, forKey: url.absoluteString as NSString)
-//                    wSelf.listAnimationCache.append(CacheAnimation(originURL: url.absoluteString, destinationURL: dowloadURL))
-//                    wSelf.selectAnimationDraft = Am(originURL: url.absoluteString, destinationURL: dowloadURL)
-                    wSelf.copy(oldUrl: dowloadURL, folderName: LINK_ANIMATION, success: { copyURL in
-                        wSelf.listURL.append(copyURL)
-                    }, failure: { _ in
-                        
-                    })
-                    p.play()
-                }
+                } failure: { _ in
+                    
+                }.bind { [weak self] dowURL  in
+                    guard let wSelf = self, let dowloadURL = dowURL else { return }
+                    wSelf.playerAnimationSelection = AVPlayer(url: dowloadURL)
+                    let playerLayer = AVPlayerLayer(player: wSelf.playerAnimationSelection)
+                    playerLayer.frame = UIScreen.main.bounds
+                    playerLayer.videoGravity = AVLayerVideoGravity.resize
+                    view.layer.addSublayer(playerLayer)
+                    if let p = wSelf.playerAnimationSelection {
+    //                    wSelf.videoCache.setObject(p, forKey: url.absoluteString as NSString)
+    //                    wSelf.listAnimationCache.append(CacheAnimation(originURL: url.absoluteString, destinationURL: dowloadURL))
+    //                    wSelf.selectAnimationDraft = Am(originURL: url.absoluteString, destinationURL: dowloadURL)
+                        wSelf.copy(oldUrl: dowloadURL, folderName: LINK_ANIMATION, success: { copyURL in
+                            wSelf.listURL.append(copyURL)
+                        }, failure: { _ in
 
-            }.disposed(by: disposeBag)
+                        })
+                        p.play()
+                    }
+
+                }.disposed(by: disposeBag)
+
+//                .startDownload(audioUrl: url.absoluteString) { [weak self] loadingModel in
+//                    guard let wSelf = self else { return }
+//                    wSelf.loadingModel = loadingModel
+//                } failure: (String) -> Void
+//            .bind { [weak self] dowURL  in
+//                guard let wSelf = self, let dowloadURL = dowURL else { return }
+//                wSelf.playerAnimationSelection = AVPlayer(url: dowloadURL)
+//                let playerLayer = AVPlayerLayer(player: wSelf.playerAnimationSelection)
+//                playerLayer.frame = UIScreen.main.bounds
+//                playerLayer.videoGravity = AVLayerVideoGravity.resize
+//                view.layer.addSublayer(playerLayer)
+//                if let p = wSelf.playerAnimationSelection {
+////                    wSelf.videoCache.setObject(p, forKey: url.absoluteString as NSString)
+////                    wSelf.listAnimationCache.append(CacheAnimation(originURL: url.absoluteString, destinationURL: dowloadURL))
+////                    wSelf.selectAnimationDraft = Am(originURL: url.absoluteString, destinationURL: dowloadURL)
+//                    wSelf.copy(oldUrl: dowloadURL, folderName: LINK_ANIMATION, success: { copyURL in
+//                        wSelf.listURL.append(copyURL)
+//                    }, failure: { _ in
+//
+//                    })
+//                    p.play()
+//                }
+//
+//            }.disposed(by: disposeBag)
         }
     }
     
@@ -385,10 +411,12 @@ final class ChargeManage: ActivityTrackingProgressProtocol {
         }
 
         RequestService.shared
-            .startDownload(audioUrl: url.absoluteString) { [weak self] loadingModel in
-                guard let wSelf = self else { return }
+            .startDownload(audioUrl: url.absoluteString) { _ in
+//                guard let wSelf = self else { return }
 //                wSelf.loadingModel = loadingModel
-        }
+            } failure: { _ in
+                
+            }
         .bind { [weak self] dowURL  in
             guard let wSelf = self, let dowloadURL = dowURL else { return }
 
@@ -412,7 +440,7 @@ final class ChargeManage: ActivityTrackingProgressProtocol {
         
     }
     
-    func dowloadURL(url: URL, completion: @escaping ((URL) -> Void) ) {
+    func dowloadURL(url: URL, completion: @escaping ((URL) -> Void), failure: @escaping ((String) -> Void) ) {
         // check cached image
         if let index = self.listSoundCache.firstIndex(where: { $0.lastPathComponent == url.lastPathComponent })  {
             completion(self.listSoundCache[index])
@@ -423,6 +451,8 @@ final class ChargeManage: ActivityTrackingProgressProtocol {
             .startDownload(audioUrl: url.absoluteString) { [weak self] loadingModel in
                 guard let wSelf = self else { return }
                 wSelf.loadingModel = loadingModel
+        }   failure: { textError in
+            failure(textError)
         }
         .bind { [weak self] dowURL  in
             guard let wSelf = self, let dowloadURL = dowURL else { return }

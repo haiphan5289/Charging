@@ -330,13 +330,15 @@ struct RequestService {
     }
     
     
-    func startDownload(audioUrl:String, processPercent: @escaping ((ChargeManage.LoadingModel) -> Void)) -> Observable<URL?> {
+    func startDownload(audioUrl:String,
+                       processPercent: @escaping ((ChargeManage.LoadingModel) -> Void),
+                       failure: @escaping ((String) -> Void)) -> Observable<URL?> {
         return Observable.create { (sub) -> Disposable in
             let fileUrl = self.getSaveFileUrl(fileName: audioUrl)
             let destination: DownloadRequest.Destination = { _, _ in
                 return (fileUrl, [.removePreviousFile, .createIntermediateDirectories])
             }
-
+            
             AF.download(audioUrl, to:destination)
                 .downloadProgress { (progress) in
     //                self.progressLabel.text = (String)(progress.fractionCompleted)
@@ -344,7 +346,13 @@ struct RequestService {
                                                              total: Float(progress.totalUnitCount)))
                 }
                 .responseData { (data) in
-                    sub.onNext(data.fileURL)
+                    if let err = data.error {
+                        failure(err.localizedDescription)
+                    } else {
+                        sub.onNext(data.fileURL)
+                    }
+                    
+                    
             }
             
             return Disposables.create()
@@ -411,3 +419,4 @@ struct ErrorService: Codable {
         case result = "result"
     }
 }
+//extension AFError: Error {}

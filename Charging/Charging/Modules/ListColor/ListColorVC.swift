@@ -39,6 +39,7 @@ class ListColorVC: UIViewController {
     
     @IBOutlet var bts: [UIButton]!
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var vHeader: UIView!
     
     @VariableReplay private var datatSource: [IconModel] = []
     private var colorIndex: Int = ColorCell.white.rawValue
@@ -56,6 +57,9 @@ extension ListColorVC {
         tableView.register(ListColorCell.nib, forCellReuseIdentifier: ListColorCell.identifier)
         self.colorIndex = ChargeManage.shared.colorIndex
         self.loadJSONEffect()
+        self.vHeader.clipsToBounds = true
+        self.vHeader.layer.cornerRadius = 15
+        self.vHeader.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
     }
     
     private func setupRX() {

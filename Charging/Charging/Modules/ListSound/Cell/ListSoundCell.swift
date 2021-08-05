@@ -8,6 +8,7 @@
 import UIKit
 import RxSwift
 import MediaPlayer
+import Alamofire
 
 class ListSoundCell: UITableViewCell {
     
@@ -15,11 +16,12 @@ class ListSoundCell: UITableViewCell {
         case play, pause, none, finishPlay
     }
     var statePlay: ((StateVideo, AVAudioPlayer) -> Void)?
+    var textError: ((String) -> Void)?
 
     @IBOutlet weak var btPlay: UIButton!
     @IBOutlet weak var lbTitle: UILabel!
     @IBOutlet weak var imgSelection: UIImageView!
-    
+    private let error = ErrorTracker()
     var fileName: String?
     var finalURL: URL?
     
@@ -72,20 +74,30 @@ extension ListSoundCell {
         }.disposed(by: disposeBag)
         
         self.btPlay.rx.tap.bind { _ in
+            
             guard (self.finalURL != nil) else {
                 self.flowDowloadURL()
                 return
             }
-            
+            self.statePlay?(self.stateVideo, self.bombSoundEffect)
             switch self.stateVideo {
             case .pause, .none, .finishPlay:
                 self.stateVideo = .play
             case .play:
                 self.stateVideo = .pause
-                self.statePlay?(self.stateVideo, self.bombSoundEffect)
             }
             
         }.disposed(by: disposeBag)
+        
+//        _ = self.error
+//            .asObservable()
+//            .observe(on: MainScheduler.asyncInstance)
+//            .flatMap { err -> Observable<Void> in
+//                if let error = err as? AFError {
+//                    self.textError?(error.localizedDescription)
+//                }
+//                return Observable.just(())
+//            }.asDriverOnErrorJustComplete()
     }
     
     private func flowDowloadURL() {
@@ -106,7 +118,10 @@ extension ListSoundCell {
        
         ChargeManage.shared.dowloadURL(url: url) { dowloadURL in
             complention(dowloadURL)
+        } failure: { textError in
+            self.textError?(textError)
         }
+
         
     }
     

@@ -12,6 +12,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LisiConVC" customModule="Charging" customModuleProvider="target">
             <connections>
                 <outlet property="collectionView" destination="f0Z-XX-Oax" id="FER-Pt-sIB"/>
+                <outlet property="vHeader" destination="TEw-G7-BcY" id="frQ-2O-GVa"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
                 <outletCollection property="bts" destination="qTX-cR-ZsM" collectionClass="NSMutableArray" id="rNA-lH-Beh"/>
                 <outletCollection property="bts" destination="E6e-vC-OZd" collectionClass="NSMutableArray" id="aN7-ww-QRg"/>

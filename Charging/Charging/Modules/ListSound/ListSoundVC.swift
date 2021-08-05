@@ -18,6 +18,7 @@ class ListSoundVC: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet var bts: [UIButton]!
+    @IBOutlet weak var vHeader: UIView!
     
     var delegate: SoundCallBack?
     private let viewModel = ListSoundVM()
@@ -38,6 +39,9 @@ extension ListSoundVC {
     private func setupUI() {
         tableView.delegate = self
         tableView.register(ListSoundCell.nib, forCellReuseIdentifier: ListSoundCell.identifier)
+        self.vHeader.clipsToBounds = true
+        self.vHeader.layer.cornerRadius = 15
+        self.vHeader.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
     }
     
     private func setupRX() {
@@ -66,11 +70,22 @@ extension ListSoundVC {
                     cell.stateVideo = .pause
                 }
                 cell.statePlay = { (_, av) in
-                    self.index = row
-                    if let finalURL = cell.finalURL {
+                    if self.index == nil {
+                        self.index = row
+                        if let finalURL = cell.finalURL {
+                            self.selectSound = SoundRealmModel(destinationURL: finalURL)
+                        }
+                    } else  if let index = self.index, index == row {
+                        return
+                    } else if let finalURL = cell.finalURL {
+                        self.index = row
                         self.selectSound = SoundRealmModel(destinationURL: finalURL)
                     }
                     self.tableView.reloadData()
+                }
+                cell.textError = { textError in
+                    LoadingManager.instance.dismiss()
+                    self.showAlert(title: nil, message: textError)
                 }
                 
             }.disposed(by: disposeBag)
@@ -89,16 +104,11 @@ extension ListSoundVC {
                 
                 switch type {
                 case .cancel:
-                    self.listAVPlayer.forEach { p in
-                        p.stop()
-                    }
+                    self.stopVideo()
                     self.dismiss(animated: true, completion: nil)
                 case .done:
+                    self.stopVideo()
                     self.dismiss(animated: true) {
-                        self.listAVPlayer.forEach { p in
-                            p.stop()
-                        }
-                        
                         if let s = self.selectSound {
                             self.delegate?.resendSound(sound: s)
                         }
@@ -109,6 +119,13 @@ extension ListSoundVC {
                 
             }.disposed(by: disposeBag)
         }
+    }
+    
+    private func stopVideo() {
+        guard let index = self.index, let cell = tableView.cellForRow(at: IndexPath(row: index, section: 0)) as? ListSoundCell else {
+            return
+        }
+        cell.bombSoundEffect.stop()
     }
     
 }
