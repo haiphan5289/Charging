@@ -8,8 +8,8 @@
 
 import Foundation
 import Alamofire
-import NVActivityIndicatorView
-import Codextended
+//import NVActivityIndicatorView
+//import Codextended
 import RxCocoa
 import RxSwift
 import SwiftyJSON
@@ -27,7 +27,7 @@ struct RequestService {
     private let disposeBag = DisposeBag()
     static let shared = RequestService()
     fileprivate init() {}
-    let activityIndicatorView = NVActivityIndicatorView.init(frame: CGRect.init(x: 0, y: 0, width: SCREEN_WIDTH, height: SCREEN_HEIGHT), type: .ballScale, color: .lightGray, padding: 0)
+//    let activityIndicatorView = NVActivityIndicatorView.init(frame: CGRect.init(x: 0, y: 0, width: SCREEN_WIDTH, height: SCREEN_HEIGHT), type: .ballScale, color: .lightGray, padding: 0)
     
     
     func requestWith<T: Codable>(_ url: String,_ method: HTTPMethod, _ parameters: [String: Any]?,_ header: HTTPHeaders?, objectType: T.Type,  encoding: ParameterEncoding? = URLEncoding.default, _ animated : Bool = true,_ complete: @escaping ( _ model: Any?)->()) {
@@ -62,7 +62,7 @@ struct RequestService {
 //            }
             if animated {
                 DispatchQueue.main.async {
-                    self.activityIndicatorView.startAnimating()
+//                    self.activityIndicatorView.startAnimating()
                 }
             }
             
@@ -80,7 +80,7 @@ struct RequestService {
     }
     
     func response<T: Codable>(_ objectType: T.Type,_ response: AFDataResponse<Any>,_ complete: @escaping (_ model: Any?)->()) {
-        self.activityIndicatorView.stopAnimating()
+//        self.activityIndicatorView.stopAnimating()
         self.handleStatusCode(statusCode: response.response?.statusCode ?? 0)
         switch response.result {
         case let .success(value):

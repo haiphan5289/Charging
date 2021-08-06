@@ -10,8 +10,8 @@ import UIKit
 import Foundation
 import Photos
 import GooglePlaces
-import ActionSheetPicker_3_0
-import SKPhotoBrowser
+//import ActionSheetPicker_3_0
+//import SKPhotoBrowser
 
 
 class Utils {

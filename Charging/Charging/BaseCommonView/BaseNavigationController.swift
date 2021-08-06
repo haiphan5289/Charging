@@ -8,8 +8,8 @@
 
 import UIKit
 import GooglePlaces
-import SideMenu
-import DKImagePickerController
+//import SideMenu
+//import DKImagePickerController
 
 class BaseNavigationController: UINavigationController, UINavigationControllerDelegate {
     
@@ -177,36 +177,36 @@ extension BaseViewController : GMSAutocompleteViewControllerDelegate {
 
 //MARK: - DKImagePickerController
 extension BaseViewController {
-    func showImagePicker(maxSelectableCount : Int, completeHanler : @escaping ((_ images : [UIImage])->())) {
-        let pickerController = DKImagePickerController()
-        pickerController.assetType = .allPhotos
-        pickerController.maxSelectableCount = maxSelectableCount
-        pickerController.didSelectAssets = { (assets: [DKAsset]) in
-            self.fetchPickedImage(assets: assets, completeHanler: { (images) in
-                completeHanler(images)
-            })
-        }
-        self.present(pickerController, animated: true, completion: nil)
-    }
-    
-    private func fetchPickedImage(assets: [DKAsset], completeHanler : @escaping ((_ images : [UIImage])->())) {
-        var images = [UIImage]()
-        let group = DispatchGroup()
-        for asset in assets {
-            group.enter()
-            asset.fetchImageData(completeBlock: { (data, dict) in
-                guard let _data = data, let image = UIImage.init(data: _data) else {
-                    group.leave()
-                    return
-                }
-                images.append(image)
-                group.leave()
-            })
-        }
-        group.notify(queue: .main) {
-            completeHanler(images)
-        }
-    }
+//    func showImagePicker(maxSelectableCount : Int, completeHanler : @escaping ((_ images : [UIImage])->())) {
+//        let pickerController = DKImagePickerController()
+//        pickerController.assetType = .allPhotos
+//        pickerController.maxSelectableCount = maxSelectableCount
+//        pickerController.didSelectAssets = { (assets: [DKAsset]) in
+//            self.fetchPickedImage(assets: assets, completeHanler: { (images) in
+//                completeHanler(images)
+//            })
+//        }
+//        self.present(pickerController, animated: true, completion: nil)
+//    }
+//    
+//    private func fetchPickedImage(assets: [DKAsset], completeHanler : @escaping ((_ images : [UIImage])->())) {
+//        var images = [UIImage]()
+//        let group = DispatchGroup()
+//        for asset in assets {
+//            group.enter()
+//            asset.fetchImageData(completeBlock: { (data, dict) in
+//                guard let _data = data, let image = UIImage.init(data: _data) else {
+//                    group.leave()
+//                    return
+//                }
+//                images.append(image)
+//                group.leave()
+//            })
+//        }
+//        group.notify(queue: .main) {
+//            completeHanler(images)
+//        }
+//    }
 }
 
 

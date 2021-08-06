@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import Toast_Swift
+//import Toast_Swift
 
 
 extension UIView {
@@ -114,20 +114,20 @@ extension UIView {
     
     func makeToast(message : String, duration: TimeInterval = 1.5, _ completeHandler : (()->())?) {
         self.isUserInteractionEnabled = false
-        self.makeToast(message, duration: duration, position: .bottom, title: nil, image: nil, style: ToastStyle(), completion: { [weak self] (complete) in
-            self?.isUserInteractionEnabled = true
-            if completeHandler != nil {
-                completeHandler!()
-            }
-        })
+//        self.makeToast(message, duration: duration, position: .bottom, title: nil, image: nil, style: ToastStyle(), completion: { [weak self] (complete) in
+//            self?.isUserInteractionEnabled = true
+//            if completeHandler != nil {
+//                completeHandler!()
+//            }
+//        })
     }
     
     func makeToastWithoutBlockUI(message : String, duration: TimeInterval = 1.5, _ completeHandler : (()->())?) {
-        self.makeToast(message, duration: duration, position: .bottom, title: nil, image: nil, style: ToastStyle(), completion: { (complete) in
-            if completeHandler != nil {
-                completeHandler!()
-            }
-        })
+//        self.makeToast(message, duration: duration, position: .bottom, title: nil, image: nil, style: ToastStyle(), completion: { (complete) in
+//            if completeHandler != nil {
+//                completeHandler!()
+//            }
+//        })
     }
     
 }
