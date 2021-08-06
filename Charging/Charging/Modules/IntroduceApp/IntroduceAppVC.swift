@@ -23,6 +23,11 @@ class IntroduceAppVC: UIViewController {
         case term, restore, privacy
     }
     
+    enum StateBack {
+        case inApp, home
+    }
+    
+    @IBOutlet weak var btBack: UIButton!
     @IBOutlet weak var vAnimation: UIView!
     @IBOutlet weak var btContinue: UIButton!
     @IBOutlet weak var btContinue2: UIButton!
@@ -30,6 +35,7 @@ class IntroduceAppVC: UIViewController {
     @IBOutlet weak var bottomViewStack: NSLayoutConstraint!
     @IBOutlet weak var bottomView: NSLayoutConstraint!
     @IBOutlet var bts: [UIButton]!
+    var stataBack: StateBack = .inApp
     private let vAmazing: AmazingView = AmazingView.loadXib()
     private let fullAccess: FullAccessView = FullAccessView.loadXib()
     
@@ -75,6 +81,9 @@ extension IntroduceAppVC {
         self.fullAccess.tapStatePrenium = { stt in
             self.statePrenium = stt
         }
+        
+        self.view.bringSubviewToFront(self.btBack)
+        self.btBack.isHidden = (self.stataBack == .inApp) ? true : false
         
         self.bottomView.constant = self.view.safeAreaBottom
         
@@ -158,6 +167,10 @@ extension IntroduceAppVC {
                 }
             }.disposed(by: disposeBag)
         }
+        
+        self.btBack.rx.tap.bind { _ in
+            self.navigationController?.popViewController(animated: true)
+        }.disposed(by: disposeBag)
     }
     
     private func animationButton() {

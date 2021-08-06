@@ -9,6 +9,10 @@ import UIKit
 
 class HeaderSetting: UIView {
     
+    
+    var actionPrenium: (() -> Void)?
+    
+    @IBOutlet weak var btPrenium: UIButton!
     override func awakeFromNib() {
         super.awakeFromNib()
         setupUI()
@@ -20,6 +24,9 @@ class HeaderSetting: UIView {
         superview?.removeFromSuperview()
     }
 
+    @IBAction func actionPrenium(_ sender: UIButton) {
+        self.actionPrenium?()
+    }
 }
 extension HeaderSetting {
     

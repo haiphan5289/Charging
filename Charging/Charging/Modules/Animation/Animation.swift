@@ -112,6 +112,7 @@ extension Animation {
             }
             animationDetail.moveToIntroduceApp = {
                 let vc = IntroduceAppVC.createVC()
+                vc.stataBack = .home
                 self.navigationController?.pushViewController(vc, animated: true)
             }
         }

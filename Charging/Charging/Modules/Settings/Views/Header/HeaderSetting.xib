@@ -24,16 +24,26 @@
                             </constraints>
                         </imageView>
                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_prenium_setting" translatesAutoresizingMaskIntoConstraints="NO" id="E7r-3x-AlY">
-                            <rect key="frame" x="16" y="65" width="382" height="70"/>
+                            <rect key="frame" x="0.0" y="65" width="414" height="70"/>
                         </imageView>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nTX-dL-45U">
+                            <rect key="frame" x="0.0" y="65" width="414" height="70"/>
+                            <connections>
+                                <action selector="actionPrenium:" destination="iN0-l3-epB" eventType="touchUpInside" id="iRn-XG-Cnh"/>
+                            </connections>
+                        </button>
                     </subviews>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
-                        <constraint firstAttribute="trailing" secondItem="E7r-3x-AlY" secondAttribute="trailing" constant="16" id="8zo-xb-PT3"/>
+                        <constraint firstAttribute="trailing" secondItem="E7r-3x-AlY" secondAttribute="trailing" id="8zo-xb-PT3"/>
+                        <constraint firstItem="nTX-dL-45U" firstAttribute="trailing" secondItem="E7r-3x-AlY" secondAttribute="trailing" id="C5f-ga-fmM"/>
                         <constraint firstAttribute="bottom" secondItem="E7r-3x-AlY" secondAttribute="bottom" constant="25" id="Ehg-jk-G0F"/>
+                        <constraint firstItem="nTX-dL-45U" firstAttribute="bottom" secondItem="E7r-3x-AlY" secondAttribute="bottom" id="QLc-Tg-hrG"/>
+                        <constraint firstItem="nTX-dL-45U" firstAttribute="top" secondItem="E7r-3x-AlY" secondAttribute="top" id="Tcz-YT-cGE"/>
                         <constraint firstItem="uYb-0g-D2f" firstAttribute="centerX" secondItem="c1Y-Om-WxO" secondAttribute="centerX" id="XX0-gM-nWg"/>
-                        <constraint firstItem="E7r-3x-AlY" firstAttribute="leading" secondItem="c1Y-Om-WxO" secondAttribute="leading" constant="16" id="aaR-Av-Okq"/>
+                        <constraint firstItem="E7r-3x-AlY" firstAttribute="leading" secondItem="c1Y-Om-WxO" secondAttribute="leading" id="aaR-Av-Okq"/>
                         <constraint firstItem="E7r-3x-AlY" firstAttribute="top" secondItem="uYb-0g-D2f" secondAttribute="bottom" constant="35" id="bJC-Zy-uih"/>
+                        <constraint firstItem="nTX-dL-45U" firstAttribute="leading" secondItem="E7r-3x-AlY" secondAttribute="leading" id="geH-d5-59T"/>
                         <constraint firstItem="E7r-3x-AlY" firstAttribute="centerX" secondItem="uYb-0g-D2f" secondAttribute="centerX" id="h0b-eM-q0c"/>
                         <constraint firstItem="uYb-0g-D2f" firstAttribute="top" secondItem="c1Y-Om-WxO" secondAttribute="top" id="wdU-me-2AL"/>
                     </constraints>
@@ -48,6 +58,9 @@
                 <constraint firstAttribute="bottom" secondItem="c1Y-Om-WxO" secondAttribute="bottom" id="XUt-Ve-MLQ"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="btPrenium" destination="nTX-dL-45U" id="1Bj-sZ-WYg"/>
+            </connections>
             <point key="canvasLocation" x="137.68115942028987" y="81.696428571428569"/>
         </view>
     </objects>

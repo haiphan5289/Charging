@@ -86,6 +86,7 @@ extension ListAnimation {
                 wSelf.navigationController?.pushViewController(vc, animated: true)
             } else {
                 let vc = IntroduceAppVC.createVC()
+                vc.stataBack = .home
                 self.navigationController?.pushViewController(vc, animated: true)
             }
             

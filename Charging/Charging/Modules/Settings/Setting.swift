@@ -127,7 +127,15 @@ extension Setting: UITableViewDelegate {
             h.snp.makeConstraints { make in
                 make.edges.equalToSuperview()
             }
+            h.actionPrenium = {
+                if !Configuration.inPremiumUser() {
+                    let vc = IntroduceAppVC.createVC()
+                    vc.stataBack = .home
+                    self.navigationController?.pushViewController(vc, animated: true)
+                }
+            }
         }
+        
         
         return v
     }

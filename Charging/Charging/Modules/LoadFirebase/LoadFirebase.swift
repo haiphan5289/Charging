@@ -19,6 +19,7 @@ class LoadFirebase: HideNavigationController {
                     self.navigationController?.pushViewController(vc, animated: true)
                 } else {
                     let vc = IntroduceAppVC.createVC()
+                    vc.stataBack = .inApp
                     self.navigationController?.pushViewController(vc, animated: true)
                 }
             }

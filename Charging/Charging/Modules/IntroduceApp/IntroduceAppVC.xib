@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -12,6 +12,7 @@
             <connections>
                 <outlet property="bottomView" destination="c8v-i3-uzh" id="198-I9-nCL"/>
                 <outlet property="bottomViewStack" destination="l80-59-iX5" id="ueR-Qi-T5f"/>
+                <outlet property="btBack" destination="ZFz-cp-8jN" id="jmi-K8-CFy"/>
                 <outlet property="btContinue" destination="MMH-NR-cPS" id="UJn-Sg-W5f"/>
                 <outlet property="btContinue2" destination="Obw-r8-pSJ" id="p4H-DV-BIl"/>
                 <outlet property="vAnimation" destination="q8b-0I-0YL" id="ush-bD-1pF"/>
@@ -94,6 +95,14 @@
                         <constraint firstAttribute="trailing" secondItem="HGQ-Mo-bmD" secondAttribute="trailing" constant="44" id="ofd-I5-BbU"/>
                     </constraints>
                 </view>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZFz-cp-8jN">
+                    <rect key="frame" x="16" y="44" width="50" height="50"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="50" id="0Qe-SE-w7V"/>
+                        <constraint firstAttribute="height" constant="50" id="f34-rR-8DQ"/>
+                    </constraints>
+                    <state key="normal" image="ic_back_selection"/>
+                </button>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -101,12 +110,17 @@
                 <constraint firstItem="q8b-0I-0YL" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="HH7-59-M3P"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="q8b-0I-0YL" secondAttribute="trailing" id="aPh-FQ-Tpe"/>
                 <constraint firstItem="q8b-0I-0YL" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="d2M-Sd-Eie"/>
+                <constraint firstItem="ZFz-cp-8jN" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="iSO-sg-kMg"/>
                 <constraint firstItem="X6T-1b-FMM" firstAttribute="bottom" secondItem="i5M-Pr-FkT" secondAttribute="bottom" id="l80-59-iX5"/>
                 <constraint firstItem="X6T-1b-FMM" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="r1c-xU-3wh"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="X6T-1b-FMM" secondAttribute="trailing" id="siJ-Yb-RrV"/>
+                <constraint firstItem="ZFz-cp-8jN" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="16" id="suD-lY-viF"/>
                 <constraint firstAttribute="bottom" secondItem="q8b-0I-0YL" secondAttribute="bottom" id="vkp-a7-qLL"/>
             </constraints>
             <point key="canvasLocation" x="139" y="82"/>
         </view>
     </objects>
+    <resources>
+        <image name="ic_back_selection" width="11" height="19"/>
+    </resources>
 </document>
