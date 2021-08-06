@@ -478,7 +478,7 @@ final class ChargeManage: ActivityTrackingProgressProtocol {
     }
     
     func urlDefault() -> URL {
-        guard let path = Bundle.main.path(forResource: "iphoneX", ofType:"mp4")else {
+        guard let path = Bundle.main.path(forResource: "videodefault", ofType:"mov")else {
             debugPrint("video.m4v not found")
             return URL(fileURLWithPath: "path")
         }

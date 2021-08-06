@@ -212,6 +212,7 @@
 		93BDEEB926AB2493003942C1 /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93BDEEB526AB2493003942C1 /* Request.swift */; };
 		93BDEEBD26AB2B3A003942C1 /* Setting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93BDEEBC26AB2B39003942C1 /* Setting.swift */; };
 		93BDEEBF26AB2B44003942C1 /* Setting.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 93BDEEBE26AB2B44003942C1 /* Setting.storyboard */; };
+		93CEA45326BD85E700F1B369 /* videodefault.mov in Resources */ = {isa = PBXBuildFile; fileRef = 93CEA45226BD85E700F1B369 /* videodefault.mov */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -426,6 +427,7 @@
 		93BDEEB526AB2493003942C1 /* Request.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Request.swift; sourceTree = "<group>"; };
 		93BDEEBC26AB2B39003942C1 /* Setting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Setting.swift; sourceTree = "<group>"; };
 		93BDEEBE26AB2B44003942C1 /* Setting.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Setting.storyboard; sourceTree = "<group>"; };
+		93CEA45226BD85E700F1B369 /* videodefault.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = videodefault.mov; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -762,6 +764,7 @@
 		93B83B7E26AC46E100EF968F /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				93CEA45126BD85D900F1B369 /* VideoDefault */,
 				93BC28C626B0652100E754FA /* ListColor */,
 				9394B22B26AF10590051224A /* ListiCon */,
 				93A77E3026B19D7400BC2F31 /* Videos */,
@@ -1184,6 +1187,14 @@
 			path = Settings;
 			sourceTree = "<group>";
 		};
+		93CEA45126BD85D900F1B369 /* VideoDefault */ = {
+			isa = PBXGroup;
+			children = (
+				93CEA45226BD85E700F1B369 /* videodefault.mov */,
+			);
+			path = VideoDefault;
+			sourceTree = "<group>";
+		};
 		D9C2B0CBC3CA161F68DAF2B2 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -1253,6 +1264,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				93CEA45326BD85E700F1B369 /* videodefault.mov in Resources */,
 				93A66C1D26BAFFAE00E1C25E /* LoadFirebase.xib in Resources */,
 				9344733926AD9A33006A695D /* AnimationSelection.storyboard in Resources */,
 				93A927F326BC16920028B503 /* ImageAnimation.xib in Resources */,
