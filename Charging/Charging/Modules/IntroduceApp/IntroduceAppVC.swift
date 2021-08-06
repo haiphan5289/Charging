@@ -79,12 +79,7 @@ extension IntroduceAppVC {
         self.bottomView.constant = self.view.safeAreaBottom
         
         SHARE_APPLICATION_DELEGATE.inappManager.requestProducts { success, list in
-//            print("====== \(success) ===== \(list)")
-        let a = SKProduct()
-            a.price
-            a.productIdentifier
-            
-            
+            print("====== \(success) ===== \(list?.count)")
 //            let remoteConfig = RemoteConfig.remoteConfig()
 //            let settings = RemoteConfigSettings()
 //            settings.minimumFetchInterval = 0
