@@ -117,8 +117,8 @@ class PaymentQueueController: NSObject, SKPaymentTransactionObserver {
     
     private func assertCompleteTransactionsWasCalled() {
         
-//        let message = "SwiftyStoreKit.completeTransactions() must be called when the app launches."
-//        assert(completeTransactionsController.completeTransactions != nil, message)
+        let message = "SwiftyStoreKit.completeTransactions() must be called when the app launches."
+        assert(completeTransactionsController.completeTransactions != nil, message)
     }
     
     func startPayment(_ payment: Payment) {

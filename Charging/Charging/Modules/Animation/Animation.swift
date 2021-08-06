@@ -99,6 +99,7 @@ extension Animation {
                 let vc = ListAnimation.createVC()
                 let link = item.element.videos ?? []
                 vc.listAnimation = link
+                vc.titleLarge = item.element.name ?? ""
                 self.navigationController?.pushViewController(vc, animated: true)
             }
             animationDetail.selectIconModel = { [weak self] v in
@@ -108,6 +109,10 @@ extension Animation {
                 let vc = AnimationSelection.createVCfromStoryBoard()
                 vc.animationIconModel = v
                 wSelf.navigationController?.pushViewController(vc, animated: true)
+            }
+            animationDetail.moveToIntroduceApp = {
+                let vc = IntroduceAppVC.createVC()
+                self.navigationController?.pushViewController(vc, animated: true)
             }
         }
     }

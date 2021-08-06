@@ -31,6 +31,7 @@ class AnimationDetail: UIView, UpdateDisplayProtocol, DisplayStaticHeightProtoco
     
     var selectIconModel:((Video) -> Void)?
     var actionSeeAll:(() -> Void)?
+    var moveToIntroduceApp:(() -> Void)?
     
     var selectAnimation: AnimationRealmModel?
     
@@ -191,6 +192,8 @@ extension AnimationDetail {
                     wSelf.selectIconModel?(item.element)
                 } else if Configuration.inPremiumUser() {
                     wSelf.selectIconModel?(item.element)
+                } else {
+                    self?.moveToIntroduceApp?()
                 }
             }.disposed(by: disposeBag)
             

@@ -39,7 +39,6 @@ class ListAnimation: BaseNavigationViewController {
 extension ListAnimation {
     
     private func setupUI() {
-        titleLarge = L10n.hotAnimation
         collectionView.delegate = self
         collectionView.register(ListAnimationCell.nib, forCellWithReuseIdentifier: ListAnimationCell.identifier)
     }
@@ -85,6 +84,9 @@ extension ListAnimation {
                 let item = self.listAnimation[idx.row]
                 vc.animationIconModel = item
                 wSelf.navigationController?.pushViewController(vc, animated: true)
+            } else {
+                let vc = IntroduceAppVC.createVC()
+                self.navigationController?.pushViewController(vc, animated: true)
             }
             
         })).disposed(by: disposeBag)
