@@ -68,6 +68,7 @@ final class ChargeManage: ActivityTrackingProgressProtocol {
     @VariableReplay var listAnimation: [AnimationModel] = []
     @VariableReplay var listSound: [SoundModel] = []
     @VariableReplay var loadingModel: LoadingModel?
+    @VariableReplay var eventPlayingVideo: Void?
 //    @VariableReplay private var listSoundCache: [CacheSound] = []
 //    @VariableReplay var listAnimationCache: [CacheAnimation] = []
     @VariableReplay var listURL: [URL] = []
@@ -205,6 +206,22 @@ final class ChargeManage: ActivityTrackingProgressProtocol {
             RequestService.shared.cancelRequest()
         }.disposed(by: disposeBag)
         
+        self.$eventPlayingVideo.asObservable().bind { _ in
+            switch self.avplayerfrom {
+            case .animation:
+                if let player = self.playerHome {
+                    self.muteVideo(player: player)
+                }
+            case .animationSelection:
+                if let player = self.playerAnimationSelection {
+                    self.muteVideo(player: player)
+                }
+            case .introduce:
+                if let player = self.playerIntroduce {
+                    self.muteVideo(player: player)
+                }
+            }
+        }.disposed(by: disposeBag)
     }
     
     func playAnimation(view: UIView, url: URL, avplayerfrom: AVPlayerfrom) {
@@ -352,6 +369,11 @@ final class ChargeManage: ActivityTrackingProgressProtocol {
         self.avplayerfrom = avplayerfrom
     }
     
+    
+    private func muteVideo(player: AVPlayer) {
+        player.isMuted = true
+    }
+    
     private func pauseAVPlayer(player: AVPlayer) {
         player.pause()
         player.seek(to: CMTime.zero)
@@ -475,6 +497,17 @@ final class ChargeManage: ActivityTrackingProgressProtocol {
 //        self.listSoundCache.append(CacheSound(originURL: string, destinationURL: url))
 //        completion(url)
         
+    }
+    
+    func listRawSKProduct() -> [InAppVC.SKProductModel] {
+        var list: [InAppVC.SKProductModel] = []
+        let w = InAppVC.SKProductModel(productID: .weekly, price: 0.99)
+        let m = InAppVC.SKProductModel(productID: .monthly, price: 4.99)
+        let y = InAppVC.SKProductModel(productID: .yearly, price: 14.99)
+        list.append(w)
+        list.append(m)
+        list.append(y)
+        return list
     }
     
     func urlDefault() -> URL {

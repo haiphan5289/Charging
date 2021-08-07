@@ -17,7 +17,7 @@ class ListAnimation: BaseNavigationViewController {
         static let heightCell: CGFloat = 190
         static let spaceSection: CGFloat = 10
         static let sizeCell = CGSize(width: 110, height: 190)
-        static let resizeImage = CGSize(width: 214, height: 380)
+        static let resizeImage = CGSize(width: 130, height: 190)
     }
 
     @IBOutlet weak var collectionView: UICollectionView!
@@ -49,8 +49,8 @@ extension ListAnimation {
                 
                 // check cached image
                 if let t = data.image, let cachedImage = ChargeManage.shared.imageCache.object(forKey: t as NSString)  {
-//                    let thumbnail = cachedImage.resizeImage(Constant.resizeImage)
-                    cell.imgCell.image = cachedImage
+                    let thumbnail = cachedImage.resizeImage(Constant.resizeImage)
+                    cell.imgCell.image = thumbnail
                     return
                 }
                 
@@ -59,9 +59,9 @@ extension ListAnimation {
                     KingfisherManager.shared.retrieveImage(with: url, options: nil, progressBlock: nil, completionHandler: { image, error, cacheType, imageURL in
                         
                         if let image = image, let t = data.image {
-//                            let thumbnail = image.resizeImage(Constant.resizeImage)
+                            let thumbnail = image.resizeImage(Constant.resizeImage)
                             ChargeManage.shared.imageCache.setObject(image, forKey: t as NSString)
-                            cell.imgCell.image = image
+                            cell.imgCell.image = thumbnail
                         } else {
                             cell.imgCell.image = UIIMAGE_DEFAULT
                         }
@@ -85,9 +85,9 @@ extension ListAnimation {
                 vc.animationIconModel = item
                 wSelf.navigationController?.pushViewController(vc, animated: true)
             } else {
-                let vc = IntroduceAppVC.createVC()
-                vc.stataBack = .home
-                self.navigationController?.pushViewController(vc, animated: true)
+                let vc = InAppVC.createVC()
+                vc.modalPresentationStyle = .fullScreen
+                self.present(vc, animated: true, completion: nil)
             }
             
         })).disposed(by: disposeBag)

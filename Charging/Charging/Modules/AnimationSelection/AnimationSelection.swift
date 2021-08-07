@@ -93,6 +93,7 @@ extension AnimationSelection {
             let listSound = ChargeManage.shared.listSoundCache
             if  let s = sound, let index = listSound.firstIndex(where: { $0.lastPathComponent == s.destinationURL.lastPathComponent }) {
                 self.playAudio(url: listSound[index])
+                ChargeManage.shared.eventPlayingVideo = ()
             }
             
         }
@@ -277,6 +278,7 @@ extension AnimationSelection: SoundCallBack {
     func resendSound(sound: SoundRealmModel) {
         self.selectSound = sound
         self.playAudio(url: sound.destinationURL)
+        ChargeManage.shared.eventPlayingVideo = ()
     }
 }
 extension AnimationSelection: AVAudioPlayerDelegate {

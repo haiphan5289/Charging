@@ -43,6 +43,8 @@
 		938E8A4926B5538800BC173D /* AmazingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 938E8A4826B5538800BC173D /* AmazingView.swift */; };
 		938E8A4C26B5AEC100BC173D /* FullAccessView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 938E8A4B26B5AEC100BC173D /* FullAccessView.xib */; };
 		938E8A4E26B5AECF00BC173D /* FullAccessView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 938E8A4D26B5AECF00BC173D /* FullAccessView.swift */; };
+		9392A56B26BE2BB7007B09D0 /* InAppVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9392A56926BE2BB7007B09D0 /* InAppVC.swift */; };
+		9392A56C26BE2BB7007B09D0 /* InAppVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9392A56A26BE2BB7007B09D0 /* InAppVC.xib */; };
 		9394B22926AF09990051224A /* ListiConCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9394B22726AF09990051224A /* ListiConCell.swift */; };
 		9394B22A26AF09990051224A /* ListiConCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9394B22826AF09990051224A /* ListiConCell.xib */; };
 		9394B22D26AF109C0051224A /* listColor.json in Resources */ = {isa = PBXBuildFile; fileRef = 9394B22C26AF109C0051224A /* listColor.json */; };
@@ -255,6 +257,8 @@
 		938E8A4826B5538800BC173D /* AmazingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AmazingView.swift; sourceTree = "<group>"; };
 		938E8A4B26B5AEC100BC173D /* FullAccessView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FullAccessView.xib; sourceTree = "<group>"; };
 		938E8A4D26B5AECF00BC173D /* FullAccessView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullAccessView.swift; sourceTree = "<group>"; };
+		9392A56926BE2BB7007B09D0 /* InAppVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InAppVC.swift; sourceTree = "<group>"; };
+		9392A56A26BE2BB7007B09D0 /* InAppVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = InAppVC.xib; sourceTree = "<group>"; };
 		9394B22726AF09990051224A /* ListiConCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListiConCell.swift; sourceTree = "<group>"; };
 		9394B22826AF09990051224A /* ListiConCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ListiConCell.xib; sourceTree = "<group>"; };
 		9394B22C26AF109C0051224A /* listColor.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = listColor.json; sourceTree = "<group>"; };
@@ -609,6 +613,15 @@
 			path = FullAccess;
 			sourceTree = "<group>";
 		};
+		9392A56826BE2B9A007B09D0 /* InAppVC */ = {
+			isa = PBXGroup;
+			children = (
+				9392A56926BE2BB7007B09D0 /* InAppVC.swift */,
+				9392A56A26BE2BB7007B09D0 /* InAppVC.xib */,
+			);
+			path = InAppVC;
+			sourceTree = "<group>";
+		};
 		9394B22626AF097A0051224A /* Cell */ = {
 			isa = PBXGroup;
 			children = (
@@ -900,6 +913,7 @@
 		93BDED9326AB1F85003942C1 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				9392A56826BE2B9A007B09D0 /* InAppVC */,
 				93A66C1926BAFF9A00E1C25E /* LoadFirebase */,
 				93A66C0726BADBA100E1C25E /* InApp */,
 				938E8A3F26B546AE00BC173D /* IntroduceApp */,
@@ -1269,6 +1283,7 @@
 				9344733926AD9A33006A695D /* AnimationSelection.storyboard in Resources */,
 				93A927F326BC16920028B503 /* ImageAnimation.xib in Resources */,
 				93BDEE9826AB2452003942C1 /* ProgressIndicator.png in Resources */,
+				9392A56C26BE2BB7007B09D0 /* InAppVC.xib in Resources */,
 				9363613526AD5D3C00FE6E4E /* AnimationDetailCell.xib in Resources */,
 				93BDED8C26AB1C99003942C1 /* LaunchScreen.storyboard in Resources */,
 				93BDEDE026AB23D1003942C1 /* GoogleSans-Italic.otf in Resources */,
@@ -1479,6 +1494,7 @@
 				9363612926AD51DE00FE6E4E /* ManageFont.swift in Sources */,
 				93BDEE5026AB243F003942C1 /* UITapgesture+Extension.swift in Sources */,
 				93A66C1C26BAFFAE00E1C25E /* LoadFirebase.swift in Sources */,
+				9392A56B26BE2BB7007B09D0 /* InAppVC.swift in Sources */,
 				938E8A4926B5538800BC173D /* AmazingView.swift in Sources */,
 				93BDEEB926AB2493003942C1 /* Request.swift in Sources */,
 				93BDEDD326AB23D1003942C1 /* BaseTableViewCell.swift in Sources */,
@@ -1694,7 +1710,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.3;
+				MARKETING_VERSION = 0.4;
 				PRODUCT_BUNDLE_IDENTIFIER = com.ChargingAnimation;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -1717,7 +1733,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.3;
+				MARKETING_VERSION = 0.4;
 				PRODUCT_BUNDLE_IDENTIFIER = com.ChargingAnimation;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;

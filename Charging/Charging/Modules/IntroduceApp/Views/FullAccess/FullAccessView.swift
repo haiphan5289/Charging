@@ -26,8 +26,13 @@ class FullAccessView: UIView {
     @IBOutlet weak var stackViewPrenium: UIStackView!
     @IBOutlet weak var imageDropdown: UIImageView!
     @IBOutlet weak var lbMore: UILabel!
-    @IBOutlet var bts: [UIButton]!
     @IBOutlet var views: [UIView]!
+    @IBOutlet weak var lbSub: UILabel!
+    @IBOutlet weak var viewMore: UIView!
+    @IBOutlet var bts: [UIButton]!
+    @IBOutlet var lbs: [UILabel]!
+    @IBOutlet weak var lbJust: UILabel!
+    
     
     @VariableReplay private var statePrenium: Prenium = .week
     @VariableReplay var status: StatusView = .hide
@@ -104,6 +109,7 @@ extension FullAccessView {
             self.stackWeek.isHidden = true
             self.bottomPrenium.constant = 50
             self.stackViewPrenium.isHidden = false
+            self.lbSub.isHidden = false
             self.layoutIfNeeded()
         }) { s in
             if s {
@@ -116,11 +122,47 @@ extension FullAccessView {
             self.stackWeek.isHidden = false
             self.bottomPrenium.constant = 16
             self.stackViewPrenium.isHidden = true
+            self.lbSub.isHidden = true
             self.layoutIfNeeded()
         }) { s in
             if s {
             }
         }
+    }
+    
+    func loadSKProduct(list: [InAppVC.SKProductModel]) {
+        guard list.count > 0 else {
+            return
+        }
+        
+        Prenium.allCases.forEach { type in
+            let lb = self.lbs[type.rawValue]
+            
+            list.forEach { item in
+                if item.productID.valuePrenium == type {
+                    DispatchQueue.main.async {
+                        lb.text = item.price.converString(produceID: item.productID)
+                    }
+                }
+                
+                if item.productID.valuePrenium == Prenium.week {
+                    DispatchQueue.main.async {
+                        self.lbJust.text = "Just \(item.price.converString(produceID: item.productID))"
+                    }
+                    
+                }
+            }
+            
+        }
+        
+    }
+    
+    func hideViewMore() {
+        self.stackWeek.isHidden = true
+        self.viewMore.isHidden = true
+        self.stackViewPrenium.isHidden = false
+        self.lbSub.isHidden = false
+        self.bottomPrenium.constant = 50
     }
     
 }

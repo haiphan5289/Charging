@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="InAppVC" customModule="Charging" customModuleProvider="target">
+            <connections>
+                <outlet property="btContinue" destination="lMK-T3-1b6" id="Kn8-ev-rgE"/>
+                <outlet property="btDismiss" destination="dQd-7d-heo" id="0Xg-G5-Wrv"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dzU-zf-KA4">
+                    <rect key="frame" x="0.0" y="748" width="414" height="148"/>
+                    <subviews>
+                        <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="0d5-Jo-cer">
+                            <rect key="frame" x="44" y="90" width="326" height="24"/>
+                            <subviews>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mS5-fG-VxK">
+                                    <rect key="frame" x="0.0" y="0.0" width="108.5" height="24"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                    <state key="normal" title="TERM OF USER">
+                                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </state>
+                                </button>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jq5-MI-ydd">
+                                    <rect key="frame" x="108.5" y="0.0" width="109" height="24"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                    <state key="normal" title="RESTORE">
+                                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </state>
+                                </button>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3Q0-cp-5Po">
+                                    <rect key="frame" x="217.5" y="0.0" width="108.5" height="24"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                    <state key="normal" title="PRIVACY">
+                                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </state>
+                                </button>
+                            </subviews>
+                        </stackView>
+                        <button hidden="YES" opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ELa-DL-hat">
+                            <rect key="frame" x="44" y="0.0" width="326" height="52"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="52" id="Bxm-31-gBk"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                            <state key="normal">
+                                <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </state>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                    <real key="value" value="20"/>
+                                </userDefinedRuntimeAttribute>
+                            </userDefinedRuntimeAttributes>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lMK-T3-1b6">
+                            <rect key="frame" x="44" y="0.0" width="326" height="52"/>
+                            <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                            <state key="normal" title="Continue">
+                                <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </state>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                    <real key="value" value="20"/>
+                                </userDefinedRuntimeAttribute>
+                            </userDefinedRuntimeAttributes>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstItem="0d5-Jo-cer" firstAttribute="top" secondItem="ELa-DL-hat" secondAttribute="bottom" constant="38" id="8mp-h6-ubr"/>
+                        <constraint firstAttribute="trailing" secondItem="0d5-Jo-cer" secondAttribute="trailing" constant="44" id="DEh-Yp-gmh"/>
+                        <constraint firstAttribute="bottom" secondItem="0d5-Jo-cer" secondAttribute="bottom" constant="34" id="ElI-7o-nbh"/>
+                        <constraint firstItem="ELa-DL-hat" firstAttribute="leading" secondItem="0d5-Jo-cer" secondAttribute="leading" id="GQv-lW-xGQ"/>
+                        <constraint firstItem="ELa-DL-hat" firstAttribute="trailing" secondItem="0d5-Jo-cer" secondAttribute="trailing" id="JbR-JF-giB"/>
+                        <constraint firstItem="ELa-DL-hat" firstAttribute="leading" secondItem="lMK-T3-1b6" secondAttribute="leading" id="Oih-hj-R7N"/>
+                        <constraint firstItem="ELa-DL-hat" firstAttribute="trailing" secondItem="lMK-T3-1b6" secondAttribute="trailing" id="Ybq-rW-DIN"/>
+                        <constraint firstItem="0d5-Jo-cer" firstAttribute="leading" secondItem="dzU-zf-KA4" secondAttribute="leading" constant="44" id="i3L-9m-heC"/>
+                        <constraint firstItem="ELa-DL-hat" firstAttribute="bottom" secondItem="lMK-T3-1b6" secondAttribute="bottom" id="m7B-au-yn5"/>
+                        <constraint firstItem="ELa-DL-hat" firstAttribute="top" secondItem="lMK-T3-1b6" secondAttribute="top" id="nqx-br-lVp"/>
+                        <constraint firstItem="ELa-DL-hat" firstAttribute="top" secondItem="dzU-zf-KA4" secondAttribute="top" id="sgh-3L-a5H"/>
+                    </constraints>
+                </view>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dQd-7d-heo">
+                    <rect key="frame" x="16" y="44" width="50" height="50"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="50" id="ZSY-fY-gkb"/>
+                        <constraint firstAttribute="height" constant="50" id="aWl-dX-NrT"/>
+                    </constraints>
+                    <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <state key="normal" image="ic_close_inapp"/>
+                </button>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <color key="backgroundColor" name="colorBg"/>
+            <constraints>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="dzU-zf-KA4" secondAttribute="trailing" id="HKS-FW-cMo"/>
+                <constraint firstItem="dQd-7d-heo" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="16" id="R8F-sA-DeZ"/>
+                <constraint firstAttribute="bottom" secondItem="dzU-zf-KA4" secondAttribute="bottom" id="pea-Ud-N6J"/>
+                <constraint firstItem="dQd-7d-heo" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="uHq-Fl-OY9"/>
+                <constraint firstItem="dzU-zf-KA4" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="xhL-Di-kHa"/>
+            </constraints>
+            <point key="canvasLocation" x="139" y="82"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="ic_close_inapp" width="12" height="12"/>
+        <namedColor name="colorBg">
+            <color red="0.074509803921568626" green="0.011764705882352941" blue="0.29411764705882354" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>

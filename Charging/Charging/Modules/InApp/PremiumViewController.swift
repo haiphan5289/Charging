@@ -9,7 +9,7 @@
 import UIKit
 import SwiftyStoreKit
 
-enum ProductID: String {
+enum ProductID: String, CaseIterable {
     case weekly = "One_Week"
     case monthly = "One_Month"
     case yearly = "One_Year"
@@ -25,6 +25,15 @@ enum ProductID: String {
             return "Year"
         default:
             return "Trial"
+        }
+    }
+    
+    var valuePrenium: FullAccessView.Prenium {
+        switch self {
+        case .weekly: return FullAccessView.Prenium.week
+        case .monthly: return FullAccessView.Prenium.month
+        case .yearly: return FullAccessView.Prenium.year
+        default: return FullAccessView.Prenium.year
         }
     }
     

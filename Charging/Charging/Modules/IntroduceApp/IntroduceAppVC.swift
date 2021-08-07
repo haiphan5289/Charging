@@ -87,28 +87,31 @@ extension IntroduceAppVC {
         
         self.bottomView.constant = self.view.safeAreaBottom
         
-        SHARE_APPLICATION_DELEGATE.inappManager.requestProducts { success, list in
-            print("====== \(success) ===== \(list?.count)")
-//            let remoteConfig = RemoteConfig.remoteConfig()
-//            let settings = RemoteConfigSettings()
-//            settings.minimumFetchInterval = 0
-//            remoteConfig.configSettings = settings
-//
-////            remoteConfig.fetch { (status, error) -> Void in
-////              if status == .success {
-////                print("Config fetched!")
-////                remoteConfig.activate { changed, error in
-////                  // ...
-////                }
-////              } else {
-////                print("Config not fetched")
-////                print("Error: \(error?.localizedDescription ?? "No error available.")")
-////              }
-////            }
-//
-//            remoteConfig.fetch(withExpirationDuration: 5) { remote, err in
-//                print("===== \(remoteConfig.configValue(forKey: "prenium").stringValue)")
-//            }
+        SHARE_APPLICATION_DELEGATE.inappManager.requestProducts { isSuccess, skProducts in
+            var list: [InAppVC.SKProductModel] = []
+            if isSuccess, let sk = skProducts, sk.count > 0 {
+                sk.forEach { item in
+                    guard let type = ProductID(rawValue: item.productIdentifier) else { return }
+                    let m = InAppVC.SKProductModel(productID: type, price: item.price)
+                    list.append(m)
+                }
+            }
+            let listR = (list.count > 0) ? list : ChargeManage.shared.listRawSKProduct()
+            self.fullAccess.loadSKProduct(list: listR)
+            
+            
+        }
+        SHARE_APPLICATION_DELEGATE.inappManager.completionHandler = { isSuccess, skProducts in
+            var list: [InAppVC.SKProductModel] = []
+            if isSuccess, let sk = skProducts, sk.count > 0 {
+                sk.forEach { item in
+                    guard let type = ProductID(rawValue: item.productIdentifier) else { return }
+                    let m = InAppVC.SKProductModel(productID: type, price: item.price)
+                    list.append(m)
+                }
+            }
+            let listR = (list.count > 0) ? list : ChargeManage.shared.listRawSKProduct()
+            self.fullAccess.loadSKProduct(list: listR)
         }
     }
     
