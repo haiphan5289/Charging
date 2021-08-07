@@ -502,7 +502,7 @@ final class ChargeManage: ActivityTrackingProgressProtocol {
     func listRawSKProduct() -> [InAppVC.SKProductModel] {
         var list: [InAppVC.SKProductModel] = []
         let w = InAppVC.SKProductModel(productID: .weekly, price: 0.99)
-        let m = InAppVC.SKProductModel(productID: .monthly, price: 4.99)
+        let m = InAppVC.SKProductModel(productID: .monthly, price: 1.99)
         let y = InAppVC.SKProductModel(productID: .yearly, price: 14.99)
         list.append(w)
         list.append(m)

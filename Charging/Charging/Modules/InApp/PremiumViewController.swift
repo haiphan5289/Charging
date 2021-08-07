@@ -10,9 +10,9 @@ import UIKit
 import SwiftyStoreKit
 
 enum ProductID: String, CaseIterable {
-    case weekly = "One_Week"
-    case monthly = "One_Month"
-    case yearly = "One_Year"
+    case weekly = "One_Week1"
+    case monthly = "One_Month1"
+    case yearly = "One_Year1"
     case dayfree = "3Day_Trial"
 
     var text: String {
