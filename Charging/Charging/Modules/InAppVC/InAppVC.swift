@@ -9,6 +9,7 @@ import UIKit
 import RxCocoa
 import RxSwift
 import SwiftyStoreKit
+import SVProgressHUD
 
 class InAppVC: UIViewController {
     
@@ -53,6 +54,7 @@ extension InAppVC {
     
     private func setupRX() {
         self.btContinue.rx.tap.bind { _ in
+            LoadingManager.instance.show()
             switch self.statePrenium {
             case .week:
                 self.weekly()
@@ -133,6 +135,7 @@ extension InAppVC {
             //self.hideLoading()
             switch result {
             case .success(_):
+                LoadingManager.instance.dismiss()
                 Configuration.joinPremiumUser(join: true)
                 self.showAlert(title: "Successful", message: "Successful") { [weak self] in
                     self?.dismiss(animated: true, completion: { [weak self] in
@@ -140,6 +143,7 @@ extension InAppVC {
                     })
                 }
             case .error(_):
+                LoadingManager.instance.dismiss()
                 self.showAlert(title: "Cannot subcribe", message: "Cannot subcribe")
                 break
             }

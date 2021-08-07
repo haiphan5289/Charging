@@ -129,9 +129,9 @@ extension Setting: UITableViewDelegate {
             }
             h.actionPrenium = {
                 if !Configuration.inPremiumUser() {
-                    let vc = IntroduceAppVC.createVC()
-                    vc.stataBack = .home
-                    self.navigationController?.pushViewController(vc, animated: true)
+                    let vc = InAppVC.createVC()
+                    vc.modalPresentationStyle = .fullScreen
+                    self.present(vc, animated: true, completion: nil)
                 }
             }
         }

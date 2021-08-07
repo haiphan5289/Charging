@@ -137,6 +137,7 @@ extension IntroduceAppVC {
                 self.fullAccess.isHidden = false
                 
             case .fullAccess:
+                LoadingManager.instance.show()
                 switch self.statePrenium {
                 case .week:
                     self.weekly()
@@ -241,6 +242,7 @@ extension IntroduceAppVC {
             //self.hideLoading()
             switch result {
             case .success(_):
+                LoadingManager.instance.dismiss()
                 Configuration.joinPremiumUser(join: true)
                 self.showAlert(title: "Successful", message: "Successful") { [weak self] in
                     self?.dismiss(animated: true, completion: { [weak self] in
@@ -249,6 +251,7 @@ extension IntroduceAppVC {
                     })
                 }
             case .error(_):
+                LoadingManager.instance.dismiss()
                 self.showAlert(title: "Cannot subcribe", message: "Cannot subcribe")
                 break
             }
