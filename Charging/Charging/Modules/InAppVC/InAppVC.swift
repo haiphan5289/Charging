@@ -11,8 +11,11 @@ import RxSwift
 import SwiftyStoreKit
 import SVProgressHUD
 
+<<<<<<< HEAD
 //
 //
+=======
+>>>>>>> parent of 8f80b7c... wwww
 class InAppVC: UIViewController {
     
     struct SKProductModel {
